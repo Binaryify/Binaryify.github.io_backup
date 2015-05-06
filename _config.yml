@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 阿发的藏宝库
 subtitle:
 description:
-author: John Doe
+author: 阿发
 language:
 timezone:
 
@@ -62,10 +62,11 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: landscape
+theme: yilia
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo: git@github.com:zhuangtongfa/zhuangtongfa.github.io.git
+  branch: gh-pages
