@@ -186,6 +186,30 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>适当使用visibility:hidden！避免不必要的渲染<br>img src 比 background 方式展示图片，使用到的内存资源可能会更多<a id="more"></a><br>移动端的内存是有限的，在进行代码设计是要充分考虑有可能带来的性能瓶颈。<br>图片很浪费内存！要小心！</p>
+<p>  CSS3里面加入了一个“-webkit-font-smoothing”属性。</p>
+<p>这个属性可以使页面上的字体抗锯齿,使用后字体看起来会更清晰舒服。<br>它有三个属性： </p>
+<p>none                                ———对低像素的文本比较好 </p>
+<p>subpixel-antialiased             ———默认值 </p>
+<p>antialiased                        ———抗锯齿很好 </p>
+<p>如果你在文档中使用了 overflow: hidden/auto; 的话，添加下面的css 可以使滚动更加流畅。</p>
+<p> html, body {-webkit-overflow-scrolling: touch; }</p>
+<p>form表单里面的button如果不加type=button的话默认为submit，点击会提交</p>
+<p>在进行响应式布局时，我们常常会使用百分比来布局，然而CSS的百分比不总是解决每个问题的最佳方案，CSS的宽度相对于离它最近的父元素的宽度。如果你想使用视口的宽度、高度而不是父元素的宽高，可以使用vh和vw单位。<br>1vh = viewportHeight * 1/100;</p>
+<p>1vw = viewportWidth <em> 1/100;<br>vw和vh对应于viewport的width和height，而vmin和vmax分别对应于width、height中的最小值和最大值，例如如果浏览器的宽/高被设置为1000px/600px，那么<br>1vmin = 600 </em> 1/100;</p>
+<p>1vmax = 1000 * 1/100;<br>.div{</p>
+<pre><code><span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100vmin</span></span></span>;
+
+<span class="rule"><span class="attribute">width </span>:<span class="value"> <span class="number">100vmin</span></span></span>;
+</code></pre><p>}全屏</p>
+<p>模拟float:center 通过使用占位伪元素也可以在两个容器之间占一块位置</p>
+<h1 id="l:before,_#r:before_{">l:before, #r:before {</h1><p>  content: “”; </p>
+<p>  width: 125px; </p>
+<p>  height: 250px; </p>
+<p>}</p>
+<h1 id="l:before_{">l:before {</h1><p>  float: right; </p>
+<p>}</p>
+<h1 id="r:before_{">r:before {</h1><p>  float: left; </p>
+<p>}</p>
 
       
     </div>
