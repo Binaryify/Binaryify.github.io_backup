@@ -189,22 +189,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>原文链接：<a href="http://www.thinkphp.cn/code/516.html" target="_blank" rel="external">http://www.thinkphp.cn/code/516.html</a></p>
-<p>//上传多媒体文件<br>    function uploadMedia($url){<br>        $file = realpath(‘1.mp3’); //要上传的文件<br>        $fields[‘media’] = ‘@’.$file;<br>        $ch = curl_init($url) ;<br>        curl_setopt($ch, CURLOPT_POST, 1);<br>        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, “POST”);<br>        curl_setopt($ch, CURLOPT_POST, 1);<br>        curl_setopt($ch, CURLOPT_POSTFIELDS,$fields);<br>        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);<br>        $result = curl_exec($ch) ;<br>        if (curl_errno($ch)) {<br>         return curl_error($ch);<br>        }<br>        curl_close($ch);<br>        return $result;<br>    }<br> //下载多媒体文件<br>    function saveMedia($url){<br>        $ch = curl_init($url);<br>        curl_setopt($ch, CURLOPT_HEADER, 0);<br>        curl_setopt($ch, CURLOPT_NOBODY, 0);    //对body进行输出。<br>        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);<br>        $package = curl_exec($ch);<br>        $httpinfo = curl_getinfo($ch);</p>
-<pre><code>    curl_close(<span class="variable">$ch</span>);
-    <span class="variable">$media</span> = array_merge(array(<span class="string">'mediaBody'</span> =&gt; <span class="variable">$package</span>), <span class="variable">$httpinfo</span>);
-
-    <span class="regexp">//</span>求出文件格式
-    preg_match(<span class="string">'/\w\/(\w+)/i'</span>, <span class="variable">$media</span>[<span class="string">"content_type"</span>], <span class="variable">$extmatches</span>);
-    <span class="variable">$fileExt</span> = <span class="variable">$extmatches</span>[<span class="number">1</span>];
-    <span class="variable">$filename</span> = <span class="keyword">time</span>().<span class="keyword">rand</span>(<span class="number">100</span>,<span class="number">999</span>).<span class="string">".{<span class="variable">$fileExt</span>}"</span>;
-    <span class="variable">$dirname</span> = <span class="string">"./wximages/"</span>;
-    <span class="keyword">if</span>(!file_exists(<span class="variable">$dirname</span>)){
-        <span class="keyword">mkdir</span>(<span class="variable">$dirname</span>,<span class="number">0777</span>,true);
-    }
-    file_put_contents(<span class="variable">$dirname</span>.<span class="variable">$filename</span>,<span class="variable">$media</span>[<span class="string">'mediaBody'</span>]);
-    <span class="keyword">return</span> <span class="variable">$dirname</span>.<span class="variable">$filename</span>;
-}
-</code></pre>
+<div style="width: 500px"><br>//上传多媒体文件<br>    function uploadMedia($url){<br>        $file = realpath(‘1.mp3’); //要上传的文件<br>        $fields[‘media’] = ‘@’.$file;<br>        $ch = curl_init($url) ;<br>        curl_setopt($ch, CURLOPT_POST, 1);<br>        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, “POST”);<br>        curl_setopt($ch, CURLOPT_POST, 1);<br>        curl_setopt($ch, CURLOPT_POSTFIELDS,$fields);<br>        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);<br>        $result = curl_exec($ch) ;<br>        if (curl_errno($ch)) {<br>         return curl_error($ch);<br>        }<br>        curl_close($ch);<br>        return $result;<br>    }<br> //下载多媒体文件<br>    function saveMedia($url){<br>        $ch = curl_init($url);<br>        curl_setopt($ch, CURLOPT_HEADER, 0);<br>        curl_setopt($ch, CURLOPT_NOBODY, 0);    //对body进行输出。<br>        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);<br>        $package = curl_exec($ch);<br>        $httpinfo = curl_getinfo($ch);<br><br>        curl_close($ch);<br>        $media = array_merge(array(‘mediaBody’ =&gt; $package), $httpinfo);<br><br>        //求出文件格式<br>        preg_match(‘/\w\/(\w+)/i’, $media[“content_type”], $extmatches);<br>        $fileExt = $extmatches[1];<br>        $filename = time().rand(100,999).”.{$fileExt}”;<br>        $dirname = “./wximages/“;<br>        if(!file_exists($dirname)){<br>            mkdir($dirname,0777,true);<br>        }<br>        file_put_contents($dirname.$filename,$media[‘mediaBody’]);<br>        return $dirname.$filename;<br>    }<br></div>
       
     </div>
     
