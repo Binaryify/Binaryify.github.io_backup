@@ -180,15 +180,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div style="width: 100px;height: 100px;background-color: green;"></div></p>
+        <p><div style="width: 100px;height: 100px;background-color: green;" id="div1"></div></p>
+<p><div style="width: 100px;height: 100px;background-color: green;"></div></p>
 <p><div style="width: 100px;height: 100px;background-color: green;"></div></p>
 <script>
     document.getElementsByTagName('div')[0].addEventListener('click', haha, false);
     document.getElementsByTagName('div')[1].addEventListener('click', haha, false);
     function haha(){
-        this.style.backgroundColor="red";
+        document.getElementById('div1').style.backgroundColor="red";
     }
-    // haha();
+
 </script>
       
     </div>
