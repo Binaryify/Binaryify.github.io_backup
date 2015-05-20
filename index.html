@@ -154,6 +154,70 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-微信上传下载多媒体php接口（转）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/20/微信上传下载多媒体php接口（转）/" class="article-date">
+  	<time datetime="2015-05-20T14:49:32.000Z" itemprop="datePublished">2015-05-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/20/微信上传下载多媒体php接口（转）/">微信上传下载多媒体php接口（转）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上传下载多媒体文件，这个作为高级接口的一部分功能，可能使用的人并不多，所以现在网上关于这个接口的使用教程很少。于是我就写了这个接口的使用方法，主要是两个函数<br>//上传多媒体文件<br>    function uploadMedia($url){<br>        $file = realpath(‘1.mp3’); //要上传的文件<br>        $fields[‘media’] = ‘@’.$file;<br>        $ch = curl_init($url) ;<br>        curl_setopt($ch, CURLOPT_POST, 1);<br>        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, “POST”);<br>        curl_setopt($ch, CURLOPT_POST, 1);<br>        curl_setopt($ch, CURLOPT_POSTFIELDS,$fields);<br>        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);<br>        $result = curl_exec($ch) ;<br>        if (curl_errno($ch)) {<br>         return curl_error($ch);<br>        }<br>        curl_close($ch);<br>        return $result;<br>    }<br> //下载多媒体文件<br>    function saveMedia($url){<br>        $ch = curl_init($url);<br>        curl_setopt($ch, CURLOPT_HEADER, 0);<br>        curl_setopt($ch, CURLOPT_NOBODY, 0);    //对body进行输出。<br>        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);<br>        $package = curl_exec($ch);<br>        $httpinfo = curl_getinfo($ch);</p>
+<pre><code>    curl_close(<span class="variable">$ch</span>);
+    <span class="variable">$media</span> = array_merge(array(<span class="string">'mediaBody'</span> =&gt; <span class="variable">$package</span>), <span class="variable">$httpinfo</span>);
+
+    <span class="regexp">//</span>求出文件格式
+    preg_match(<span class="string">'/\w\/(\w+)/i'</span>, <span class="variable">$media</span>[<span class="string">"content_type"</span>], <span class="variable">$extmatches</span>);
+    <span class="variable">$fileExt</span> = <span class="variable">$extmatches</span>[<span class="number">1</span>];
+    <span class="variable">$filename</span> = <span class="keyword">time</span>().<span class="keyword">rand</span>(<span class="number">100</span>,<span class="number">999</span>).<span class="string">".{<span class="variable">$fileExt</span>}"</span>;
+    <span class="variable">$dirname</span> = <span class="string">"./wximages/"</span>;
+    <span class="keyword">if</span>(!file_exists(<span class="variable">$dirname</span>)){
+        <span class="keyword">mkdir</span>(<span class="variable">$dirname</span>,<span class="number">0777</span>,true);
+    }
+    file_put_contents(<span class="variable">$dirname</span>.<span class="variable">$filename</span>,<span class="variable">$media</span>[<span class="string">'mediaBody'</span>]);
+    <span class="keyword">return</span> <span class="variable">$dirname</span>.<span class="variable">$filename</span>;
+}
+</code></pre><p>复制代码<br>函数中的url就是官方说明文档中的url，然后跟上相关参数即可</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-动效" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
