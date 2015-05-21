@@ -186,6 +186,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>前台代码：<a id="more"></a></p>
+<p><br>    &lt;input type=&quot;file&quot; &gt;<br></p><br><p><br>    &lt;form action=&quot;1.php&quot; method=&quot;post&quot;&gt;<br></p><br><p><br>    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;text&quot; name=&quot;bb&quot; value=&quot;&quot;&gt;<br></p><br><p><br>    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;submit&quot; value=&quot;提交&quot; &gt;<br></p><br><p><br>    <br><br></p><br><p><br>    &lt;/form&gt;<br></p><br><p><br>    <br><br></p><br><p><br>    <br><br></p><br><p><br>    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;script&gt;<br></p><br><p><br>    var input = document.querySelector(&#39;input&#39;);<br></p><br><p><br>    <br><br></p><br><p><br>    input.onchange = function () {<br></p><br><p><br>    &nbsp; &nbsp; // 也可以传入图片路径：lrz(&#39;../demo.jpg&#39;, …<br></p><br><p><br>    &nbsp; &nbsp; lrz(this.files[0], function (results) {<br></p><br><p><br>    &nbsp; &nbsp; &nbsp; // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。<br></p><br><p><br>    &nbsp; &nbsp; &nbsp; // document.getElementsByTagName(&#39;p&#39;)[0].innerHTML=results.base64;<br></p><br><p><br>    &nbsp; &nbsp; &nbsp; document.getElementsByTagName(&#39;input&#39;)[1].value=results.base64;<br></p><br><p><br>    &nbsp; &nbsp; });<br></p><br><p><br>    }<br></p><br><p><br>    <br><br></p>
+
 <p>后台代码：</p>
 <p><div><br>    &lt;?php<br></div></p>
 <p><div><br>    &nbsp;$str = $_POST[&#39;bb&#39;];$strLen=strLen($str);<br></div></p>
