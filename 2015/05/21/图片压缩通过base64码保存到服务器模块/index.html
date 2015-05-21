@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>微信上传下载多媒体php接口（转） | 阿发的藏宝库</title>
+  <title>图片压缩通过base64码保存到服务器模块 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文链接：http://www.thinkphp.cn/code/516.html上传下载多媒体文件，这个作为高级接口的一部分功能，可能使用的人并不多，所以现在网上关于这个接口的使用教程很少。于是我就写了这个接口的使用方法，主要是两个函数:">
+  <meta name="description" content="前台代码：
+            var input = document.querySelector(‘input’);input.onchange = function () {    // 也可以传入图片路径：lrz(‘../demo.jpg’, …    lrz(this.files[0], function (results) {      // 你需要的数据都在这里，可以以字符串的形">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微信上传下载多媒体php接口（转）">
-<meta property="og:url" content="http://yoursite.com/2015/05/20/微信上传下载多媒体php接口（转）/index.html">
+<meta property="og:title" content="图片压缩通过base64码保存到服务器模块">
+<meta property="og:url" content="http://yoursite.com/2015/05/21/图片压缩通过base64码保存到服务器模块/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="原文链接：http://www.thinkphp.cn/code/516.html上传下载多媒体文件，这个作为高级接口的一部分功能，可能使用的人并不多，所以现在网上关于这个接口的使用教程很少。于是我就写了这个接口的使用方法，主要是两个函数:">
+<meta property="og:description" content="前台代码：
+            var input = document.querySelector(‘input’);input.onchange = function () {    // 也可以传入图片路径：lrz(‘../demo.jpg’, …    lrz(this.files[0], function (results) {      // 你需要的数据都在这里，可以以字符串的形">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信上传下载多媒体php接口（转）">
-<meta name="twitter:description" content="原文链接：http://www.thinkphp.cn/code/516.html上传下载多媒体文件，这个作为高级接口的一部分功能，可能使用的人并不多，所以现在网上关于这个接口的使用教程很少。于是我就写了这个接口的使用方法，主要是两个函数:">
+<meta name="twitter:title" content="图片压缩通过base64码保存到服务器模块">
+<meta name="twitter:description" content="前台代码：
+            var input = document.querySelector(‘input’);input.onchange = function () {    // 也可以传入图片路径：lrz(‘../demo.jpg’, …    lrz(this.files[0], function (results) {      // 你需要的数据都在这里，可以以字符串的形">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -152,11 +155,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-微信上传下载多媒体php接口（转）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-图片压缩通过base64码保存到服务器模块" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/05/20/微信上传下载多媒体php接口（转）/" class="article-date">
-  	<time datetime="2015-05-20T14:49:32.000Z" itemprop="datePublished">2015-05-20</time>
+      <a href="/2015/05/21/图片压缩通过base64码保存到服务器模块/" class="article-date">
+  	<time datetime="2015-05-21T02:49:00.000Z" itemprop="datePublished">2015-05-21</time>
 </a>
     </div>
   
@@ -169,7 +172,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      微信上传下载多媒体php接口（转）
+      图片压缩通过base64码保存到服务器模块
     </h1>
   
 
@@ -185,8 +188,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文链接：<a href="http://www.thinkphp.cn/code/516.html" target="_blank" rel="external">http://www.thinkphp.cn/code/516.html</a><br>上传下载多媒体文件，这个作为高级接口的一部分功能，可能使用的人并不多，所以现在网上关于这个接口的使用教程很少。于是我就写了这个接口的使用方法，主要是两个函数:</p>
+        <p>前台代码：</p>
+<p><br><input type="file"><br><br><br><form action="1.php" method="post"><br>    <input type="text" name="bb" value=""><br>    <input type="submit" value="提交"><br><br></form><br><br><br>    <script><br>var input = document.querySelector(‘input’);<br><br>input.onchange = function () {<br>    // 也可以传入图片路径：lrz(‘../demo.jpg’, …<br>    lrz(this.files[0], function (results) {<br>      // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。<br>      // document.getElementsByTagName(‘p’)[0].innerHTML=results.base64;<br>      document.getElementsByTagName(‘input’)[1].value=results.base64;<br>    });<br>}<br>    </script><br><br><br></p>
 
+<p><br>后台代码：<br>&lt;?php<br>$str = $_POST[‘bb’];<br>$strLen=strLen($str);<br>$str1=substr($str,23,$strLen);<br>echo $str1;<br>$img= base64_decode($str1);<br>file_put_contents(‘xxx.jpg’, $img);<br><br><br> ?&gt;<br><br></p>
       
     </div>
     
@@ -195,18 +200,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/05/21/图片压缩通过base64码保存到服务器模块/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          图片压缩通过base64码保存到服务器模块
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/05/20/动效/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">动效</div>
+    <a href="/2015/05/20/微信上传下载多媒体php接口（转）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微信上传下载多媒体php接口（转）</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
