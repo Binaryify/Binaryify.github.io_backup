@@ -186,18 +186,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>前台代码：<a id="more"></a></p>
-<p><pre></pre></p>
 <p>&lt;input type=&quot;file&quot; &gt;</p><p>&lt;form action=&quot;1.php&quot; method=&quot;post&quot;&gt;</p><p><span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;text&quot; name=&quot;bb&quot; value=&quot;&quot;&gt;</p><p><span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;submit&quot; value=&quot;提交&quot; &gt;</p><p>&lt;/form&gt;</p><p><span class="Apple-tab-span" style="white-space:pre">    </span>&lt;script&gt;</p><p>var input = document.querySelector(&#39;input&#39;);</p><p>input.onchange = function () {</p><p>&nbsp; &nbsp; // 也可以传入图片路径：lrz(&#39;../demo.jpg&#39;, …</p><p>&nbsp; &nbsp; lrz(this.files[0], function (results) {</p><p>&nbsp; &nbsp; &nbsp; // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。</p><p>&nbsp; &nbsp; &nbsp; // document.getElementsByTagName(&#39;p&#39;)[0].innerHTML=results.base64;</p><p>&nbsp; &nbsp; &nbsp; document.getElementsByTagName(&#39;input&#39;)[1].value=results.base64;</p><p>&nbsp; &nbsp; });</p><p>}</p>
 
 
 <p>后台代码：<br>ps:hexo 对＄符号支持的不好，暂时想不到什么办法，所以下面的＄符号全用‘＄’代替</p>
-<p></p><p><br>   ＄str = ＄_POST[&#39;bb&#39;];<br></p><p></p>
-<p></p><p><br>    ＄strLen=strLen(＄str);<br></p><p></p>
-<p></p><p><br>  ＄str1=substr(＄str,23 ,＄strLen);<br></p><p></p>
-<p></p><p><br>    echo ＄str1;<br></p><p></p>
-<p></p><p><br>    ＄img= base64_decode(＄str1);<br></p><p></p>
-<p></p><p><br>    file_put_contents(&#39;xxx.jpg&#39;,＄img);<br></p><p></p>
-<p></p><p><br>    <br><br></p><br><br>原文库github地址：<a href="https://github.com/think2011/localResizeIMG3/blob/master/README.md" target="_blank" rel="external">https://github.com/think2011/localResizeIMG3/blob/master/README.md</a><p></p>
+<p><br>   ＄str = ＄_POST[&#39;bb&#39;];<br></p><br><p><br>    ＄strLen=strLen(＄str);<br></p><br><p><br>  ＄str1=substr(＄str,23 ,＄strLen);<br></p><br><p><br>    echo ＄str1;<br></p><br><p><br>    ＄img= base64_decode(＄str1);<br></p><br><p><br>    file_put_contents(&#39;xxx.jpg&#39;,＄img);<br></p><br><p><br>    <br><br></p>
+
+<p>原文库github地址：<a href="https://github.com/think2011/localResizeIMG3/blob/master/README.md" target="_blank" rel="external">https://github.com/think2011/localResizeIMG3/blob/master/README.md</a></p>
 
       
     </div>
