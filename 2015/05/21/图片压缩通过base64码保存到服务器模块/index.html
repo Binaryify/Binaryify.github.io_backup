@@ -185,7 +185,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前台代码：<a id="more"></a><br><code></code></p>
+        <p>前台代码：<a id="more"></a></p>
+<p><pre></pre></p>
 <p>&lt;input type=&quot;file&quot; &gt;</p><p>&lt;form action=&quot;1.php&quot; method=&quot;post&quot;&gt;</p><p><span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;text&quot; name=&quot;bb&quot; value=&quot;&quot;&gt;</p><p><span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;submit&quot; value=&quot;提交&quot; &gt;</p><p>&lt;/form&gt;</p><p><span class="Apple-tab-span" style="white-space:pre">    </span>&lt;script&gt;</p><p>var input = document.querySelector(&#39;input&#39;);</p><p>input.onchange = function () {</p><p>&nbsp; &nbsp; // 也可以传入图片路径：lrz(&#39;../demo.jpg&#39;, …</p><p>&nbsp; &nbsp; lrz(this.files[0], function (results) {</p><p>&nbsp; &nbsp; &nbsp; // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。</p><p>&nbsp; &nbsp; &nbsp; // document.getElementsByTagName(&#39;p&#39;)[0].innerHTML=results.base64;</p><p>&nbsp; &nbsp; &nbsp; document.getElementsByTagName(&#39;input&#39;)[1].value=results.base64;</p><p>&nbsp; &nbsp; });</p><p>}</p>
 
 
