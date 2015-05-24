@@ -187,28 +187,39 @@
       
         <p>前台代码：<a id="more"></a></p>
 <pre>
-<input type="file">
 
-<form action="1.php" method="post">
-    <input type="text" name="bb">
-    <input type="submit" value="提交">
+    &lt;input type=&quot;file&quot; &gt;
 
-</form>
+    &lt;form action=&quot;1.php&quot; method=&quot;post&quot;&gt;
 
-</pre>
-<pre>
-    <script>
-var input = document.querySelector('input');
+    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;text&quot; name=&quot;bb&quot;&gt;
 
-input.onchange = function () {
-    // 也可以传入图片路径：lrz('../demo.jpg', ...
-    lrz(this.files[0], function (results) {
-      // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。
-      document.getElementsByTagName('p')[0].innerHTML=results.base64;
-      document.getElementsByTagName('input')[1].value=results.base64;
-    });
-}
-    </script>
+    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+
+    &lt;/form&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;script&gt;
+
+    var input = document.querySelector(&#39;input&#39;);
+
+    input.onchange = function () {
+
+    &nbsp; &nbsp; // 也可以传入图片路径：lrz(&#39;../demo.jpg&#39;, ...
+
+    &nbsp; &nbsp; lrz(this.files[0], function (results) {
+
+    &nbsp; &nbsp; &nbsp; // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。
+
+    &nbsp; &nbsp; &nbsp; document.getElementsByTagName(&#39;p&#39;)[0].innerHTML=results.base64;
+
+    &nbsp; &nbsp; &nbsp; document.getElementsByTagName(&#39;input&#39;)[1].value=results.base64;
+
+    &nbsp; &nbsp; });
+
+    }
+
+    <span class="Apple-tab-span" style="white-space: pre;">    </span>&lt;/script&gt;
+
 </pre>
 
 
