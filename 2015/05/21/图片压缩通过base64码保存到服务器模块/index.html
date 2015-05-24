@@ -186,10 +186,33 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>前台代码：<a id="more"></a></p>
-<p>&lt;input type=&quot;file&quot; &gt;</p><p>&lt;form action=&quot;1.php&quot; method=&quot;post&quot;&gt;</p><p><span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;text&quot; name=&quot;bb&quot; value=&quot;&quot;&gt;</p><p><span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;submit&quot; value=&quot;提交&quot; &gt;</p><p>&lt;/form&gt;</p><p><span class="Apple-tab-span" style="white-space:pre">    </span>&lt;script&gt;</p><p>var input = document.querySelector(&#39;input&#39;);</p><p>input.onchange = function () {</p><p>&nbsp; &nbsp; // 也可以传入图片路径：lrz(&#39;../demo.jpg&#39;, …</p><p>&nbsp; &nbsp; lrz(this.files[0], function (results) {</p><p>&nbsp; &nbsp; &nbsp; // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。</p><p>&nbsp; &nbsp; &nbsp; // document.getElementsByTagName(&#39;p&#39;)[0].innerHTML=results.base64;</p><p>&nbsp; &nbsp; &nbsp; document.getElementsByTagName(&#39;input&#39;)[1].value=results.base64;</p><p>&nbsp; &nbsp; });</p><p>}</p>
+<pre>
+input type="file" >
 
 
-<p>后台代码：<br>ps:hexo 对＄符号支持的不好，暂时想不到什么办法，所以下面的＄符号全用‘＄’代替</p>
+<form action="1.php" method="post">
+    <input type="text" name="bb">
+    <input type="submit" value="提交">
+
+</form>
+<p></p>
+
+    <script>
+var input = document.querySelector('input');
+
+input.onchange = function () {
+    // 也可以传入图片路径：lrz('../demo.jpg', ...
+    lrz(this.files[0], function (results) {
+      // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。
+      document.getElementsByTagName('p')[0].innerHTML=results.base64;
+      document.getElementsByTagName('input')[1].value=results.base64;
+    });
+}
+    </script>
+</pre>
+
+
+<p>后台代码：</p>
 <pre>
 
 <p>   $str = $_POST[&#39;bb&#39;];</p>
