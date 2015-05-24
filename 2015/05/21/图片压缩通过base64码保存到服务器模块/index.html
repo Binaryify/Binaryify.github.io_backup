@@ -226,15 +226,8 @@
 <p>后台代码：</p>
 <pre>
 
-<p>   $str = $_POST[&#39;bb&#39;];</p>
-<pre><code><span class="label">$strLen</span>=<span class="literal">strLen</span>(<span class="label">$str</span>);
-</code></pre><p>  $str1=substr(＄str,23 ,$strLen);</p>
-<pre><code>echo <span class="variable">$str1</span>;
-
-<span class="variable">$img</span><span class="subst">=</span> base64_decode(<span class="variable">$str1</span>);
-
-file_put_contents(<span class="subst">&amp;</span><span class="variable">#39</span>;xxx<span class="built_in">.</span>jpg<span class="subst">&amp;</span><span class="variable">#39</span>;,<span class="variable">$img</span>);
-</code></pre><p></p></pre><br>原文库github地址：<a href="https://github.com/think2011/localResizeIMG3/blob/master/README.md" target="_blank" rel="external">https://github.com/think2011/localResizeIMG3/blob/master/README.md</a><p></p>
+<p>   $str = $_POST[&#39;bb&#39;];<br>   $strLen=strLen($str);<br>   $str1=substr(＄str,23 ,$strLen);<br>   echo $str1;<br>   $img= base64_decode($str1);<br>   file_put_contents(&#39;xxx.jpg&#39;,$img);</p>
+<p></p></pre><br>原文库github地址：<a href="https://github.com/think2011/localResizeIMG3/blob/master/README.md" target="_blank" rel="external">https://github.com/think2011/localResizeIMG3/blob/master/README.md</a><p></p>
 
       
     </div>
