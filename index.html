@@ -154,6 +154,55 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-HTML5中类jQuery选择器querySelector的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/24/HTML5中类jQuery选择器querySelector的使用/" class="article-date">
+  	<time datetime="2015-05-24T10:18:32.000Z" itemprop="datePublished">2015-05-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/24/HTML5中类jQuery选择器querySelector的使用/">HTML5中类jQuery选择器querySelector的使用 </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h1><br>    简介<br></h1><p></p>
+<p><br>    HTML5向Web API新引入了<span style="background-color: lightgrey;">document.querySelector</span>以及<span style="background-color: lightgrey;">document.querySelectorAll</span>两个方法用来更方便地从DOM选取元素，功能类似于jQuery的选择器。这使得在编写原生JavaScript代码时方便了许多。<br></p><br><h1><br>    用法<br></h1><br><p><br>    两个方法使用差不多的语法，都是接收一个字符串参数，这个参数需要是合法的CSS选择语法。<br></p><br><pre>element = document.querySelector(&#39;selectors&#39;);elementList = document.querySelectorAll(&#39;selectors&#39;);</pre><br><p><br>    其中参数selectors 可以包含多个CSS选择器，用逗号隔开。<br></p><br><pre>element = document.querySelector(&#39;selector1,selector2,…&#39;);elementList = document.querySelectorAll(&#39;selector1,selector2,…&#39;);</pre><br><p><br>    使用这两个方法无法查找带伪类状态的元素，比如<span style="background-color: lightgrey;">querySelector(&#39;:hover&#39;)</span>不会得到预期结果。<br></p><br><h2><br>    querySelector<br></h2><br><p><br>    该方法返回满足条件的单个元素。按照深度优先和先序遍历的原则使用参数提供的CSS选择器在DOM进行查找，返回第一个满足条件的元素。<br></p><br><pre>element = document.querySelector(&#39;div#container&#39;);//返回id为container的首个divelement = document.querySelector(&#39;.foo,.bar&#39;);//返回带有foo或者bar样式类的首个元素</pre><br><h2><br>    querySelectorAll<br></h2><br><p><br>    该方法返回所有满足条件的元素，结果是个nodeList集合。查找规则与前面所述一样。<br></p><br><pre>elements = document.querySelectorAll(&#39;div.foo&#39;);//返回所有带foo类样式的div</pre><br><p><br>    但需要注意的是返回的nodeList集合中的元素是非实时（<a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList" target="_blank">no-live</a>）的，想要区别什么是实时非实时的返回结果，请看下例：<br></p><br><pre>&lt;div id=&quot;container&quot;&gt;<br>    &lt;div&gt;&lt;/div&gt;<br>    &lt;div&gt;&lt;/div&gt;&lt;/div&gt;</pre><br><pre>//首先选取页面中id为container的元素container=document.getElementById(&#39;#container&#39;);console.log(container.childNodes.length)//结果为2//然后通过代码为其添加一个子元素container.appendChild(document.createElement(&#39;div&#39;));//这个元素不但添加到页面了，这里的变量container也自动更新了console.log(container.childNodes.length)//结果为3</pre><br><p><br>    通过上面的例子就很好地理解了什么是会实时更新的元素。<span style="background-color: lightgrey;">document.getElementById</span>返回的便是实时结果，上面对其添加一个子元素后，再次获取所有子元素个数，已经由原来的2个更新为3个(这里不考虑有些浏览器比如Chrome会把空白也解析为一个子节点)。<br></p><br><h1><br>    关于转义<br></h1><br><p><br>    我们知道反斜杠是用来转义用的，比如在字符串里我们想表示空字符就使用&#39;\b&#39;，换行&#39;\n&#39;。同样，在提供给<span style="background-color: lightgrey;">querySelector</span>和<span style="background-color: lightgrey;">querySelectorAll</span>的参数也支持转义，了解这点非常重要。<br></p><br><p><br>    先看个例子，比如我们有个div它的样式类为<span style="background-color: lightgrey;">&#39;foo:bar&#39;</span>，当然我知道你一般不会这样写。当我们需要选择它的时候，就需要将其中的冒号进行转义，否则抛错。<br></p><br><pre>&lt;div class=&quot;foo:bar&quot;&gt;&lt;/div&gt;</pre><br><p><br>    <img alt="" src="http://images.cnitblog.com/blog/431064/201403/232235427246139.png"><br></p><br><p><br>    浏览器报怨表示不是一个合法的选择语句。<br></p><br><p><br>    同时，有趣的事情来了，或许你以为将冒号直接转义就解决问题了。<br></p><br><p><br>    <img alt="" src="http://images.cnitblog.com/blog/431064/201403/232235430842096.png"><br></p><br><p><br>    同样，也表示非法。原因就在于反斜杠在字符串中本身就表示转义的意思，它于冒号结合转不出东西来，于是抛错。<br></p><br><p><br>    所以正确的做法是将反斜杠转义后<span style="background-color: lightgrey;">&#39;.foo\:bar&#39;</span>再传递给<span style="background-color: lightgrey;">querySelector</span>，后者在接收到<span style="background-color: lightgrey;">&#39;.foo\:bar&#39;</span>这个参数后，字符串将两个反斜杠转义成一个，然后<span style="background-color: lightgrey;">querySelector</span>前面得到的一个反斜杠与冒号结合进行转义得到正确结果。<br></p><br><p><br>    <img alt="" src="http://images.cnitblog.com/blog/431064/201403/232235434278524.png"><br></p><br><p><br>    也就是说经历两次转义，一次是字符串当中，一次是<span style="background-color: lightgrey;">querySelector</span>解析参数时。<br></p><br><p><br>    理解这点后，可以来看一个更有趣的例子了。比如我们要选择类名里面含反斜杠的元素。是的，我们需要一共使用四个反斜杠！才能正常工作。<br></p><br><pre>&lt;div class=&quot;foo\bar&quot;&gt;&lt;/div&gt;</pre><br><p><br>    <img alt="" src="http://images.cnitblog.com/blog/431064/201403/232235436933509.png"><br></p><br><h1><br>    浏览器兼容性<br></h1><br><p><br>    目前各主流浏览器对此API提供了良好支持，IE需8+。详情见<a href="http://caniuse.com/queryselector" target="_blank">caniuse</a>。<br></p><br><table><br>    <colgroup><br>        <col style="width: 115px;"><br>        <col style="width: 115px;"><br>        <col style="width: 115px;"><br>        <col style="width: 115px;"><br>        <col style="width: 115px;"><br>    </colgroup><br>    <tbody valign="top"><br>        <tr class="firstRow"><br>            <td valign="middle" style="padding-right: 7px; padding-left: 7px;"><br>                <p style="text-align: center;"><br>                    <img width="147" height="147" alt="" src="http://images.cnitblog.com/i/431064/201403/232247350527752.png"><br>                </p><br>            </td><br>            <td valign="middle" style="padding-right: 7px; padding-left: 7px;"><br>                <p style="text-align: center;"><br>                    <img width="153" height="153" alt="" src="http://images.cnitblog.com/i/431064/201403/232247517871139.png"><br>                </p><br>            </td><br>            <td valign="middle" style="padding-right: 7px; padding-left: 7px;"><br>                <p style="text-align: center;"><br>                    <img width="156" height="152" alt="" src="http://images.cnitblog.com/i/431064/201403/232247575379649.png"><br>                </p><br>            </td><br>            <td valign="middle" style="padding-right: 7px; padding-left: 7px;"><br>                <p style="text-align: center;"><br>                    <img width="147" height="154" alt="" src="http://images.cnitblog.com/i/431064/201403/232248029595959.png"><br>                </p><br>            </td><br>            <td valign="middle" style="padding-right: 7px; padding-left: 7px;"><br>                <p style="text-align: center;"><br>                    <img width="152" height="152" alt="" src="http://images.cnitblog.com/i/431064/201403/232248082405312.png"><br>                </p><br>            </td><br>        </tr><br>        <tr><br>            <td valign="middle" style="padding-right: 7px; padding-left: 7px;"><br>                <p style="text-align: center;"><br>                    4.0+<br>                </p><br>            </td><br>            <td valign="middle" style="padding-right: 7px; padding-left: 7px;"><br>                <p style="text-align: center;"><br>                    3.5+<br>                </p><br>            </td><br>            <td valign="middle" style="padding-right: 7px; padding-left: 7px;"><br>                <p style="text-align: center;"><br>                    8+<br>                </p><br>            </td><br>            <td valign="middle" style="padding-right: 7px; padding-left: 7px;"><br>                <p style="text-align: center;"><br>                    10.0+<br>                </p><br>            </td><br>            <td valign="middle" style="padding-right: 7px; padding-left: 7px;"><br>                <p style="text-align: center;"><br>                    3.1+<br>                </p><br>            </td><br>        </tr><br>    </tbody><br></table><br><p><br>    &nbsp;<br></p><br><p><br>    &nbsp;<br></p><br><h1><br>    REFERENCE<br></h1><br><p><br>    本文主要参考了MDN上的文档<br></p><br><ul class=" list-paddingleft-2"><br>    <li><br>        <p><br>            <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll" target="_blank">document.querySelectorAll</a><br>        </p><br>    </li><br>    <li><br>        <p><br>            <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll" target="_blank">document.querySelector</a><br>        </p><br>    </li><br>    <li><br>        <p><br>            <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList" target="_blank">NodeList</a><br>        </p><br>    </li><br></ul><br><p><br>    <a title="快速评论" class="fastCom" id="fastCom" href="http://www.cnblogs.com/Wayou/p/html5_web_api_queryselector.html#comment_form_container" target="_blank" rel="external"></a><br></p><br><p><br>    Feel free to repost but keep the link to this page please<br></p><br><p><br>    <br><br></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-图片压缩通过base64码保存到服务器模块" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
