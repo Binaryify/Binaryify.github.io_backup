@@ -3,26 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>test | 阿发的藏宝库</title>
+  <title>SVG描边动画实现 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="document.getElementById(&apos;div1&apos;).addEventListener(&apos;click&apos;, haha, false);
-    // document.getElementsByTagName(&apos;div&apos;)[1].addEventListener(&apos;click&apos;, haha, false);
-    function haha(){
-        document.get">
+  <meta name="description" content="&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://yoursite.com/2015/05/20/test/index.html">
+<meta property="og:title" content="SVG描边动画实现">
+<meta property="og:url" content="http://yoursite.com/2015/05/25/SVG描边动画实现/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="document.getElementById(&apos;div1&apos;).addEventListener(&apos;click&apos;, haha, false);
-    // document.getElementsByTagName(&apos;div&apos;)[1].addEventListener(&apos;click&apos;, haha, false);
-    function haha(){
-        document.get">
+<meta property="og:description" content="&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test">
-<meta name="twitter:description" content="document.getElementById(&apos;div1&apos;).addEventListener(&apos;click&apos;, haha, false);
-    // document.getElementsByTagName(&apos;div&apos;)[1].addEventListener(&apos;click&apos;, haha, false);
-    function haha(){
-        document.get">
+<meta name="twitter:title" content="SVG描边动画实现">
+<meta name="twitter:description" content="&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -161,11 +152,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SVG描边动画实现" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/05/20/test/" class="article-date">
-  	<time datetime="2015-05-20T12:59:20.000Z" itemprop="datePublished">2015-05-20</time>
+      <a href="/2015/05/25/SVG描边动画实现/" class="article-date">
+  	<time datetime="2015-05-25T10:23:47.000Z" itemprop="datePublished">2015-05-25</time>
 </a>
     </div>
   
@@ -178,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      test
+      SVG描边动画实现
     </h1>
   
 
@@ -194,17 +185,60 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div style="width: 100px;height: 100px;background-color: green;" id="div1"></div></p>
-<p><div style="width: 100px;height: 100px;background-color: green;"></div></p>
-<p><div style="width: 100px;height: 100px;background-color: green;"></div></p>
-<script>
-    document.getElementById('div1').addEventListener('click', haha, false);
-    // document.getElementsByTagName('div')[1].addEventListener('click', haha, false);
-    function haha(){
-        document.getElementById('div1').style.backgroundColor="red";
+        <pre>
+
+    &lt;style type=&quot;text/css&quot;&gt;<br><a id="more"></a>
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>html,body{
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>width:100%;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>height:100%;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>margin:0;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>padding:0;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>background-color: green;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>
+
     }
 
-</script>
+    polygon{
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span> stroke-dasharray: 490;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span> stroke-dashoffset: 490;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span> -webkit-animation: dash 1s linear infinite alternate;
+
+    }
+
+    @-webkit-keyframes dash {
+
+    &nbsp; to {
+
+    &nbsp; &nbsp; stroke-dashoffset: 0;
+
+    &nbsp; }
+
+    }
+
+
+    &lt;/style&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;svg width=&quot;300&quot; height=&quot;300&quot; &gt;<span class="Apple-tab-span" style="white-space:pre">    </span>
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;polygon points=&quot;220,100 300,210 170,250 123,234&quot;
+
+    style=&quot;fill:transparent;
+
+    stroke:white;stroke-width:2&quot;/&gt;
+
+    <span class="Apple-tab-span" style="white-space: pre;">    </span>&lt;/svg&gt;
+
+</pre>
       
     </div>
     
@@ -213,18 +247,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/05/20/动效/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          动效
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/05/18/表单按钮id问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">表单按钮id问题</div>
+    <a href="/2015/05/24/HTML5中类jQuery选择器querySelector的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML5中类jQuery选择器querySelector的使用 </div>
       <strong class="article-nav-caption">></strong>
     </a>
   
