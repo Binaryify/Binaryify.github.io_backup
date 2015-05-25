@@ -5,15 +5,21 @@
   
   <title>SVG描边动画实现 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;">
+  <meta name="description" content="div{    width:500px;    height:500px;    margin:0;    padding:0;    background-color: green;
+}
+polygon{     stroke-dasharray: 490;     stroke-dashoffset: 490;     -webkit-animation: dash 1s linear inf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVG描边动画实现">
 <meta property="og:url" content="http://yoursite.com/2015/05/25/SVG描边动画实现/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;">
+<meta property="og:description" content="div{    width:500px;    height:500px;    margin:0;    padding:0;    background-color: green;
+}
+polygon{     stroke-dasharray: 490;     stroke-dashoffset: 490;     -webkit-animation: dash 1s linear inf">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVG描边动画实现">
-<meta name="twitter:description" content="&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;">
+<meta name="twitter:description" content="div{    width:500px;    height:500px;    margin:0;    padding:0;    background-color: green;
+}
+polygon{     stroke-dasharray: 490;     stroke-dashoffset: 490;     -webkit-animation: dash 1s linear inf">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -185,7 +191,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre>
+        <p><style type="text/css"><br>    div{<br>    width:500px;<br>    height:500px;<br>    margin:0;<br>    padding:0;<br>    background-color: green;</p>
+<p>}</p>
+<p>polygon{<br>     stroke-dasharray: 490;<br>     stroke-dashoffset: 490;<br>     -webkit-animation: dash 1s linear infinite alternate;<br>}<br>@-webkit-keyframes dash {<br>  to {<br>    stroke-dashoffset: 0;<br>  }<br>}</p>
+<p></style></p>
+<p><div><br>    <svg width="300" height="300"><br/>    <polygon points="220,100 300,210 170,250 123,234" style="fill:transparent;
+stroke:white;stroke-width:2"><br/>    </polygon></svg><br></div></p>
+<pre>
 
     &lt;style type=&quot;text/css&quot;&gt;<br><a id="more"></a>
 
