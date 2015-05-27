@@ -154,6 +154,70 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ajax加载动画的实现" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/27/ajax加载动画的实现/" class="article-date">
+  	<time datetime="2015-05-27T01:39:48.000Z" itemprop="datePublished">2015-05-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/27/ajax加载动画的实现/">ajax加载动画的实现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre>
+<script>
+    function haha(){
+
+        $('body').load('index.php',function(a,status,c){
+            // console.log(status);
+            if(status=='error'){
+                $(body).text('加载错误');
+            }
+        })
+
+    }
+    setTimeout("haha()",2000);
+
+
+    </script>
+</pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-svg修改class和修改样式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -181,7 +245,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>svg无法通过直接document.getElementById(‘xxx’).className=”classxxx”来修改class，百度了下，取代的方法是：document.getElementById(‘xxx’).setAttribute(“class”,”classxxx”);</p>
-<p>js获取svg路径长度</p>
+<p>ps:js获取svg路径长度</p>
 <pre>
 var path = document.querySelector('path');
 var length = path.getTotalLength();
@@ -612,58 +676,6 @@ var length = path.getTotalLength();
       
         <p class="article-more-link">
           <a  href="/2015/05/14/我的前端笔记/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-设计出色响应式网站的十个技巧" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/14/设计出色响应式网站的十个技巧/" class="article-date">
-  	<time datetime="2015-05-14T01:49:54.000Z" itemprop="datePublished">2015-05-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/14/设计出色响应式网站的十个技巧/">设计出色响应式网站的十个技巧</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p data-anchor-id="i18k" style="margin-top: 0px; margin-bottom: 15px; color: rgb(85, 85, 85); font-family: &#39;Microsoft Yahei&#39;, &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 26px; text-indent: 30px; white-space: normal;"><br>    移动技术并没有渐退的迹象，反而对于个人和企业去建立门户网站，必须考虑移动用户已经变成了趋势。
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/05/14/设计出色响应式网站的十个技巧/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
