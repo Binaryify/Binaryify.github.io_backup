@@ -233,10 +233,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>js:</p>
-<p><pre><br>    function haha(){<br>        $(‘body’).load(‘index.php’,function(a,status,c){<br>            // console.log(status);<br>            if(status==’error’){<br>                $(body).text(‘加载错误’);<br>            }<br>        })</pre></p>
-<pre><code>}
-<span class="built_in">set</span>Timeout(<span class="string">"haha()"</span>,<span class="number">2000</span>);
-</code></pre><p><br>需要调用jquery或者zepto</p>
+<p><pre><br>    function haha(){<br>        $(‘body’).load(‘index.php’,function(a,status,c){<br>            // console.log(status);<br>            if(status==’error’){<br>                $(body).text(‘加载错误’);<br>            }<br>        })<br>    }<br>    setTimeout(“haha()”,2000);<br></pre><br>需要调用jquery或者zepto</p>
 
       
     </div>
