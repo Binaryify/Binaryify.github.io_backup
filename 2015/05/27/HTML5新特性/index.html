@@ -3,17 +3,38 @@
 <head>
   <meta charset="utf-8">
   
-  <title>自适应 | 阿发的藏宝库</title>
+  <title>HTML5新特性 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="rem自适应脚本">
+  <meta name="description" content="一：正则表达式
+
+&amp;lt;input type=&amp;quot;email&amp;quot; pattern=&amp;quot;[^ @]*@[^ @]*&amp;quot; value=&amp;quot;&amp;quot;&amp;gt;
+
+
+二：数据列表元素
+&amp;lt;form action=&amp;quot;/server&amp;quot; method=&amp;quot;post&amp;quot;&amp;gt;
+    &amp;lt;input list=&amp;quot;j">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自适应">
-<meta property="og:url" content="http://yoursite.com/2015/05/27/自适应/index.html">
+<meta property="og:title" content="HTML5新特性">
+<meta property="og:url" content="http://yoursite.com/2015/05/27/HTML5新特性/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="rem自适应脚本">
+<meta property="og:description" content="一：正则表达式
+
+&amp;lt;input type=&amp;quot;email&amp;quot; pattern=&amp;quot;[^ @]*@[^ @]*&amp;quot; value=&amp;quot;&amp;quot;&amp;gt;
+
+
+二：数据列表元素
+&amp;lt;form action=&amp;quot;/server&amp;quot; method=&amp;quot;post&amp;quot;&amp;gt;
+    &amp;lt;input list=&amp;quot;j">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自适应">
-<meta name="twitter:description" content="rem自适应脚本">
+<meta name="twitter:title" content="HTML5新特性">
+<meta name="twitter:description" content="一：正则表达式
+
+&amp;lt;input type=&amp;quot;email&amp;quot; pattern=&amp;quot;[^ @]*@[^ @]*&amp;quot; value=&amp;quot;&amp;quot;&amp;gt;
+
+
+二：数据列表元素
+&amp;lt;form action=&amp;quot;/server&amp;quot; method=&amp;quot;post&amp;quot;&amp;gt;
+    &amp;lt;input list=&amp;quot;j">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -152,11 +173,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-自适应" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-HTML5新特性" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/05/27/自适应/" class="article-date">
-  	<time datetime="2015-05-27T04:25:10.000Z" itemprop="datePublished">2015-05-27</time>
+      <a href="/2015/05/27/HTML5新特性/" class="article-date">
+  	<time datetime="2015-05-27T05:52:26.000Z" itemprop="datePublished">2015-05-27</time>
 </a>
     </div>
   
@@ -169,7 +190,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      自适应
+      HTML5新特性
     </h1>
   
 
@@ -185,151 +206,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>rem自适应脚本<br><a id="more"></a></p>
+        <p>一：正则表达式</p>
 <pre>
-
-
-    &lt;!DOCTYPE html&gt;
-
-    &lt;html&gt;
-
-    &lt;head&gt;
-
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-    &lt;title&gt;Document&lt;/title&gt;
-
-    &lt;/head&gt;
-
-    &lt;body&gt;
-
-    &lt;style type=&quot;text/css&quot;&gt;
-
-    html,body{
-
-    height:100%;
-
-    width:100%;
-
-    margin:0;
-
-    padding:0;
-
-    }
-
-    div{
-
-    height:8rem;
-
-    width:8rem;
-
-    background-color:green;
-
-    }
-
-    &lt;/style&gt;
-
-    &lt;div&gt;&lt;/div&gt;
-
-    &lt;script type=&quot;text/javascript&quot;&gt;
-
-    !function(win) {
-
-    &nbsp; &nbsp; function resize() {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; var domWidth = domEle.getBoundingClientRect().width;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; if(domWidth / v &gt; 540){
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; domWidth = 540 * v;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; win.rem = domWidth / 16;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; domEle.style.fontSize = win.rem + &quot;px&quot;;
-
-    &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector(&#39;meta[name=&quot;viewport&quot;]&#39;), flexible = dom.querySelector(&#39;meta[name=&quot;flexible&quot;]&#39;);
-
-    &nbsp; &nbsp; if (viewport) {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; var o = viewport.getAttribute(&quot;content&quot;).match(/initial\-scale=([&quot;&#39;]?)([\d\.]+)\1?/);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; if(o){
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; initial_scale = parseFloat(o[2]);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v = parseInt(1 / initial_scale);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; } else if(flexible) {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; var o = flexible.getAttribute(&quot;content&quot;).match(/initial\-dpr=([&quot;&#39;]?)([\d\.]+)\1?/);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; if (o) {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v = parseFloat(o[2]);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; initial_scale = parseFloat((1 / v).toFixed(2))
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; if (!v &amp;&amp; !initial_scale) {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
-
-    &nbsp; &nbsp; &nbsp; &nbsp; v = win.devicePixelRatio;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; v = n ? v &gt;= 3 ? 3 : v &gt;= 2 ? 2 : 1 : 1, initial_scale = 1 / v
-
-    &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; //没有viewport标签的情况下
-
-    &nbsp; &nbsp; if (domEle.setAttribute(&quot;data-dpr&quot;, v), !viewport) {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; if (viewport = dom.createElement(&quot;meta&quot;), viewport.setAttribute(&quot;name&quot;, &quot;viewport&quot;), viewport.setAttribute(&quot;content&quot;, &quot;initial-scale=&quot; + initial_scale + &quot;, maximum-scale=&quot; + initial_scale + &quot;, minimum-scale=&quot; + initial_scale + &quot;, user-scalable=no&quot;), domEle.firstElementChild) {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; domEle.firstElementChild.appendChild(viewport)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; } else {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var m = dom.createElement(&quot;div&quot;);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m.appendChild(viewport), dom.write(m.innerHTML)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; win.dpr = v;
-
-    &nbsp; &nbsp; win.addEventListener(&quot;resize&quot;, function() {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
-
-    &nbsp; &nbsp; }, false);
-
-    &nbsp; &nbsp; win.addEventListener(&quot;pageshow&quot;, function(b) {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; b.persisted &amp;&amp; (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
-
-    &nbsp; &nbsp; }, false);
-
-    &nbsp; &nbsp; resize();
-
-    }(window);&lt;/script&gt;
-
-    &lt;/body&gt;
-
-    &lt;/html&gt;
+&lt;input type=&quot;email&quot; pattern=&quot;[^ @]*@[^ @]*&quot; value=&quot;&quot;&gt;
 
 </pre>
+二：数据列表元素
+<pre>&lt;form action=&quot;/server&quot; method=&quot;post&quot;&gt;
+    &lt;input list=&quot;jslib&quot; name=&quot;jslib&quot; &gt;
+    &lt;datalist id=&quot;jslib&quot;&gt;
+        &lt;option value=&quot;jQuery&quot;&gt;
+        &lt;option value=&quot;Dojo&quot;&gt;
+        &lt;option value=&quot;Prototype&quot;&gt;
+        &lt;option value=&quot;Augular&quot;&gt;
+    &lt;/datalist&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;完成&quot; /&gt;
+&lt;/form&gt;</pre>
+三：下载属性
+<pre>&lt;a href=&quot;download_pdf.php&quot; download=&quot;somefile.pdf&quot;&gt;下载PDF文件&lt;/a&gt;</pre>
+四：DNS的预先加载处理
+<pre>&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//www.gbtags.com&quot;&gt;
+&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//www.gbin1.com&quot;&gt;
+&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//m.gbin1.com&quot;&gt;
+&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//s.gbin1.com&quot;&gt;</pre>
+五：链接网页的预先加载处理
+<pre>&lt;link rel=&quot;prefetch&quot; href=&quot;http://www.gbtags.com/gb/users.htm&quot; /&gt;
+&lt;link rel=&quot;prefetch&quot; href=&quot;http://www.gbtags.com/gb/networks/themes/img/logo_small.jpg&quot; /&gt;</pre>
+或者可以使用prerender属性，这个属性能够帮助你提前加载整个页面，如下：
+<pre>&lt;link rel=&quot;prerender&quot; href=&quot;http://www.gbtags.com/gb/search.htm&quot; /&gt;</pre>
       
     </div>
     
@@ -338,18 +242,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/05/27/HTML5新特性/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          HTML5新特性
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/05/27/关于创建svg圆形进度按钮的简单实现/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于创建svg圆形进度按钮的简单实现</div>
+    <a href="/2015/05/27/自适应/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自适应</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -363,7 +258,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="自适应" data-title="自适应" data-url="http://yoursite.com/2015/05/27/自适应/"></div>
+	<div class="ds-thread" data-thread-key="HTML5新特性" data-title="HTML5新特性" data-url="http://yoursite.com/2015/05/27/HTML5新特性/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
