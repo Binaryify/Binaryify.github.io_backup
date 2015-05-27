@@ -5,8 +5,143 @@
 	<title>Document</title>
 </head>
 <body>
+<style type="text/css">
+.path1{
+	stroke-width:2;
+}
+	.path11 {
+
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  -webkit-animation: dash 3s linear forwards;
+  stroke-width:2;
+}
+
+	.path2 {
+  stroke-dasharray: 28;
+  stroke-dashoffset: 28;
+  -webkit-animation: dash .3s linear forwards ;
+ /* stroke-width:1;*/
+}
+
+	.path3{
+		stroke-dasharray: 13;
+	    stroke-dashoffset: 13;
+
+
+  -webkit-animation: dash .3s linear forwards ;
+	}
+@-webkit-keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.div1{
+	width:250px;
+	height:62px;
+	border-radius:50px;
+	border:2px solid green;
+	-webkit-animation: myan .6s forwards;
+	display:none;
+
+	
+
+}
+/*.div1{
+	-webkit-animation: myan .6s forwards;
+}*/
+
+
+#svgdiv{
+	position:absolute;
+	-webkit-transform: translate(128px,-68px);
+	
+}
+@-webkit-keyframes myan{
+	to {
+		border:2px solid gray;
+		border-radius:50%;
+		width:62px;
+	}
+}
+.ddd{
+	border:2px solid gray;
+	border-radius:50%;
+	height:62px;
+	width:62px;
+	-webkit-animation: myam .6s forwards;
+}
+@-webkit-keyframes myam{
+	to{
+		width:250px;
+		border-radius:50px;
+		border:2px solid green;
+	}
+}
+</style>
+	<center>	<div class="div1" ></div></center>
+	<div id="svgdiv">
+	<svg class="path1" id='pp' width="70" height="70" stroke="green" fill="transparent">
+					<path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/> 
+	</svg>
+
+
+	<svg class="path22" id='pp2' width="70" height="70" stroke="green" fill="white" style="display: none;">
+						<path d="m31.5,46.5l15.3,-23.2"/>
+						<path d="m31.5,46.5l-8.5,-7.1"/>  <!-- 对勾 -->
+	</svg>
+
+
+	<svg  id="pp3" width="70" height="70" stroke="green" fill="white" style="display:none;">
+						<path d="m35,35l-9.3,-9.3"/>
+						<path d="m35,35l9.3,9.3"/>
+						<path d="m35,35l-9.3,9.3"/>
+						<path d="m35,35l9.3,-9.3"/>   <!-- 叉号	 -->					
+    </svg>
+    </div>
+<button>按钮</button>
+<button>按钮</button>
+
 	<script type="text/javascript">
-	alert("haha");
+	
+	document.getElementsByTagName('button')[0].addEventListener('click',haha,false);
+	document.getElementsByTagName('button')[1].addEventListener('click',haha2,false);
+	function haha(){
+		document.getElementsByClassName('div1')[0].style.display="block";
+		document.getElementById('pp').setAttribute("class","path11");
+		
+		
+		setTimeout("haha3()",1700);
+		// document.getElementById('pp').className='path11';
+		// alert(tt);
+		// document.getElementById('pp2').className='path2';
+		
+	}
+	 	function haha2(){
+	 		document.getElementsByClassName('div1')[0].style.display="block";
+	 	document.getElementById('pp').setAttribute("class","path11");
+		
+		
+		setTimeout("haha4()",1700);
+	 	}
+	function haha4(){
+		document.getElementById('pp').style.display="none";
+		document.getElementById('pp3').style.display="inline";
+		document.getElementById('pp3').setAttribute("class","path3");
+		document.getElementsByClassName('div1')[0].className='ddd';
+
+		// alert(tt);
+		// document.getElementById('pp2').className='path2';
+		
+	}
+	function haha3(){
+		document.getElementById('pp').style.display="none";
+		document.getElementById('pp2').style.display="inline";
+		document.getElementById('pp2').setAttribute("class","path2");
+		document.getElementsByClassName('div1')[0].className='ddd';
+	}
+
 	</script>
 </body>
 </html>
