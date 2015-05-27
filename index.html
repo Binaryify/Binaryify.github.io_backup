@@ -233,16 +233,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>js:</p>
-<p><pre><br>    function haha(){</pre></p>
-<pre><code>    $(<span class="string">'body'</span>).load(<span class="string">'index.php'</span>,<span class="function"><span class="keyword">function</span><span class="params">(a,status,c)</span></span>{
-        <span class="comment">// console.log(status);</span>
-        <span class="keyword">if</span>(status==<span class="string">'error'</span>){
-            $(body).text(<span class="string">'加载错误'</span>);
-        }
-    })
-
-}
-setTimeout(<span class="string">"haha()"</span>,<span class="number">2000</span>);
+<p><pre><br>    function haha(){<br>        $(‘body’).load(‘index.php’,function(a,status,c){<br>            // console.log(status);<br>            if(status==’error’){<br>                $(body).text(‘加载错误’);<br>            }<br>        })</pre></p>
+<pre><code>}
+<span class="built_in">set</span>Timeout(<span class="string">"haha()"</span>,<span class="number">2000</span>);
 </code></pre><p><br>需要调用jquery或者zepto</p>
 
       
