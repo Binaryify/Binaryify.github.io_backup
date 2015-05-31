@@ -154,6 +154,176 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-移动端开发经验" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/31/移动端开发经验/" class="article-date">
+  	<time datetime="2015-05-31T14:29:00.000Z" itemprop="datePublished">2015-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/31/移动端开发经验/">移动端开发经验</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1:隐藏滚动条</p>
+<pre>
+    ::-webkit-scrollbar{
+        width:0px;
+    }
+</pre>
+
+<p>2:移动端字体</p>
+<pre>
+    font-family: 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
+</pre>
+3:tab菜单切换
+<pre>
+
+    &lt;div id=&quot;div1&quot;&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;ul&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">        </span>&lt;li id=&quot;0&quot;&gt;常用&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">        </span>&lt;li id=&quot;1&quot;&gt;学院&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">        </span>&lt;li id=&quot;2&quot;&gt;服务&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">        </span>
+
+    &lt;/div&gt;
+
+    &lt;div id=&quot;container&quot;&gt;
+
+    &lt;ul&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;1&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;2&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;3&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;4&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;5&lt;/li&gt;
+
+    &lt;/ul&gt;
+
+    &lt;ul&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;1&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;2&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;3&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;4&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;5&lt;/li&gt;
+
+    &lt;/ul&gt;
+
+    &lt;ul&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;1&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;2&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;3&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;4&lt;/li&gt;
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;5&lt;/li&gt;
+
+    &lt;/ul&gt;<span class="Apple-tab-span" style="white-space:pre">    </span>
+
+    &lt;/div&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+
+    document.getElementById(&#39;div1&#39;).addEventListener(&quot;click&quot;,haha,false);
+
+    function haha(ev){
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>var ul=document.getElementById(&#39;div1&#39;).getElementsByTagName(&#39;ul&#39;)[0];
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>var li=ul.getElementsByTagName(&#39;li&#39;);
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>var liLen=li.length;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>var ul2=document.getElementById(&#39;container&#39;).getElementsByTagName(&#39;ul&#39;);
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>for(i=0;i&lt;liLen;i++){
+
+    <span class="Apple-tab-span" style="white-space:pre">        </span>li[i].style.background=&quot;#eee&quot;;
+
+    <span class="Apple-tab-span" style="white-space:pre">        </span>ul2[i].style.display=&quot;none&quot;;
+
+    <span class="Apple-tab-span" style="white-space:pre">        </span>// console.log(ul2[i]);
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>}
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>// console.log(ev.target.nodeName.toLowerCase());
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>ev.target.style.background=&quot;white&quot;;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>// console.log(ev.target.id);
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>var id=ev.target.id;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>// console.log(id);
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>ul2[id].style.display=&quot;block&quot;;
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>
+
+    }
+
+    &lt;/script&gt;
+
+</pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-隐藏滚动条" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -182,7 +352,7 @@
       
         <pre>
     ::-webkit-scrollbar{
-        width:0px
+        width:0px;
     }
 </pre>
       
