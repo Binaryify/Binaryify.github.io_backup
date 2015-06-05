@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/6 | 阿发的藏宝库</title>
+  <title>HTML5图片预览和Filereader API | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿发的藏宝库">
-<meta property="og:url" content="http://yoursite.com/archives/2015/06/index.html">
+  <meta name="description" content="利用HTML5的Filereader可以获取input file 上传的图片的base64码,通过这个原理,可以进行图片预览">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5图片预览和Filereader API">
+<meta property="og:url" content="http://yoursite.com/2015/06/05/HTML5图片预览和Filereader-API/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description">
+<meta property="og:description" content="利用HTML5的Filereader可以获取input file 上传的图片的base64码,通过这个原理,可以进行图片预览">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿发的藏宝库">
-<meta name="twitter:description">
+<meta name="twitter:title" content="HTML5图片预览和Filereader API">
+<meta name="twitter:description" content="利用HTML5的Filereader可以获取input file 上传的图片的base64码,通过这个原理,可以进行图片预览">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -152,74 +152,86 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-HTML5图片预览和Filereader-API" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/06/05/HTML5图片预览和Filereader-API/" class="archive-article-date">
-  	<time datetime="2015-06-05T11:22:44.000Z" itemprop="datePublished">Jun 5</time>
+    <div class="article-meta">
+      <a href="/2015/06/05/HTML5图片预览和Filereader-API/" class="article-date">
+  	<time datetime="2015-06-05T11:22:44.000Z" itemprop="datePublished">2015-06-05</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/05/HTML5图片预览和Filereader-API/">HTML5图片预览和Filereader API</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5图片预览和Filereader API
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>利用HTML5的Filereader可以获取input file 上传的图片的base64码,通过这个原理,可以进行图片预览<br><a id="more"></a></p>
+<pre>
+    &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt; <br>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt; <br>&lt;head&gt; <br>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt; <br>&lt;title&gt;简单的html5 File测试 for pic2base64&lt;/title&gt; <br>&lt;style&gt; <br>&lt;/style&gt; <br>&lt;script&gt; <br>window.onload = function(){ <br>var input = document.getElementById(&quot;demo_input&quot;); <br>var result= document.getElementById(&quot;result&quot;); <br>var img_area = document.getElementById(&quot;img_area&quot;); <br>if ( typeof(FileReader) === &#39;undefined&#39; ){ <br>result.innerHTML = &quot;抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！&quot;; <br>input.setAttribute( &#39;disabled&#39;,&#39;disabled&#39; ); <br>} else { <br>input.addEventListener( &#39;change&#39;,readFile,false );} <br>} <br>function readFile(){ <br>var file = this.files[0]; <br>//这里我们判断下类型如果不是图片就返回 去掉就可以上传任意文件 <br>if(!/image\/\w+/.test(file.type)){ <br>alert(&quot;请确保文件为图像类型&quot;); <br>return false; <br>} <br>var reader = new FileReader(); <br>reader.readAsDataURL(file); <br>reader.onload = function(e){ <br>result.innerHTML = &#39;&lt;img src=&quot;&#39;+this.result+&#39;&quot; alt=&quot;&quot;/&gt;&#39;; <br>img_area.innerHTML = &#39;&lt;div class=&quot;sitetip&quot;&gt;图片img标签展示：&lt;/div&gt;&lt;img src=&quot;&#39;+this.result+&#39;&quot; alt=&quot;&quot;/&gt;&#39;; <br>} <br>} <br>&lt;/script&gt; <br>&lt;/head&gt; <br>&lt;body&gt; <br>&lt;input type=&quot;file&quot; value=&quot;sdgsdg&quot; id=&quot;demo_input&quot; /&gt; <br>&lt;textarea id=&quot;result&quot; rows=30 cols=300&gt;&lt;/textarea&gt; <br>&lt;p id=&quot;img_area&quot;&gt;&lt;/p&gt; <br>&lt;/body&gt; <br>&lt;/html&gt;&nbsp;
+</pre>
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/06/01/内联svg动画设置/" class="archive-article-date">
-  	<time datetime="2015-06-01T13:04:46.000Z" itemprop="datePublished">Jun 1</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/01/内联svg动画设置/">内联svg动画设置</a>
-    </h1>
   
+    <a href="/2015/06/01/内联svg动画设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">内联svg动画设置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="HTML5图片预览和Filereader-API" data-title="HTML5图片预览和Filereader API" data-url="http://yoursite.com/2015/06/05/HTML5图片预览和Filereader-API/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 </div>
       <footer id="footer">
   <div class="outer">
