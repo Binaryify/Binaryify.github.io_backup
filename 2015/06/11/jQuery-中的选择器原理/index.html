@@ -3,17 +3,47 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/6 | 阿发的藏宝库</title>
+  <title>jQuery 中的选择器原理 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿发的藏宝库">
-<meta property="og:url" content="http://yoursite.com/archives/2015/06/index.html">
+  <meta name="description" content="简单demo,核心代码:
+
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+
+    var $ = function(selector) {
+
+                return document.querySelector(selector);
+
+            }
+
+    $(&amp;#39;div&amp;#39;).addEv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery 中的选择器原理">
+<meta property="og:url" content="http://yoursite.com/2015/06/11/jQuery-中的选择器原理/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description">
+<meta property="og:description" content="简单demo,核心代码:
+
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+
+    var $ = function(selector) {
+
+                return document.querySelector(selector);
+
+            }
+
+    $(&amp;#39;div&amp;#39;).addEv">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿发的藏宝库">
-<meta name="twitter:description">
+<meta name="twitter:title" content="jQuery 中的选择器原理">
+<meta name="twitter:description" content="简单demo,核心代码:
+
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+
+    var $ = function(selector) {
+
+                return document.querySelector(selector);
+
+            }
+
+    $(&amp;#39;div&amp;#39;).addEv">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -152,128 +182,103 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-jQuery-中的选择器原理" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/06/11/jQuery-中的选择器原理/" class="article-date">
+  	<time datetime="2015-06-11T14:52:10.000Z" itemprop="datePublished">2015-06-11</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery 中的选择器原理
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/06/11/jQuery-中的选择器原理/" class="archive-article-date">
-  	<time datetime="2015-06-11T14:52:10.000Z" itemprop="datePublished">Jun 11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/11/jQuery-中的选择器原理/">jQuery 中的选择器原理</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单demo,核心代码:</p>
+<pre>
+    &lt;script type=&quot;text/javascript&quot;&gt;
 
-        <div class="article-info info-on-right">
-          
-          
+    var $ = function(selector) {
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    <span class="Apple-tab-span" style="white-space:pre">            </span>return document.querySelector(selector);
+
+    <span class="Apple-tab-span" style="white-space:pre">        </span>}
+
+    $(&#39;div&#39;).addEventListener(&quot;click&quot;,function(){
+
+    <span class="Apple-tab-span" style="white-space:pre">    </span>alert(&#39;haha&#39;);
+
+    },false);
+
+    &lt;/script&gt;
+</pre>
+
+<p>不是任何时候都适合用jQuery的,比如移动端,通过这行代码就可以实现jQuery的选择器了,大大减少代码量,如果不要求兼容性的话够用了(兼容IE8+,Chrome,firefox)</p>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/06/09/JavaScript的prototype/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript的prototype</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/06/09/JavaScript的prototype/" class="archive-article-date">
-  	<time datetime="2015-06-09T13:54:19.000Z" itemprop="datePublished">Jun 9</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/09/JavaScript的prototype/">JavaScript的prototype</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/06/05/HTML5图片预览和Filereader-API/" class="archive-article-date">
-  	<time datetime="2015-06-05T11:22:44.000Z" itemprop="datePublished">Jun 5</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/05/HTML5图片预览和Filereader-API/">HTML5图片预览和Filereader API</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/06/01/内联svg动画设置/" class="archive-article-date">
-  	<time datetime="2015-06-01T13:04:46.000Z" itemprop="datePublished">Jun 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/01/内联svg动画设置/">内联svg动画设置</a>
-    </h1>
-  
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="jQuery-中的选择器原理" data-title="jQuery 中的选择器原理" data-url="http://yoursite.com/2015/06/11/jQuery-中的选择器原理/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+
 </div>
       <footer id="footer">
   <div class="outer">
