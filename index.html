@@ -183,19 +183,19 @@
         <pre>
     &lt;script&gt;
 
-    function haha(name){
+    function funA(name){
 
     this.name=name;
 
     }
 
-    function hehe(){
+    function funB(){
 
     }
 
-    hehe.prototype=new haha(&quot;nima&quot;);
+    hehe.prototype=new funA(&quot;nima&quot;);
 
-    var ku=new hehe();
+    var ku=new funB();
 
     alert(ku.name);
 
