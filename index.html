@@ -180,86 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、Compass是什么？<br>简单说，Compass是Sass的工具库（toolkit）。<br>Sass本身只是一个编译器，Compass在它的基础上，封装了一系列有用的模块和模板，补充Sass的功能。它们之间的关系，有点像Javascript和jQuery、Ruby和Rails、python和Django的关系。<br>二、安装<br>Compass是用Ruby语言开发的，所以安装它之前，必须安装Ruby。<br>假定你的机器（Linux或OS X）已经安装好Ruby，那么在命令行模式下键入：</p>
-<pre>
-    sudo gem install compass
-</pre>
-如果你用的是Windows系统，那么要省略前面的sudo。
-正常情况下，Compass（连同Sass）就安装好了。
-<br>
-三、项目初始化
-接下来，要创建一个你的Compass项目，假定它的名字叫做myproject，那么在命令行键入：
-<pre>
-    compass create myproject
-</pre>
-进入该目录
-<pre>
-    cd myproject
-</pre>
-四、编译
-在写代码之前，我们还要知道如何编译。因为我们写出来的是后缀名为scss的文件，只有编译成css文件，才能用在网站上。
-<pre>
-    compass compile
-</pre>
-
-<p>该命令在项目根目录下运行，会将sass子目录中的scss文件，编译成css文件，保存在stylesheets子目录中。<br>默认状态下，编译出来的css文件带有大量的注释。但是，生产环境需要压缩后的css文件，这时要使用—output-style参数。</p>
-<pre>
-    compass compile --output-style compressed
-</pre>
-Compass只编译发生变动的文件，如果你要重新编译未变动的文件，需要使用--force参数
-
-除了一次性编译命令，compass还有自动编译命令
-<pre>
-　compass watch
-</pre>
-
-<p>运行该命令后，只要scss文件发生变化，就会被自动编译成css文件。</p>
-<p>以上内容引自阮一峰博客:<a href="http://www.ruanyifeng.com/blog/2012/11/compass.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/11/compass.html</a></p>
-<p>sass部分:<br>十分钟入门教程:<a href="http://www.w3cplus.com/sassguide/" target="_blank" rel="external">http://www.w3cplus.com/sassguide/</a></p>
-<p>例子:</p>
-<pre>
-@for $i from 1 through 5{
-        .item#{$i}{
-            width:#{$i*2}rem;
-            height:#{$i*5}rem;
-        }
-}
-</pre>
-
-<p>生成:</p>
-<pre>
-    /* line 2, ../sass/1.scss */
-.item1 {
-  width: 2rem;
-  height: 5rem;
-}
-
-/* line 2, ../sass/1.scss */
-.item2 {
-  width: 4rem;
-  height: 10rem;
-}
-
-/* line 2, ../sass/1.scss */
-.item3 {
-  width: 6rem;
-  height: 15rem;
-}
-
-/* line 2, ../sass/1.scss */
-.item4 {
-  width: 8rem;
-  height: 20rem;
-}
-
-/* line 2, ../sass/1.scss */
-.item5 {
-  width: 10rem;
-  height: 25rem;
-}
-
-</pre>
-
+        <p>一、Compass是什么？<br>简单说，Compass是Sass的工具库（toolkit）。<br>Sass本身只是一个编译器，Compass在它的基础上，封装了一系列有用的模块和模板，补充Sass的功能。它们之间的关系，有点像Javascript和jQuery、Ruby和Rails、python和Django的关系。<br>
       
     </div>
     
@@ -267,6 +188,10 @@ Compass只编译发生变动的文件，如果你要重新编译未变动的文�
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/06/15/sass笔记/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
