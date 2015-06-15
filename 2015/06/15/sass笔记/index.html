@@ -201,6 +201,24 @@
 <pre>
     cd myproject
 </pre>
+你会看到，里面有一个config.rb文件，这是你的项目的配置文件。还有两个子目录sass和stylesheets，前者存放Sass源文件，后者存放编译后的css文件。
+
+sass提供四个编译风格的选项：
+
+* nested：嵌套缩进的css代码，它是默认值。
+
+* expanded：没有缩进的、扩展的css代码。
+
+* compact：简洁格式的css代码。
+
+* compressed：压缩后的css代码。
+
+只需要在config.rb里设置
+<pre>
+    output_style = :expanded
+</pre>
+即可
+
 四、编译
 在写代码之前，我们还要知道如何编译。因为我们写出来的是后缀名为scss的文件，只有编译成css文件，才能用在网站上。
 <pre>
