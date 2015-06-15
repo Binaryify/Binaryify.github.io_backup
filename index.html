@@ -237,18 +237,29 @@
     &lt;script type=&quot;text/javascript&quot;&gt;
 
     var $ = function(selector) {
+return document.querySelector(selector);
+}
 
-    <span class="Apple-tab-span" style="white-space:pre">            </span>return document.querySelector(selector);
+    var $$ = function(selector) {
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>return document.querySelectorAll(selector);
 
     <span class="Apple-tab-span" style="white-space:pre">        </span>}
 
-    $(&#39;div&#39;).addEventListener(&quot;click&quot;,function(){
+    $(&#39;#div&#39;).addEventListener(&#39;click&#39;,function(){
 
-    <span class="Apple-tab-span" style="white-space:pre">    </span>alert(&#39;haha&#39;);
+    alert(&#39;1&#39;);
 
     },false);
 
+    $$(&#39;div&#39;)[0].onclick=function(){
+
+    alert(&#39;2&#39;);
+
+    }
+
     &lt;/script&gt;
+
 </pre>
 
 <p>不是任何时候都适合用jQuery的,比如移动端,通过这段代码就可以实现jQuery的选择器了(当然jQuey的实现比这复杂),大大减少代码量,如果不要求兼容性的话够用了(兼容IE8+,Chrome,firefox)</p>
