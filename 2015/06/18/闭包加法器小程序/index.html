@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>sass和compass笔记 | 阿发的藏宝库</title>
+  <title>闭包加法器小程序 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Compass是什么？简单说，Compass是Sass的工具库（toolkit）。Sass本身只是一个编译器，Compass在它的基础上，封装了一系列有用的模块和模板，补充Sass的功能。它们之间的关系，有点像Javascript和jQuery、Ruby和Rails、python和Django的关系。">
+  <meta name="description" content="闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性的。（所以推荐使用私有的，封装的局部变量。）一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sass和compass笔记">
-<meta property="og:url" content="http://yoursite.com/2015/06/15/sass笔记/index.html">
+<meta property="og:title" content="闭包加法器小程序">
+<meta property="og:url" content="http://yoursite.com/2015/06/18/闭包加法器小程序/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="一、Compass是什么？简单说，Compass是Sass的工具库（toolkit）。Sass本身只是一个编译器，Compass在它的基础上，封装了一系列有用的模块和模板，补充Sass的功能。它们之间的关系，有点像Javascript和jQuery、Ruby和Rails、python和Django的关系。">
+<meta property="og:description" content="闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性的。（所以推荐使用私有的，封装的局部变量。）一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sass和compass笔记">
-<meta name="twitter:description" content="一、Compass是什么？简单说，Compass是Sass的工具库（toolkit）。Sass本身只是一个编译器，Compass在它的基础上，封装了一系列有用的模块和模板，补充Sass的功能。它们之间的关系，有点像Javascript和jQuery、Ruby和Rails、python和Django的关系。">
+<meta name="twitter:title" content="闭包加法器小程序">
+<meta name="twitter:description" content="闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性的。（所以推荐使用私有的，封装的局部变量。）一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -152,11 +152,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-sass笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-闭包加法器小程序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/06/15/sass笔记/" class="article-date">
-  	<time datetime="2015-06-15T03:04:56.000Z" itemprop="datePublished">2015-06-15</time>
+      <a href="/2015/06/18/闭包加法器小程序/" class="article-date">
+  	<time datetime="2015-06-18T02:53:49.000Z" itemprop="datePublished">2015-06-18</time>
 </a>
     </div>
   
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      sass和compass笔记
+      闭包加法器小程序
     </h1>
   
 
@@ -185,104 +185,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、Compass是什么？<br>简单说，Compass是Sass的工具库（toolkit）。<br>Sass本身只是一个编译器，Compass在它的基础上，封装了一系列有用的模块和模板，补充Sass的功能。它们之间的关系，有点像Javascript和jQuery、Ruby和Rails、python和Django的关系。<br><a id="more"></a><br>二、安装<br>Compass是用Ruby语言开发的，所以安装它之前，必须安装Ruby。<br>假定你的机器（Linux或OS X）已经安装好Ruby，那么在命令行模式下键入：</p>
+        <p>闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性的。（所以推荐使用私有的，封装的局部变量。）一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同！</p>
+<p>简单来说闭包拥有三个特性：</p>
+<p>1.函数嵌套函数<br>2.函数内部可以引用外部的参数和变量<br>3.参数和变量不会被垃圾回收机制回收</p>
 <pre>
-    sudo gem install compass
-</pre>
-如果你用的是Windows系统，那么要省略前面的sudo。
-正常情况下，Compass（连同Sass）就安装好了。
-<br>
-三、项目初始化
-接下来，要创建一个你的Compass项目，假定它的名字叫做myproject，那么在命令行键入：
-<pre>
-    compass create myproject
-</pre>
-进入该目录
-<pre>
-    cd myproject
-</pre>
-你会看到，里面有一个config.rb文件，这是你的项目的配置文件。还有两个子目录sass和stylesheets，前者存放Sass源文件，后者存放编译后的css文件。
 
-sass提供四个编译风格的选项：
+    &lt;script type=&quot;text/javascript&quot;&gt;
 
-* nested：嵌套缩进的css代码，它是默认值。
-
-* expanded：没有缩进的、扩展的css代码。
-
-* compact：简洁格式的css代码。
-
-* compressed：压缩后的css代码。
-
-只需要在config.rb里设置
-<pre>
-    output_style = :expanded
-</pre>
-即可
-<br>
-四、编译
-在写代码之前，我们还要知道如何编译。因为我们写出来的是后缀名为scss的文件，只有编译成css文件，才能用在网站上。
-<pre>
-    compass compile
-</pre>
-
-<p>该命令在项目根目录下运行，会将sass子目录中的scss文件，编译成css文件，保存在stylesheets子目录中。<br>默认状态下，编译出来的css文件带有大量的注释。但是，生产环境需要压缩后的css文件，这时要使用—output-style参数。</p>
-<pre>
-    compass compile --output-style compressed
-</pre>
-Compass只编译发生变动的文件，如果你要重新编译未变动的文件，需要使用--force参数
-
-除了一次性编译命令，compass还有自动编译命令
-<pre>
-　compass watch
-</pre>
-
-<p>运行该命令后，只要scss文件发生变化，就会被自动编译成css文件。</p>
-<p>以上内容引自阮一峰博客:<a href="http://www.ruanyifeng.com/blog/2012/11/compass.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/11/compass.html</a></p>
-<p>sass部分:<br>十分钟入门教程:<a href="http://www.w3cplus.com/sassguide/" target="_blank" rel="external">http://www.w3cplus.com/sassguide/</a></p>
-<p>例子:</p>
-<pre>
-@for $i from 1 through 5{
-        .item#{$i}{
-            width:#{$i*2}rem;
-            height:#{$i*5}rem;
-        }
-}
-</pre>
-
-<p>生成:</p>
-<pre>
-    /* line 2, ../sass/1.scss */
-.item1 {
-  width: 2rem;
-  height: 5rem;
+    function f1(){
+var i=0;
+iadd=function(n){
+i+=n;
 }
 
-/* line 2, ../sass/1.scss */
-.item2 {
-  width: 4rem;
-  height: 10rem;
+ return function f2(){
+alert(i);
 }
 
-/* line 2, ../sass/1.scss */
-.item3 {
-  width: 6rem;
-  height: 15rem;
-}
+    }
 
-/* line 2, ../sass/1.scss */
-.item4 {
-  width: 8rem;
-  height: 20rem;
-}
+    var result=f1();
 
-/* line 2, ../sass/1.scss */
-.item5 {
-  width: 10rem;
-  height: 25rem;
-}
+    result();
+
+    iadd(20);
+
+    result();
+
+    &lt;/script&gt;
 
 </pre>
-
       
     </div>
     
@@ -291,18 +223,9 @@ Compass只编译发生变动的文件，如果你要重新编译未变动的文�
     
 <nav id="article-nav">
   
-    <a href="/2015/06/18/闭包加法器小程序/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          闭包加法器小程序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/06/11/简单实现jQuery 中的选择器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">简单实现jQuery 中的选择器</div>
+    <a href="/2015/06/15/sass笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sass和compass笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -316,7 +239,7 @@ Compass只编译发生变动的文件，如果你要重新编译未变动的文�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="sass笔记" data-title="sass和compass笔记" data-url="http://yoursite.com/2015/06/15/sass笔记/"></div>
+	<div class="ds-thread" data-thread-key="闭包加法器小程序" data-title="闭包加法器小程序" data-url="http://yoursite.com/2015/06/18/闭包加法器小程序/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
