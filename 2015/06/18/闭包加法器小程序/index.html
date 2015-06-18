@@ -194,26 +194,26 @@
     &lt;script type=&quot;text/javascript&quot;&gt;
 
     function f1(){
-    var i=0;
-    iadd=function(n){
-    i+=n;
-    }
+       var i=0;
+       iadd=function(n){
+       i+=n;
+       }
 
-     return function f2(){
-    alert(i);
-    }
+       return function f2(){
+       alert(i);
+       }
 
-    }
+     }
 
-    var result=f1();
+     var result=f1();
 
-    result();
+     result();
 
-    iadd(20);
+     iadd(20);
 
-    result();
+     result();
 
-    &lt;/script&gt;
+     &lt;/script&gt;
 
 </pre>
       
