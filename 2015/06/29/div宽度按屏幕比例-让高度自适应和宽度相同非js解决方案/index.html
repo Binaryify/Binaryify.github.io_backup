@@ -187,37 +187,25 @@
       
         <p>纯css伪元素:<br><a id="more"></a></p>
 <pre>
-    body {
+    div{
 
-    &nbsp; width: 100%;
+    <span class="Apple-tab-span" style="white-space:pre">        </span>width: 20%;
 
-    &nbsp; font-size: 0;
+    <span class="Apple-tab-span" style="white-space:pre">        </span>background-color: green;
 
-    &nbsp; text-align: center;
+    <span class="Apple-tab-span" style="white-space:pre">        </span>display: inline-block;
 
-    }
+    <span class="Apple-tab-span" style="white-space:pre">    </span>}
 
-    div {
+    <span class="Apple-tab-span" style="white-space:pre">    </span>div:before{
 
-    &nbsp; display: inline-block;
+    <span class="Apple-tab-span" style="white-space:pre">        </span>content:&quot;&quot;;
 
-    &nbsp; width: 20%;
+    <span class="Apple-tab-span" style="white-space:pre">        </span>padding-bottom: 100%;
 
-    &nbsp; background: green;
+    <span class="Apple-tab-span" style="white-space:pre">        </span>display: inline-block;
 
-    &nbsp; position: relative;
-
-    }
-
-    div:before {
-
-    &nbsp; content: &quot;&quot;;
-
-    &nbsp; display: inline-block;
-
-    &nbsp; padding-bottom: 100%;
-
-    }
+    <span class="Apple-tab-span" style="white-space:pre">    </span>}
 </pre>
 
 <p>主要用到了padding-bottom 这个属性<br>设置padding-bottom值来计算div的纵横比例。如果宽高比是4:3，设置padding-bottom值为75%；如果是1:1,则为100%;</p>
