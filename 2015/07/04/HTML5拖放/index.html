@@ -3,17 +3,59 @@
 <head>
   <meta charset="utf-8">
   
-  <title>总算弄好了 | 阿发的藏宝库</title>
+  <title>HTML5拖放 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="花了两天研究github,总算弄好了博客.本人记性较差,开此博客一是备忘,二是通过简单的demo让人更能理解HTML5各种效果的原理">
+  <meta name="description" content="demo:http://senguzh.com/zhuangtongfa/demo/drag.php源码:
+
+    &amp;lt;!DOCTYPE HTML&amp;gt;
+
+
+    &amp;lt;html&amp;gt;
+
+
+    &amp;lt;title&amp;gt;HTML5拖动demo&amp;lt;/title&amp;gt;
+
+
+    &amp;lt;head&amp;gt;
+
+
+    &amp;nbsp; &amp;nbsp; &amp;lt;meta name=&amp;q">
 <meta property="og:type" content="article">
-<meta property="og:title" content="总算弄好了">
-<meta property="og:url" content="http://yoursite.com/2015/05/06/总算弄好了/index.html">
+<meta property="og:title" content="HTML5拖放">
+<meta property="og:url" content="http://yoursite.com/2015/07/04/HTML5拖放/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="花了两天研究github,总算弄好了博客.本人记性较差,开此博客一是备忘,二是通过简单的demo让人更能理解HTML5各种效果的原理">
+<meta property="og:description" content="demo:http://senguzh.com/zhuangtongfa/demo/drag.php源码:
+
+    &amp;lt;!DOCTYPE HTML&amp;gt;
+
+
+    &amp;lt;html&amp;gt;
+
+
+    &amp;lt;title&amp;gt;HTML5拖动demo&amp;lt;/title&amp;gt;
+
+
+    &amp;lt;head&amp;gt;
+
+
+    &amp;nbsp; &amp;nbsp; &amp;lt;meta name=&amp;q">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="总算弄好了">
-<meta name="twitter:description" content="花了两天研究github,总算弄好了博客.本人记性较差,开此博客一是备忘,二是通过简单的demo让人更能理解HTML5各种效果的原理">
+<meta name="twitter:title" content="HTML5拖放">
+<meta name="twitter:description" content="demo:http://senguzh.com/zhuangtongfa/demo/drag.php源码:
+
+    &amp;lt;!DOCTYPE HTML&amp;gt;
+
+
+    &amp;lt;html&amp;gt;
+
+
+    &amp;lt;title&amp;gt;HTML5拖动demo&amp;lt;/title&amp;gt;
+
+
+    &amp;lt;head&amp;gt;
+
+
+    &amp;nbsp; &amp;nbsp; &amp;lt;meta name=&amp;q">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -152,11 +194,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-总算弄好了" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-HTML5拖放" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/05/06/总算弄好了/" class="article-date">
-  	<time datetime="2015-05-06T09:15:35.000Z" itemprop="datePublished">2015-05-06</time>
+      <a href="/2015/07/04/HTML5拖放/" class="article-date">
+  	<time datetime="2015-07-04T11:07:57.000Z" itemprop="datePublished">2015-07-04</time>
 </a>
     </div>
   
@@ -169,7 +211,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      总算弄好了
+      HTML5拖放
     </h1>
   
 
@@ -185,7 +227,91 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>花了两天研究github,总算弄好了博客.本人记性较差,开此博客一是备忘,二是通过简单的demo让人更能理解HTML5各种效果的原理</p>
+        <p>demo:<a href="http://senguzh.com/zhuangtongfa/demo/drag.php" target="_blank" rel="external">http://senguzh.com/zhuangtongfa/demo/drag.php</a><br>源码:</p>
+<pre>
+    &lt;!DOCTYPE HTML&gt;
+
+
+    &lt;html&gt;
+
+
+    &lt;title&gt;HTML5拖动demo&lt;/title&gt;
+
+
+    &lt;head&gt;
+
+
+    &nbsp; &nbsp; &lt;meta name=&quot;name&quot; content=&quot;content&quot; charset=&quot;utf-8&quot;&gt;
+
+
+    &nbsp; &nbsp; &lt;style type=&quot;text/css&quot;&gt;
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; * {
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: rgba(0, 0, 0, .6);
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; #div1 {
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 488px;
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 70px;
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 10px;
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 1px solid rgba(0, 0, 0, .6);
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &lt;/style&gt;
+
+    &nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot;&gt;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; function allowDrop(ev) {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.preventDefault();
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &nbsp; &nbsp; function drag(ev) {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.dataTransfer.setData(&quot;dom&quot;, ev.target.id);
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &nbsp; &nbsp; function drop(ev) {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.preventDefault();
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var data = ev.dataTransfer.getData(&quot;dom&quot;);
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.target.appendChild(document.getElementById(data));
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &lt;/script&gt;
+
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+    &nbsp; &nbsp; &lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
+
+    &nbsp; &nbsp; &lt;h1 id=&quot;hid&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot;&gt;我是文字,请拖动我到框里&lt;/h1&gt;
+
+    &lt;/body&gt;
+
+    &lt;/html&gt;
+</pre>
 
       
     </div>
@@ -195,15 +321,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/05/14/设计出色响应式网站的十个技巧/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          设计出色响应式网站的十个技巧
-        
-      </div>
-    </a>
   
+    <a href="/2015/06/29/div宽度按屏幕比例-让高度自适应和宽度相同非js解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">div宽度按屏幕比例,让高度自适应和宽度相同非js解决方案</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -215,7 +337,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="总算弄好了" data-title="总算弄好了" data-url="http://yoursite.com/2015/05/06/总算弄好了/"></div>
+	<div class="ds-thread" data-thread-key="HTML5拖放" data-title="HTML5拖放" data-url="http://yoursite.com/2015/07/04/HTML5拖放/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

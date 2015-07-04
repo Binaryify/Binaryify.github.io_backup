@@ -154,6 +154,139 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-HTML5拖放" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/04/HTML5拖放/" class="article-date">
+  	<time datetime="2015-07-04T11:07:57.000Z" itemprop="datePublished">2015-07-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/04/HTML5拖放/">HTML5拖放</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>demo:<a href="http://senguzh.com/zhuangtongfa/demo/drag.php" target="_blank" rel="external">http://senguzh.com/zhuangtongfa/demo/drag.php</a><br>源码:</p>
+<pre>
+    &lt;!DOCTYPE HTML&gt;
+
+
+    &lt;html&gt;
+
+
+    &lt;title&gt;HTML5拖动demo&lt;/title&gt;
+
+
+    &lt;head&gt;
+
+
+    &nbsp; &nbsp; &lt;meta name=&quot;name&quot; content=&quot;content&quot; charset=&quot;utf-8&quot;&gt;
+
+
+    &nbsp; &nbsp; &lt;style type=&quot;text/css&quot;&gt;
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; * {
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: rgba(0, 0, 0, .6);
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; #div1 {
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 488px;
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 70px;
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 10px;
+
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 1px solid rgba(0, 0, 0, .6);
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &lt;/style&gt;
+
+    &nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot;&gt;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; function allowDrop(ev) {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.preventDefault();
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &nbsp; &nbsp; function drag(ev) {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.dataTransfer.setData(&quot;dom&quot;, ev.target.id);
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &nbsp; &nbsp; function drop(ev) {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.preventDefault();
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var data = ev.dataTransfer.getData(&quot;dom&quot;);
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.target.appendChild(document.getElementById(data));
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &lt;/script&gt;
+
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+    &nbsp; &nbsp; &lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
+
+    &nbsp; &nbsp; &lt;h1 id=&quot;hid&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot;&gt;我是文字,请拖动我到框里&lt;/h1&gt;
+
+    &lt;/body&gt;
+
+    &lt;/html&gt;
+</pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-div宽度按屏幕比例-让高度自适应和宽度相同非js解决方案" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1643,7 +1776,7 @@ var length = path.getTotalLength();
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>花了两天研究github,总算弄好了博客</p>
+        <p>花了两天研究github,总算弄好了博客.本人记性较差,开此博客一是备忘,二是通过简单的demo让人更能理解HTML5各种效果的原理</p>
 
       
     </div>
