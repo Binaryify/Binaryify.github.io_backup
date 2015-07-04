@@ -180,92 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>demo:<a href="http://senguzh.com/zhuangtongfa/demo/drag.php" target="_blank" rel="external">http://senguzh.com/zhuangtongfa/demo/drag.php</a><br>源码:</p>
-<pre>
-    &lt;!DOCTYPE HTML&gt;
-
-
-    &lt;html&gt;
-
-
-    &lt;title&gt;HTML5拖动demo&lt;/title&gt;
-
-
-    &lt;head&gt;
-
-
-    &nbsp; &nbsp; &lt;meta name=&quot;name&quot; content=&quot;content&quot; charset=&quot;utf-8&quot;&gt;
-
-
-    &nbsp; &nbsp; &lt;style type=&quot;text/css&quot;&gt;
-
-
-    &nbsp; &nbsp; &nbsp; &nbsp; * {
-
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: rgba(0, 0, 0, .6);
-
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-
-    &nbsp; &nbsp; &nbsp; &nbsp; #div1 {
-
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 488px;
-
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 70px;
-
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 10px;
-
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 1px solid rgba(0, 0, 0, .6);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &lt;/style&gt;
-
-    &nbsp; &nbsp; &lt;script type=&quot;text/javascript&quot;&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; function allowDrop(ev) {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.preventDefault();
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; function drag(ev) {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.dataTransfer.setData(&quot;dom&quot;, ev.target.id);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; function drop(ev) {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.preventDefault();
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var data = ev.dataTransfer.getData(&quot;dom&quot;);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ev.target.appendChild(document.getElementById(data));
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &lt;/script&gt;
-
-    &lt;/head&gt;
-
-    &lt;body&gt;
-
-    &nbsp; &nbsp; &lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot; ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
-
-    &nbsp; &nbsp; &lt;h1 id=&quot;hid&quot; draggable=&quot;true&quot; ondragstart=&quot;drag(event)&quot;&gt;我是文字,请拖动我到框里&lt;/h1&gt;
-
-    &lt;/body&gt;
-
-    &lt;/html&gt;
-</pre>
-
+        <p>demo:<a href="http://senguzh.com/zhuangtongfa/demo/drag.php">http://senguzh.com/zhuangtongfa/demo/drag.php</a><br>源码:
       
     </div>
     
@@ -273,6 +188,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/04/HTML5拖放/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
