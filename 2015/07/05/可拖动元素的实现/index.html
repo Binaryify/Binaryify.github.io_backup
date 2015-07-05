@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>nodejs启动服务器demo | 阿发的藏宝库</title>
+  <title>可拖动元素的实现 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="源码:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nodejs启动服务器demo">
-<meta property="og:url" content="http://yoursite.com/2015/07/05/几行代码构建nodejs服务器/index.html">
+<meta property="og:title" content="可拖动元素的实现">
+<meta property="og:url" content="http://yoursite.com/2015/07/05/可拖动元素的实现/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
 <meta property="og:description" content="源码:">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nodejs启动服务器demo">
+<meta name="twitter:title" content="可拖动元素的实现">
 <meta name="twitter:description" content="源码:">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
@@ -152,11 +152,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-几行代码构建nodejs服务器" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-可拖动元素的实现" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/05/几行代码构建nodejs服务器/" class="article-date">
-  	<time datetime="2015-07-05T01:06:22.000Z" itemprop="datePublished">2015-07-05</time>
+      <a href="/2015/07/05/可拖动元素的实现/" class="article-date">
+  	<time datetime="2015-07-05T14:54:52.000Z" itemprop="datePublished">2015-07-05</time>
 </a>
     </div>
   
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      nodejs启动服务器demo
+      可拖动元素的实现
     </h1>
   
 
@@ -186,12 +186,81 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>源码:<br><a id="more"></a></p>
-<p><pre><br>    var http= require(&#39;http&#39;);<br>    var server= http.createServer(function(req, res){<br>    &nbsp; res.writeHead(200,{ &#39;Content-Type&#39;: &#39;text/html&#39; });<br>    &nbsp; res.end(&#39;&lt;h1&gt;test&lt;/h1&gt;&#39;);<br>    });<br>    server.listen(8080);<br>    console.log(&quot;服务器启动…8080端口&quot;);</pre></p>
-<p><br>使用方法:<br>保存源码为:server.js,使用</p>
 <pre>
+    &lt;!DOCTYPE html&gt;
 
-<p>node server.js</p>
-<p></p></pre><br>命令即可(如没安装nodejs需要自行安装,在此不具体介绍),地址栏输入127.0.0.1:8080或者ip:8080<p></p>
+    &lt;html&gt;
+
+    &lt;head&gt;
+
+    &nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
+
+    &nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
+
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+    &nbsp; &nbsp; &lt;style&gt;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; div {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 300px;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 300px;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: absolute;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; top: 300px;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; left: 300px;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &lt;/style&gt;
+
+    &nbsp; &nbsp; &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+
+    &nbsp; &nbsp; &lt;script&gt;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; var $ = function(id) {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return document.getElementById(id);
+
+    &nbsp; &nbsp; &nbsp; &nbsp; };
+
+    &nbsp; &nbsp; &nbsp; &nbsp; var o = $(&quot;div1&quot;);
+
+    &nbsp; &nbsp; &nbsp; &nbsp; o.onmousedown = function(e) {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x = e.clientX - o.offsetLeft;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y = e.clientY - o.offsetTop;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o.onmousemove = function(e) {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o.style.left = e.clientX - x + &quot;px&quot;;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o.style.top = e.clientY - y + &quot;px&quot;;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o.onmouseup = function() {
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o.onmousemove = false;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };
+
+    &nbsp; &nbsp; &nbsp; &nbsp; };
+
+    &nbsp; &nbsp; &lt;/script&gt;
+
+    &lt;/body&gt;
+
+    &lt;/html&gt;
+</pre>
 
       
     </div>
@@ -201,18 +270,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/07/05/可拖动元素的实现/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          可拖动元素的实现
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/04/HTML5拖放/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5拖放</div>
+    <a href="/2015/07/05/几行代码构建nodejs服务器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nodejs启动服务器demo</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -226,7 +286,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="几行代码构建nodejs服务器" data-title="nodejs启动服务器demo" data-url="http://yoursite.com/2015/07/05/几行代码构建nodejs服务器/"></div>
+	<div class="ds-thread" data-thread-key="可拖动元素的实现" data-title="可拖动元素的实现" data-url="http://yoursite.com/2015/07/05/可拖动元素的实现/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
