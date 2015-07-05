@@ -186,15 +186,22 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>源码:<br><a id="more"></a></p>
-<p><pre></pre></p>
-<p></p><p><br>    var http= require(&#39;http&#39;);<br></p><p></p>
-<p></p><p><br>    var server= http.createServer(function(req, res){<br></p><p></p>
-<p></p><p><br>    &nbsp; res.writeHead(200,{ &#39;Content-Type&#39;: &#39;text/html&#39; });<br></p><p></p>
-<p></p><p><br>    &nbsp; res.end(&#39;&lt;h1&gt;test&lt;/h1&gt;&#39;);<br></p><p></p>
-<p></p><p><br>    });<br></p><p></p>
-<p></p><p><br>    server.listen(8080);<br></p><p></p>
-<p></p><p><br>    console.log(&quot;服务器启动…8080端口&quot;);<br></p><p></p>
-<p></p><p><br>    <br><br></p><br><br>使用方法:<br>保存源码为:server.js,使用<p></p>
+<pre>
+
+<pre><code><span class="built_in">var</span> http<span class="subst">=</span> <span class="keyword">require</span>(<span class="subst">&amp;</span><span class="variable">#39</span>;http<span class="subst">&amp;</span><span class="variable">#39</span>;);
+
+<span class="built_in">var</span> server<span class="subst">=</span> http<span class="built_in">.</span>createServer(function(req, res){
+
+<span class="subst">&amp;</span>nbsp; res<span class="built_in">.</span>writeHead(<span class="number">200</span>,{ <span class="subst">&amp;</span><span class="variable">#39</span>;Content<span class="attribute">-Type</span><span class="subst">&amp;</span><span class="variable">#39</span>;: <span class="subst">&amp;</span><span class="variable">#39</span>;text/html<span class="subst">&amp;</span><span class="variable">#39</span>; });
+
+<span class="subst">&amp;</span>nbsp; res<span class="built_in">.</span>end(<span class="subst">&amp;</span><span class="variable">#39</span>;<span class="subst">&amp;</span><span class="literal">lt</span>;h1<span class="subst">&amp;</span><span class="literal">gt</span>;test<span class="subst">&amp;</span><span class="literal">lt</span>;/h1<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="subst">&amp;</span><span class="variable">#39</span>;);
+
+});
+
+server<span class="built_in">.</span>listen(<span class="number">8080</span>);
+
+console<span class="built_in">.</span><span class="keyword">log</span>(<span class="subst">&amp;</span>quot;服务器启动<span class="attribute">...</span><span class="number">8080</span>端口<span class="subst">&amp;</span>quot;);
+</code></pre><p></p></pre><br>使用方法:<br>保存源码为:server.js,使用<p></p>
 <pre>
 
 <p>node server.js</p>
