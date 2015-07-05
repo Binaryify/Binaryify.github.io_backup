@@ -186,13 +186,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>源码:<br><a id="more"></a></p>
-<p><pre><br>var http= require(‘http’);</pre></p>
-<p>var server= http.createServer(function(req, res){</p>
-<p>  res.writeHead(200,{ ‘Content-Type’: ‘text/html’ });</p>
-<p>  res.end(‘</p><h1>test</h1>‘);<p></p>
-<p>});</p>
-<p>server.listen(8080);</p>
-<p>console.log(“服务器启动…8080端口”);<br><br>使用方法:<br>保存源码为:server.js,使用</p>
+<p><pre><br>var http= require(‘http’);<br>var server= http.createServer(function(req, res){<br>  res.writeHead(200,{ ‘Content-Type’: ‘text/html’ });<br>  res.end(‘<h1>test</h1>‘);<br>});<br>server.listen(8080);<br>console.log(“服务器启动…8080端口”);<br></pre><br>使用方法:<br>保存源码为:server.js,使用</p>
 <pre>
 
 <p>node server.js</p>
