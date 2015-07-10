@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>可拖动元素的实现 | 阿发的藏宝库</title>
+  <title>简易柱形图demo | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="源码:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="可拖动元素的实现">
-<meta property="og:url" content="http://yoursite.com/2015/07/05/可拖动元素的实现/index.html">
+<meta property="og:title" content="简易柱形图demo">
+<meta property="og:url" content="http://yoursite.com/2015/07/10/简易柱形图demo/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
 <meta property="og:description" content="源码:">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="可拖动元素的实现">
+<meta name="twitter:title" content="简易柱形图demo">
 <meta name="twitter:description" content="源码:">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
@@ -152,11 +152,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-可拖动元素的实现" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-简易柱形图demo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/05/可拖动元素的实现/" class="article-date">
-  	<time datetime="2015-07-05T14:54:52.000Z" itemprop="datePublished">2015-07-05</time>
+      <a href="/2015/07/10/简易柱形图demo/" class="article-date">
+  	<time datetime="2015-07-10T14:29:46.000Z" itemprop="datePublished">2015-07-10</time>
 </a>
     </div>
   
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      可拖动元素的实现
+      简易柱形图demo
     </h1>
   
 
@@ -195,7 +195,7 @@
 
     &nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
 
-    &nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
+    &nbsp; &nbsp; &lt;title&gt;柱形图&lt;/title&gt;
 
     &lt;/head&gt;
 
@@ -203,59 +203,103 @@
 
     &nbsp; &nbsp; &lt;style&gt;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; div {
+    &nbsp; &nbsp; &nbsp; &nbsp; #container{
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 300px;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 400px;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 300px;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 400px;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: transparent;
 
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: absolute;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; top: 300px;
-
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; left: 300px;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 30px;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &nbsp; &nbsp; #box{
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 30px;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 30px;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: red;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: absolute;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 0;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transition: 1s background-color;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /*text-align: center;*/
+
+    &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &nbsp; &nbsp; #box:after{
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; content:&#39;&#39;;
 
     &nbsp; &nbsp; &nbsp; &nbsp; }
 
     &nbsp; &nbsp; &lt;/style&gt;
 
-    &nbsp; &nbsp; &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;container&quot;&gt;&lt;div id=&quot;box&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &nbsp; &nbsp; &lt;script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; var $ = function(id) {
+    &nbsp; &nbsp; (function(){
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return document.getElementById(id);
+    &nbsp; &nbsp; &nbsp; &nbsp; var div=document.getElementById(&#39;box&#39;);
 
-    &nbsp; &nbsp; &nbsp; &nbsp; };
+    &nbsp; &nbsp; &nbsp; &nbsp; // div.style.transs
 
-    &nbsp; &nbsp; &nbsp; &nbsp; var o = $(&quot;div1&quot;);
+    &nbsp; &nbsp; &nbsp; &nbsp; var ss=setInterval(function(){
 
-    &nbsp; &nbsp; &nbsp; &nbsp; o.onmousedown = function(e) {
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h=getComputedStyle(div);
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x = e.clientX - o.offsetLeft;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var hh=parseInt(h.height);
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y = e.clientY - o.offsetTop;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var p=div.getElementsByTagName(&#39;p&#39;)[0];
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o.onmousemove = function(e) {
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.height=hh+3+&#39;px&#39;;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o.style.left = e.clientX - x + &quot;px&quot;;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // if(hh&gt;70){
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o.style.top = e.clientY - y + &quot;px&quot;;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // &nbsp; &nbsp; div.style.backgroundColor=&quot;yellow&quot;;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // }
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o.onmouseup = function() {
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.color=&#39;black&#39;;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; o.onmousemove = false;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p.innerHTML=parseInt(hh/300*100-1)+&#39;%&#39;;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p.style.position=&quot;absolute&quot;;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; };
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p.style.bottom=&#39;-35px&#39;;
 
-    &nbsp; &nbsp; &lt;/script&gt;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // div.style.lineHeight=hh+&#39;px&#39;;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.textAlign=&#39;center&#39;;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(hh&gt;100){
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.backgroundColor=&quot;green&quot;;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(hh&gt;300){
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(ss);
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+
+    &nbsp; &nbsp; &nbsp; &nbsp; },5)
+
+    &nbsp; &nbsp; })()
+
+    &lt;/script&gt;
 
     &lt;/body&gt;
 
@@ -270,18 +314,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/07/10/简易柱形图demo/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          简易柱形图demo
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/05/几行代码构建nodejs服务器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">nodejs启动服务器demo</div>
+    <a href="/2015/07/05/可拖动元素的实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">可拖动元素的实现</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -295,7 +330,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="可拖动元素的实现" data-title="可拖动元素的实现" data-url="http://yoursite.com/2015/07/05/可拖动元素的实现/"></div>
+	<div class="ds-thread" data-thread-key="简易柱形图demo" data-title="简易柱形图demo" data-url="http://yoursite.com/2015/07/10/简易柱形图demo/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
