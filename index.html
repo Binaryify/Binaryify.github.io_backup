@@ -180,63 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>源码:</p>
-<pre>
-&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
-
-&lt;head&gt;
-
-&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
-
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&nbsp; &nbsp; &lt;ul id=&quot;ul&quot;&gt;
-
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
-
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
-
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
-
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
-
-&nbsp; &nbsp; &lt;/ul&gt;
-
-&nbsp; &nbsp; &lt;script&gt;
-
-&nbsp; &nbsp; var Ul=document.getElementById(&quot;ul&quot;);
-
-&nbsp; &nbsp; var Lis=Ul.getElementsByTagName(&quot;li&quot;);
-
-&nbsp; &nbsp; 　　for(var i=0;i&lt;Lis.length;i++){
-
-&nbsp; &nbsp; &nbsp;Lis[i].onclick=(function(i){
-
-&nbsp; &nbsp; &nbsp;　　return function(){
-
-&nbsp; &nbsp; &nbsp;　　　　alert(&quot;我是第&quot;+(i+1)+&quot;个list&quot;);
-
-&nbsp; &nbsp; &nbsp;　　}
-
-&nbsp; &nbsp; &nbsp;}(i))
-
-&nbsp; &nbsp; 　　}
-
-&nbsp; &nbsp; &lt;/script&gt;
-
-&lt;/body&gt;
-
-&lt;/html&gt;
-</pre>
-
-<p>原理:通过循环和闭包传参让每一个li的i数值不同</p>
-
+        <p>源码:<br>
       
     </div>
     
@@ -244,6 +188,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/15/闭包判断点击具体li/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
