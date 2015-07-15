@@ -154,6 +154,110 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-闭包判断点击具体li" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/15/闭包判断点击具体li/" class="article-date">
+  	<time datetime="2015-07-15T03:27:18.000Z" itemprop="datePublished">2015-07-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/15/闭包判断点击具体li/">闭包判断点击具体li</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>源码:</p>
+<pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+&lt;head&gt;
+
+&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
+
+&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&nbsp; &nbsp; &lt;ul id=&quot;ul&quot;&gt;
+
+&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
+
+&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
+
+&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
+
+&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
+
+&nbsp; &nbsp; &lt;/ul&gt;
+
+&nbsp; &nbsp; &lt;script&gt;
+
+&nbsp; &nbsp; var Ul=document.getElementById(&quot;ul&quot;);
+
+&nbsp; &nbsp; var Lis=Ul.getElementsByTagName(&quot;li&quot;);
+
+&nbsp; &nbsp; 　　for(var i=0;i&lt;Lis.length;i++){
+
+&nbsp; &nbsp; &nbsp;Lis[i].onclick=(function(i){
+
+&nbsp; &nbsp; &nbsp;　　return function(){
+
+&nbsp; &nbsp; &nbsp;　　　　alert(&quot;我是第&quot;+(i+1)+&quot;个list&quot;);
+
+&nbsp; &nbsp; &nbsp;　　}
+
+&nbsp; &nbsp; &nbsp;}(i))
+
+&nbsp; &nbsp; 　　}
+
+&nbsp; &nbsp; &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+<p>原理:通过循环和闭包传参让每一个li的i数值不同</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-简易柱形图demo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1704,60 +1808,6 @@ var length = path.getTotalLength();
       
         <p class="article-more-link">
           <a  href="/2015/05/14/transform中的Matrix-矩阵/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-我的前端笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/14/我的前端笔记/" class="article-date">
-  	<time datetime="2015-05-14T01:55:01.000Z" itemprop="datePublished">2015-05-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/14/我的前端笔记/">我的前端笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、微信不支持onepagescroll，改用fullpage。</p>
-<p>2、安卓版的微信不支持动画从%过度到px，统一用一种单位。</p>
-<p>适当使用visibility:hidden！避免不必要的渲染<br>img src 比 background 方式展示图片，使用到的内存资源可能会更多
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/05/14/我的前端笔记/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
