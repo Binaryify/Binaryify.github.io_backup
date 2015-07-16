@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>闭包判断点击具体li | 阿发的藏宝库</title>
+  <title>原生js实现回到顶部 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="源码:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闭包判断点击具体li">
-<meta property="og:url" content="http://yoursite.com/2015/07/15/闭包判断点击具体li/index.html">
+<meta property="og:title" content="原生js实现回到顶部">
+<meta property="og:url" content="http://yoursite.com/2015/07/16/原生js实现回到顶部/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
 <meta property="og:description" content="源码:">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闭包判断点击具体li">
+<meta name="twitter:title" content="原生js实现回到顶部">
 <meta name="twitter:description" content="源码:">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
@@ -152,11 +152,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-闭包判断点击具体li" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-原生js实现回到顶部" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/15/闭包判断点击具体li/" class="article-date">
-  	<time datetime="2015-07-15T03:27:18.000Z" itemprop="datePublished">2015-07-15</time>
+      <a href="/2015/07/16/原生js实现回到顶部/" class="article-date">
+  	<time datetime="2015-07-16T11:27:39.000Z" itemprop="datePublished">2015-07-16</time>
 </a>
     </div>
   
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      闭包判断点击具体li
+      原生js实现回到顶部
     </h1>
   
 
@@ -201,37 +201,79 @@
 
 &lt;body&gt;
 
-&nbsp; &nbsp; &lt;ul id=&quot;ul&quot;&gt;
+&nbsp; &nbsp; &lt;style media=&quot;screen&quot;&gt;
 
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; body {
 
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 3000px;
 
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 80%;
 
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; }
 
-&nbsp; &nbsp; &lt;/ul&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; div {
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 50px;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 50px;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: fixed;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; right: 10px;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 10px;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display: none;
+
+&nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; &lt;/style&gt;
+
+&nbsp; &nbsp; &lt;div&gt;&lt;/div&gt;
 
 &nbsp; &nbsp; &lt;script&gt;
 
-&nbsp; &nbsp; var Ul=document.getElementById(&quot;ul&quot;);
+&nbsp; &nbsp; &nbsp; &nbsp; var backtop = document.documentElement.clientHeight;
 
-&nbsp; &nbsp; var Lis=Ul.getElementsByTagName(&quot;li&quot;);
+&nbsp; &nbsp; &nbsp; &nbsp; window.onscroll = function() {
 
-&nbsp; &nbsp; 　　for(var i=0;i&lt;Lis.length;i++){
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h = document.body.scrollTop;
 
-&nbsp; &nbsp; &nbsp;Lis[i].onclick=(function(i){
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (h &gt;= backtop / 2) {
 
-&nbsp; &nbsp; &nbsp;　　return function(){
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.display = &quot;block&quot;;
 
-&nbsp; &nbsp; &nbsp;　　　　alert(&quot;我是第&quot;+(i+1)+&quot;个list&quot;);
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {
 
-&nbsp; &nbsp; &nbsp;　　}
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.display = &quot;none&quot;;
 
-&nbsp; &nbsp; &nbsp;}(i))
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
 
-&nbsp; &nbsp; 　　}
+&nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; &nbsp; &nbsp; var div = document.getElementsByTagName(&#39;div&#39;)[0];
+
+&nbsp; &nbsp; &nbsp; &nbsp; div.onclick = function() {
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var time = setInterval(function() {
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h = document.body.scrollTop;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var speed = h / 5;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.body.scrollTop -= speed;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (h == 0) {
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(time);
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }, 30)
+
+&nbsp; &nbsp; &nbsp; &nbsp; }
 
 &nbsp; &nbsp; &lt;/script&gt;
 
@@ -239,8 +281,6 @@
 
 &lt;/html&gt;
 </pre>
-
-<p>原理:通过循环和闭包传参让每一个li的i数值不同</p>
 
       
     </div>
@@ -250,18 +290,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/07/16/原生js实现回到顶部/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          原生js实现回到顶部
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/10/简易柱形图demo/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">简易柱形图demo</div>
+    <a href="/2015/07/15/闭包判断点击具体li/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">闭包判断点击具体li</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -275,7 +306,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="闭包判断点击具体li" data-title="闭包判断点击具体li" data-url="http://yoursite.com/2015/07/15/闭包判断点击具体li/"></div>
+	<div class="ds-thread" data-thread-key="原生js实现回到顶部" data-title="原生js实现回到顶部" data-url="http://yoursite.com/2015/07/16/原生js实现回到顶部/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
