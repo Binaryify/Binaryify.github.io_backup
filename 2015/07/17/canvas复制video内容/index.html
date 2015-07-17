@@ -6,38 +6,62 @@
   <title>canvas复制video内容 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="源码:
+
 &amp;lt;!DOCTYPE html&amp;gt;
+
 &amp;lt;html&amp;gt;
+
 &amp;lt;head&amp;gt;
+
 &amp;nbsp; &amp;nbsp; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+
 &amp;nbsp; &amp;nbsp; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
+
 &amp;lt;/head&amp;gt;
+
 &amp;lt;body&amp;gt;
-&amp;nbsp; &amp;nbsp; &amp;lt;">
+
+&amp;nbsp; &amp;nb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="canvas复制video内容">
 <meta property="og:url" content="http://yoursite.com/2015/07/17/canvas复制video内容/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
 <meta property="og:description" content="源码:
+
 &amp;lt;!DOCTYPE html&amp;gt;
+
 &amp;lt;html&amp;gt;
+
 &amp;lt;head&amp;gt;
+
 &amp;nbsp; &amp;nbsp; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+
 &amp;nbsp; &amp;nbsp; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
+
 &amp;lt;/head&amp;gt;
+
 &amp;lt;body&amp;gt;
-&amp;nbsp; &amp;nbsp; &amp;lt;">
+
+&amp;nbsp; &amp;nb">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvas复制video内容">
 <meta name="twitter:description" content="源码:
+
 &amp;lt;!DOCTYPE html&amp;gt;
+
 &amp;lt;html&amp;gt;
+
 &amp;lt;head&amp;gt;
+
 &amp;nbsp; &amp;nbsp; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+
 &amp;nbsp; &amp;nbsp; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
+
 &amp;lt;/head&amp;gt;
+
 &amp;lt;body&amp;gt;
-&amp;nbsp; &amp;nbsp; &amp;lt;">
+
+&amp;nbsp; &amp;nb">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -210,34 +234,60 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>源码:</p>
-<p><pre><br>&lt;!DOCTYPE html&gt;</pre></p>
-<p>&lt;html&gt;</p>
-<p>&lt;head&gt;</p>
-<p>&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
-<p>&nbsp; &nbsp; &lt;video autoplay src=&quot;权力的游戏S5E10.mp4&quot; controls &gt;&lt;/video&gt;</p>
-<p>&nbsp; &nbsp; &lt;canvas&gt;&lt;/canvas&gt;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &lt;script&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; var v = document.querySelector(&quot;video&quot;);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; var c = document.querySelector(&quot;canvas&quot;);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; var ct = c.getContext(&quot;2d&quot;);</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; v.ondurationchange = function() {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; setInterval(function(){</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ct.drawImage(v, 0, 0);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },1);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; c.style.height = c.height = v.offsetHeight;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; c.style.width = c.width = v.offsetWidth;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &lt;/script&gt;</p>
-<p>&nbsp; &nbsp;&nbsp;</p>
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</p>
 <pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+&lt;head&gt;
+
+&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
+
+&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&nbsp; &nbsp; &lt;video autoplay src=&quot;权力的游戏S5E10.mp4&quot; controls &gt;&lt;/video&gt;
+
+&nbsp; &nbsp; &lt;canvas&gt;&lt;/canvas&gt;
+
+<br>
+
+&nbsp; &nbsp; &lt;script&gt;
+
+&nbsp; &nbsp; &nbsp; &nbsp; var v = document.querySelector(&quot;video&quot;);
+
+&nbsp; &nbsp; &nbsp; &nbsp; var c = document.querySelector(&quot;canvas&quot;);
+
+&nbsp; &nbsp; &nbsp; &nbsp; var ct = c.getContext(&quot;2d&quot;);
+
+<br>
+
+&nbsp; &nbsp; &nbsp; &nbsp; v.ondurationchange = function() {
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; setInterval(function(){
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ct.drawImage(v, 0, 0);
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },1);
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; c.style.height = c.height = v.offsetHeight;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; c.style.width = c.width = v.offsetWidth;
+
+&nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; &lt;/script&gt;
+
+&nbsp; &nbsp;&nbsp;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
 </pre>
+
       
     </div>
     
