@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>原生js实现回到顶部 | 阿发的藏宝库</title>
+  <title>canvas复制video内容 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="源码:">
+  <meta name="description" content="h11234567891011121314151617181920212223242526&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原生js实现回到顶部">
-<meta property="og:url" content="http://yoursite.com/2015/07/16/原生js实现回到顶部/index.html">
+<meta property="og:title" content="canvas复制video内容">
+<meta property="og:url" content="http://yoursite.com/2015/07/17/canvas复制video内容/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="源码:">
+<meta property="og:description" content="h11234567891011121314151617181920212223242526&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原生js实现回到顶部">
-<meta name="twitter:description" content="源码:">
+<meta name="twitter:title" content="canvas复制video内容">
+<meta name="twitter:description" content="h11234567891011121314151617181920212223242526&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -152,11 +152,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-原生js实现回到顶部" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-canvas复制video内容" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/16/原生js实现回到顶部/" class="article-date">
-  	<time datetime="2015-07-16T11:27:39.000Z" itemprop="datePublished">2015-07-16</time>
+      <a href="/2015/07/17/canvas复制video内容/" class="article-date">
+  	<time datetime="2015-07-17T10:05:58.000Z" itemprop="datePublished">2015-07-17</time>
 </a>
     </div>
   
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      原生js实现回到顶部
+      canvas复制video内容
     </h1>
   
 
@@ -185,102 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>源码:<br><a id="more"></a></p>
-<pre>
-&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
-
-&lt;head&gt;
-
-&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
-
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&nbsp; &nbsp; &lt;style media=&quot;screen&quot;&gt;
-
-&nbsp; &nbsp; &nbsp; &nbsp; body {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 3000px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 80%;
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; div {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 50px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 50px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: fixed;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; right: 10px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 10px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display: none;
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &lt;/style&gt;
-
-&nbsp; &nbsp; &lt;div&gt;&lt;/div&gt;
-
-&nbsp; &nbsp; &lt;script&gt;
-
-&nbsp; &nbsp; &nbsp; &nbsp; var backtop = document.documentElement.clientHeight;
-
-&nbsp; &nbsp; &nbsp; &nbsp; window.onscroll = function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h = document.body.scrollTop;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (h &gt;= backtop / 2) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.display = &quot;block&quot;;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.display = &quot;none&quot;;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; var div = document.getElementsByTagName(&#39;div&#39;)[0];
-
-&nbsp; &nbsp; &nbsp; &nbsp; div.onclick = function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var time = setInterval(function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h = document.body.scrollTop;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var speed = h / 5;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.body.scrollTop -= speed;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (h == 0) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(time);
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }, 30)
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &lt;/script&gt;
-
-&lt;/body&gt;
-
-&lt;/html&gt;
-</pre>
+        <h1 id="h1">h1</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">video</span> <span class="attribute">autoplay</span> <span class="attribute">src</span>=<span class="value">"权力的游戏S5E10.mp4"</span> <span class="attribute">controls</span> &gt;</span><span class="tag">&lt;/<span class="title">video</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">canvas</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">        <span class="keyword">var</span> v = <span class="built_in">document</span>.querySelector(<span class="string">"video"</span>);</span><br><span class="line">        <span class="keyword">var</span> c = <span class="built_in">document</span>.querySelector(<span class="string">"canvas"</span>);</span><br><span class="line">        <span class="keyword">var</span> ct = c.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">        v.ondurationchange = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">                    ct.drawImage(v, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">            &#125;,<span class="number">1</span>);</span><br><span class="line">            c.style.height = c.height = v.offsetHeight;</span><br><span class="line">            c.style.width = c.width = v.offsetWidth;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -290,18 +195,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/07/17/canvas复制video内容/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          canvas复制video内容
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/15/闭包判断点击具体li/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">闭包判断点击具体li</div>
+    <a href="/2015/07/16/原生js实现回到顶部/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">原生js实现回到顶部</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -315,7 +211,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="原生js实现回到顶部" data-title="原生js实现回到顶部" data-url="http://yoursite.com/2015/07/16/原生js实现回到顶部/"></div>
+	<div class="ds-thread" data-thread-key="canvas复制video内容" data-title="canvas复制video内容" data-url="http://yoursite.com/2015/07/17/canvas复制video内容/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
