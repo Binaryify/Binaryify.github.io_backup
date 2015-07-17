@@ -180,59 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>源码:</p>
-<pre>
-&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
-
-&lt;head&gt;
-
-&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
-
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&nbsp; &nbsp; &lt;video autoplay src=&quot;权力的游戏S5E10.mp4&quot; controls &gt;&lt;/video&gt;
-
-&nbsp; &nbsp; &lt;canvas&gt;&lt;/canvas&gt;
-
-<br>
-
-&nbsp; &nbsp; &lt;script&gt;
-
-&nbsp; &nbsp; &nbsp; &nbsp; var v = document.querySelector(&quot;video&quot;);
-
-&nbsp; &nbsp; &nbsp; &nbsp; var c = document.querySelector(&quot;canvas&quot;);
-
-&nbsp; &nbsp; &nbsp; &nbsp; var ct = c.getContext(&quot;2d&quot;);
-
-&nbsp; &nbsp; &nbsp; &nbsp; v.ondurationchange = function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; setInterval(function(){
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ct.drawImage(v, 0, 0);
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },1);
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; c.style.height = c.height = v.offsetHeight;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; c.style.width = c.width = v.offsetWidth;
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &lt;/script&gt;
-
-&nbsp; &nbsp;&nbsp;
-
-&lt;/body&gt;
-
-&lt;/html&gt;
-</pre>
-
+        <p>很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单<br>源码:<br>
       
     </div>
     
@@ -240,6 +188,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/17/canvas复制video内容/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
