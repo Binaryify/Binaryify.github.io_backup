@@ -1062,11 +1062,9 @@ return document.querySelector(selector);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre>
-    ::-webkit-scrollbar{
-        width:0px;
-    }
-</pre>
+        <p>滚动条也是伪元素,所以也可以用css改变它的样式</p>
+<p><pre><br>    ::-webkit-scrollbar{<br>        width:10px;<br>        background-color:red;<br>    }<br></pre><br>也可让width为0,让滚动条隐藏,可以配合overflow:hidder做一个tab菜单</p>
+
       
     </div>
     
@@ -1482,12 +1480,13 @@ return document.querySelector(selector);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>svg无法通过直接document.getElementById(‘xxx’).className=”classxxx”来修改class，百度了下，取代的方法是：document.getElementById(‘xxx’).setAttribute(“class”,”classxxx”);</p>
+        <p>svg有很多优点,但是有时候我们想利用svg做一些效果的时候会发现svg是无法通过直接document.getElementById(‘xxx’).className=”classxxx”来修改class，解决的方法是：document.getElementById(‘xxx’).setAttribute(“class”,”classxxx”);</p>
 <p>ps:js获取svg路径长度</p>
 <pre>
 var path = document.querySelector('path');
 var length = path.getTotalLength();
 </pre>
+
       
     </div>
     
