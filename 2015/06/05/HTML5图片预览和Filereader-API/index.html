@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/AJAX/" style="font-size: NaNpx;">AJAX</a><a href="/tags/js/" style="font-size: NaNpx;">js</a>
+						<a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a><a href="/tags/HTML5/" style="font-size: 15px;">HTML5</a><a href="/tags/canvas/" style="font-size: 10px;">canvas</a><a href="/tags/css/" style="font-size: 10px;">css</a><a href="/tags/html5/" style="font-size: 10px;">html5</a><a href="/tags/js/" style="font-size: 20px;">js</a>
 					</div>
 				</section>
 				
@@ -177,6 +177,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -189,6 +193,7 @@
 <pre>
 &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt; <br>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt; <br>&lt;head&gt; <br>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt; <br>&lt;title&gt;简单的html5 File测试 for pic2base64&lt;/title&gt; <br>&lt;style&gt; <br>&lt;/style&gt; <br>&lt;script&gt; <br>window.onload = function(){ <br>var input = document.getElementById(&quot;demo_input&quot;); <br>var result= document.getElementById(&quot;result&quot;); <br>var img_area = document.getElementById(&quot;img_area&quot;); <br>if ( typeof(FileReader) === &#39;undefined&#39; ){ <br>result.innerHTML = &quot;抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！&quot;; <br>input.setAttribute( &#39;disabled&#39;,&#39;disabled&#39; ); <br>} else { <br>input.addEventListener( &#39;change&#39;,readFile,false );} <br>} <br>function readFile(){ <br>var file = this.files[0]; <br>//这里我们判断下类型如果不是图片就返回 去掉就可以上传任意文件 <br>if(!/image\/\w+/.test(file.type)){ <br>alert(&quot;请确保文件为图像类型&quot;); <br>return false; <br>} <br>var reader = new FileReader(); <br>reader.readAsDataURL(file); <br>reader.onload = function(e){ <br>result.innerHTML = &#39;&lt;img src=&quot;&#39;+this.result+&#39;&quot; alt=&quot;&quot;/&gt;&#39;; <br>img_area.innerHTML = &#39;&lt;div class=&quot;sitetip&quot;&gt;图片img标签展示：&lt;/div&gt;&lt;img src=&quot;&#39;+this.result+&#39;&quot; alt=&quot;&quot;/&gt;&#39;; <br>} <br>} <br>&lt;/script&gt; <br>&lt;/head&gt; <br>&lt;body&gt; <br>&lt;input type=&quot;file&quot; value=&quot;sdgsdg&quot; id=&quot;demo_input&quot; /&gt; <br>&lt;textarea id=&quot;result&quot; rows=30 cols=300&gt;&lt;/textarea&gt; <br>&lt;p id=&quot;img_area&quot;&gt;&lt;/p&gt; <br>&lt;/body&gt; <br>&lt;/html&gt;&nbsp;
 </pre>
+
       
     </div>
     
