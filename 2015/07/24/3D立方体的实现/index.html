@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 微信 | 阿发的藏宝库</title>
+  <title>3D立方体的实现 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿发的藏宝库">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿发的藏宝库">
-<meta property="og:url" content="http://yoursite.com/tags/微信/index.html">
+  <meta name="description" content="CSS的transform配合keyframes和animation很强大,可以做很多动画,而且transfrom有个transform-style的属性,可以用来设置3D,做一个3D的动画
+transform-style: preserve-3d;比如可以做个3D立方体demo:http://zhuangtongfa.gitcafe.io/demo/3d.htmlHTML结构很简单,就一个ul包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3D立方体的实现">
+<meta property="og:url" content="http://yoursite.com/2015/07/24/3D立方体的实现/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="阿发的藏宝库">
+<meta property="og:description" content="CSS的transform配合keyframes和animation很强大,可以做很多动画,而且transfrom有个transform-style的属性,可以用来设置3D,做一个3D的动画
+transform-style: preserve-3d;比如可以做个3D立方体demo:http://zhuangtongfa.gitcafe.io/demo/3d.htmlHTML结构很简单,就一个ul包">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿发的藏宝库">
-<meta name="twitter:description" content="阿发的藏宝库">
+<meta name="twitter:title" content="3D立方体的实现">
+<meta name="twitter:description" content="CSS的transform配合keyframes和animation很强大,可以做很多动画,而且transfrom有个transform-style的属性,可以用来设置3D,做一个3D的动画
+transform-style: preserve-3d;比如可以做个3D立方体demo:http://zhuangtongfa.gitcafe.io/demo/3d.htmlHTML结构很简单,就一个ul包">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -156,51 +159,89 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-3D立方体的实现" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/05/20/微信上传下载多媒体php接口（转）/" class="archive-article-date">
-  	<time datetime="2015-05-20T14:49:32.000Z" itemprop="datePublished">May 20</time>
+    <div class="article-meta">
+      <a href="/2015/07/24/3D立方体的实现/" class="article-date">
+  	<time datetime="2015-07-24T14:25:53.000Z" itemprop="datePublished">2015-07-24</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/05/20/微信上传下载多媒体php接口（转）/">微信上传下载多媒体php接口（转）</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      3D立方体的实现
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3D/">3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS的transform配合keyframes和animation很强大,可以做很多动画,而且transfrom有个transform-style的属性,可以用来设置3D,做一个3D的动画</p>
+<p><pre><br>transform-style: preserve-3d;<br></pre><br>比如可以做个3D立方体<br>demo:<a href="http://zhuangtongfa.gitcafe.io/demo/3d.html" target="_blank" rel="external">http://zhuangtongfa.gitcafe.io/demo/3d.html</a><br>HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置-webkit-transform-style: preserve-3d,让动画变成3D形式的,再给6个li分别设置不同的transform,让这6个li成为个立方体,然后在给ul设置旋转的动画,然后一个旋转的立方体就出现了,还可以修饰下,给不同的li加颜色变化的动画</p>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/07/24/light-UI 1.0发布/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">light-UI 1.0发布</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="3D立方体的实现" data-title="3D立方体的实现" data-url="http://yoursite.com/2015/07/24/3D立方体的实现/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 </div>
       <footer id="footer">
   <div class="outer">
