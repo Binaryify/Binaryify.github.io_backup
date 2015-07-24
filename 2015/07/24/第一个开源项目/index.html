@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>canvas复制video内容 | 阿发的藏宝库</title>
+  <title>第一个开源项目 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单,drawImage接收视频信息,然后用定时器一直重绘就行源码:">
+  <meta name="description" content="项目地址 [地址]{https://github.com/zhuangtongfa/light-UI}![图一]{https://camo.githubusercontent.com/b375ab8e1042da89e078e7da962701a2db168e3c/687474703a2f2f69312e74696574756b752e636f6d2f37663933393836343737666">
 <meta property="og:type" content="article">
-<meta property="og:title" content="canvas复制video内容">
-<meta property="og:url" content="http://yoursite.com/2015/07/17/canvas复制video内容/index.html">
+<meta property="og:title" content="第一个开源项目">
+<meta property="og:url" content="http://yoursite.com/2015/07/24/第一个开源项目/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单,drawImage接收视频信息,然后用定时器一直重绘就行源码:">
+<meta property="og:description" content="项目地址 [地址]{https://github.com/zhuangtongfa/light-UI}![图一]{https://camo.githubusercontent.com/b375ab8e1042da89e078e7da962701a2db168e3c/687474703a2f2f69312e74696574756b752e636f6d2f37663933393836343737666">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas复制video内容">
-<meta name="twitter:description" content="很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单,drawImage接收视频信息,然后用定时器一直重绘就行源码:">
+<meta name="twitter:title" content="第一个开源项目">
+<meta name="twitter:description" content="项目地址 [地址]{https://github.com/zhuangtongfa/light-UI}![图一]{https://camo.githubusercontent.com/b375ab8e1042da89e078e7da962701a2db168e3c/687474703a2f2f69312e74696574756b752e636f6d2f37663933393836343737666">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -152,11 +152,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-canvas复制video内容" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-第一个开源项目" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/17/canvas复制video内容/" class="article-date">
-  	<time datetime="2015-07-17T10:05:58.000Z" itemprop="datePublished">2015-07-17</time>
+      <a href="/2015/07/24/第一个开源项目/" class="article-date">
+  	<time datetime="2015-07-24T08:04:37.000Z" itemprop="datePublished">2015-07-24</time>
 </a>
     </div>
   
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      canvas复制video内容
+      第一个开源项目
     </h1>
   
 
@@ -185,64 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单,drawImage接收视频信息,然后用定时器一直重绘就行<br>源码:<br><a id="more"></a></p>
-<pre>
-&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
-
-&lt;head&gt;
-
-&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
-
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&nbsp; &nbsp; &lt;video autoplay src=&quot;权力的游戏S5E10.mp4&quot; controls &gt;&lt;/video&gt;
-
-&nbsp; &nbsp; &lt;canvas&gt;&lt;/canvas&gt;
-
-<br>
-
-&nbsp; &nbsp; &lt;script&gt;
-
-&nbsp; &nbsp; &nbsp; &nbsp; var v = document.querySelector(&quot;video&quot;);
-
-&nbsp; &nbsp; &nbsp; &nbsp; var c = document.querySelector(&quot;canvas&quot;);
-
-&nbsp; &nbsp; &nbsp; &nbsp; var ct = c.getContext(&quot;2d&quot;);
-
-&nbsp; &nbsp; &nbsp; &nbsp; v.ondurationchange = function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; setInterval(function(){
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ct.drawImage(v, 0, 0);
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },30);
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; c.style.height =  v.offsetHeight;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; c.style.width =  v.offsetWidth;
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &lt;/script&gt;
-
-&nbsp; &nbsp;&nbsp;
-
-&lt;/body&gt;
-
-&lt;/html&gt;
-</pre>
-利用这个原理,也可以做一个canvas分割视频显示的效果,只需要在drawImage这个方法里设置相对应的参数就行
-<pre>
-context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
-</pre>
-
-<p>img:规定要使用的图像、画布或视频。<br>sx:可选。开始剪切的 x 坐标位置。<br>sy:可选。开始剪切的 y 坐标位置。<br>swidth:可选。被剪切图像的宽度。<br>sheight:可选。被剪切图像的高度。<br>x:在画布上放置图像的 x 坐标位置。<br>y:在画布上放置图像的 y 坐标位置。<br>width:可选。要使用的图像的宽度。（伸展或缩小图像）<br>height:可选。要使用的图像的高度。（伸展或缩小图像）</p>
+        <h1 id="项目地址_[地址]{https://github-com/zhuangtongfa/light-UI}">项目地址 [地址]{<a href="https://github.com/zhuangtongfa/light-UI}" target="_blank" rel="external">https://github.com/zhuangtongfa/light-UI}</a></h1><p>![图一]{<a href="https://camo.githubusercontent.com/b375ab8e1042da89e078e7da962701a2db168e3c/687474703a2f2f69312e74696574756b752e636f6d2f376639333938363437376664373736662e6a7067}" target="_blank" rel="external">https://camo.githubusercontent.com/b375ab8e1042da89e078e7da962701a2db168e3c/687474703a2f2f69312e74696574756b752e636f6d2f376639333938363437376664373736662e6a7067}</a><br>![图二]{<a href="https://camo.githubusercontent.com/6f08f31d6a00891a5bff61543c721fbcd36be168/687474703a2f2f69312e74696574756b752e636f6d2f323738306334356530383534333963662e6a7067}" target="_blank" rel="external">https://camo.githubusercontent.com/6f08f31d6a00891a5bff61543c721fbcd36be168/687474703a2f2f69312e74696574756b752e636f6d2f323738306334356530383534333963662e6a7067}</a><br>![图三]{<a href="https://camo.githubusercontent.com/4871d0eed5d8686b52ba32332f8365d5ce0a9766/687474703a2f2f69312e74696574756b752e636f6d2f393937623363336165396438383933352e6a7067}" target="_blank" rel="external">https://camo.githubusercontent.com/4871d0eed5d8686b52ba32332f8365d5ce0a9766/687474703a2f2f69312e74696574756b752e636f6d2f393937623363336165396438383933352e6a7067}</a><br>![图四]{<a href="https://camo.githubusercontent.com/8a72876cc49506e8c516517dc92f7bbfc530390b/687474703a2f2f69312e74696574756b752e636f6d2f643638313431336363366365346362632e6a7067}" target="_blank" rel="external">https://camo.githubusercontent.com/8a72876cc49506e8c516517dc92f7bbfc530390b/687474703a2f2f69312e74696574756b752e636f6d2f643638313431336363366365346362632e6a7067}</a><br>![图五]{<a href="https://camo.githubusercontent.com/84b107b1a6519cd71d89a0e336fc7680c234aaf0/687474703a2f2f69312e74696574756b752e636f6d2f633466336430643034643333336262662e706e67}" target="_blank" rel="external">https://camo.githubusercontent.com/84b107b1a6519cd71d89a0e336fc7680c234aaf0/687474703a2f2f69312e74696574756b752e636f6d2f633466336430643034643333336262662e706e67}</a><br>![图六]{<a href="https://camo.githubusercontent.com/1711947ae7a9b1de024f439178ff1b1990312e6a/687474703a2f2f69312e74696574756b752e636f6d2f303662333533633838616439353361302e706e67}" target="_blank" rel="external">https://camo.githubusercontent.com/1711947ae7a9b1de024f439178ff1b1990312e6a/687474703a2f2f69312e74696574756b752e636f6d2f303662333533633838616439353361302e706e67}</a></p>
 
       
     </div>
@@ -252,18 +195,9 @@ context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
     
 <nav id="article-nav">
   
-    <a href="/2015/07/24/第一个开源项目/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          第一个开源项目
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/16/原生js实现回到顶部/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">原生js实现回到顶部</div>
+    <a href="/2015/07/17/canvas复制video内容/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">canvas复制video内容</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -277,7 +211,7 @@ context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="canvas复制video内容" data-title="canvas复制video内容" data-url="http://yoursite.com/2015/07/17/canvas复制video内容/"></div>
+	<div class="ds-thread" data-thread-key="第一个开源项目" data-title="第一个开源项目" data-url="http://yoursite.com/2015/07/24/第一个开源项目/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
