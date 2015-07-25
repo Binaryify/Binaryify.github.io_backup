@@ -195,7 +195,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>网上有很多炫酷的旋转木马效果,但是别人的源码都是用到了jQuery,对新手来说不好学习,也不易理解其中的原理,张鑫旭张大神也写过transform3D的变换<a href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/index.php" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/index.php</a> , 也给了demo,但是demo的源码,js和css混杂在一起,个人觉得不太直观,故用原生js改了别人的一个demo<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E6%97%8B%E8%BD%AC%E6%9C%A8%E9%A9%AC/1.png" alt="旋转木马"><br><a id="more"></a><br>demo: <a href="http://zhuangtongfa.gitcafe.io/demo/%E6%97%8B%E8%BD%AC%E6%9C%A8%E9%A9%AC" target="_blank" rel="external">http://zhuangtongfa.gitcafe.io/demo/%E6%97%8B%E8%BD%AC%E6%9C%A8%E9%A9%AC</a><br>源码</p>
-<p><pre><br>&lt;!DOCTYPE html&gt;</pre></p>
+<pre>
+
+<p>&lt;!DOCTYPE html&gt;</p>
 <p>&lt;html&gt;</p>
 <p>&lt;head&gt;</p>
 <p>&nbsp; &nbsp; &lt;title&gt;&lt;/title&gt;</p>
@@ -322,7 +324,7 @@
 <p>&nbsp; &nbsp; &nbsp; &nbsp; },false);</p>
 <p>&nbsp; &nbsp; &lt;/script&gt;</p>
 <p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;<br><br>原理主要是</p>
+<p>&lt;/html&gt;<br></p></pre><br>原理主要是<p></p>
 <p>1、首先所有的图片的容器position:absolute，叠加在一起，然后一次设置rotateY分别为40*i ，i= 0 , 1, 2…9 ；所有图片会相交成一个类似花的形状</p>
 <p>2、然后为每个图片的容器设置translateZ，所有图片会从对应的角度向外移动，扩展成一个大圆，即上图效果。</p>
 <p>3、用js控制点击外层元素旋转从而实现旋转木马</p>
