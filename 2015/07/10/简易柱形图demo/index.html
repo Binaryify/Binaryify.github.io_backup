@@ -5,15 +5,16 @@
   
   <title>简易柱形图demo | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="js控制css做的一个柱形图源码:">
+  <meta name="description" content="js控制css做的一个柱形图demo:戳我源码:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简易柱形图demo">
 <meta property="og:url" content="http://yoursite.com/2015/07/10/简易柱形图demo/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="js控制css做的一个柱形图源码:">
+<meta property="og:description" content="js控制css做的一个柱形图demo:戳我源码:">
+<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/%E6%9F%B1%E5%BD%A2%E5%9B%BE/1.gif">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简易柱形图demo">
-<meta name="twitter:description" content="js控制css做的一个柱形图源码:">
+<meta name="twitter:description" content="js控制css做的一个柱形图demo:戳我源码:">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -193,121 +194,110 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>js控制css做的一个柱形图<br>源码:<br><a id="more"></a></p>
+        <p>js控制css做的一个柱形图<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E6%9F%B1%E5%BD%A2%E5%9B%BE/1.gif" alt="柱形图"><br>demo:<a href="http://zhuangtongfa.gitcafe.io/demo/柱形图" target="_blank" rel="external">戳我</a><br>源码:<br><a id="more"></a></p>
 <pre>
-    &lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
 
-    &lt;html&gt;
+&nbsp; &nbsp;&lt;html&gt;
 
-    &lt;head&gt;
+&nbsp; &nbsp;&lt;head&gt;
 
-    &nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;meta charset=&quot;UTF-8&quot;&gt;
 
-    &nbsp; &nbsp; &lt;title&gt;柱形图&lt;/title&gt;
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;title&gt;柱形图&lt;/title&gt;
 
-    &lt;/head&gt;
+&nbsp; &nbsp;&lt;/head&gt;
 
-    &lt;body&gt;
+&nbsp; &nbsp;&lt;body&gt;
 
-    &nbsp; &nbsp; &lt;style&gt;
+&nbsp; &nbsp; &nbsp; &nbsp;&lt;style&gt;
+<p></p>
+<p>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;#container{
 
-    &nbsp; &nbsp; &nbsp; &nbsp; #container{
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 400px;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 400px;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 400px;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 400px;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: transparent;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: transparent;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: absolute;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: absolute;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;left: 300px;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; left: 300px;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bottom: 30px;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 30px;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 
-    &nbsp; &nbsp; &nbsp; &nbsp; }
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;#box{
 
-    &nbsp; &nbsp; &nbsp; &nbsp; #box{
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 30px;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 30px;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 30px;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 30px;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: red;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: red;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: absolute;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: absolute;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bottom: 0;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 0;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transition: 1s background-color;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transition: 1s background-color;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /*text-align: center;*/
+    &nbsp; &nbsp; &nbsp; &nbsp;&lt;/style&gt;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; }
+&nbsp; &nbsp;&lt;div id=&quot;container&quot;&gt;&lt;div id=&quot;box&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+
+&nbsp; &nbsp;&lt;script type=&quot;text/javascript&quot;&gt;
+
+&nbsp; &nbsp; &nbsp; &nbsp;(function(){
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var div=document.getElementById(&#39;box&#39;);
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var ss=setInterval(function(){
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var h=getComputedStyle(div);
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var hh=parseInt(h.height);
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var p=div.getElementsByTagName(&#39;p&#39;)[0];
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.height=hh+3+&#39;px&#39;;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.color=&#39;rgba(0,0,0,.5)&#39;;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;p.innerHTML=parseInt(hh/300*100-1)+&#39;%&#39;;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;p.style.position=&quot;absolute&quot;;
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;p.style.bottom=&#39;-35px&#39;;
 
 
-    &nbsp; &nbsp; &lt;/style&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.textAlign=&#39;center&#39;;
 
-    &lt;div id=&quot;container&quot;&gt;&lt;div id=&quot;box&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(hh&gt;100){
 
-    &lt;script type=&quot;text/javascript&quot;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.backgroundColor=&quot;green&quot;;
 
-    &nbsp; &nbsp; (function(){
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 
-    &nbsp; &nbsp; &nbsp; &nbsp; var div=document.getElementById(&#39;box&#39;);
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(hh&gt;300){
 
-    &nbsp; &nbsp; &nbsp; &nbsp; // div.style.transs
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;clearInterval(ss);
 
-    &nbsp; &nbsp; &nbsp; &nbsp; var ss=setInterval(function(){
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h=getComputedStyle(div);
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},5)
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var hh=parseInt(h.height);
+&nbsp; &nbsp; &nbsp; &nbsp;})()
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var p=div.getElementsByTagName(&#39;p&#39;)[0];
+&nbsp; &nbsp;&lt;/script&gt;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.height=hh+3+&#39;px&#39;;
+&nbsp; &nbsp;&lt;/body&gt;
 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // if(hh&gt;70){
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // &nbsp; &nbsp; div.style.backgroundColor=&quot;yellow&quot;;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.color=&#39;black&#39;;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p.innerHTML=parseInt(hh/300*100-1)+&#39;%&#39;;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p.style.position=&quot;absolute&quot;;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p.style.bottom=&#39;-35px&#39;;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // div.style.lineHeight=hh+&#39;px&#39;;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.textAlign=&#39;center&#39;;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(hh&gt;100){
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.backgroundColor=&quot;green&quot;;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(hh&gt;300){
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(ss);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; },5)
-
-    &nbsp; &nbsp; })()
-
-    &lt;/script&gt;
-
-    &lt;/body&gt;
-
-    &lt;/html&gt;
-</pre>
+&nbsp; &nbsp;&lt;/html&gt;
+</p></pre>
 
 <p>css动画局限性还是很大,js控制css就灵活多了,套用物理公式还可以模拟物理效果</p>
 
