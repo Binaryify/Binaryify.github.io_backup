@@ -195,116 +195,61 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>js控制css做的一个柱形图<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E6%9F%B1%E5%BD%A2%E5%9B%BE/1.gif" alt="柱形图"><br>demo:<a href="http://zhuangtongfa.gitcafe.io/demo/柱形图" target="_blank" rel="external">戳我</a><br>源码:<br><a id="more"></a></p>
-<p><pre><br>    &lt;!DOCTYPE html&gt;</pre></p>
-<pre><code><span class="subst">&amp;</span><span class="literal">lt</span>;html<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span><span class="literal">lt</span>;head<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span><span class="literal">lt</span>;meta charset<span class="subst">=&amp;</span>quot;UTF<span class="subst">-</span><span class="number">8</span><span class="subst">&amp;</span>quot;<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span><span class="literal">lt</span>;title<span class="subst">&amp;</span><span class="literal">gt</span>;柱形图<span class="subst">&amp;</span><span class="literal">lt</span>;/title<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span><span class="literal">lt</span>;/head<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span><span class="literal">lt</span>;body<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span><span class="literal">lt</span>;style<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="variable">#container</span> {
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; height: <span class="number">400</span>px;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; width: <span class="number">400</span>px;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; background<span class="attribute">-color</span>: transparent;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; position: absolute;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; left: <span class="number">300</span>px;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; bottom: <span class="number">30</span>px;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; }
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp;<span class="subst">&amp;</span>nbsp;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="variable">#box</span> {
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; height: <span class="number">30</span>px;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; width: <span class="number">30</span>px;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; background<span class="attribute">-color</span>: red;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; position: absolute;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; bottom: <span class="number">0</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; transition: <span class="number">1</span>s background<span class="attribute">-color</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; }
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span><span class="literal">lt</span>;/style<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span><span class="literal">lt</span>;div id<span class="subst">=&amp;</span>quot;container<span class="subst">&amp;</span>quot;<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span><span class="literal">lt</span>;div id<span class="subst">=&amp;</span>quot;box<span class="subst">&amp;</span>quot;<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span><span class="literal">lt</span>;p<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="subst">&amp;</span><span class="literal">lt</span>;/p<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span><span class="literal">lt</span>;script <span class="keyword">type</span><span class="subst">=&amp;</span>quot;text/javascript<span class="subst">&amp;</span>quot;<span class="subst">&amp;</span><span class="literal">gt</span>;
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; (function() {
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="built_in">var</span> div <span class="subst">=</span> document<span class="built_in">.</span>getElementById(<span class="subst">&amp;</span><span class="variable">#39</span>;box<span class="subst">&amp;</span><span class="variable">#39</span>;);
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="built_in">var</span> ss <span class="subst">=</span> setInterval(function() {
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="built_in">var</span> h <span class="subst">=</span> getComputedStyle(div);
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="built_in">var</span> hh <span class="subst">=</span> parseInt(h<span class="built_in">.</span>height);
-
-<span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="built_in">var</span> p <span class="subst">=</span> div<span class="built_in">.</span>getElementsByTagName(<span class="subst">&amp;</span><span class="variable">#39</span>;p<span class="subst">&amp;</span><span class="variable">#39</span>;)<span class="preprocessor">[</span><span class="number">0</span><span class="preprocessor">]</span><span class="markup">;
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; div.style.height = hh + 3 + &amp;#39;px&amp;#39;;
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; div.style.color = &amp;#39;rgba(0,0,0,.5)&amp;#39;;
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; p.innerHTML = parseInt(hh / 300 * 100 - 1) + &amp;#39;%&amp;#39;;
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; p.style.position = &amp;quot;absolute&amp;quot;;
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; p.style.bottom = &amp;#39;-35px&amp;#39;;
-
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; div.style.textAlign = &amp;#39;center&amp;#39;;
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; if (hh &amp;gt; 100) {
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; div.style.backgroundColor = &amp;quot;green&amp;quot;;
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; if (hh &amp;gt; 300) {
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; clearInterval(ss);
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }
-
-&amp;nbsp; &amp;nbsp; &amp;nbsp; }, 5)
-
-&amp;nbsp; &amp;nbsp; })()
-
-&amp;nbsp; &amp;lt;/script&amp;gt;
-
-&amp;lt;/body&amp;gt;
-
-&amp;lt;/html&amp;gt;</span>
-</code></pre><p><br>原理很简单,就是利用js控制css中的高度,只是加了个setInterval方法让高度慢慢变化<br>css动画局限性还是很大,js控制css就灵活多了,套用物理公式还可以模拟物理效果,在这里就不详细讲了</p>
+<p><pre><br>&lt;!DOCTYPE html&gt;</pre></p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&nbsp; &lt;title&gt;柱形图&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&nbsp; &lt;style&gt;</p>
+<p>&nbsp; &nbsp; #container {</p>
+<p>&nbsp; &nbsp; &nbsp; height: 400px;</p>
+<p>&nbsp; &nbsp; &nbsp; width: 400px;</p>
+<p>&nbsp; &nbsp; &nbsp; background-color: transparent;</p>
+<p>&nbsp; &nbsp; &nbsp; position: absolute;</p>
+<p>&nbsp; &nbsp; &nbsp; left: 300px;</p>
+<p>&nbsp; &nbsp; &nbsp; bottom: 30px;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; #box {</p>
+<p>&nbsp; &nbsp; &nbsp; height: 30px;</p>
+<p>&nbsp; &nbsp; &nbsp; width: 30px;</p>
+<p>&nbsp; &nbsp; &nbsp; background-color: red;</p>
+<p>&nbsp; &nbsp; &nbsp; position: absolute;</p>
+<p>&nbsp; &nbsp; &nbsp; bottom: 0;</p>
+<p>&nbsp; &nbsp; &nbsp; transition: 1s background-color;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &lt;/style&gt;</p>
+<p>&nbsp; &lt;div id=&quot;container&quot;&gt;</p>
+<p>&nbsp; &nbsp; &lt;div id=&quot;box&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &lt;p&gt;&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &lt;script type=&quot;text/javascript&quot;&gt;</p>
+<p>&nbsp; &nbsp; (function() {</p>
+<p>&nbsp; &nbsp; &nbsp; var div = document.getElementById(&#39;box&#39;);</p>
+<p>&nbsp; &nbsp; &nbsp; var ss = setInterval(function() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; var h = getComputedStyle(div);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; var hh = parseInt(h.height);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; var p = div.getElementsByTagName(&#39;p&#39;)[0];</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; div.style.height = hh + 3 + &#39;px&#39;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; div.style.color = &#39;rgba(0,0,0,.5)&#39;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; p.innerHTML = parseInt(hh / 300 * 100 - 1) + &#39;%&#39;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; p.style.position = &quot;absolute&quot;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; p.style.bottom = &#39;-35px&#39;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; div.style.textAlign = &#39;center&#39;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if (hh &gt; 100) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.backgroundColor = &quot;green&quot;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if (hh &gt; 300) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(ss);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; }, 5)</p>
+<p>&nbsp; &nbsp; })()</p>
+<p>&nbsp; &lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;<br><br>原理很简单,就是利用js控制css中的高度,只是加了个setInterval方法让高度慢慢变化<br>css动画局限性还是很大,js控制css就灵活多了,套用物理公式还可以模拟物理效果,在这里就不详细讲了</p>
 
       
     </div>
