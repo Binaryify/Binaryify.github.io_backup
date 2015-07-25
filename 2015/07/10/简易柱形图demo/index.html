@@ -195,56 +195,56 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>js控制css做的一个柱形图<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E6%9F%B1%E5%BD%A2%E5%9B%BE/1.gif" alt="柱形图"><br>demo:<a href="http://zhuangtongfa.gitcafe.io/demo/柱形图" target="_blank" rel="external">戳我</a><br>源码:<br><a id="more"></a></p>
-<p><pre><br>    &lt;!DOCTYPE html&gt;</pre></p>
-<p>  &lt;html&gt;</p>
-<p>  &lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;柱形图&lt;/title&gt;</p>
-<p>  &lt;/head&gt;</p>
-<p>  &lt;body&gt;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp;&lt;style&gt;</p>
-<pre><code><span class="keyword">&amp;</span><span class="tag">nbsp</span>; <span class="keyword">&amp;</span><span class="tag">nbsp</span>; <span class="keyword">&amp;</span><span class="tag">nbsp</span>; <span class="keyword">&amp;</span><span class="tag">nbsp</span>; <span class="keyword">&amp;</span><span class="tag">nbsp</span>; <span class="keyword">&amp;</span><span class="tag">nbsp</span>;<span class="id">#container</span>{
-</code></pre><p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 400px;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 400px;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: transparent;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: absolute;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;left: 300px;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bottom: 30px;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;#box{</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 30px;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 30px;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: red;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: absolute;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bottom: 0;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transition: 1s background-color;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
-<pre><code><span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp; <span class="subst">&amp;</span>nbsp;<span class="subst">&amp;</span><span class="literal">lt</span>;/style<span class="subst">&amp;</span><span class="literal">gt</span>;
-</code></pre><p>  &nbsp; &nbsp;&lt;div id=&quot;container&quot;&gt;&lt;div id=&quot;box&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p>  &nbsp; &nbsp;&lt;script type=&quot;text/javascript&quot;&gt;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp;(function(){</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var div=document.getElementById(&#39;box&#39;);</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var ss=setInterval(function(){</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var h=getComputedStyle(div);</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var hh=parseInt(h.height);</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var p=div.getElementsByTagName(&#39;p&#39;)[0];</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.height=hh+3+&#39;px&#39;;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.color=&#39;rgba(0,0,0,.5)&#39;;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;p.innerHTML=parseInt(hh/300*100-1)+&#39;%&#39;;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;p.style.position=&quot;absolute&quot;;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;p.style.bottom=&#39;-35px&#39;;</p>
-<pre><code>&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<span class="keyword">div</span>.style.textAlign=&amp;<span class="string">#39</span>;center&amp;<span class="string">#39</span>;;
-</code></pre><p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(hh&gt;100){</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.backgroundColor=&quot;green&quot;;</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(hh&gt;300){</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;clearInterval(ss);</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},5)</p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp;})()</p>
-<p>  &nbsp; &nbsp;&lt;/script&gt;</p>
-<p>  &nbsp; &nbsp;&lt;/body&gt;</p>
-<p>  &nbsp; &nbsp;&lt;/html&gt;<br><br>原理很简单,就是利用js控制css中的高度,只是加了个setInterval方法让高度慢慢变化<br>css动画局限性还是很大,js控制css就灵活多了,套用物理公式还可以模拟物理效果,在这里就不详细讲了</p>
+<p><pre><br>&lt;!DOCTYPE html&gt;</pre></p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&lt;title&gt;柱形图&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&lt;style&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;#container{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 400px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 400px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: transparent;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: absolute;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;left: 300px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bottom: 30px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;#box{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 30px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 30px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: red;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;position: absolute;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bottom: 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transition: 1s background-color;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&lt;/style&gt;</p>
+<p>&nbsp; &nbsp;&lt;div id=&quot;container&quot;&gt;&lt;div id=&quot;box&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp;&lt;script type=&quot;text/javascript&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;(function(){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var div=document.getElementById(&#39;box&#39;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var ss=setInterval(function(){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var h=getComputedStyle(div);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var hh=parseInt(h.height);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var p=div.getElementsByTagName(&#39;p&#39;)[0];</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.height=hh+3+&#39;px&#39;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.color=&#39;rgba(0,0,0,.5)&#39;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;p.innerHTML=parseInt(hh/300*100-1)+&#39;%&#39;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;p.style.position=&quot;absolute&quot;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;p.style.bottom=&#39;-35px&#39;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.textAlign=&#39;center&#39;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(hh&gt;100){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;div.style.backgroundColor=&quot;green&quot;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(hh&gt;300){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;clearInterval(ss);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},5)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;})()</p>
+<p>&nbsp; &nbsp;&lt;/script&gt;</p>
+<p>&nbsp; &nbsp;&lt;/body&gt;</p>
+<p>&nbsp; &nbsp;&lt;/html&gt;<br><br>原理很简单,就是利用js控制css中的高度,只是加了个setInterval方法让高度慢慢变化<br>css动画局限性还是很大,js控制css就灵活多了,套用物理公式还可以模拟物理效果,在这里就不详细讲了</p>
 
       
     </div>
