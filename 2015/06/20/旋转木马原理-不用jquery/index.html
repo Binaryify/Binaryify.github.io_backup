@@ -11,6 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/06/20/旋转木马原理-不用jquery/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
 <meta property="og:description" content="网上有很多炫酷的旋转木马效果,但是别人的源码都是用到了jQuery,对新手来说不好学习,也不易理解其中的原理,张鑫旭张大神也写过transform3D的变换http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/index.php , 也给了demo,但是demo的源码">
+<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/%E6%97%8B%E8%BD%AC%E6%9C%A8%E9%A9%AC/1.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="旋转木马原理(不用jquery)">
 <meta name="twitter:description" content="网上有很多炫酷的旋转木马效果,但是别人的源码都是用到了jQuery,对新手来说不好学习,也不易理解其中的原理,张鑫旭张大神也写过transform3D的变换http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/index.php , 也给了demo,但是demo的源码">
@@ -193,267 +194,140 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>网上有很多炫酷的旋转木马效果,但是别人的源码都是用到了jQuery,对新手来说不好学习,也不易理解其中的原理,张鑫旭张大神也写过transform3D的变换<a href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/index.php" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/index.php</a> , 也给了demo,但是demo的源码,js和css混杂在一起,个人觉得不太直观,故用原生js改了别人的一个demo<br><a id="more"></a><br>废话少说,直接上demo:<a href="http://senguzh.com/zhuangtongfa/demo/" target="_blank" rel="external">http://senguzh.com/zhuangtongfa/demo/</a><br>源码</p>
-<pre>
-    &lt;!DOCTYPE html&gt;
-
-    &lt;html&gt;
-
-    &lt;head&gt;
-
-     &lt;title&gt;&lt;/title&gt;
-
-     &lt;meta charset=&quot;utf-8&quot;/&gt;
-
-     &lt;style type=&quot;text/css&quot;&gt;
-
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-    &nbsp; &nbsp; &nbsp; &nbsp; #stage
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 900px;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; min-height: 100px;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-left: auto;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-right: auto;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 100px 50px;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-perspective: 800px;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-perspective: 800px;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform:perspective(800px) ;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: relative;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; #container
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 128px;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 100px;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-left: -64px;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transition: -webkit-transform 1s;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transition: -webkit-transform 1s;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transition: -webkit-transform 1s;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transition: transform 1s;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform-style: preserve-3d;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform-style: preserve-3d;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform-style: preserve-3d;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: absolute;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; left: 50%;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;img
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 128px;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: absolute;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 0;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(0)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(0deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(0deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(0deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(1)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(40deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(40deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(40deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(2)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(80deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(80deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(80deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(3)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(120deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(120deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(120deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(4)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(160deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(160deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(160deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(5)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(200deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(200deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(200deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(6)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(240deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(240deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(240deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(7)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(280deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(280deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(280deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(8)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(320deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(320deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(320deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(9)
-
-    &nbsp; &nbsp; &nbsp; &nbsp; {
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(360deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(360deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(360deg) translateZ(300px);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; }
-
-    &nbsp; &nbsp; &lt;/style&gt;
-
-    &lt;/head&gt;
-
-    &lt;body&gt;
-
-    &lt;div id=&quot;stage&quot;&gt;
-
-    &nbsp; &nbsp; &lt;div id=&quot;container&quot;&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;imgs/1.jpg&quot;/&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;imgs/2.jpg&quot;/&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;imgs/3.jpg&quot;/&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;imgs/4.jpg&quot;/&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;imgs/5.jpg&quot;/&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;imgs/6.jpg&quot;/&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;imgs/7.jpg&quot;/&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;imgs/8.jpg&quot;/&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;imgs/9.jpg&quot;/&gt;
-
-    &nbsp; &nbsp; &lt;/div&gt;
-
-    &lt;/div&gt;
-
-    &nbsp;&lt;script type=&quot;text/javascript&quot;&gt;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; var container=document.getElementById(&#39;container&#39;);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var deg = -20 , i = 1;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; container.addEventListener(&#39;click&#39;,function(){
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(&quot;rotateY:&quot;+(deg * i++) + &quot;deg&quot;);
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.style.webkitTransform=&quot;rotateY(&quot;+(deg * i++) + &quot;deg)&quot;;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-
-    &nbsp; &nbsp; &nbsp; &nbsp; },false);
-
-    &nbsp; &nbsp; &lt;/script&gt;
-
-    &lt;/body&gt;
-
-    &lt;/html&gt;
-
-</pre>
-
-<p>核心部分是js,css就不多说了,想了解3D变换的相关知识,可以参考张鑫旭大神的博客</p>
+        <p>网上有很多炫酷的旋转木马效果,但是别人的源码都是用到了jQuery,对新手来说不好学习,也不易理解其中的原理,张鑫旭张大神也写过transform3D的变换<a href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/index.php" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/index.php</a> , 也给了demo,但是demo的源码,js和css混杂在一起,个人觉得不太直观,故用原生js改了别人的一个demo<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E6%97%8B%E8%BD%AC%E6%9C%A8%E9%A9%AC/1.png" alt="旋转木马"><br><a id="more"></a><br>demo: <a href="http://zhuangtongfa.gitcafe.io/demo/%E6%97%8B%E8%BD%AC%E6%9C%A8%E9%A9%AC" target="_blank" rel="external">http://zhuangtongfa.gitcafe.io/demo/%E6%97%8B%E8%BD%AC%E6%9C%A8%E9%A9%AC</a><br>源码</p>
+<p><pre><br>&lt;!DOCTYPE html&gt;</pre></p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&nbsp; &nbsp; &lt;title&gt;&lt;/title&gt;</p>
+<p>&nbsp; &nbsp; &lt;meta charset=&quot;utf-8&quot;/&gt;</p>
+<p>&nbsp; &nbsp; &lt;style type=&quot;text/css&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; #stage</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 900px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; min-height: 100px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-left: auto;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-right: auto;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 100px 50px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-perspective: 800px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-perspective: 800px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform:perspective(800px) ;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: relative;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; #container</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 128px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 100px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-left: -64px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transition: -webkit-transform 1s;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transition: -webkit-transform 1s;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transition: -webkit-transform 1s;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transition: transform 1s;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform-style: preserve-3d;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform-style: preserve-3d;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform-style: preserve-3d;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: absolute;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; left: 50%;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;img</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 128px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height:128px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; box-shadow: 0 1px 3px rgba(0, 0, 0, .5);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: absolute;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(0)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(0deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(0deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(0deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(1)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(40deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(40deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(40deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(2)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(80deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(80deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(80deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(3)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(120deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(120deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(120deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(4)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(160deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(160deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(160deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(5)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(200deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(200deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(200deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(6)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(240deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(240deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(240deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(7)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(280deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(280deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(280deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(8)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(320deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(320deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(320deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; img:nth-child(9)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-transform: rotateY(360deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -moz-transform: rotateY(360deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -ms-transform: rotateY(360deg) translateZ(300px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;div id=&quot;stage&quot;&gt;</p>
+<p>&nbsp; &nbsp; &lt;div id=&quot;container&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</p>
+<p>&nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&nbsp;&lt;script type=&quot;text/javascript&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; var container=document.getElementById(&#39;container&#39;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var deg = -20 , i = 1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; container.addEventListener(&#39;click&#39;,function(){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(&quot;rotateY:&quot;+(deg * i++) + &quot;deg&quot;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.style.webkitTransform=&quot;rotateY(&quot;+(deg * i++) + &quot;deg)&quot;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; },false);</p>
+<p>&nbsp; &nbsp; &lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;<br><br>原理主要是</p>
+<p>1、首先所有的图片的容器position:absolute，叠加在一起，然后一次设置rotateY分别为40*i ，i= 0 , 1, 2…9 ；所有图片会相交成一个类似花的形状</p>
+<p>2、然后为每个图片的容器设置translateZ，所有图片会从对应的角度向外移动，扩展成一个大圆，即上图效果。</p>
+<p>3、用js控制点击外层元素旋转从而实现旋转木马</p>
+<p>div#stage作为舞台，设置perspective，每个li分别设置rotateY，以及translateZ；然后我们会div#container设置了-webkit-transform-style: preserve-3d;<br>transform-style: flat | preserve-3d</p>
+<p>其中flat值为默认值，表示所有子元素在2D平面呈现。preserve-3d表示所有子元素在3D空间中呈现。如果对一个元素设置了transform-style的值为preserve-3d，它表示<br>不执行平展操作，他的所有子元素位于3D空间中。一般情况下，此属性用于3D动画效果的执行元素，即就是它要应用3D动画效果，所以它的子元素都应该在3D空间。<br>有一点要注意：本例子，其实正在的动画效果，在于鼠标点击，div#container在不端的改变rotateY，所有的图片元素均在div#container中，且已经展现为旋转木马效果，现在要做的就是旋转这个木马，所以只需要每次改变div#container的rotateY 40角度即可。</p>
 
       
     </div>
