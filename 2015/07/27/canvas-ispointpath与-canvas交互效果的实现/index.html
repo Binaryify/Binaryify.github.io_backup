@@ -191,8 +191,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/isPointInPath/1.gif" alt="demo"><br>canvas可以做出很多绚丽的特效,但是canvas内的内容怎么交互呢?<a id="more"></a><br>canvas有个重要的方法,isPointInPath()</p>
-<h1 id="定义和用法">定义和用法</h1><p>isPointInPath() 方法返回 true，如果指定的点位于当前路径中；否则返回 false。</p>
-<h1 id="JavaScript_语法：">JavaScript 语法：</h1><p><pre><br>context.isPointInPath(x,y);<br></pre><br>x:测试的 x 坐标<br>y:测试的 y 坐标<br>使用的时候只需要判断点是否路径里就能知道是否点击或触摸了,并且在此之上可以再进行重绘,这样就形成交互了<br><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/isPointInPath.html" target="_blank" rel="external">demo</a><br>在这个demo里,我设置了个for循环生成10个小球的位置,大小的数据,循环的时候都把生成的小球的数据添加到balls这个数组里,然后调用draw方法画出这10个小球,然后给canvas添加了点击事件监听,每次点击循环取出balls中小球数据,并且判断点击的位置是否在相对应的小球里,是的话就让被点击的小球颜色随机变化</p>
+<h1 id="isPointInPath()定义和用法">isPointInPath()定义和用法</h1><p>isPointInPath() 方法返回 true，如果指定的点位于当前路径中；否则返回 false。</p>
+<h1 id="JavaScript_语法：">JavaScript 语法：</h1><p><pre><br>context.isPointInPath(x,y);<br></pre><br>x:测试的 x 坐标<br>y:测试的 y 坐标<br>使用的时候只需要判断点是否路径里就能知道是否点击或触摸了,并且在此之上可以再进行重绘,这样就形成交互了</p>
+<h1 id="demo"><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/isPointInPath.html" target="_blank" rel="external">demo</a></h1><p>在这个demo里,我设置了个for循环生成10个小球的位置,大小的数据,循环的时候都把生成的小球的数据添加到balls这个数组里,然后调用draw方法画出这10个小球,然后给canvas添加了点击事件监听,每次点击循环取出balls中小球数据,并且判断点击的位置是否在相对应的小球里,是的话就让被点击的小球颜色随机变化</p>
 <p>需要注意的是,获取canvas点击位置的方法是</p>
 <p><pre><br>var x=event.clientX-canvas.getBoundingClientRect().left;<br>var y=event.clientY-canvas.getBoundingClientRect().top;<br></pre><br>这个需要记住</p>
 
