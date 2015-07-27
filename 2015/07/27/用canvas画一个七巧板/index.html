@@ -216,13 +216,40 @@ var tangram=[
       {p:[{x:800,y:400},{x:800,y:800},{x:400,y:800}],color:"gray"}
       ];
 </pre>
-接下来是
+接下来是循环遍历tangram,调用draw方法,传入tangram[i]和context
 <pre>
     for(var i=0;i&lt;tangram.length;i++){
 
     &nbsp; draw(tangram[i],context);
 
     }
+</pre>
+
+<p>声明draw方法</p>
+<pre>
+    &nbsp; &nbsp; function draw(piece, cxt) {
+
+&nbsp; &nbsp; &nbsp; cxt.beginPath();
+
+&nbsp; &nbsp; &nbsp; cxt.moveTo(piece.p[0].x, piece.p[0].y);
+
+&nbsp; &nbsp; &nbsp; for (var i = 1; i &lt; piece.p.length; i++) {
+
+&nbsp; &nbsp; &nbsp; &nbsp; cxt.lineTo(piece.p[i].x, piece.p[i].y);
+
+<br>
+
+&nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; &nbsp; cxt.transform(1, 0, 0, 1, 0, 0, 0);
+
+&nbsp; &nbsp; &nbsp; cxt.fillStyle = piece.color;
+
+&nbsp; &nbsp; &nbsp; cxt.fill();
+
+&nbsp; &nbsp; &nbsp; cxt.closePath();
+
+&nbsp; &nbsp; }
 </pre>
 
       
