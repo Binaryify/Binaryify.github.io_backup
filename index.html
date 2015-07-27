@@ -184,50 +184,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E4%B8%83%E5%B7%A7%E6%9D%BF/1.png" alt="七巧板"><br><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/%E4%B8%83%E5%B7%A7%E6%9D%BF.html" target="_blank" rel="external">demo</a><br>首先定义一个数组来储存七巧板的路径</p>
-<pre>
-var tangram=[
-      {p:[{x:0,y:0},{x:800,y:0},{x:400,y:400}],color:"green"},
-      {p:[{x:0,y:0},{x:400,y:400},{x:0,y:800}],color:"red"},
-      {p:[{x:800,y:0},{x:800,y:400},{x:600,y:600},{x:600,y:200}],color:"yellow"},
-      {p:[{x:600,y:200},{x:600,y:600},{x:400,y:400}],color:"blue"},
-      {p:[{x:400,y:400},{x:600,y:600},{x:400,y:800},{x:200,y:600}],color:"pink"},
-      {p:[{x:200,y:600},{x:400,y:800},{x:0,y:800}],color:"black"},
-      {p:[{x:800,y:400},{x:800,y:800},{x:400,y:800}],color:"gray"}
-      ];
-</pre>
-接下来是循环遍历tangram,调用draw方法,传入tangram[i]和context
-<pre>
-    for(var i=0;i&lt;tangram.length;i++){
-
-    &nbsp; draw(tangram[i],context);
-
-    }
-</pre>
-
-<p>声明draw方法,每次循环都找到七巧板的对应路径,用fill()画出来</p>
-<pre>
-&nbsp; &nbsp; function draw(piece, cxt) {
-
-&nbsp; &nbsp; &nbsp; cxt.beginPath();
-
-&nbsp; &nbsp; &nbsp; cxt.moveTo(piece.p[0].x, piece.p[0].y);
-
-&nbsp; &nbsp; &nbsp; for (var i = 1; i &lt; piece.p.length; i++) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; cxt.lineTo(piece.p[i].x, piece.p[i].y);
-
-&nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; cxt.fillStyle = piece.color;
-
-&nbsp; &nbsp; &nbsp; cxt.fill();
-
-&nbsp; &nbsp; &nbsp; cxt.closePath();
-
-&nbsp; &nbsp; }
-</pre>
-
+        <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E4%B8%83%E5%B7%A7%E6%9D%BF/1.png" alt="七巧板"><br><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/%E4%B8%83%E5%B7%A7%E6%9D%BF.html">demo</a><br>
       
     </div>
     
@@ -235,6 +192,10 @@ var tangram=[
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/27/用canvas画一个七巧板/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
