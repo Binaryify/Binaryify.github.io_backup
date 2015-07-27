@@ -158,6 +158,145 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-sass笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/15/sass笔记/" class="article-date">
+  	<time datetime="2015-06-15T03:04:56.000Z" itemprop="datePublished">2015-06-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/15/sass笔记/">sass和compass笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、Compass是什么？<br>简单说，Compass是Sass的工具库（toolkit）。<br>Sass本身只是一个编译器，Compass在它的基础上，封装了一系列有用的模块和模板，补充Sass的功能。它们之间的关系，有点像Javascript和jQuery、Ruby和Rails、python和Django的关系。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sass/">sass</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/06/15/sass笔记/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-简单实现jQuery 中的选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/11/简单实现jQuery 中的选择器/" class="article-date">
+  	<time datetime="2015-06-11T14:52:10.000Z" itemprop="datePublished">2015-06-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/11/简单实现jQuery 中的选择器/">简单实现jQuery 中的选择器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单demo,核心代码:</p>
+<pre>
+    &lt;script type=&quot;text/javascript&quot;&gt;
+
+    var $ = function(selector) {
+return document.querySelector(selector);
+}
+
+    var $$ = function(selector) {
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>return document.querySelectorAll(selector);
+
+    <span class="Apple-tab-span" style="white-space:pre">        </span>}
+
+    $(&#39;#div&#39;).addEventListener(&#39;click&#39;,function(){
+
+    alert(&#39;1&#39;);
+
+    },false);
+
+    $$(&#39;div&#39;)[0].onclick=function(){
+
+    alert(&#39;2&#39;);
+
+    }
+
+    &lt;/script&gt;
+
+</pre>
+
+<p>不是任何时候都适合用jQuery的,比如移动端,通过这段代码就可以实现jQuery的选择器了(当然jQuey的实现比这复杂),大大减少代码量,如果不要求兼容性的话够用了(兼容IE8+,Chrome,firefox)</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-JavaScript的prototype" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -898,122 +1037,6 @@ var length = path.getTotalLength();
 
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-SVG描边动画实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/25/SVG描边动画实现/" class="article-date">
-  	<time datetime="2015-05-25T10:23:47.000Z" itemprop="datePublished">2015-05-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/25/SVG描边动画实现/">SVG描边动画实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><div class="div1"><svg width="300" height="300" ><polygon points="220,100 300,210 170,250 123,234" style="fill:transparent;stroke:white;stroke-width:2"/></svg></div><style type="text/css">.div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes dash {to {stroke-dashoffset: 0;}}</style></p>
-<pre>
-
-    &lt;style type=&quot;text/css&quot;&gt;<br/>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg/">svg</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/05/25/SVG描边动画实现/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-HTML5中类jQuery选择器querySelector的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/24/HTML5中类jQuery选择器querySelector的使用/" class="article-date">
-  	<time datetime="2015-05-24T10:18:32.000Z" itemprop="datePublished">2015-05-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/24/HTML5中类jQuery选择器querySelector的使用/">HTML5中类jQuery选择器querySelector的使用 </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><h1><br>    简介<br></h1></p>
-<p><br>    HTML5向Web API新引入了<span style="background-color: lightgrey;">document.querySelector</span>以及<span style="background-color: lightgrey;">document.querySelectorAll</span>两个方法用来更方便地从DOM选取元素，功能类似于jQuery的选择器。这使得在编写原生JavaScript代码时方便了许多。<br></p><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/05/24/HTML5中类jQuery选择器querySelector的使用/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

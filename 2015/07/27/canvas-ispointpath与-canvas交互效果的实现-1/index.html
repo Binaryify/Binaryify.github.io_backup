@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>用canvas画一个七巧板 | 阿发的藏宝库</title>
+  <title>canvas ispointpath与 canvas交互效果的实现 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="demo首先定义一个数组来储存七巧板的路径">
+  <meta name="description" content="阿发的藏宝库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用canvas画一个七巧板">
-<meta property="og:url" content="http://yoursite.com/2015/07/27/用canvas画一个七巧板/index.html">
+<meta property="og:title" content="canvas ispointpath与 canvas交互效果的实现">
+<meta property="og:url" content="http://yoursite.com/2015/07/27/canvas-ispointpath与-canvas交互效果的实现-1/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="demo首先定义一个数组来储存七巧板的路径">
-<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/%E4%B8%83%E5%B7%A7%E6%9D%BF/1.png">
+<meta property="og:description" content="阿发的藏宝库">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用canvas画一个七巧板">
-<meta name="twitter:description" content="demo首先定义一个数组来储存七巧板的路径">
+<meta name="twitter:title" content="canvas ispointpath与 canvas交互效果的实现">
+<meta name="twitter:description" content="阿发的藏宝库">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -157,11 +156,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-用canvas画一个七巧板" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-canvas-ispointpath与-canvas交互效果的实现-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/27/用canvas画一个七巧板/" class="article-date">
-  	<time datetime="2015-07-27T08:25:19.000Z" itemprop="datePublished">2015-07-27</time>
+      <a href="/2015/07/27/canvas-ispointpath与-canvas交互效果的实现-1/" class="article-date">
+  	<time datetime="2015-07-27T09:41:46.000Z" itemprop="datePublished">2015-07-27</time>
 </a>
     </div>
   
@@ -174,7 +173,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      用canvas画一个七巧板
+      canvas ispointpath与 canvas交互效果的实现
     </h1>
   
 
@@ -190,50 +189,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E4%B8%83%E5%B7%A7%E6%9D%BF/1.png" alt="七巧板"><br><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/%E4%B8%83%E5%B7%A7%E6%9D%BF.html" target="_blank" rel="external">demo</a><br>首先定义一个数组来储存七巧板的路径<br><a id="more"></a></p>
-<pre>
-var tangram=[
-      {p:[{x:0,y:0},{x:800,y:0},{x:400,y:400}],color:"green"},
-      {p:[{x:0,y:0},{x:400,y:400},{x:0,y:800}],color:"red"},
-      {p:[{x:800,y:0},{x:800,y:400},{x:600,y:600},{x:600,y:200}],color:"yellow"},
-      {p:[{x:600,y:200},{x:600,y:600},{x:400,y:400}],color:"blue"},
-      {p:[{x:400,y:400},{x:600,y:600},{x:400,y:800},{x:200,y:600}],color:"pink"},
-      {p:[{x:200,y:600},{x:400,y:800},{x:0,y:800}],color:"black"},
-      {p:[{x:800,y:400},{x:800,y:800},{x:400,y:800}],color:"gray"}
-      ];
-</pre>
-接下来是循环遍历tangram,调用draw方法,传入tangram[i]和context
-<pre>
-    for(var i=0;i&lt;tangram.length;i++){
-
-    &nbsp; draw(tangram[i],context);
-
-    }
-</pre>
-
-<p>声明draw方法,每次循环都找到七巧板的对应路径,用fill()画出来</p>
-<pre>
-&nbsp; &nbsp; function draw(piece, cxt) {
-
-&nbsp; &nbsp; &nbsp; cxt.beginPath();
-
-&nbsp; &nbsp; &nbsp; cxt.moveTo(piece.p[0].x, piece.p[0].y);
-
-&nbsp; &nbsp; &nbsp; for (var i = 1; i &lt; piece.p.length; i++) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; cxt.lineTo(piece.p[i].x, piece.p[i].y);
-
-&nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; cxt.fillStyle = piece.color;
-
-&nbsp; &nbsp; &nbsp; cxt.fill();
-
-&nbsp; &nbsp; &nbsp; cxt.closePath();
-
-&nbsp; &nbsp; }
-</pre>
-
+        
       
     </div>
     
@@ -242,18 +198,9 @@ var tangram=[
     
 <nav id="article-nav">
   
-    <a href="/2015/07/27/canvas-ispointpath与-canvas交互效果的实现/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          canvas isPointInPath与 canvas交互效果的实现
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/24/3D立方体的实现/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">3D立方体的实现</div>
+    <a href="/2015/07/27/canvas-ispointpath与-canvas交互效果的实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">canvas isPointInPath与 canvas交互效果的实现</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -267,7 +214,7 @@ var tangram=[
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="用canvas画一个七巧板" data-title="用canvas画一个七巧板" data-url="http://yoursite.com/2015/07/27/用canvas画一个七巧板/"></div>
+	<div class="ds-thread" data-thread-key="canvas-ispointpath与-canvas交互效果的实现-1" data-title="canvas ispointpath与 canvas交互效果的实现" data-url="http://yoursite.com/2015/07/27/canvas-ispointpath与-canvas交互效果的实现-1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
