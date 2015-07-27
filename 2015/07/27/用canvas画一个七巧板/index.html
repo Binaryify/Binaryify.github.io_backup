@@ -3,24 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>3D立方体的实现 | 阿发的藏宝库</title>
+  <title>用canvas画一个七巧板 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CSS的transform配合keyframes和animation很强大,可以做很多动画,而且transfrom有个transform-style的属性,可以用来设置3D,做一个3D的动画
-transform-style: preserve-3d;比如可以做个3D立方体
-demo:  戳我HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置-webkit-transform-sty">
+  <meta name="description" content="什么是 Canvas？HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。画布是一个矩形区域，您可以控制其每一像素。canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。
+创建 Canvas 元素向 HTML5 页面添加 canvas 元素。规定元素的 id、宽度和高度：
+
+&amp;lt;canvas id=&amp;quot;myCanvas&amp;quot; width=">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3D立方体的实现">
-<meta property="og:url" content="http://yoursite.com/2015/07/24/3D立方体的实现/index.html">
+<meta property="og:title" content="用canvas画一个七巧板">
+<meta property="og:url" content="http://yoursite.com/2015/07/27/用canvas画一个七巧板/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="CSS的transform配合keyframes和animation很强大,可以做很多动画,而且transfrom有个transform-style的属性,可以用来设置3D,做一个3D的动画
-transform-style: preserve-3d;比如可以做个3D立方体
-demo:  戳我HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置-webkit-transform-sty">
-<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/3d/1.png">
+<meta property="og:description" content="什么是 Canvas？HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。画布是一个矩形区域，您可以控制其每一像素。canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。
+创建 Canvas 元素向 HTML5 页面添加 canvas 元素。规定元素的 id、宽度和高度：
+
+&amp;lt;canvas id=&amp;quot;myCanvas&amp;quot; width=">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3D立方体的实现">
-<meta name="twitter:description" content="CSS的transform配合keyframes和animation很强大,可以做很多动画,而且transfrom有个transform-style的属性,可以用来设置3D,做一个3D的动画
-transform-style: preserve-3d;比如可以做个3D立方体
-demo:  戳我HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置-webkit-transform-sty">
+<meta name="twitter:title" content="用canvas画一个七巧板">
+<meta name="twitter:description" content="什么是 Canvas？HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。画布是一个矩形区域，您可以控制其每一像素。canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。
+创建 Canvas 元素向 HTML5 页面添加 canvas 元素。规定元素的 id、宽度和高度：
+
+&amp;lt;canvas id=&amp;quot;myCanvas&amp;quot; width=">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -163,11 +165,11 @@ demo:  戳我HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-3D立方体的实现" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-用canvas画一个七巧板" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/24/3D立方体的实现/" class="article-date">
-  	<time datetime="2015-07-24T14:25:53.000Z" itemprop="datePublished">2015-07-24</time>
+      <a href="/2015/07/27/用canvas画一个七巧板/" class="article-date">
+  	<time datetime="2015-07-27T08:25:19.000Z" itemprop="datePublished">2015-07-27</time>
 </a>
     </div>
   
@@ -180,7 +182,7 @@ demo:  戳我HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置
         
   
     <h1 class="article-title" itemprop="name">
-      3D立方体的实现
+      用canvas画一个七巧板
     </h1>
   
 
@@ -188,10 +190,6 @@ demo:  戳我HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3D/">3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -200,9 +198,14 @@ demo:  戳我HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>CSS的transform配合keyframes和animation很强大,可以做很多动画,而且transfrom有个transform-style的属性,可以用来设置3D,做一个3D的动画</p>
-<p><pre>transform-style: preserve-3d;<br></pre><br>比如可以做个3D立方体<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/3d/1.png" alt="3D立方体"></p>
-<h1 id="demo:_戳我">demo:  <a href="http://zhuangtongfa.gitcafe.io/demo/3d.html" target="_blank" rel="external">戳我</a></h1><p>HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置-webkit-transform-style: preserve-3d,让动画变成3D形式的,再给6个li分别设置不同的transform,让这6个li成为个立方体,然后在给ul设置旋转的动画,然后一个旋转的立方体就出现了,还可以修饰下,给不同的li加颜色变化的动画<br>同理,我们也可以做一个3D的视频播放器什么的,这里就不详细介绍了,因为原理都是一样的</p>
+        <p><img src="" alt="七巧板"></p>
+<h1 id="什么是_Canvas？">什么是 Canvas？</h1><p>HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。<br>画布是一个矩形区域，您可以控制其每一像素。<br>canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。</p>
+<h1 id="创建_Canvas_元素">创建 Canvas 元素</h1><p>向 HTML5 页面添加 canvas 元素。<br>规定元素的 id、宽度和高度：</p>
+<pre>
+&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;&lt;/canvas&gt;
+</pre>
+
+<h1 id="通过_JavaScript_来绘制">通过 JavaScript 来绘制</h1><p>canvas 元素本身是没有绘图能力的。所有的绘制工作必须在 JavaScript 内部完成：</p>
 
       
     </div>
@@ -212,18 +215,9 @@ demo:  戳我HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置
     
 <nav id="article-nav">
   
-    <a href="/2015/07/27/用canvas画一个七巧板/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          用canvas画一个七巧板
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/24/light-UI 1.0发布/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">light-UI 1.0发布</div>
+    <a href="/2015/07/24/3D立方体的实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3D立方体的实现</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -237,7 +231,7 @@ demo:  戳我HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="3D立方体的实现" data-title="3D立方体的实现" data-url="http://yoursite.com/2015/07/24/3D立方体的实现/"></div>
+	<div class="ds-thread" data-thread-key="用canvas画一个七巧板" data-title="用canvas画一个七巧板" data-url="http://yoursite.com/2015/07/27/用canvas画一个七巧板/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
