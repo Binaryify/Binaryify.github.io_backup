@@ -205,7 +205,7 @@ var tangram=[
     }
 </pre>
 
-<p>声明draw方法</p>
+<p>声明draw方法,每次循环都找到七巧板的对应路径,用fill()画出来</p>
 <pre>
 &nbsp; &nbsp; function draw(piece, cxt) {
 
@@ -216,8 +216,6 @@ var tangram=[
 &nbsp; &nbsp; &nbsp; for (var i = 1; i &lt; piece.p.length; i++) {
 
 &nbsp; &nbsp; &nbsp; &nbsp; cxt.lineTo(piece.p[i].x, piece.p[i].y);
-
-<br>
 
 &nbsp; &nbsp; &nbsp; }
 
