@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>canvas isPointInPath与 canvas交互效果的实现 | 阿发的藏宝库</title>
+  <title>canvas画板 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="canvas可以做出很多绚丽的特效,但是canvas内的内容怎么交互呢?">
+  <meta name="description" content="canvas顾名思义画布,自然可以被用来做一个画板,用来涂鸦什么的实现的原理是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="canvas isPointInPath与 canvas交互效果的实现">
-<meta property="og:url" content="http://yoursite.com/2015/07/27/canvas-ispointpath与-canvas交互效果的实现/index.html">
+<meta property="og:title" content="canvas画板">
+<meta property="og:url" content="http://yoursite.com/2015/07/28/canvas画板/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="canvas可以做出很多绚丽的特效,但是canvas内的内容怎么交互呢?">
-<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/isPointInPath/1.gif">
+<meta property="og:description" content="canvas顾名思义画布,自然可以被用来做一个画板,用来涂鸦什么的实现的原理是">
+<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/%E7%94%BB%E6%9D%BF/1.gif">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas isPointInPath与 canvas交互效果的实现">
-<meta name="twitter:description" content="canvas可以做出很多绚丽的特效,但是canvas内的内容怎么交互呢?">
+<meta name="twitter:title" content="canvas画板">
+<meta name="twitter:description" content="canvas顾名思义画布,自然可以被用来做一个画板,用来涂鸦什么的实现的原理是">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -157,11 +157,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-canvas-ispointpath与-canvas交互效果的实现" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-canvas画板" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/27/canvas-ispointpath与-canvas交互效果的实现/" class="article-date">
-  	<time datetime="2015-07-27T09:20:01.000Z" itemprop="datePublished">2015-07-27</time>
+      <a href="/2015/07/28/canvas画板/" class="article-date">
+  	<time datetime="2015-07-28T04:00:38.000Z" itemprop="datePublished">2015-07-28</time>
 </a>
     </div>
   
@@ -174,7 +174,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      canvas isPointInPath与 canvas交互效果的实现
+      canvas画板
     </h1>
   
 
@@ -194,16 +194,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/isPointInPath/1.gif" alt="demo"><br>canvas可以做出很多绚丽的特效,但是canvas内的内容怎么交互呢?<a id="more"></a><br>canvas有个重要的方法,isPointInPath()</p>
-<hr>
-<h1 id="isPointInPath()定义和用法">isPointInPath()定义和用法</h1><p>isPointInPath() 方法返回 true，如果指定的点位于当前路径中；否则返回 false。</p>
-<hr>
-<h1 id="JavaScript_语法：">JavaScript 语法：</h1><p><pre>context.isPointInPath(x,y);</pre><br>x:测试的 x 坐标<br>y:测试的 y 坐标<br>使用的时候只需要判断点是否路径里就能知道是否点击或触摸了,并且在此之上可以再进行重绘,这样就形成交互了</p>
-<hr>
-<h1 id="demo"><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/isPointInPath.html" target="_blank" rel="external">demo</a></h1><p>在这个demo里,我设置了个for循环生成10个小球的位置,大小的数据,循环的时候都把生成的小球的数据添加到balls这个数组里,然后调用draw方法画出这10个小球,然后给canvas添加了点击事件监听,每次点击循环取出balls中小球数据,并且判断点击的位置是否在相对应的小球里,是的话就让被点击的小球颜色随机变化</p>
-<hr>
-<p>需要注意的是,获取canvas点击位置的方法是</p>
-<p><pre>var x=event.clientX-canvas.getBoundingClientRect().left;<br>var y=event.clientY-canvas.getBoundingClientRect().top;</pre><br>这个需要记住<br>虽然用offset也可以,但是精度没有getBoundingClientRect()高</p>
+        <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E7%94%BB%E6%9D%BF/1.gif" alt="画板"><br>canvas顾名思义画布,自然可以被用来做一个画板,用来涂鸦什么的<br>实现的原理是<a id="more"></a>监听3个事件,鼠标点下事件,鼠标移动事件,鼠标松开事件,定义一个state变量用来保存状态,初始化为0<br>鼠标点击的时候就移动到所点位置,具体代码是</p>
+<p><pre><br>  ctx.moveTo(ev.pageX - this.offsetLeft, ev.pageY - this.offsetTop);<br></pre><br>同时state变为1.<br>鼠标移动的时候就判断state是否为真(1为真,0为假),真的话就调用lineTo画出鼠标移动的路径<br>鼠标松开的时候就把state变为0<br>这样就实现了点击鼠标移动鼠标就能在canvas上画画了,当然还有不完善的地方,比如摁住鼠标然后鼠标移出canvas区域,再回到canvas会画出一条长长的线,<br>可以给body加多个判断,判断鼠标位置在不在canvas里,不在就令state=0,这样就避免了这个问题<br>也可以加多几个按钮,设置按钮点击后改变画笔的颜色,粗细什么的<br>或者增加画圆画三角画星星的方法,甚至可以增加画贝塞尔曲线的方法,大家自由发挥</p>
 
       
     </div>
@@ -213,18 +205,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/07/28/canvas画板/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          canvas画板
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/27/用canvas画一个七巧板/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">用canvas画一个七巧板</div>
+    <a href="/2015/07/27/canvas-ispointpath与-canvas交互效果的实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">canvas isPointInPath与 canvas交互效果的实现</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -238,7 +221,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="canvas-ispointpath与-canvas交互效果的实现" data-title="canvas isPointInPath与 canvas交互效果的实现" data-url="http://yoursite.com/2015/07/27/canvas-ispointpath与-canvas交互效果的实现/"></div>
+	<div class="ds-thread" data-thread-key="canvas画板" data-title="canvas画板" data-url="http://yoursite.com/2015/07/28/canvas画板/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
