@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>SVG描边动画实现 | 阿发的藏宝库</title>
+  <title>阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content=".div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SVG描边动画实现">
-<meta property="og:url" content="http://yoursite.com/2015/05/25/SVG描边动画实现/index.html">
+  <meta name="description" content="阿发的藏宝库">
+<meta property="og:type" content="website">
+<meta property="og:title" content="阿发的藏宝库">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content=".div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes">
+<meta property="og:description" content="阿发的藏宝库">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SVG描边动画实现">
-<meta name="twitter:description" content=".div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes">
+<meta name="twitter:title" content="阿发的藏宝库">
+<meta name="twitter:description" content="阿发的藏宝库">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -156,11 +156,13 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-SVG描边动画实现" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="post-总算弄好了" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/05/25/SVG描边动画实现/" class="article-date">
-  	<time datetime="2015-05-25T10:23:47.000Z" itemprop="datePublished">2015-05-25</time>
+      <a href="/2015/05/06/总算弄好了/" class="article-date">
+  	<time datetime="2015-05-06T09:15:35.000Z" itemprop="datePublished">2015-05-06</time>
 </a>
     </div>
   
@@ -172,137 +174,44 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      SVG描边动画实现
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/06/总算弄好了/">总算弄好了</a>
     </h1>
   
 
       </header>
       
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg/">svg</a></li></ul>
-	</div>
-
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="div1"><svg width="300" height="300"><polygon points="220,100 300,210 170,250 123,234" style="fill:transparent;stroke:white;stroke-width:2"/></svg></div><style type="text/css">.div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes dash {to {stroke-dashoffset: 0;}}</style></p>
-<pre>
-
-    &lt;style type=&quot;text/css&quot;&gt;<br><a id="more"></a>
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>html,body{
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>width:100%;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>height:100%;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>margin:0;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>padding:0;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>background-color: green;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>
-
-    }
-
-    polygon{
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span> stroke-dasharray: 490;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span> stroke-dashoffset: 490;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span> -webkit-animation: dash 1s linear infinite alternate;
-
-    }
-
-    @-webkit-keyframes dash {
-
-    &nbsp; to {
-
-    &nbsp; &nbsp; stroke-dashoffset: 0;
-
-    &nbsp; }
-
-    }
-
-
-    &lt;/style&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;svg width=&quot;300&quot; height=&quot;300&quot; &gt;<span class="Apple-tab-span" style="white-space:pre">    </span>
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;polygon points=&quot;220,100 300,210 170,250 123,234&quot;
-
-    style=&quot;fill:transparent;
-
-    stroke:white;stroke-width:2&quot;/&gt;
-
-    <span class="Apple-tab-span" style="white-space: pre;">    </span>&lt;/svg&gt;
-
-</pre>
-
-<p>svg实现路径动画主要是利用css中的stroke-dasharray和stroke-dashoffset这两个属性,这两个属性原本是用于制作虚线效果的,但是大家想象一下,一根火腿肠12厘米，要在上面画虚线，虚线间隔有15厘米，如果没有dashoffset，则火腿肠前面15厘米会被辣椒酱覆盖！实际上只有12厘米，因此，我们看到的是整个火腿肠都有辣椒酱。现在，dashoffset也是15厘米，也就是虚线要往后偏移15厘米，结果，辣椒酱要抹在火腿肠之外，也就是火腿肠上什么辣椒酱也没有。如果换成上面的直线SVG，也就是直线看不见了。我们把dashoffset值逐渐变小，则会发现，火腿肠上的辣椒酱一点一点出现了，好像辣椒酱从火腿肠根部涂抹上去一样。于是实现路径动画的思路就出来了,只需要用css中的keyframe控制stroke-dashoffset让它的值逐渐变0就能形成路径动画了</p>
+        <p>花了两天研究github,总算弄好了博客.本人记性较差,开此博客一是备忘,二是通过简单的demo让人更能理解HTML5各种效果的原理</p>
 
       
     </div>
     
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/05/27/svg修改class和修改样式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          svg修改class和修改样式
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/05/24/HTML5中类jQuery选择器querySelector的使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5中类jQuery选择器querySelector的使用 </div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
+    <div class="article-info article-info-index">
+      
+      
 
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
   
 </article>
 
 
 
 
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="SVG描边动画实现" data-title="SVG描边动画实现" data-url="http://yoursite.com/2015/05/25/SVG描边动画实现/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
 
 
-
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
+  
 </div>
       <footer id="footer">
   <div class="outer">

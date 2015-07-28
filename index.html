@@ -158,6 +158,57 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-canvas创造路径动画的实现思路" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/28/canvas创造路径动画的实现思路/" class="article-date">
+  	<time datetime="2015-07-28T10:53:34.000Z" itemprop="datePublished">2015-07-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/28/canvas创造路径动画的实现思路/">canvas创造路径动画的实现思路</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E8%B7%AF%E5%BE%84%E5%8A%A8%E7%94%BB/1.gif" alt="demo"><br>众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过,(demo)[<a href="http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/</a>]<br>但是canvas这种一次画完的的怎么实现路径动画呢?<br>下面是实现canvas路径动画的思路<br><a href="">demo</a><br>原理很简单,用定时器逐帧画出,并且每次画都是在原来的基础上画,然后画完的时候清除计时器即可<br>核心代码:</p>
+<p><pre><br>function drawCircle(x,y,r){<br>  ctx.strokeStyle=”red”;<br>  var i=1;<br>  if(i<100){ var="" interval="setInterval(function(){" ctx.beginpath()="" ctx.arc(x,y,r,2*math.pi*(i-1)="" 100,2*math.pi*i="" 100);="" ctx.stroke()="" console.log(i="" 100)="" i++;="" if(i="">100){<br>        clearInterval(interval);<br>      }<br>    },10)</100){></pre></p>
+<p>}<br><br><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/路径动画.html" target="_blank" rel="external">demo</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-canvas画板" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -663,65 +714,9 @@
 
 
   
-    <article id="post-可拖动元素的实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/05/可拖动元素的实现/" class="article-date">
-  	<time datetime="2015-07-05T14:54:52.000Z" itemprop="datePublished">2015-07-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/05/可拖动元素的实现/">可拖动元素的实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>源码:<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/05/可拖动元素的实现/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

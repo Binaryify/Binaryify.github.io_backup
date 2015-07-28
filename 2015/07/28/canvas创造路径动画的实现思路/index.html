@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>SVG描边动画实现 | 阿发的藏宝库</title>
+  <title>canvas创造路径动画的实现思路 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content=".div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes">
+  <meta name="description" content="众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过,(demo)[http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/]但是canvas这种一次画完的的怎么实现路径动画呢?下面是实现canvas路径动画的思路demo原理很简单,用定时器逐帧画出">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SVG描边动画实现">
-<meta property="og:url" content="http://yoursite.com/2015/05/25/SVG描边动画实现/index.html">
+<meta property="og:title" content="canvas创造路径动画的实现思路">
+<meta property="og:url" content="http://yoursite.com/2015/07/28/canvas创造路径动画的实现思路/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content=".div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes">
+<meta property="og:description" content="众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过,(demo)[http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/]但是canvas这种一次画完的的怎么实现路径动画呢?下面是实现canvas路径动画的思路demo原理很简单,用定时器逐帧画出">
+<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/%E8%B7%AF%E5%BE%84%E5%8A%A8%E7%94%BB/1.gif">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SVG描边动画实现">
-<meta name="twitter:description" content=".div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes">
+<meta name="twitter:title" content="canvas创造路径动画的实现思路">
+<meta name="twitter:description" content="众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过,(demo)[http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/]但是canvas这种一次画完的的怎么实现路径动画呢?下面是实现canvas路径动画的思路demo原理很简单,用定时器逐帧画出">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -156,11 +157,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-SVG描边动画实现" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-canvas创造路径动画的实现思路" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/05/25/SVG描边动画实现/" class="article-date">
-  	<time datetime="2015-05-25T10:23:47.000Z" itemprop="datePublished">2015-05-25</time>
+      <a href="/2015/07/28/canvas创造路径动画的实现思路/" class="article-date">
+  	<time datetime="2015-07-28T10:53:34.000Z" itemprop="datePublished">2015-07-28</time>
 </a>
     </div>
   
@@ -173,7 +174,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SVG描边动画实现
+      canvas创造路径动画的实现思路
     </h1>
   
 
@@ -181,10 +182,6 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg/">svg</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -193,63 +190,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="div1"><svg width="300" height="300"><polygon points="220,100 300,210 170,250 123,234" style="fill:transparent;stroke:white;stroke-width:2"/></svg></div><style type="text/css">.div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes dash {to {stroke-dashoffset: 0;}}</style></p>
-<pre>
-
-    &lt;style type=&quot;text/css&quot;&gt;<br><a id="more"></a>
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>html,body{
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>width:100%;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>height:100%;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>margin:0;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>padding:0;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>background-color: green;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>
-
-    }
-
-    polygon{
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span> stroke-dasharray: 490;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span> stroke-dashoffset: 490;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span> -webkit-animation: dash 1s linear infinite alternate;
-
-    }
-
-    @-webkit-keyframes dash {
-
-    &nbsp; to {
-
-    &nbsp; &nbsp; stroke-dashoffset: 0;
-
-    &nbsp; }
-
-    }
-
-
-    &lt;/style&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;svg width=&quot;300&quot; height=&quot;300&quot; &gt;<span class="Apple-tab-span" style="white-space:pre">    </span>
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;polygon points=&quot;220,100 300,210 170,250 123,234&quot;
-
-    style=&quot;fill:transparent;
-
-    stroke:white;stroke-width:2&quot;/&gt;
-
-    <span class="Apple-tab-span" style="white-space: pre;">    </span>&lt;/svg&gt;
-
-</pre>
-
-<p>svg实现路径动画主要是利用css中的stroke-dasharray和stroke-dashoffset这两个属性,这两个属性原本是用于制作虚线效果的,但是大家想象一下,一根火腿肠12厘米，要在上面画虚线，虚线间隔有15厘米，如果没有dashoffset，则火腿肠前面15厘米会被辣椒酱覆盖！实际上只有12厘米，因此，我们看到的是整个火腿肠都有辣椒酱。现在，dashoffset也是15厘米，也就是虚线要往后偏移15厘米，结果，辣椒酱要抹在火腿肠之外，也就是火腿肠上什么辣椒酱也没有。如果换成上面的直线SVG，也就是直线看不见了。我们把dashoffset值逐渐变小，则会发现，火腿肠上的辣椒酱一点一点出现了，好像辣椒酱从火腿肠根部涂抹上去一样。于是实现路径动画的思路就出来了,只需要用css中的keyframe控制stroke-dashoffset让它的值逐渐变0就能形成路径动画了</p>
+        <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E8%B7%AF%E5%BE%84%E5%8A%A8%E7%94%BB/1.gif" alt="demo"><br>众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过,(demo)[<a href="http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/</a>]<br>但是canvas这种一次画完的的怎么实现路径动画呢?<br>下面是实现canvas路径动画的思路<br><a href="">demo</a><br>原理很简单,用定时器逐帧画出,并且每次画都是在原来的基础上画,然后画完的时候清除计时器即可<br>核心代码:</p>
+<p><pre><br>function drawCircle(x,y,r){<br>  ctx.strokeStyle=”red”;<br>  var i=1;<br>  if(i<100){ var="" interval="setInterval(function(){" ctx.beginpath()="" ctx.arc(x,y,r,2*math.pi*(i-1)="" 100,2*math.pi*i="" 100);="" ctx.stroke()="" console.log(i="" 100)="" i++;="" if(i="">100){<br>        clearInterval(interval);<br>      }<br>    },10)</100){></pre></p>
+<p>}<br><br><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/路径动画.html" target="_blank" rel="external">demo</a></p>
 
       
     </div>
@@ -259,18 +202,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/05/27/svg修改class和修改样式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          svg修改class和修改样式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/05/24/HTML5中类jQuery选择器querySelector的使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5中类jQuery选择器querySelector的使用 </div>
+    <a href="/2015/07/28/canvas画板/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">canvas画板</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -284,7 +218,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="SVG描边动画实现" data-title="SVG描边动画实现" data-url="http://yoursite.com/2015/05/25/SVG描边动画实现/"></div>
+	<div class="ds-thread" data-thread-key="canvas创造路径动画的实现思路" data-title="canvas创造路径动画的实现思路" data-url="http://yoursite.com/2015/07/28/canvas创造路径动画的实现思路/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
