@@ -191,7 +191,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E8%B7%AF%E5%BE%84%E5%8A%A8%E7%94%BB/1.gif" alt="demo"><br>众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过<a id="more"></a>,(demo)[<a href="http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/</a>]<br>但是canvas这种一次画完的的怎么实现路径动画呢?<br>下面是实现canvas路径动画的思路<br><a href="">demo</a><br>原理很简单,用定时器逐帧画出,并且每次画都是在原来的基础上画,然后画完的时候清除计时器即可<br>核心代码:</p>
-<p><pre><br>function drawCircle(x,y,r){</pre></p>
+<p><pre>function drawCircle(x,y,r){</pre></p>
 <p>&nbsp; ctx.strokeStyle=&quot;red&quot;;</p>
 <p>&nbsp; var i=1;</p>
 <p>&nbsp; if(i&lt;100){</p>
