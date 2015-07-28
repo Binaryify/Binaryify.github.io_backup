@@ -5,16 +5,16 @@
   
   <title>canvas创造路径动画的实现思路 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="111众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过">
+  <meta name="description" content="222众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过">
 <meta property="og:type" content="article">
 <meta property="og:title" content="canvas创造路径动画的实现思路">
 <meta property="og:url" content="http://yoursite.com/2015/07/28/canvas创造路径动画的实现思路/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="111众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过">
+<meta property="og:description" content="222众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过">
 <meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/%E8%B7%AF%E5%BE%84%E5%8A%A8%E7%94%BB/1.gif">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvas创造路径动画的实现思路">
-<meta name="twitter:description" content="111众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过">
+<meta name="twitter:description" content="222众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -190,37 +190,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>111<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E8%B7%AF%E5%BE%84%E5%8A%A8%E7%94%BB/1.gif" alt="demo"><br>众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过<a id="more"></a>,(demo)[<a href="http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/</a>]<br>但是canvas这种一次画完的的怎么实现路径动画呢?<br>下面是实现canvas路径动画的思路<br><a href="">demo</a><br>原理很简单,用定时器逐帧画出,并且每次画都是在原来的基础上画,然后画完的时候清除计时器即可<br>核心代码:</p>
+        <p>222<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E8%B7%AF%E5%BE%84%E5%8A%A8%E7%94%BB/1.gif" alt="demo"><br>众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过<a id="more"></a>,(demo)[<a href="http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/</a>]<br>但是canvas这种一次画完的的怎么实现路径动画呢?<br>下面是实现canvas路径动画的思路<br><a href="">demo</a><br>原理很简单,用定时器逐帧画出,并且每次画都是在原来的基础上画,然后画完的时候清除计时器即可<br>核心代码:</p>
 <pre>
-function drawCircle(x,y,r){
+&nbsp; &nbsp; &nbsp; function drawCircle(x, y, r) {
 
-&nbsp; ctx.strokeStyle=&quot;red&quot;;
+&nbsp; &nbsp; &nbsp; ctx.strokeStyle = &quot;red&quot;;
 
-&nbsp; var i=1;
+&nbsp; &nbsp; &nbsp; var i = 1;
 
-&nbsp; if(i&lt;100){
+&nbsp; &nbsp; &nbsp; if (i &lt; 100) {
 
-&nbsp; &nbsp; var interval=setInterval(function(){
+&nbsp; &nbsp; &nbsp; &nbsp; var interval = setInterval(function() {
 
-&nbsp; &nbsp; &nbsp; ctx.beginPath()
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.beginPath()
 
-&nbsp; &nbsp; &nbsp; ctx.arc(x,y,r,2*Math.PI*(i-1)/100,2*Math.PI*i/100);
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.arc(x, y, r, 2 * Math.PI * (i - 1) / 100, 2 * Math.PI * i / 100);
 
-&nbsp; &nbsp; &nbsp; &nbsp; ctx.stroke()
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.stroke()
 
-&nbsp; &nbsp; &nbsp; console.log(i/100)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(i / 100)
 
-&nbsp; &nbsp; &nbsp; i++;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;
 
-&nbsp; &nbsp; &nbsp; if(i&gt;100){
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (i &gt; 100) {
 
-&nbsp; &nbsp; &nbsp; &nbsp; clearInterval(interval);
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(interval);
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; &nbsp; &nbsp; }, 10)
 
 &nbsp; &nbsp; &nbsp; }
 
-&nbsp; &nbsp; },10)
-
-}
+&nbsp; &nbsp; }
 </pre>
 
 <p><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/路径动画.html" target="_blank" rel="external">demo</a></p>
