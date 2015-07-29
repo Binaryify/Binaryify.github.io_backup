@@ -5,15 +5,15 @@
   
   <title>canvas点阵实现粒子化时间显示 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先定义一个7x10的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2Math.PI假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:x:">
+  <meta name="description" content="首先定义一个7x10的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2*Math.PI假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="canvas点阵实现粒子化时间显示">
 <meta property="og:url" content="http://yoursite.com/2015/07/28/canvas点阵实现粒子化时间显示/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="首先定义一个7x10的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2Math.PI假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:x:">
+<meta property="og:description" content="首先定义一个7x10的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2*Math.PI假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvas点阵实现粒子化时间显示">
-<meta name="twitter:description" content="首先定义一个7x10的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2Math.PI假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:x:">
+<meta name="twitter:description" content="首先定义一个7x10的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2*Math.PI假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -193,9 +193,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="" alt=""><br>首先定义一个7x10的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状<br><img src="" alt=""><br>画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2<em>Math.PI<br>假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:<br>x:x+j</em>2<em>(R+1)+(R+1)<br>y:y+i</em>2*(R+1)+(R+1)<br>那么我们定义一个renderDigit函数</p>
+        <p><img src="" alt=""><br>首先定义一个7x10的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状<br><img src="" alt=""><br>画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2*Math.PI<br>假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:</p>
 <pre>
-    &nbsp; &nbsp; function renderDigit(x, y, num, ctx) {
+x:x+j*2*(R+1)+(R+1)
+y:y+i*2*(R+1)+(R+1)
+</pre>
+那么我们定义一个renderDigit函数
+<pre>
+&nbsp; &nbsp; function renderDigit(x, y, num, ctx) {
 
 &nbsp; &nbsp; &nbsp; ctx.fillStyle = &quot;rgb(0,102,153)&quot;;
 
