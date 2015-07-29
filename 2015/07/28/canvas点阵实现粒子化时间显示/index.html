@@ -230,7 +230,18 @@ CenterY:y+i*2*(R+1)+(R+1)
 </pre>
 
 <p>数字和冒号都可以调用这个renderDigit函数画出来,只是x和y的位置不同,所以我们再定义一个render函数,传入ctx,定义hours,minites,seconds变量,为了让第一个数字位置在合适的位置,设置这几个全局变量,MARGINTOP和MARGINLEFT,还有小球半径RADIUS,在传入x的时候为了和左边的数字留有间隙,所以多加了1个(RADIUS+1),也就是2x7x(RADIUS+1),需要注意的是冒号不同隔那么远,只需要隔9x(RADIUS),同时因为绘制不同数字是把数字拆分来绘制的,所以在传入num的时候是需要拆分十位和个位数的,冒号就直接传个10就行,因为在三位数组里冒号是第11个,而数组是从0开始的</p>
-<p><pre><br>function render(ctx) {<br>  var hours = 12;<br>  var minites = 23<br>  var seconds = 34;<br>  renderDigit(MARGINLEFT, MARGINTOP, parseInt(hours / 10), ctx);<br>  renderDigit(MARGINLEFT + 15 <em> (RADIUS + 1), MARGINTOP, parseInt(hours % 10), ctx);<br>  renderDigit(MARGINLEFT + 30 </em> (RADIUS + 1), MARGINTOP, 10, ctx);<br>  renderDigit(MARGINLEFT + 39 <em> (RADIUS + 1), MARGINTOP, parseInt(minites / 10), ctx);<br>  renderDigit(MARGINLEFT + 54 </em> (RADIUS + 1), MARGINTOP, parseInt(minites % 10), ctx);<br>  renderDigit(MARGINLEFT + 69 <em> (RADIUS + 1), MARGINTOP, 10, ctx);<br>  renderDigit(MARGINLEFT + 78 </em> (RADIUS + 1), MARGINTOP, parseInt(seconds / 10), ctx);<br>  renderDigit(MARGINLEFT + 93 * (RADIUS + 1), MARGINTOP, parseInt(seconds % 10), ctx);<br>}</pre></p>
+<p><pre><br>function render(ctx) {</pre></p>
+<p>  var hours = 12;</p>
+<p>  var minites = 23</p>
+<p>  var seconds = 34;</p>
+<p>  renderDigit(MARGINLEFT, MARGINTOP, parseInt(hours / 10), ctx);</p>
+<p>  renderDigit(MARGINLEFT + 15 * (RADIUS + 1), MARGINTOP, parseInt(hours % 10), ctx);</p>
+<p>  renderDigit(MARGINLEFT + 30 * (RADIUS + 1), MARGINTOP, 10, ctx);</p>
+<p>  renderDigit(MARGINLEFT + 39 * (RADIUS + 1), MARGINTOP, parseInt(minites / 10), ctx);</p>
+<p>  renderDigit(MARGINLEFT + 54 * (RADIUS + 1), MARGINTOP, parseInt(minites % 10), ctx);</p>
+<p>  renderDigit(MARGINLEFT + 69 <em> (RADIUS + 1), MARGINTOP, 10, ctx);<br>  renderDigit(MARGINLEFT + 78 </em> (RADIUS + 1), MARGINTOP, parseInt(seconds / 10), ctx);</p>
+<p>  renderDigit(MARGINLEFT + 93 * (RADIUS + 1), MARGINTOP, parseInt(seconds % 10), ctx);</p>
+<p>}</p>
 <p><br>然后直接调用render函数并且传入ctx,就能画出这些粒子化的数字了<br>但是上面的hours,minites,seconds都是写死的,如果要用来显示时间的话,要用new Date()来获取具体时间,这样一个粒子化的时钟就做好了</p>
 <p>demo:<a href="http://zhuangtongfa.gitcafe.io/demo/canvas/%E6%97%B6%E9%92%9F/%E6%95%B0%E5%AD%97.html" target="_blank" rel="external">戳我</a></p>
 
