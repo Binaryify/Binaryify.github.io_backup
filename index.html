@@ -100,7 +100,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/3D/" style="font-size: 10px;">3D</a><a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a><a href="/tags/CSS/" style="font-size: 10px;">CSS</a><a href="/tags/HTML5/" style="font-size: 20px;">HTML5</a><a href="/tags/canvas/" style="font-size: 14px;">canvas</a><a href="/tags/css/" style="font-size: 18px;">css</a><a href="/tags/github/" style="font-size: 10px;">github</a><a href="/tags/html5/" style="font-size: 10px;">html5</a><a href="/tags/js/" style="font-size: 20px;">js</a><a href="/tags/light-UI/" style="font-size: 10px;">light-UI</a><a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a><a href="/tags/php/" style="font-size: 12px;">php</a><a href="/tags/prototype/" style="font-size: 10px;">prototype</a><a href="/tags/sass/" style="font-size: 10px;">sass</a><a href="/tags/svg/" style="font-size: 16px;">svg</a><a href="/tags/transform/" style="font-size: 10px;">transform</a><a href="/tags/微信/" style="font-size: 10px;">微信</a><a href="/tags/移动开发/" style="font-size: 10px;">移动开发</a>
+						<a href="/tags/3D/" style="font-size: 10px;">3D</a><a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a><a href="/tags/CSS/" style="font-size: 10px;">CSS</a><a href="/tags/HTML5/" style="font-size: 20px;">HTML5</a><a href="/tags/canvas/" style="font-size: 15px;">canvas</a><a href="/tags/css/" style="font-size: 17.5px;">css</a><a href="/tags/github/" style="font-size: 10px;">github</a><a href="/tags/html5/" style="font-size: 10px;">html5</a><a href="/tags/js/" style="font-size: 20px;">js</a><a href="/tags/light-UI/" style="font-size: 10px;">light-UI</a><a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a><a href="/tags/php/" style="font-size: 12.5px;">php</a><a href="/tags/prototype/" style="font-size: 10px;">prototype</a><a href="/tags/sass/" style="font-size: 10px;">sass</a><a href="/tags/svg/" style="font-size: 15px;">svg</a><a href="/tags/transform/" style="font-size: 10px;">transform</a><a href="/tags/微信/" style="font-size: 10px;">微信</a><a href="/tags/移动开发/" style="font-size: 10px;">移动开发</a><a href="/tags/路径动画/" style="font-size: 10px;">路径动画</a>
 					</div>
 				</section>
 				
@@ -158,6 +158,84 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-canvas点阵实现粒子化时间显示" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/28/canvas点阵实现粒子化时间显示/" class="article-date">
+  	<time datetime="2015-07-28T12:20:25.000Z" itemprop="datePublished">2015-07-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/28/canvas点阵实现粒子化时间显示/">canvas点阵实现粒子化时间显示</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="" alt=""><br>首先定义一个7<em>10的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状<br><img src="" alt=""><br>画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2</em>Math.PI<br>假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:<br>x:x+j<em>2</em>(R+1)+(R+1)<br>y:y+i<em>2</em>(R+1)+(R+1)<br>那么我们定义一个renderDigit函数</p>
+<pre>
+    &nbsp; &nbsp; function renderDigit(x, y, num, ctx) {
+
+&nbsp; &nbsp; &nbsp; ctx.fillStyle = &quot;rgb(0,102,153)&quot;;
+
+&nbsp; &nbsp; &nbsp; for (var i = 0; i &lt; digit[num].length; i++)
+
+&nbsp; &nbsp; &nbsp; &nbsp; for (var j = 0; j &lt; digit[num][i].length; j++) {
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (digit[num][i][j] == 1) {
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.beginPath();
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.arc(x + j * 2 * (RADIUS + 1) + (RADIUS + 1), y + i * 2 * (RADIUS + 1) + (RADIUS + 1), RADIUS, 0, 2 * Math.PI);
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.closePath();
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.fill();
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; }
+</pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-canvas创造路径动画的实现思路" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -190,6 +268,10 @@
     
     <div class="article-info article-info-index">
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/路径动画/">路径动画</a></li></ul>
+	</div>
+
       
 
       
@@ -644,62 +726,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/07/15/闭包判断点击具体li/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-简易柱形图demo" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/10/简易柱形图demo/" class="article-date">
-  	<time datetime="2015-07-10T14:29:46.000Z" itemprop="datePublished">2015-07-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/10/简易柱形图demo/">简易柱形图demo</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>js控制css做的一个柱形图<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E6%9F%B1%E5%BD%A2%E5%9B%BE/1.gif" alt="柱形图"><br>demo:<a href="http://zhuangtongfa.gitcafe.io/demo/柱形图">戳我</a><br>源码:<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/10/简易柱形图demo/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

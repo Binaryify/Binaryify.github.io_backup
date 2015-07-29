@@ -3,65 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JavaScript的prototype | 阿发的藏宝库</title>
+  <title>canvas点阵实现粒子化时间显示 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;lt;script&amp;gt;
-
-    function funA(name){
-
-    this.name=name;
-
-    }
-
-    function funB(){
-
-    }
-
-    funB.prototype=new funA(&amp;quot;Kikty&amp;quot;);
-
-    var People=new funB();
-
-    alert(People.name);">
+  <meta name="description" content="首先定义一个710的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2Math.PI假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:x:x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript的prototype">
-<meta property="og:url" content="http://yoursite.com/2015/06/09/JavaScript的prototype/index.html">
+<meta property="og:title" content="canvas点阵实现粒子化时间显示">
+<meta property="og:url" content="http://yoursite.com/2015/07/28/canvas点阵实现粒子化时间显示/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="&amp;lt;script&amp;gt;
-
-    function funA(name){
-
-    this.name=name;
-
-    }
-
-    function funB(){
-
-    }
-
-    funB.prototype=new funA(&amp;quot;Kikty&amp;quot;);
-
-    var People=new funB();
-
-    alert(People.name);">
+<meta property="og:description" content="首先定义一个710的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2Math.PI假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:x:x">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript的prototype">
-<meta name="twitter:description" content="&amp;lt;script&amp;gt;
-
-    function funA(name){
-
-    this.name=name;
-
-    }
-
-    function funB(){
-
-    }
-
-    funB.prototype=new funA(&amp;quot;Kikty&amp;quot;);
-
-    var People=new funB();
-
-    alert(People.name);">
+<meta name="twitter:title" content="canvas点阵实现粒子化时间显示">
+<meta name="twitter:description" content="首先定义一个710的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2Math.PI假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:x:x">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -204,11 +156,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-JavaScript的prototype" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-canvas点阵实现粒子化时间显示" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/06/09/JavaScript的prototype/" class="article-date">
-  	<time datetime="2015-06-09T13:54:19.000Z" itemprop="datePublished">2015-06-09</time>
+      <a href="/2015/07/28/canvas点阵实现粒子化时间显示/" class="article-date">
+  	<time datetime="2015-07-28T12:20:25.000Z" itemprop="datePublished">2015-07-28</time>
 </a>
     </div>
   
@@ -221,7 +173,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript的prototype
+      canvas点阵实现粒子化时间显示
     </h1>
   
 
@@ -230,7 +182,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype/">prototype</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 	</div>
 
         
@@ -241,26 +193,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre>
-    &lt;script&gt;
+        <p><img src="" alt=""><br>首先定义一个7<em>10的三维数组digit,通过1和0的位置组合来储存数字0-9和冒号的信息,能看出1的集合形成了1-9和冒号的形状<br><img src="" alt=""><br>画小圆要用到canvas的arc()函数,需要的参数是圆心x坐标,圆心y坐标,圆的半径,0,2</em>Math.PI<br>假设要显示的数字的大格子的左上角坐标为(x,y),小圆半径是R,为了和其他小圆留有一定的空隙,所以小格子的边长为R+1,那么第(i,j)个小圆的圆心位置就是:<br>x:x+j<em>2</em>(R+1)+(R+1)<br>y:y+i<em>2</em>(R+1)+(R+1)<br>那么我们定义一个renderDigit函数</p>
+<pre>
+    &nbsp; &nbsp; function renderDigit(x, y, num, ctx) {
 
-    function funA(name){
+&nbsp; &nbsp; &nbsp; ctx.fillStyle = &quot;rgb(0,102,153)&quot;;
 
-    this.name=name;
+&nbsp; &nbsp; &nbsp; for (var i = 0; i &lt; digit[num].length; i++)
 
-    }
+&nbsp; &nbsp; &nbsp; &nbsp; for (var j = 0; j &lt; digit[num][i].length; j++) {
 
-    function funB(){
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (digit[num][i][j] == 1) {
 
-    }
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.beginPath();
 
-    funB.prototype=new funA(&quot;Kikty&quot;);
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.arc(x + j * 2 * (RADIUS + 1) + (RADIUS + 1), y + i * 2 * (RADIUS + 1) + (RADIUS + 1), RADIUS, 0, 2 * Math.PI);
 
-    var People=new funB();
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.closePath();
 
-    alert(People.name);
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ctx.fill();
 
-    &lt;/script&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; &nbsp; &nbsp; }
+
+&nbsp; &nbsp; }
 </pre>
 
       
@@ -271,18 +228,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/06/11/简单实现jQuery 中的选择器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          简单实现jQuery 中的选择器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/06/05/HTML5图片预览和Filereader-API/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5图片预览和Filereader API</div>
+    <a href="/2015/07/28/canvas创造路径动画的实现思路/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">canvas创造路径动画的实现思路</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -296,7 +244,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JavaScript的prototype" data-title="JavaScript的prototype" data-url="http://yoursite.com/2015/06/09/JavaScript的prototype/"></div>
+	<div class="ds-thread" data-thread-key="canvas点阵实现粒子化时间显示" data-title="canvas点阵实现粒子化时间显示" data-url="http://yoursite.com/2015/07/28/canvas点阵实现粒子化时间显示/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
