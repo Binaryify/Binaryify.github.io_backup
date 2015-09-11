@@ -158,6 +158,79 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-JavaScript的prototype" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/09/JavaScript的prototype/" class="article-date">
+  	<time datetime="2015-06-09T13:54:19.000Z" itemprop="datePublished">2015-06-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/09/JavaScript的prototype/">JavaScript的prototype</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre>
+    &lt;script&gt;
+
+    function funA(name){
+
+    this.name=name;
+
+    }
+
+    function funB(){
+
+    }
+
+    funB.prototype=new funA(&quot;Kikty&quot;);
+
+    var People=new funB();
+
+    alert(People.name);
+
+    &lt;/script&gt;
+</pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype/">prototype</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-HTML5图片预览和Filereader-API" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -656,62 +729,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/05/27/自适应/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-关于创建svg圆形进度按钮的简单实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/27/关于创建svg圆形进度按钮的简单实现/" class="article-date">
-  	<time datetime="2015-05-27T01:47:46.000Z" itemprop="datePublished">2015-05-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/27/关于创建svg圆形进度按钮的简单实现/">关于创建svg圆形进度按钮的简单实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>老大给我看了一个svg圆形进度按钮，ps：<a href="http://www.tuicool.com/articles/In6f2a">http://www.tuicool.com/articles/In6f2a</a> ，让我照着这个做出来，觉得原来的太麻烦，各种库，好在前两天学了svg，自己弄了一早上，简单实现如下：<br>（由于是400%放大情况下做的，放大到400%才能正常显示，需要的可以再修改）<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg/">svg</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/05/27/关于创建svg圆形进度按钮的简单实现/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
