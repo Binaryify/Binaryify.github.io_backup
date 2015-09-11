@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>canvas创造路径动画的实现思路 | 阿发的藏宝库</title>
+  <title>Tag: vue | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过">
-<meta property="og:type" content="article">
-<meta property="og:title" content="canvas创造路径动画的实现思路">
-<meta property="og:url" content="http://yoursite.com/2015/07/28/canvas创造路径动画的实现思路/index.html">
+  <meta name="description" content="阿发的藏宝库">
+<meta property="og:type" content="website">
+<meta property="og:title" content="阿发的藏宝库">
+<meta property="og:url" content="http://yoursite.com/tags/vue/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过">
-<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/%E8%B7%AF%E5%BE%84%E5%8A%A8%E7%94%BB/1.gif">
+<meta property="og:description" content="阿发的藏宝库">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas创造路径动画的实现思路">
-<meta name="twitter:description" content="众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过">
+<meta name="twitter:title" content="阿发的藏宝库">
+<meta name="twitter:description" content="阿发的藏宝库">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -157,130 +156,51 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-canvas创造路径动画的实现思路" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2015/07/28/canvas创造路径动画的实现思路/" class="article-date">
-  	<time datetime="2015-07-28T10:53:34.000Z" itemprop="datePublished">2015-07-28</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/09/11/webpack-与-vuejs-组件化实践/" class="archive-article-date">
+  	<time datetime="2015-09-11T15:30:35.000Z" itemprop="datePublished">Sep 11</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      canvas创造路径动画的实现思路
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2015/09/11/webpack-与-vuejs-组件化实践/">webpack 与 vuejs 组件化实践</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/路径动画/">路径动画</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
 	</div>
 
-        
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E8%B7%AF%E5%BE%84%E5%8A%A8%E7%94%BB/1.gif" alt="demo"><br>众所周知,svg可以用来做路径动画,我在之前的一篇文章也提过<a id="more"></a>,(demo)[<a href="http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">http://zhuangtongfa.github.io/2015/05/25/SVG%E6%8F%8F%E8%BE%B9%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0/</a>]<br>但是canvas这种一次画完的的怎么实现路径动画呢?<br>下面是实现canvas路径动画的思路<br>原理很简单,用定时器逐帧画出,并且每次画都是在原来的基础上画,然后画完的时候清除计时器即可<br>核心代码:</p>
-<pre>
-function drawCircle(x, y, r) {
-
-ctx.strokeStyle = &quot;red&quot;;
-
-var i = 1;
-
-if (i &lt; 100) {
-
-&nbsp; var interval = setInterval(function() {
-
-&nbsp; &nbsp; ctx.beginPath()
-
-&nbsp; &nbsp; ctx.arc(x, y, r, 2 * Math.PI * (i - 1) / 100, 2 * Math.PI * i / 100);
-
-&nbsp; &nbsp; ctx.stroke()
-
-&nbsp; &nbsp; i++;
-
-&nbsp; &nbsp; if (i &gt; 100) {
-
-            clearInterval(interval);
-
-&nbsp; &nbsp; }
-
-&nbsp; }, 10)
-
-&nbsp;}
-
-}
-</pre>
-
-<p>demo:<a href="http://zhuangtongfa.gitcafe.io/demo/canvas/路径动画.html" target="_blank" rel="external">戳我</a></p>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/07/28/canvas点阵实现粒子化时间显示/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          canvas点阵实现粒子化时间显示
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/07/28/canvas画板/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">canvas画板</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="canvas创造路径动画的实现思路" data-title="canvas创造路径动画的实现思路" data-url="http://yoursite.com/2015/07/28/canvas创造路径动画的实现思路/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+  
+  
+    </div></section>
+  
 </div>
       <footer id="footer">
   <div class="outer">
