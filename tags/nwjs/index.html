@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>原生js实现回到顶部 | 阿发的藏宝库</title>
+  <title>Tag: nwjs | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="源码:">
-<meta property="og:type" content="article">
-<meta property="og:title" content="原生js实现回到顶部">
-<meta property="og:url" content="http://yoursite.com/2015/07/16/原生js实现回到顶部/index.html">
+  <meta name="description" content="阿发的藏宝库">
+<meta property="og:type" content="website">
+<meta property="og:title" content="阿发的藏宝库">
+<meta property="og:url" content="http://yoursite.com/tags/nwjs/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="源码:">
+<meta property="og:description" content="阿发的藏宝库">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原生js实现回到顶部">
-<meta name="twitter:description" content="源码:">
+<meta name="twitter:title" content="阿发的藏宝库">
+<meta name="twitter:description" content="阿发的藏宝库">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -156,192 +156,51 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-原生js实现回到顶部" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2015/07/16/原生js实现回到顶部/" class="article-date">
-  	<time datetime="2015-07-16T11:27:39.000Z" itemprop="datePublished">2015-07-16</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/09/14/nwjs实践/" class="archive-article-date">
+  	<time datetime="2015-09-14T13:57:19.000Z" itemprop="datePublished">Sep 14</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      原生js实现回到顶部
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2015/09/14/nwjs实践/">nwjs实践</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nwjs/">nwjs</a></li></ul>
 	</div>
 
-        
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>源码:<br><a id="more"></a></p>
-<pre>
-&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
-
-&lt;head&gt;
-
-&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
-
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&nbsp; &nbsp; &lt;style media=&quot;screen&quot;&gt;
-
-&nbsp; &nbsp; &nbsp; &nbsp; body {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 3000px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 80%;
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; div {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 50px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 50px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: fixed;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; right: 10px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 10px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display: none;
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &lt;/style&gt;
-
-&nbsp; &nbsp; &lt;div&gt;&lt;/div&gt;
-
-&nbsp; &nbsp; &lt;script&gt;
-
-&nbsp; &nbsp; &nbsp; &nbsp; var backtop = document.documentElement.clientHeight;
-
-&nbsp; &nbsp; &nbsp; &nbsp; window.onscroll = function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h = document.body.scrollTop;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (h &gt;= backtop / 2) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.display = &quot;block&quot;;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.display = &quot;none&quot;;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; var div = document.getElementsByTagName(&#39;div&#39;)[0];
-
-&nbsp; &nbsp; &nbsp; &nbsp; div.onclick = function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var time = setInterval(function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h = document.body.scrollTop;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var speed = h / 5;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.body.scrollTop -= speed;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (h == 0) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(time);
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }, 30)
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &lt;/script&gt;
-
-&lt;/body&gt;
-
-&lt;/html&gt;
-</pre>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/07/17/canvas复制video内容/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          canvas复制video内容
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/07/15/闭包判断点击具体li/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">闭包判断点击具体li</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="原生js实现回到顶部" data-title="原生js实现回到顶部" data-url="http://yoursite.com/2015/07/16/原生js实现回到顶部/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+  
+  
+    </div></section>
+  
 </div>
       <footer id="footer">
   <div class="outer">

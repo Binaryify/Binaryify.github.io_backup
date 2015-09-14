@@ -100,7 +100,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/3D/" style="font-size: 10px;">3D</a><a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a><a href="/tags/CSS/" style="font-size: 10px;">CSS</a><a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a><a href="/tags/canvas/" style="font-size: 14px;">canvas</a><a href="/tags/css/" style="font-size: 16px;">css</a><a href="/tags/github/" style="font-size: 10px;">github</a><a href="/tags/html5/" style="font-size: 10px;">html5</a><a href="/tags/js/" style="font-size: 20px;">js</a><a href="/tags/light-UI/" style="font-size: 10px;">light-UI</a><a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a><a href="/tags/php/" style="font-size: 12px;">php</a><a href="/tags/prototype/" style="font-size: 10px;">prototype</a><a href="/tags/sass/" style="font-size: 10px;">sass</a><a href="/tags/svg/" style="font-size: 14px;">svg</a><a href="/tags/transform/" style="font-size: 10px;">transform</a><a href="/tags/vue/" style="font-size: 10px;">vue</a><a href="/tags/webpack/" style="font-size: 10px;">webpack</a><a href="/tags/微信/" style="font-size: 10px;">微信</a><a href="/tags/移动开发/" style="font-size: 10px;">移动开发</a><a href="/tags/路径动画/" style="font-size: 10px;">路径动画</a>
+						<a href="/tags/3D/" style="font-size: 10px;">3D</a><a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a><a href="/tags/CSS/" style="font-size: 10px;">CSS</a><a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a><a href="/tags/canvas/" style="font-size: 14px;">canvas</a><a href="/tags/css/" style="font-size: 16px;">css</a><a href="/tags/github/" style="font-size: 10px;">github</a><a href="/tags/html5/" style="font-size: 10px;">html5</a><a href="/tags/js/" style="font-size: 20px;">js</a><a href="/tags/light-UI/" style="font-size: 10px;">light-UI</a><a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a><a href="/tags/nwjs/" style="font-size: 10px;">nwjs</a><a href="/tags/php/" style="font-size: 12px;">php</a><a href="/tags/prototype/" style="font-size: 10px;">prototype</a><a href="/tags/sass/" style="font-size: 10px;">sass</a><a href="/tags/svg/" style="font-size: 14px;">svg</a><a href="/tags/transform/" style="font-size: 10px;">transform</a><a href="/tags/vue/" style="font-size: 10px;">vue</a><a href="/tags/webpack/" style="font-size: 10px;">webpack</a><a href="/tags/微信/" style="font-size: 10px;">微信</a><a href="/tags/移动开发/" style="font-size: 10px;">移动开发</a><a href="/tags/路径动画/" style="font-size: 10px;">路径动画</a>
 					</div>
 				</section>
 				
@@ -157,6 +157,86 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-nwjs实践" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/14/nwjs实践/" class="article-date">
+  	<time datetime="2015-09-14T13:57:19.000Z" itemprop="datePublished">2015-09-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/14/nwjs实践/">nwjs实践</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>前提条件，安装 NW.js</li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> nw -g</span><br></pre></td></tr></table></figure>
+<ol>
+<li>建立文件, 目录</li>
+</ol>
+<p>nwjs-app/<br>├── app.js<br>├── index.html<br>├── package.json<br>└── style.css</p>
+<p>package.json 内容</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="collection">&#123;</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Hello NW.js"</span>,</span><br><span class="line">  <span class="string">"window"</span>: <span class="collection">&#123;</span><br><span class="line">//    <span class="string">"toolbar"</span>: <span class="literal">false</span> //这个选项对于开发太重要了</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>index.html 内容：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'console app.js'</span>);</span><br><span class="line"><span class="built_in">document</span>.writeln(<span class="string">"out put from app.js"</span>);</span><br></pre></td></tr></table></figure>
+<p>style.css 内容：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">background-color</span>:<span class="value"> lightgray</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>运行程序</li>
+</ol>
+<p>命令行下进到项目所在的项目，直接执行 nw<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nwjs-app <span class="variable">$ </span>nw</span><br></pre></td></tr></table></figure></p>
+<p>或者为 nw 指定应用目录，如<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">nw</span> nwjs-app</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/1.jpg" alt="截图1"></p>
+<p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/2.jpg" alt="截图2"></p>
+<p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/3.jpg" alt="截图3"></p>
+<p>三大系统都能完美运行</p>
+<p>js越来越强大了,除了nwjs,还要再提下facebook的react native,安卓版的还有2星期就出了,到时候js就真的前后端通吃了,上能写安卓,ios,web,下能写linux,mac,windows桌面应用,还能跑服务端,<br>想想都激动</p>
+<p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/1.jpg" alt="截图4"></p>
+<ol>
+<li>打包:</li>
+</ol>
+<p>可参考下面这篇文章<br><a href="http://www.cnblogs.com/2050/p/3543011.html" target="_blank" rel="external">链接</a>;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nwjs/">nwjs</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-webpack-与-vuejs-组件化实践" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -648,62 +728,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/07/17/canvas复制video内容/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-原生js实现回到顶部" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/16/原生js实现回到顶部/" class="article-date">
-  	<time datetime="2015-07-16T11:27:39.000Z" itemprop="datePublished">2015-07-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/16/原生js实现回到顶部/">原生js实现回到顶部</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>源码:<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/16/原生js实现回到顶部/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

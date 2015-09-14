@@ -100,7 +100,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/3D/" style="font-size: 10px;">3D</a><a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a><a href="/tags/CSS/" style="font-size: 10px;">CSS</a><a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a><a href="/tags/canvas/" style="font-size: 14px;">canvas</a><a href="/tags/css/" style="font-size: 16px;">css</a><a href="/tags/github/" style="font-size: 10px;">github</a><a href="/tags/html5/" style="font-size: 10px;">html5</a><a href="/tags/js/" style="font-size: 20px;">js</a><a href="/tags/light-UI/" style="font-size: 10px;">light-UI</a><a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a><a href="/tags/php/" style="font-size: 12px;">php</a><a href="/tags/prototype/" style="font-size: 10px;">prototype</a><a href="/tags/sass/" style="font-size: 10px;">sass</a><a href="/tags/svg/" style="font-size: 14px;">svg</a><a href="/tags/transform/" style="font-size: 10px;">transform</a><a href="/tags/vue/" style="font-size: 10px;">vue</a><a href="/tags/webpack/" style="font-size: 10px;">webpack</a><a href="/tags/微信/" style="font-size: 10px;">微信</a><a href="/tags/移动开发/" style="font-size: 10px;">移动开发</a><a href="/tags/路径动画/" style="font-size: 10px;">路径动画</a>
+						<a href="/tags/3D/" style="font-size: 10px;">3D</a><a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a><a href="/tags/CSS/" style="font-size: 10px;">CSS</a><a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a><a href="/tags/canvas/" style="font-size: 14px;">canvas</a><a href="/tags/css/" style="font-size: 16px;">css</a><a href="/tags/github/" style="font-size: 10px;">github</a><a href="/tags/html5/" style="font-size: 10px;">html5</a><a href="/tags/js/" style="font-size: 20px;">js</a><a href="/tags/light-UI/" style="font-size: 10px;">light-UI</a><a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a><a href="/tags/nwjs/" style="font-size: 10px;">nwjs</a><a href="/tags/php/" style="font-size: 12px;">php</a><a href="/tags/prototype/" style="font-size: 10px;">prototype</a><a href="/tags/sass/" style="font-size: 10px;">sass</a><a href="/tags/svg/" style="font-size: 14px;">svg</a><a href="/tags/transform/" style="font-size: 10px;">transform</a><a href="/tags/vue/" style="font-size: 10px;">vue</a><a href="/tags/webpack/" style="font-size: 10px;">webpack</a><a href="/tags/微信/" style="font-size: 10px;">微信</a><a href="/tags/移动开发/" style="font-size: 10px;">移动开发</a><a href="/tags/路径动画/" style="font-size: 10px;">路径动画</a>
 					</div>
 				</section>
 				
@@ -157,6 +157,89 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-简单实现jQuery 中的选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/11/简单实现jQuery 中的选择器/" class="article-date">
+  	<time datetime="2015-06-11T14:52:10.000Z" itemprop="datePublished">2015-06-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/11/简单实现jQuery 中的选择器/">简单实现jQuery 中的选择器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单demo,核心代码:</p>
+<pre>
+    &lt;script type=&quot;text/javascript&quot;&gt;
+
+    var $ = function(selector) {
+return document.querySelector(selector);
+}
+
+    var $$ = function(selector) {
+
+    <span class="Apple-tab-span" style="white-space:pre">            </span>return document.querySelectorAll(selector);
+
+    <span class="Apple-tab-span" style="white-space:pre">        </span>}
+
+    $(&#39;#div&#39;).addEventListener(&#39;click&#39;,function(){
+
+    alert(&#39;1&#39;);
+
+    },false);
+
+    $$(&#39;div&#39;)[0].onclick=function(){
+
+    alert(&#39;2&#39;);
+
+    }
+
+    &lt;/script&gt;
+
+</pre>
+
+<p>不是任何时候都适合用jQuery的,比如移动端,通过这段代码就可以实现jQuery的选择器了(当然jQuey的实现比这复杂),大大减少代码量,如果不要求兼容性的话够用了(兼容IE8+,Chrome,firefox)</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-JavaScript的prototype" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -673,62 +756,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/05/27/HTML5新特性/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-自适应" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/27/自适应/" class="article-date">
-  	<time datetime="2015-05-27T04:25:10.000Z" itemprop="datePublished">2015-05-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/27/自适应/">自适应</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>rem自适应脚本<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/05/27/自适应/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

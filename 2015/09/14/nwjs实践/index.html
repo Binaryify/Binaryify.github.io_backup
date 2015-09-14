@@ -3,17 +3,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>原生js实现回到顶部 | 阿发的藏宝库</title>
+  <title>nwjs实践 | 阿发的藏宝库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="源码:">
+  <meta name="description" content="前提条件，安装 NW.js
+
+1npm install nw -g
+
+建立文件, 目录
+
+nwjs-app/├── app.js├── index.html├── package.json└── style.css
+package.json 内容
+1234567&amp;#123;  &quot;main&quot;: &quot;index.html&quot;,  &quot;name&quot;: &quot;Hello NW.js&quot;,  &quot;window&quot;: &amp;#12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原生js实现回到顶部">
-<meta property="og:url" content="http://yoursite.com/2015/07/16/原生js实现回到顶部/index.html">
+<meta property="og:title" content="nwjs实践">
+<meta property="og:url" content="http://yoursite.com/2015/09/14/nwjs实践/index.html">
 <meta property="og:site_name" content="阿发的藏宝库">
-<meta property="og:description" content="源码:">
+<meta property="og:description" content="前提条件，安装 NW.js
+
+1npm install nw -g
+
+建立文件, 目录
+
+nwjs-app/├── app.js├── index.html├── package.json└── style.css
+package.json 内容
+1234567&amp;#123;  &quot;main&quot;: &quot;index.html&quot;,  &quot;name&quot;: &quot;Hello NW.js&quot;,  &quot;window&quot;: &amp;#12">
+<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/1.jpg">
+<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/2.jpg">
+<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/3.jpg">
+<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/1.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原生js实现回到顶部">
-<meta name="twitter:description" content="源码:">
+<meta name="twitter:title" content="nwjs实践">
+<meta name="twitter:description" content="前提条件，安装 NW.js
+
+1npm install nw -g
+
+建立文件, 目录
+
+nwjs-app/├── app.js├── index.html├── package.json└── style.css
+package.json 内容
+1234567&amp;#123;  &quot;main&quot;: &quot;index.html&quot;,  &quot;name&quot;: &quot;Hello NW.js&quot;,  &quot;window&quot;: &amp;#12">
   
     <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
   
@@ -156,11 +184,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-原生js实现回到顶部" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-nwjs实践" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/16/原生js实现回到顶部/" class="article-date">
-  	<time datetime="2015-07-16T11:27:39.000Z" itemprop="datePublished">2015-07-16</time>
+      <a href="/2015/09/14/nwjs实践/" class="article-date">
+  	<time datetime="2015-09-14T13:57:19.000Z" itemprop="datePublished">2015-09-14</time>
 </a>
     </div>
   
@@ -173,7 +201,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      原生js实现回到顶部
+      nwjs实践
     </h1>
   
 
@@ -182,7 +210,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nwjs/">nwjs</a></li></ul>
 	</div>
 
         
@@ -193,102 +221,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>源码:<br><a id="more"></a></p>
-<pre>
-&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
-
-&lt;head&gt;
-
-&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
-
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&nbsp; &nbsp; &lt;style media=&quot;screen&quot;&gt;
-
-&nbsp; &nbsp; &nbsp; &nbsp; body {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 3000px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 80%;
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; div {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 50px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 50px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: fixed;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; right: 10px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 10px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display: none;
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &lt;/style&gt;
-
-&nbsp; &nbsp; &lt;div&gt;&lt;/div&gt;
-
-&nbsp; &nbsp; &lt;script&gt;
-
-&nbsp; &nbsp; &nbsp; &nbsp; var backtop = document.documentElement.clientHeight;
-
-&nbsp; &nbsp; &nbsp; &nbsp; window.onscroll = function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h = document.body.scrollTop;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (h &gt;= backtop / 2) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.display = &quot;block&quot;;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.display = &quot;none&quot;;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; var div = document.getElementsByTagName(&#39;div&#39;)[0];
-
-&nbsp; &nbsp; &nbsp; &nbsp; div.onclick = function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var time = setInterval(function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h = document.body.scrollTop;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var speed = h / 5;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.body.scrollTop -= speed;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (h == 0) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(time);
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }, 30)
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &lt;/script&gt;
-
-&lt;/body&gt;
-
-&lt;/html&gt;
-</pre>
+        <ol>
+<li>前提条件，安装 NW.js</li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> nw -g</span><br></pre></td></tr></table></figure>
+<ol>
+<li>建立文件, 目录</li>
+</ol>
+<p>nwjs-app/<br>├── app.js<br>├── index.html<br>├── package.json<br>└── style.css</p>
+<p>package.json 内容</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="collection">&#123;</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Hello NW.js"</span>,</span><br><span class="line">  <span class="string">"window"</span>: <span class="collection">&#123;</span><br><span class="line">//    <span class="string">"toolbar"</span>: <span class="literal">false</span> //这个选项对于开发太重要了</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>index.html 内容：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'console app.js'</span>);</span><br><span class="line"><span class="built_in">document</span>.writeln(<span class="string">"out put from app.js"</span>);</span><br></pre></td></tr></table></figure>
+<p>style.css 内容：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">background-color</span>:<span class="value"> lightgray</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>运行程序</li>
+</ol>
+<p>命令行下进到项目所在的项目，直接执行 nw<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nwjs-app <span class="variable">$ </span>nw</span><br></pre></td></tr></table></figure></p>
+<p>或者为 nw 指定应用目录，如<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">nw</span> nwjs-app</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/1.jpg" alt="截图1"></p>
+<p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/2.jpg" alt="截图2"></p>
+<p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/3.jpg" alt="截图3"></p>
+<p>三大系统都能完美运行</p>
+<p>js越来越强大了,除了nwjs,还要再提下facebook的react native,安卓版的还有2星期就出了,到时候js就真的前后端通吃了,上能写安卓,ios,web,下能写linux,mac,windows桌面应用,还能跑服务端,<br>想想都激动</p>
+<p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/1.jpg" alt="截图4"></p>
+<ol>
+<li>打包:</li>
+</ol>
+<p>可参考下面这篇文章<br><a href="http://www.cnblogs.com/2050/p/3543011.html" target="_blank" rel="external">链接</a>;</p>
 
       
     </div>
@@ -298,18 +258,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/07/17/canvas复制video内容/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          canvas复制video内容
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/15/闭包判断点击具体li/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">闭包判断点击具体li</div>
+    <a href="/2015/09/11/webpack-与-vuejs-组件化实践/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack 与 vuejs 组件化实践</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -323,7 +274,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="原生js实现回到顶部" data-title="原生js实现回到顶部" data-url="http://yoursite.com/2015/07/16/原生js实现回到顶部/"></div>
+	<div class="ds-thread" data-thread-key="nwjs实践" data-title="nwjs实践" data-url="http://yoursite.com/2015/09/14/nwjs实践/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
