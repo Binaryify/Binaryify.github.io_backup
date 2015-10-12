@@ -1,11 +1,47 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="theme-next use-motion ">
 <head>
-  <meta charset="utf-8">
   
-  <title>transform中的Matrix/矩阵 | 阿发的藏宝库</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="理解CSS3 transform中的Matrix(矩阵)
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="阿发的藏宝库" />
+
+
+
+  <meta name="keywords" content="css,transform," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="理解CSS3 transform中的Matrix(矩阵)
     by&amp;nbsp;zhangxinxu&amp;nbsp;from&amp;nbsp;http://www.zhangxinxu.com本文地址：http://www.zhangxinxu.com/wordpress/?p=2427    一、哥，我被你吓住了    打架的时候会被块头大的吓住，学习的时候会被奇怪名字吓住（如“拉普拉斯不等式”）。这与">
 <meta property="og:type" content="article">
 <meta property="og:title" content="transform中的Matrix/矩阵">
@@ -38,290 +74,532 @@
 <meta name="twitter:title" content="transform中的Matrix/矩阵">
 <meta name="twitter:description" content="理解CSS3 transform中的Matrix(矩阵)
     by&amp;nbsp;zhangxinxu&amp;nbsp;from&amp;nbsp;http://www.zhangxinxu.com本文地址：http://www.zhangxinxu.com/wordpress/?p=2427    一、哥，我被你吓住了    打架的时候会被块头大的吓住，学习的时候会被奇怪名字吓住（如“拉普拉斯不等式”）。这与">
-  
-    <link rel="alternative" href="/atom.xml" title="阿发的藏宝库" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> transform中的Matrix/矩阵 | 阿发的藏宝库 </title>
 </head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			<img lazy-src="http://p2.wmpic.me/article/2015/02/02/1422863122_BURhWulg.jpg" class="js-avatar">
-		</a>
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">阿发</a></h1>
-		</hgroup>
+<body itemscope itemtype="http://schema.org/WebPage" lang="中文">
 
-		
-		<p class="header-subtitle">专注前端UI以及数据可视化</p>
-		
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
 
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
 
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/zhuangtongfa" title="github">github</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/3D/" style="font-size: 10px;">3D</a><a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a><a href="/tags/CSS/" style="font-size: 10px;">CSS</a><a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a><a href="/tags/canvas/" style="font-size: 14px;">canvas</a><a href="/tags/css/" style="font-size: 16px;">css</a><a href="/tags/github/" style="font-size: 10px;">github</a><a href="/tags/html5/" style="font-size: 10px;">html5</a><a href="/tags/js/" style="font-size: 20px;">js</a><a href="/tags/light-UI/" style="font-size: 10px;">light-UI</a><a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a><a href="/tags/nwjs/" style="font-size: 10px;">nwjs</a><a href="/tags/php/" style="font-size: 12px;">php</a><a href="/tags/prototype/" style="font-size: 10px;">prototype</a><a href="/tags/sass/" style="font-size: 10px;">sass</a><a href="/tags/svg/" style="font-size: 14px;">svg</a><a href="/tags/transform/" style="font-size: 10px;">transform</a><a href="/tags/vue/" style="font-size: 10px;">vue</a><a href="/tags/webpack/" style="font-size: 10px;">webpack</a><a href="/tags/微信/" style="font-size: 10px;">微信</a><a href="/tags/移动开发/" style="font-size: 10px;">移动开发</a><a href="/tags/路径动画/" style="font-size: 10px;">路径动画</a>
-					</div>
-				</section>
-				
-				
-				
 
-				
-				
-				<section class="switch-part switch-part3">
-				
-					<div id="js-aboutme">阿发,大三大学生,目前就读于吉林大学珠海学院电子系电子信息科学与技术专业,技术狂热者,热爱前端,专注前端UI以及数据可视化</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">阿发的藏宝库</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
 </div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">阿发</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img lazy-src="http://p2.wmpic.me/article/2015/02/02/1422863122_BURhWulg.jpg" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author">阿发</h1>
-			</hgroup>
-			
-			<p class="header-subtitle">专注前端UI以及数据可视化</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/zhuangtongfa" title="github">github</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
 </nav>
-      <div class="body-wrap"><article id="理解css3-transform中的Matrix-矩阵" class="article article-type-理解css3" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/14/transform中的Matrix-矩阵/" class="article-date">
-  	<time datetime="2015-05-14T02:15:01.000Z" itemprop="datePublished">2015-05-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      transform中的Matrix/矩阵
-    </h1>
-  
 
-      </header>
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
       
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transform/">transform</a></li></ul>
-	</div>
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              transform中的Matrix/矩阵
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-05-14T10:15:01+08:00" content="2015-05-14">
+            2015-05-14
+          </time>
+        </span>
 
         
 
-        <div class="clearfix"></div>
+        
+          
+        
       </div>
+    </header>
+
+    <div class="post-body">
+
       
-    
-    <div class="article-entry" itemprop="articleBody">
       
-        <p></p><h2 style="margin: 0px; padding: 0px; white-space: normal; font-size: 1.6em; color: rgb(51, 51, 51); font-family: &#39;Lucida Grande&#39;, Verdana, Arial, sans-serif; line-height: 21.5px; text-align: justify; background-color: rgb(255, 255, 255);"><br>    理解CSS3 transform中的Matrix(矩阵)<br></h2><p></p>
+
+      
+        <span itemprop="articleBody"><p></p><h2 style="margin: 0px; padding: 0px; white-space: normal; font-size: 1.6em; color: rgb(51, 51, 51); font-family: &#39;Lucida Grande&#39;, Verdana, Arial, sans-serif; line-height: 21.5px; text-align: justify; background-color: rgb(255, 255, 255);"><br>    理解CSS3 transform中的Matrix(矩阵)<br></h2><p></p>
 <p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    by&nbsp;<a target="_blank" href="http://www.zhangxinxu.com/" style="color: rgb(52, 83, 139);">zhangxinxu</a>&nbsp;from&nbsp;<a target="_blank" href="http://www.zhangxinxu.com/" style="color: rgb(52, 83, 139);">http://www.zhangxinxu.com</a><br>本文地址：<a target="_blank" href="http://www.zhangxinxu.com/wordpress/?p=2427" style="color: rgb(52, 83, 139);">http://www.zhangxinxu.com/wordpress/?p=2427</a><br></p><br><h3 style="margin: 18px 0px 0px; padding: 0px; font-size: 1.3em;"><br>    <a style="color: rgb(202, 0, 0);" name="t1"></a>一、哥，我被你吓住了<br></h3><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    打架的时候会被块头大的吓住，学习的时候会被奇怪名字吓住（如“拉普拉斯不等式”）。这与情感化设计本质一致：界面设计好会让人觉得这个软件好用！<a id="more"></a><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    所以，当看到上面“Matrix(矩阵)”的时候，难免会心生畏惧（即使你已经学过），正常心理。实际上，这玩意确实有点复杂。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    然而，这却是屌丝逆袭的一个好机会。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <strong>CSS同行间：</strong><br>你是不是有这样的感觉：哎呀呀，每天就是对着设计图切页面，貌似技术没有得到实质性地提升啊，或者觉得日后高度有限！<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    我们应该都知道<a target="_blank" href="http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/baike.baidu.com/view/119451.htm" style="color: rgb(52, 83, 139);">二八法则(巴莱多定律)</a>，即任何一组东西中，最重要的只占其中一小部分，约20%，其余80%的尽管是多数，却是次要的。如果你有上述的感觉，那你就属于那80%, 一抓一大把，没有特色的页面仔。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    CSS门槛低，无需程序基础或数学逻辑能力，也能做出点自我感觉不错的东西。然而，你自己也应该清楚的，一般你能轻松学到的东西，别人也可以。因此，如果你想挤进那20%的行列，就要学到一般人学不到的深度，学到一般人学不了的东西。自然，是需要更多额外的努力的。如果每次你都比别人努力一点点，何愁不比他人高出几等。人年轻的时候，贵在坚持！<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    而这里的CSS矩阵就是展现你与其他芸芸同行差异的好契机。很多人看到名字就畏惧了，看到奇怪的数学书写就吓退了；而你没有，迎难而上，把摇手机的时间用在理解矩阵上。自然，你就冒尖了一点。类似的，很多其他CSS方面的东西，你也比别人多深入学习一点，怎么可能就是个普通的页面仔呢？<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    因此，从这里开始，摆脱那80%的行列吧！<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <strong>伪同行间：</strong><br>虽然都是从事计算机，虽然都是从事互联网，虽然都是写代码的，(据说)写JAVA的瞧不起写JavaScript的，写JavaScript的瞧不起写CSS的。这可以理解，虽然养鸡养鸭成为富翁的不在少数，但是，一说你是农村养鸡的，怎么样？上海专业的丈母娘们的视线立马下降60°——被BS了。倒不是因为你是干农业的，而是“鸡”的问题；如果说你是饲养斯里兰卡蓝孔雀的，得，挑剔的丈母娘们说不定就会正脸看看（唷，斯里兰卡，国外货；唷，孔雀，高档货）。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    同样的，如果你掌握的CSS都是些“砌砖头”的活（虽然砌砖头也是大学问），被无视也情理之中。但是，矩阵这个东西，就是扭转乾坤（网称“逆袭”）的好东西：CSS中也是有复杂的高档货的。再忽悠些“图形算法、位置计算”之类的词句，嘿嘿，立马看法从<img src="http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/a0/kbsa_thumb.gif" class="vimg" alt="" style="border: 0px; max-width: 100%; margin-bottom: -3px;">变成<img src="http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/8f/qq_thumb.gif" class="vimg" alt="" style="border: 0px; max-width: 100%; margin-bottom: -3px;">。<br></p><br><h3 style="margin: 18px 0px 0px; padding: 0px; font-size: 1.3em;"><br>    <a style="color: rgb(202, 0, 0);" name="t2"></a>二、何为矩阵？<br></h3><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    矩阵可以理解为方阵，只不过，平时方阵里面站的是人，矩阵中是数值：<br><img alt="方阵" src="http://image.zhangxinxu.com/image/blog/201206/fangzhen.jpg" title="方阵" class="alignnone" width="500" height="120" align="absmiddle" style="border: 0px; max-width: 100%;">&nbsp;<span style="font-size: 40px; vertical-align: middle;">→</span><img alt="矩阵示意 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/css-transforms-matrix1.gif" title="矩阵示意" class="alignnone" width="159" height="99" align="absmiddle" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    而所谓矩阵的计算，就是两个方阵的人（可以想象成古代的方阵士兵）相互冲杀。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <strong>CSS3中的矩阵</strong><br>CSS3中的矩阵指的是一个方法，书写为<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix()</code>和<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix3d()</code>，前者是元素2D平面的移动变换(transform)，后者则是3D变换。2D变换矩阵为3<em>3, 如上面矩阵示意图；3D变换则是4</em>4的矩阵。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    有些迷糊？恩，我也觉得上面讲述有些不合时宜。那好，我们先看看其他东西，层层渐进——<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>属性。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    具体关于<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>属性具体内容可以<a target="_blank" href="http://www.zhangxinxu.com/wordpress/?p=1268" style="color: rgb(52, 83, 139);">点击这里</a>补个课。稍微熟悉的人都知道，<strong>transform</strong>中有这么几个属性方法：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">.trans_skew { transform: skew(35deg); }<br>.trans_scale { transform:scale(1, 0.5); }<br>.trans_rotate { transform:rotate(45deg); }<br>.trans_translate { transform:translate(10px, 20px); }</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    斜拉(skew)，缩放(scale)，旋转(rotate)以及位移(translate)。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    那你有没有想过，为什么<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform:rotate(45deg);</code>会让元素旋转45°, 其后面运作的机理是什么呢？<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    下面这张图可以解释上面的疑问：<br><img alt="transform属性方法本质实现 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/matrix-skew-scale-rotate-translate.gif" title="transform属性方法本质实现" class="alignnone" width="375" height="161" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    无论是旋转还是拉伸什么的，本质上都是应用的<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix()</code>方法实现的（修改<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix()</code>方法固定几个值），只是类似于<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform:rotate</code>这种表现形式，我们更容易理解，记忆与上手。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    换句话说，理解<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>中<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix()</code>矩阵方法有利于透彻理解CSS3的<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>属性，这就与那80%的也会应用但只知表象的人拉开了差距！<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    OK，现在上面提到的CSS3矩阵解释应该说得通了。<br></p><br><h3 style="margin: 18px 0px 0px; padding: 0px; font-size: 1.3em;"><br>    <a style="color: rgb(202, 0, 0);" name="t3"></a>三、矩阵应用场景<br></h3><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    虽然题目写的是“<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>中的<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">Matrix</code>”，实际上，在CSS3以及HTML5的世界里，这玩意还是涉猎蛮广的，如<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">SVG</code>以及<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">canvas</code>.<br>事实上，关于矩阵，我之前曾经介绍过，是在介绍IE浏览器下的<a target="_blank" href="http://www.zhangxinxu.com/wordpress/?p=1505" style="color: rgb(52, 83, 139);">Matrix矩阵滤镜</a>的时候说过，IE的滤镜矩阵与CSS中的矩阵虽然写法上差异较大，但是，矩阵计算的原来是一致的。只是之前的介绍主要是IE下的旋转与缩放，同时也不是很深入，因此还有有些局限的。<br></p><br><h3 style="margin: 18px 0px 0px; padding: 0px; font-size: 1.3em;"><br>    <a style="color: rgb(202, 0, 0);" name="t4"></a>四、<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>与坐标系统<br></h3><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    用过<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>旋转的人可以发现了，其默认是绕着中心点旋转的，而这个中心点就是<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform-origin</code>属性对应的点，也是所有矩阵计算的一个重要依据点（下图参考自<a target="_blank" href="http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/dev.opera.com" style="color: rgb(52, 83, 139);">dev.opera.com</a>）。<br><img alt="transform坐标系统" src="http://image.zhangxinxu.com/image/blog/201206/css-transforms-matrix2.png" title="transform坐标系统" class="alignnone" width="411" height="386" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    当我们通过<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform-origin</code>属性进行设置的时候，矩阵相关计算也随之发生改变。反应到实际图形效果上就是，旋转拉伸的中心点变了！<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    举例来说，如果偶们设置：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">-webkit-transform-origin: bottom left;</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    则，坐标中心点就是左下角位置。于是动画（例如图片收缩）就是基于图片的左下角这一点了：<br><img alt="动画的起始点 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/2012-06-07_151408.png" title="动画的起始点 " class="alignnone" width="420" height="260" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    上图效果可以<a target="_blank" class="a_link" href="http://www.zhangxinxu.com/study/201011/css3-transition-animate-demo-11.html" style="color: rgb(255, 51, 0); text-decoration: none;">点击这里</a>查看（Chrome浏览器）。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    再举个稍微难理解的例子，我们如果这样设置：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">transform-origin: 50px 70px;</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    则，中心点位置有中间移到了距离左侧50像素，顶部70像素的地方（参见下图），而此时的<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">(30, 30)</code>的坐标为白点所示的位置（这个位置后面会用到）。<br><img alt="中心坐标数值偏移的理解 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/css-transforms-matrix4.png" title="中心坐标数值偏移的理解" class="alignnone" width="411" height="386" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    仔细看看，是不是很快就理解了哈~~<br></p><br><h3 style="margin: 18px 0px 0px; padding: 0px; font-size: 1.3em;"><br>    <a style="color: rgb(202, 0, 0);" name="t5"></a>五、准备好了没？重头戏来了<br></h3><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    CSS3&nbsp;<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>的<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix()</code>方法写法如下：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">transform: matrix(a,b,c,d,e,f);</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    吓住了吧，这多参数，一个巴掌都数不过来。好吧，如果你把<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">a~f</code>这6个参数想象成女神的名词，你会觉得，世界不过如此嘛~~<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    实际上，这6参数，对应的矩阵就是：<br><img alt="矩阵参数与矩阵对应关系 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/css-transforms-matrix3.gif" title="矩阵参数与矩阵对应关系" class="alignnone" width="147" height="92" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    注意书写方向是<strong>竖着的</strong>。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    上面提过，矩阵可以想象成古代的士兵方阵，要让其发生变化，只有与另外一个士兵阵火拼就可以了，即使这是个小阵。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    反应在这里就是如下转换公式：<br><img alt="CSS3中矩阵位置计算公式 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/css-transforms-matrix5.gif" title="CSS3中矩阵位置计算公式" class="alignnone" width="454" height="105" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    其中，<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">x</code>,&nbsp;<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y</code>表示转换元素的所有坐标（变量）了。那后面的<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">ax+cy+e</code>怎么来的呢？<br><span class="s" style="font-size: 0.9em; color: rgb(153, 153, 153);">//zxx:大学时候线性代数知识，懂的人这里可以直接跳过</span><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    很简单，3<em>3矩阵每一行的第1个值与后面1</em>3的第1个值相乘，第2个值与第2个相乘，第3个与第3个，然后相加，如下图同色标注：<br><img alt="矩阵计算的同色标注" src="http://image.zhangxinxu.com/image/blog/201206/2012-06-07_160412.png" title="矩阵计算的同色标注" class="alignnone" width="533" height="170" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    那<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">ax+cy+e</code>的意义是什么？<br>记住了，<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">ax+cy+e</code>为变换后的水平坐标，<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">bx+dy+f</code>表示变换后的垂直位置。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    又迷糊了？不急，一个简单例子就明白了。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    假设矩阵参数如下：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">transform: matrix(1, 0, 0, 1, 30, 30); /<em> a=1, b=0, c=0, d=1, e=30, f=30 </em>/</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    现在，我们根据这个矩阵偏移元素的中心点，假设是<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">(0, 0)</code>，即<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">x=0</code>,&nbsp;<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y=0</code>。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    于是，变换后的<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">x</code>坐标就是<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">ax+cy+e = 1<em>0+0</em>0+30 =30</code>,&nbsp;<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y</code>坐标就是<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">bx+dy+f = 0<em>0+1</em>0+30 =30</code>.<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    于是，中心点坐标从<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">(0, 0)</code>变成了→<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">(30, 30)</code>。对照上面有个<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">(30, 30)</code>的白点图，好好想象下，原来<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">(0,0)</code>的位置，移到了白点的<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">(30, 30)</code>处，怎么样，是不是往右下方同时偏移了30像素哈！！<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    实际上<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform: matrix(1, 0, 0, 1, 30, 30);</code>就等同于<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform: translate(30px, 30px);</code>. 注意：<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">translate</code>,<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">rotate</code>等方法都是需要单位的，而<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix</code>方法<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">e, f</code>参数的单位可以省略。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    一例胜万语，您可以狠狠地点击这里：<a target="_blank" class="a_link" href="http://www.zhangxinxu.com/study/201206/css3-transform-matrix-translate-30-30.html" style="color: rgb(255, 51, 0); text-decoration: none;">matrix(1,0,0,1,30,30)实例demo</a><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    在现代浏览器下，会有类似下面动图的效果：<br><img alt="30*30像素偏移示意" src="http://image.zhangxinxu.com/image/blog/201206/translate-30-30.gif" title="30*30像素偏移示意" class="alignnone" width="250" height="270" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    效果只是表象的，我想到了一个更好的idea去表现矩阵到底是如何变换的，您可以狠狠地点击这里：<a target="_blank" class="a_link" href="http://www.zhangxinxu.com/study/201206/css3-transform-matrix-30-30-step.html" style="color: rgb(255, 51, 0); text-decoration: none;">matrix分解变换演示</a><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    为了提高性能，demo中每个单元分解成了<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; color: gray; background-color: rgb(248, 248, 248);">5px <em> 5px</em></code>的区域。演示分两步，先是演示每个单元的位置是如何计算的，接着动画表现其位置的偏移。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    这个demo所做的工作就是把浏览器瞬间完成的计算和渲染变成了可控的分步显示，这样，大家就可以很直观地看出，这个矩阵计算到底是如何起作用的。下图为正在演示过程中的截图：<br><img alt="矩阵计算分解演示demo截图 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/2012-06-07_193735.png" title="矩阵计算分解演示demo截图" class="alignnone" width="435" height="396" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <span class="s" style="font-size: 0.9em; color: rgb(153, 153, 153);">//zxx:由于默认100毫秒间隔不断渲染，因此如果你电脑CPU或是浏览器hold不住，可以取消“自动演示”的勾选，然后，点击左边的按钮手动分步查看。</span><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <strong>总结</strong><br>聪明的你可能以及意识到了，尼玛matrix表现偏移就是：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">transform: matrix(与我无关, 哪位, 怎么不去高考, 打麻将去吧,水平偏移距离, 垂直偏移距离);</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    你只要关心后面两个参数就可以了，至于前面4个参数，是牛是马，是男是女都没有关系的。<br></p><br><h3 style="margin: 18px 0px 0px; padding: 0px; font-size: 1.3em;"><br>    <a style="color: rgb(202, 0, 0);" name="t6"></a>六、transform matrix矩阵与缩放，旋转以及拉伸<br></h3><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    偏移是matrix效果中最简单，最容易理解的，因此，上面很详尽地对此进行展开说明。下面，为了进一步加深对matrix的理解，会简单讲下matrix矩阵与缩放，旋转以及拉伸效果。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <strong>缩放(scale)</strong><br>上面的偏移只要关心最后两个参数，这个缩放也是只要关心两个参数。哪两个呢？<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    如果你足够明察秋毫，应该已经知道了，因为上面多次出现的：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">transform: matrix(1, 0, 0, 1, 30, 30);</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    已经出卖了。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    发现没，<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix(1, 0, 0, 1,&nbsp;<span style="text-decoration:line-through;">30, 30</span>);</code>的元素比例与原来一样，1:1, 而这几个参数中，有两个<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">1</code>, 啊哈哈！没错，这两个<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">1</code>就是缩放相关的参数。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    其中，第一个缩放<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">x</code>轴，第二个缩放<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y</code>轴。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    用公式就很明白了，假设比例是<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">s</code>，则有<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix(s, 0, 0, s, 0, 0);</code>，于是，套用公式，就有：<br><code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">x&#39; = ax+cy+e = sx+0<em>y+0 = s</em>x;</code><br><code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y&#39; = bx+dy+f = 0<em>x+s</em>y+0 = s<em>y;</em></code><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    也就是<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix(sx, 0, 0, sy, 0, 0);</code>，等同于<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">scale(sx, sy)</code>;<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    好了，至此，无需多说了……<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    眼见为实，因此demo还是要滴，您可以狠狠地点击这里：<a target="_blank" class="a_link" href="http://www.zhangxinxu.com/study/201206/css3-transform-matrix-scale.html" style="color: rgb(255, 51, 0); text-decoration: none;">matrix矩阵与缩放demo</a><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    为了避免元素比例放大时候遮盖上面的文本框以及描述位子，因此，将元素的坐标原点迁至了左上角。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <img alt="matrix矩阵缩放demo效果截图" src="http://image.zhangxinxu.com/image/blog/201206/2012-06-07_215813.png" title="matrix矩阵缩放demo效果截图" class="alignnone" width="513" height="317" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <strong>旋转(rotate)</strong><br>旋转相比前面两个要更高级些，要用到（可能勾起学生时代阴影的）三角函数。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    方法以及参数使用如下（假设角度为<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">θ</code>）：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">matrix(cosθ,sinθ,-sinθ,cosθ,0,0)</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    结合矩阵公式，就有：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">x&#39; = xcosθ-y<em>sinθ+0 = x</em>cosθ-y<em>sinθ<br>y&#39; = x</em>sinθ+y<em>cosθ+0 = x</em>sinθ+y<em>cosθ</em></pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    这个与<a target="_blank" href="http://www.zhangxinxu.com/wordpress/?p=1505" style="color: rgb(52, 83, 139);">IEMatrix滤镜中的旋转</a>是有些类似的(M11表示矩阵第1行第1个（参数a），M21表示矩阵第2行第一个（参数b）……)：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">filter:progid:DXImageTransform.Microsoft.Matrix(M11=cosθ,M21=sinθ,M12=-sinθ,M22=cosθ&#39;);</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    哎呀呀，四个参数，我记不住啊！莫慌，我们可以这样子记忆：<br>CS-SC：初三-上床，对称结构，这下忘不了了吧~~<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    您可以狠狠地点击这里：<a target="_blank" class="a_link" href="http://www.zhangxinxu.com/study/201206/css3-transform-matrix-rotate.html" style="color: rgb(255, 51, 0); text-decoration: none;">transform matrix矩阵与旋转demo</a><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <img alt="matrix矩阵旋转效果demo页面截图 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/2012-06-07_220737.png" title="matrix矩阵旋转效果demo页面截图" class="alignnone" width="514" height="291" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    不过，说句老实话，就旋转而言，<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">rotate(θdeg)</code>这种书写形式要比<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix</code>简单多了，首先记忆简单，其次，无需计算。例如，旋转30°，前者直接：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">transform:rotate(30deg);</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    而使用<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix</code>表示则还要计算<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">cos</code>,&nbsp;<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">sin</code>值：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">transform: matrix(0.866025,0.500000,-0.500000,0.866025,0,0);</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <strong>拉伸(skew)</strong><br>拉伸也用到了三角函数，不过是<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">tanθ</code>，而且，其至于<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">b, c</code>两个参数相关，书写如下（注意<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y</code>轴倾斜角度在前）：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">matrix(1,tan(θy),tan(θx),1,0,0)</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    套用矩阵公式计算结果为：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">x&#39; = x+ytan(θx)+0 = x+y<em>tan(θx)<br>y&#39; = x</em>tan(θy)+y+0 = x<em>tan(θy)+y</em></pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    对应于<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">skew(θx + &quot;deg&quot;，θy+ &quot;deg&quot;)</code>这种写法。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    其中，<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">θx</code>表示<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">x</code>轴倾斜的角度，<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">θy</code>表示<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y</code>轴，两者并无关联。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    还是靠实例说话吧，您可以狠狠地点击这里：<a target="_blank" class="a_link" href="http://www.zhangxinxu.com/study/201206/css3-transform-matrix-skew.html" style="color: rgb(255, 51, 0); text-decoration: none;">matrix矩阵与拉伸demo</a><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    在Chrome下可以很动态地查看不同倾斜角度对应的拉伸的效果：<br><img alt="拉伸效果demo页面截图" src="http://image.zhangxinxu.com/image/blog/201206/2012-06-07_221013.png" title="拉伸效果demo页面截图" class="alignnone" width="432" height="372" style="border: 0px; max-width: 100%;"><br></p><br><h3 style="margin: 18px 0px 0px; padding: 0px; font-size: 1.3em;"><br>    <a style="color: rgb(202, 0, 0);" name="t7"></a>七、既然有简单的skew, rotate..，那matrix有何用？<br></h3><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    我想有人会奇怪，既然CSS3 transform中提供了像<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">skew</code>,&nbsp;<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">rotate</code>,&nbsp;<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">…</code>效果，那还需要掌握和熟悉让人头大的矩阵方法干嘛呢？<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    好问题，确实，对于一般地交互应用，<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>属性默认提供的些方法是足够了，但是，一些其他的效果，如果<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>属性没有提供接口方法，那你又该怎么办呢？比方说，“<strong>镜像对称效果</strong>”！<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    没辙了吧，这是，就只能靠<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix</code>矩阵了。要知道，matrix矩阵是<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>变换的基础，可以应付很多高端的效果，算是一种高级应用技巧吧。掌握了基础，才能兵来将挡水来土掩啊。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    OK，这里就演示下，如何使用CSS3&nbsp;<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>&nbsp;<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix</code>矩阵实现镜像效果。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    这个有点难度，因此，我们先看demo，您可以狠狠地点击这里：<a target="_blank" class="a_link" href="http://www.zhangxinxu.com/study/201206/css3-transform-matrix-mirror.html" style="color: rgb(255, 51, 0); text-decoration: none;">matrix与镜像对称效果demo</a><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    框框中输入旋转的角度值（用来确定镜像的对称轴），然后失去焦点，就会呈现出对应的镜像对称效果了：<br><img alt="镜像对称效果操作示意 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/2012-06-07_233041.png" title="镜像对称效果操作示意" class="alignnone" width="489" height="283" style="border: 0px; max-width: 100%;"><br><img alt="镜像对称效果截图" src="http://image.zhangxinxu.com/image/blog/201206/2012-06-07_233356.png" title="镜像对称效果截图" class="alignnone" width="468" height="321" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    您可以在FireFox或是Chrome等浏览器上体验下<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix</code>实现的镜像渐变效果。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    demo页面中的一个轴是为了便于理解我加上的效果，实际上，在镜像对称的时候轴是看不见的。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    轴围绕的那个点就是CSS3中<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">transform</code>变换的中心点，自然，镜像对称也不例外。因为该轴永远经过原点，因此，任意对称轴都可以用<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y = k  x</code>表示。则<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">matrix</code>表示就是：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">matrix((1-k<em>k) / (1+k</em>k), 2k / (1 + k<em>k), 2k / (1 + k</em>k), (k<em>k - 1) / (1+k</em>k), 0, 0)</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    这个如何得到的呢？<br>啊，高中数学来了，就当再高考一次吧，如下图，已经<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y=kx</code>，并且知道点(x, y)坐标，求其对称点(x’, y’)的坐标？<br><img alt="镜像渐变题目 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/css-transforms-matrix-mirror.png" title="镜像渐变题目" class="alignnone" width="411" height="386" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    很简单，一是垂直，二是中心点在轴线上，因此有：<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">(y-y&#39;) / (x - x&#39;) = -1/ k → ky-ky&#39; = -x+x&#39;</code><br><code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">(x + x&#39;) / 2 <em> k = y + y&#39; → kx+kx&#39; = y+y&#39;</em></code><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    很简单的，把<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">x&#39;</code>和<code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y&#39;</code>提出来，就有：<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">x&#39; = (1-kk)/(k<em>k+1) </em>x + 2k/(k<em>k+1) </em>y;</code><br><code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y&#39; = 2k/(k<em>k+1) </em>x + (k<em>k-1)/(k</em>k+1) <em>y;</em></code><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    再结合矩阵公式：<br><code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">x&#39; = ax+cy+e;</code><br><code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">y&#39; = bx+dy+f;</code><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    我们就可以得到：<br><code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">a = (1-kk)/(k<em>k+1);</em></code><br><code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">b = 2k/(kk+1);</code><br><code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">c = 2k/(k<em>k+1);</em></code><br><code style="border: 1px solid rgb(234, 234, 234); padding: 0px 4px; margin-left: 2px; margin-right: 2px; font-family: Consolas, monospace; background-color: rgb(248, 248, 248);">d = (kk-1)/(k<em>k+1);</em></code><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    也就是上面matrix方法中的参数值啦！<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    下图为自己计算的草稿：<br><img alt="镜像矩阵参数计算草稿" src="http://ww3.sinaimg.cn/bmiddle/4b4d632fjw1dtq2jrsr1jj.jpg" title="镜像矩阵参数计算草稿" class="alignnone" width="440" height="330" style="border: 0px; max-width: 100%;"><br></p><br><h3 style="margin: 18px 0px 0px; padding: 0px; font-size: 1.3em;"><br>    <a style="color: rgb(202, 0, 0);" name="t8"></a>八、3D变换中的矩阵<br></h3><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    3D变换虽然只比2D多了一个D，但是复杂程度不只多了一个。从二维到三维，是从4到9；而在矩阵里头是从33变成4*4, 9到16了。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    其实，本质上很多东西都与2D一致的，只是复杂度不一样而已。这里就举一个简单的3D缩放变换的例子。<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    对于3D缩放效果，其矩阵如下：<br><img alt="3D比例变换矩阵图 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201206/css-transforms-matrix8.gif" title="3D比例变换矩阵图" class="alignnone" width="209" height="123" style="border: 0px; max-width: 100%;"><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    代码表示就是：<br></p><br><pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 0px; margin-bottom: 0px; color: rgb(0, 0, 255);">transform: matrix3d(sx, 0, 0, 0, 0, sy, 0, 0, 0, 0, sz, 0, 0, 0, 0, 1)</pre><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    您可以狠狠地点击这里：<a target="_blank" class="a_link" href="http://www.zhangxinxu.com/study/201206/css3-transform-matrix-3d-scale.html" style="color: rgb(255, 51, 0); text-decoration: none;">matrix3d下的3D比例变换demo</a><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <strong>补充于2013-04-24</strong><br>关于3D变换，可以参见邪恶的这篇文章：“<a target="_blank" href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/" style="color: rgb(52, 83, 139);">CSS3 3D transform变换，不过如此！</a>”<br></p><br><h3 style="margin: 18px 0px 0px; padding: 0px; font-size: 1.3em;"><br>    <a style="color: rgb(202, 0, 0);" name="t9"></a>九、结束语<br></h3><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    想了想，没什么要唠叨的。文中观点若是存在疑问或不准确的，欢迎指正。感谢阅读！<br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    <strong>参考文章：</strong><br><a target="_blank" href="http://dev.opera.com/articles/view/understanding-the-css-transforms-matrix/" style="color: rgb(52, 83, 139);">Understanding the CSS Transforms Matrix</a><br><a target="_blank" href="http://www.phphubei.com/article-2645-1.html" style="color: rgb(52, 83, 139);">CSS3前端开发中需要用到的变换矩阵</a><br></p><br><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; list-style-type: none;"><br>    原创文章，转载请注明来自<a target="_blank" href="http://www.zhangxinxu.com/" style="color: rgb(52, 83, 139);">张鑫旭-鑫空间-鑫生活</a>[<a target="_blank" href="http://www.zhangxinxu.com/" style="color: rgb(52, 83, 139);">http://www.zhangxinxu.com</a>]<br>本文地址：<a target="_blank" href="http://www.zhangxinxu.com/wordpress/?p=2427" style="color: rgb(52, 83, 139);">http://www.zhangxinxu.com/wordpress/?p=2427</a><br></p><br><p><br>    <br><br></p>
-
+</span>
       
     </div>
-    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+            <a href="/tags/transform/" rel="tag">#transform</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/18/表单按钮id问题/" rel="prev">表单按钮id问题</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/14/我的前端笔记/" rel="next">我的前端笔记</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/05/18/表单按钮id问题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
+
+ </div>
+
         
-          表单按钮id问题
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
         
       </div>
-    </a>
+
+      
   
-  
-    <a href="/2015/05/14/我的前端笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的前端笔记</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="transform中的Matrix-矩阵" data-title="transform中的Matrix/矩阵" data-url="http://yoursite.com/2015/05/14/transform中的Matrix-矩阵/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2015 阿发
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-</footer>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="阿发" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">阿发</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">阿发的藏宝库</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">    理解CSS3 transform中的Matrix(矩阵)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">    一、哥，我被你吓住了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">    二、何为矩阵？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">    三、矩阵应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">    四、transform与坐标系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">    五、准备好了没？重头戏来了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">    六、transform matrix矩阵与缩放，旋转以及拉伸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.7.</span> <span class="nav-text">    七、既然有简单的skew, rotate..，那matrix有何用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.8.</span> <span class="nav-text">    八、3D变换中的矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.9.</span> <span class="nav-text">    九、结束语</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
     </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">阿发</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+    
+
+  
 
 
-<script src="/js/mobile.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
 
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-<! -- mathjax config similar to math.stackexchange -->
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
     }
-});
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
 </script>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
 </script>
 
 
 
-  </div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
 </body>
 </html>
