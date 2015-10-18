@@ -40,18 +40,21 @@
 
 
 <meta name="description" content="柯里化
-柯里化(curring)的概念最早由俄国数学家Moses_Schönfinkel发明,而后由著名的数理逻辑学家Haskell将其丰富和发展,curring由此得名curring又称部分求值.一个curring的函数首先会接受一些参数,接受了这些参数之后,该函数不会立即求值,而是继续返回另一个函数,刚才传入的参数在函数形成的闭包中被保存起来.待到函数被真正需要求值的时候,之前传入的所有参数都">
+柯里化(curring)的概念最早由俄国数学家Moses_Schönfinkel发明,而后由著名的数理逻辑学家Haskell将其丰富和发展,curring由此得名
+curring又称部分求值.一个curring的函数首先会接受一些参数,接受了这些参数之后,该函数不会立即求值,而是继续返回另一个函数,刚才传入的参数在函数形成的闭包中被保存起来.待到函数被真正需要求值的时候,之前传入的所有参数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对函数柯里化的理解">
 <meta property="og:url" content="http://yoursite.com/2015/10/17/对函数柯里化的理解/index.html">
 <meta property="og:site_name" content="阿发">
 <meta property="og:description" content="柯里化
-柯里化(curring)的概念最早由俄国数学家Moses_Schönfinkel发明,而后由著名的数理逻辑学家Haskell将其丰富和发展,curring由此得名curring又称部分求值.一个curring的函数首先会接受一些参数,接受了这些参数之后,该函数不会立即求值,而是继续返回另一个函数,刚才传入的参数在函数形成的闭包中被保存起来.待到函数被真正需要求值的时候,之前传入的所有参数都">
+柯里化(curring)的概念最早由俄国数学家Moses_Schönfinkel发明,而后由著名的数理逻辑学家Haskell将其丰富和发展,curring由此得名
+curring又称部分求值.一个curring的函数首先会接受一些参数,接受了这些参数之后,该函数不会立即求值,而是继续返回另一个函数,刚才传入的参数在函数形成的闭包中被保存起来.待到函数被真正需要求值的时候,之前传入的所有参数">
 <meta property="og:image" content="http://liyaodong.qiniudn.com/uploads/2015/0806/mailcheck-hd.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对函数柯里化的理解">
 <meta name="twitter:description" content="柯里化
-柯里化(curring)的概念最早由俄国数学家Moses_Schönfinkel发明,而后由著名的数理逻辑学家Haskell将其丰富和发展,curring由此得名curring又称部分求值.一个curring的函数首先会接受一些参数,接受了这些参数之后,该函数不会立即求值,而是继续返回另一个函数,刚才传入的参数在函数形成的闭包中被保存起来.待到函数被真正需要求值的时候,之前传入的所有参数都">
+柯里化(curring)的概念最早由俄国数学家Moses_Schönfinkel发明,而后由著名的数理逻辑学家Haskell将其丰富和发展,curring由此得名
+curring又称部分求值.一个curring的函数首先会接受一些参数,接受了这些参数之后,该函数不会立即求值,而是继续返回另一个函数,刚才传入的参数在函数形成的闭包中被保存起来.待到函数被真正需要求值的时候,之前传入的所有参数">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -190,11 +193,12 @@
       
         <span itemprop="articleBody"><p><img src="http://liyaodong.qiniudn.com/uploads/2015/0806/mailcheck-hd.jpg" alt=""></p>
 <h1 id="柯里化">柯里化</h1><blockquote>
-<p>柯里化(curring)的概念最早由俄国数学家Moses_Schönfinkel发明,而后由著名的数理逻辑学家Haskell<br>将其丰富和发展,curring由此得名<br>curring又称部分求值.一个curring的函数首先会接受一些参数,接受了这些参数之后,该函数不会立即求值,而是继续返回另一个<br>函数,刚才传入的参数在函数形成的闭包中被保存起来.待到函数被真正需要求值的时候,之前传入的所有参数都会被一次性用于求值</p>
+<p>柯里化(curring)的概念最早由俄国数学家Moses_Schönfinkel发明,而后由著名的数理逻辑学家Haskell将其丰富和发展,curring由此得名</p>
+<p>curring又称部分求值.一个curring的函数首先会接受一些参数,接受了这些参数之后,该函数不会立即求值,而是继续返回另一个函数,刚才传入的参数在函数形成的闭包中被保存起来.待到函数被真正需要求值的时候,之前传入的所有参数都会被一次性用于求值</p>
 </blockquote>
 <a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> curring=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">var</span> args=[];</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">arguments</span>.length === <span class="number">0</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>,args)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      [].push.apply(args,<span class="built_in">arguments</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">arguments</span>.callee;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> cost=(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> money=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,l=<span class="built_in">arguments</span>.length;i&lt;l;i++)&#123;</span><br><span class="line">        money+=<span class="built_in">arguments</span>[i];</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> money;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="keyword">var</span> cost=curring(cost);</span><br><span class="line">cost(<span class="number">100</span>); <span class="comment">//未被真正求值</span></span><br><span class="line">cost(<span class="number">200</span>); <span class="comment">//未被真正求值</span></span><br><span class="line">cost(<span class="number">300</span>); <span class="comment">//未被真正求值</span></span><br><span class="line">alert(cost()); <span class="comment">//求值并输出:600</span></span><br></pre></td></tr></table></figure>
-<p>刚开始接触柯里化的时候,一头雾水,感觉很复杂的东西,看了JavaScript设计模式与开发实践后,恍然大悟.一个curring的<br>函数会将参数传入一个数组中保存起来,需要计算的时候调用相关函数,遍历数组,然后计算并返回结果,大概原理就这样,之前想复杂了</p>
+<p>刚开始接触柯里化的时候,一头雾水,感觉很复杂的东西,看了JavaScript设计模式与开发实践后,恍然大悟.一个curring的函数会将参数传入一个数组中保存起来,需要计算的时候调用相关函数,遍历数组,然后计算并返回结果,大概原理就这样,之前确实想复杂了</p>
 </span>
       
     </div>
