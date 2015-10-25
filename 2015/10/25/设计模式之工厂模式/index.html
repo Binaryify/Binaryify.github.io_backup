@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="github,light-UI," />
+  <meta name="keywords" content="js,设计模式," />
 
 
 
@@ -39,24 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="写文章的时候弄出来的,觉得还可以就拿出来开源了;没有做太多功能,专注文字,图片以及代码块排版,所以是轻量级的,可用于演示和文章,CSS大小:1.67kb JS大小:3.13kb,压缩后更小,用了自适应脚本,在css中使用rem单位后可以在移动端适配各种机型
-项目地址 地址">
+<meta name="description" content="工厂模式工厂模式是我们最常用的实例化对象模式了，是用工厂方法代替new操作的一种模式。著名的Jive论坛 ,就大量使用了工厂模式，工厂模式在Java程序系统可以说是随处可见。因为工厂模式就相当于创建实例对象的new，我们经常要根据类Class生成实例对象，如A a=new A() 工厂模式也是用来创建实例对象的，所以以后new时就要多个心眼，是否可以考虑使用工厂模式，虽然这样做，可能多做一些工作，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="light-UI 1.0发布">
-<meta property="og:url" content="http://yoursite.com/2015/07/24/light-UI 1.0发布/index.html">
+<meta property="og:title" content="设计模式之工厂模式">
+<meta property="og:url" content="http://yoursite.com/2015/10/25/设计模式之工厂模式/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="写文章的时候弄出来的,觉得还可以就拿出来开源了;没有做太多功能,专注文字,图片以及代码块排版,所以是轻量级的,可用于演示和文章,CSS大小:1.67kb JS大小:3.13kb,压缩后更小,用了自适应脚本,在css中使用rem单位后可以在移动端适配各种机型
-项目地址 地址">
-<meta property="og:image" content="https://camo.githubusercontent.com/b375ab8e1042da89e078e7da962701a2db168e3c/687474703a2f2f69312e74696574756b752e636f6d2f376639333938363437376664373736662e6a7067">
-<meta property="og:image" content="https://camo.githubusercontent.com/6f08f31d6a00891a5bff61543c721fbcd36be168/687474703a2f2f69312e74696574756b752e636f6d2f323738306334356530383534333963662e6a7067">
-<meta property="og:image" content="https://camo.githubusercontent.com/4871d0eed5d8686b52ba32332f8365d5ce0a9766/687474703a2f2f69312e74696574756b752e636f6d2f393937623363336165396438383933352e6a7067">
-<meta property="og:image" content="https://camo.githubusercontent.com/8a72876cc49506e8c516517dc92f7bbfc530390b/687474703a2f2f69312e74696574756b752e636f6d2f643638313431336363366365346362632e6a7067">
-<meta property="og:image" content="https://camo.githubusercontent.com/84b107b1a6519cd71d89a0e336fc7680c234aaf0/687474703a2f2f69312e74696574756b752e636f6d2f633466336430643034643333336262662e706e67">
-<meta property="og:image" content="https://camo.githubusercontent.com/1711947ae7a9b1de024f439178ff1b1990312e6a/687474703a2f2f69312e74696574756b752e636f6d2f303662333533633838616439353361302e706e67">
+<meta property="og:description" content="工厂模式工厂模式是我们最常用的实例化对象模式了，是用工厂方法代替new操作的一种模式。著名的Jive论坛 ,就大量使用了工厂模式，工厂模式在Java程序系统可以说是随处可见。因为工厂模式就相当于创建实例对象的new，我们经常要根据类Class生成实例对象，如A a=new A() 工厂模式也是用来创建实例对象的，所以以后new时就要多个心眼，是否可以考虑使用工厂模式，虽然这样做，可能多做一些工作，">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/weixin2.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="light-UI 1.0发布">
-<meta name="twitter:description" content="写文章的时候弄出来的,觉得还可以就拿出来开源了;没有做太多功能,专注文字,图片以及代码块排版,所以是轻量级的,可用于演示和文章,CSS大小:1.67kb JS大小:3.13kb,压缩后更小,用了自适应脚本,在css中使用rem单位后可以在移动端适配各种机型
-项目地址 地址">
+<meta name="twitter:title" content="设计模式之工厂模式">
+<meta name="twitter:description" content="工厂模式工厂模式是我们最常用的实例化对象模式了，是用工厂方法代替new操作的一种模式。著名的Jive论坛 ,就大量使用了工厂模式，工厂模式在Java程序系统可以说是随处可见。因为工厂模式就相当于创建实例对象的new，我们经常要根据类Class生成实例对象，如A a=new A() 工厂模式也是用来创建实例对象的，所以以后new时就要多个心眼，是否可以考虑使用工厂模式，虽然这样做，可能多做一些工作，">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -66,7 +58,7 @@
   };
 </script>
 
-  <title> light-UI 1.0发布 | 阿发 </title>
+  <title> 设计模式之工厂模式 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -165,7 +157,7 @@
           
           
             
-              light-UI 1.0发布
+              设计模式之工厂模式
             
           
         </h1>
@@ -174,8 +166,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-07-24T16:04:37+08:00" content="2015-07-24">
-            2015-07-24
+          <time itemprop="dateCreated" datetime="2015-10-25T22:28:33+08:00" content="2015-10-25">
+            2015-10-25
           </time>
         </span>
 
@@ -193,10 +185,17 @@
       
 
       
-        <span itemprop="articleBody"><p>写文章的时候弄出来的,觉得还可以就拿出来开源了;没有做太多功能,专注文字,图片以及代码块排版,所以是轻量级的,可用于演示和文章,CSS大小:1.67kb JS大小:3.13kb,压缩后更小,用了自适应脚本,在css中使用rem单位后可以在移动端适配各种机型</p>
-<p>项目地址 <a href="https://github.com/zhuangtongfa/light-UI" target="_blank" rel="external">地址</a></p>
-<p><img src="https://camo.githubusercontent.com/b375ab8e1042da89e078e7da962701a2db168e3c/687474703a2f2f69312e74696574756b752e636f6d2f376639333938363437376664373736662e6a7067" alt="图一"><br><a id="more"></a><br><img src="https://camo.githubusercontent.com/6f08f31d6a00891a5bff61543c721fbcd36be168/687474703a2f2f69312e74696574756b752e636f6d2f323738306334356530383534333963662e6a7067" alt="图二"><br><img src="https://camo.githubusercontent.com/4871d0eed5d8686b52ba32332f8365d5ce0a9766/687474703a2f2f69312e74696574756b752e636f6d2f393937623363336165396438383933352e6a7067" alt="图三"><br><img src="https://camo.githubusercontent.com/8a72876cc49506e8c516517dc92f7bbfc530390b/687474703a2f2f69312e74696574756b752e636f6d2f643638313431336363366365346362632e6a7067" alt="图四"><br><img src="https://camo.githubusercontent.com/84b107b1a6519cd71d89a0e336fc7680c234aaf0/687474703a2f2f69312e74696574756b752e636f6d2f633466336430643034643333336262662e706e67" alt="图五"><br><img src="https://camo.githubusercontent.com/1711947ae7a9b1de024f439178ff1b1990312e6a/687474703a2f2f69312e74696574756b752e636f6d2f303662333533633838616439353361302e706e67" alt="图六"></p>
-</span>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/weixin2.jpg" alt=""></p>
+<h1 id="工厂模式">工厂模式</h1><p>工厂模式是我们最常用的实例化对象模式了，是用工厂方法代替new操作的一种模式。著名的Jive论坛 ,就大量使用了工厂模式，工厂模式在Java程序系统可以说是随处可见。因为工厂模式就相当于创建实例对象的new，我们经常要根据类Class生成实例对象，如A a=new A() 工厂模式也是用来创建实例对象的，所以以后new时就要多个心眼，是否可以考虑使用工厂模式，虽然这样做，可能多做一些工作，但会给你系统带来更大的可扩展性和尽量少的修改量</p>
+<h2 id="模式作用">模式作用</h2><ol>
+<li>对象的构建十分复杂</li>
+<li>需要依赖具体的环境创建不同实例</li>
+<li>处理大量具有相同属性的小对象</li>
+<li><h2 id="注意事项">注意事项</h2></li>
+<li>不能滥用工厂,有时候仅仅是给代码增加复杂度</li>
+</ol>
+<a id="more"></a>
+<h1 id="例子:">例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//工厂应该有厂长,来决定运行哪条生产线</span></span><br><span class="line"><span class="comment">// 消费者-&gt;子类</span></span><br><span class="line"><span class="keyword">var</span> gongchang=&#123;&#125;;<span class="comment">//定义工厂</span></span><br><span class="line"><span class="comment">//工厂生产衣服方法</span></span><br><span class="line">gongchang.chanyifu=<span class="function"><span class="keyword">function</span><span class="params">(argument)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.gongren=<span class="number">50</span>; <span class="comment">//工人属数量</span></span><br><span class="line">	<span class="keyword">this</span>.shengchangxiaolv=<span class="number">2</span>;<span class="comment">//生产效率</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"我们有"</span>+<span class="keyword">this</span>.gongren+<span class="string">"个工人"</span>);</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"生产了"</span>+<span class="keyword">this</span>.gongren*<span class="keyword">this</span>.shengchangxiaolv+<span class="string">"件衣服"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//工厂生产鞋子方法</span></span><br><span class="line">gongchang.chanxie=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"产鞋子"</span>);</span><br><span class="line">&#125;</span><br><span class="line">gongchang.yunshu=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"运输"</span>);</span><br><span class="line">&#125;</span><br><span class="line">gongchang.changzhang=<span class="function"><span class="keyword">function</span><span class="params">(para)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> gongchang[para]();</span><br><span class="line">	<span class="comment">//构造函数模式 单例模式</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> me=gongchang.changzhang(<span class="string">'chanyifu'</span>);</span><br></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -204,9 +203,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/github/" rel="tag">#github</a>
+            <a href="/tags/js/" rel="tag">#js</a>
           
-            <a href="/tags/light-UI/" rel="tag">#light-UI</a>
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -215,13 +214,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/24/3D立方体的实现/" rel="prev">3D立方体的实现</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/17/canvas复制video内容/" rel="next">canvas复制video内容</a>
+              <a href="/2015/10/25/设计模式之代理模式/" rel="next">设计模式之代理模式</a>
             
           </div>
         </div>
@@ -325,7 +322,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工厂模式"><span class="nav-number">1.</span> <span class="nav-text">工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
