@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="js," />
+  <meta name="keywords" content="js,设计模式," />
 
 
 
@@ -39,15 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性的。（所以推荐使用私有的，封装的局部变量。）一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同">
+<meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闭包加法器小程序">
-<meta property="og:url" content="http://yoursite.com/2015/06/18/闭包加法器小程序/index.html">
+<meta property="og:title" content="设计模式之代理模式">
+<meta property="og:url" content="http://yoursite.com/2015/10/25/设计模式之代理模式/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性的。（所以推荐使用私有的，封装的局部变量。）一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同">
+<meta property="og:description">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/bird.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闭包加法器小程序">
-<meta name="twitter:description" content="闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性的。（所以推荐使用私有的，封装的局部变量。）一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同">
+<meta name="twitter:title" content="设计模式之代理模式">
+<meta name="twitter:description">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +58,7 @@
   };
 </script>
 
-  <title> 闭包加法器小程序 | 阿发 </title>
+  <title> 设计模式之代理模式 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +157,7 @@
           
           
             
-              闭包加法器小程序
+              设计模式之代理模式
             
           
         </h1>
@@ -165,8 +166,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-06-18T10:53:49+08:00" content="2015-06-18">
-            2015-06-18
+          <time itemprop="dateCreated" datetime="2015-10-25T20:53:51+08:00" content="2015-10-25">
+            2015-10-25
           </time>
         </span>
 
@@ -184,37 +185,18 @@
       
 
       
-        <span itemprop="articleBody"><p>闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。使用闭包有一个优点，也是它的缺点，就是可以把局部变量驻留在内存中，可以避免使用全局变量。全局变量在每个模块都可调用，这势必将是灾难性的。（所以推荐使用私有的，封装的局部变量。）一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同！</p>
-<p>简单来说闭包拥有三个特性：</p>
-<p>1.函数嵌套函数<br>2.函数内部可以引用外部的参数和变量<br>3.参数和变量不会被垃圾回收机制回收</p>
-<a id="more"></a>
-<pre>
-
-    &lt;script type=&quot;text/javascript&quot;&gt;
-
-    function f1(){
-       var i=0;
-       iadd=function(n){
-       i+=n;
-       }
-
-       return function f2(){
-       alert(i);
-       }
-
-     }
-
-     var result=f1();
-
-     result();  //0
-
-     iadd(20);
-
-     result(); //20
-
-     &lt;/script&gt;
-
-</pre>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/bird.jpg" alt=""><br><a id="more"></a></p>
+<h1 id="代理模式">代理模式</h1><p>代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。</p>
+<h2 id="模式作用:">模式作用:</h2><ol>
+<li>远程代理(一个对象将不同空间的对象进行局部代理)</li>
+<li>虚拟代理(根据需要创建开销很大的对象如渲染网页暂时用占位符代替真图)</li>
+<li>安全代理(控制真实对象的访问权限)</li>
+<li>智能指引(调用对象代理处理另外一些事情如垃圾回收机制)</li>
+</ol>
+<h2 id="注意事项">注意事项</h2><ol>
+<li>不能滥用代理,有时候仅仅是给代码增加复杂度<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代理模式需要3方</span></span><br><span class="line"><span class="comment">//1.买家</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">maijia</span><span class="params">(argument)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=<span class="string">"小明"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.中介 卖房</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">zhongjie</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">zhongjie.prototype.maifang=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">new</span> fangdong(<span class="keyword">new</span> maijia()).maifang(<span class="string">'20万'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3.房东 坐等收钱</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fangdong</span><span class="params">(maijia)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.maijia_name=maijia.name;</span><br><span class="line">	<span class="keyword">this</span>.maifang=<span class="function"><span class="keyword">function</span><span class="params">(money)</span></span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"收到了来自["</span>+<span class="keyword">this</span>.maijia_name+<span class="string">"]"</span>+money+<span class="string">"人民币"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">(<span class="keyword">new</span> zhongjie).maifang();<span class="comment">//收到了来自[小明]20万人民币</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 </span>
       
     </div>
@@ -225,6 +207,8 @@
           
             <a href="/tags/js/" rel="tag">#js</a>
           
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
         </div>
       
 
@@ -232,13 +216,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/20/旋转木马原理-不用jquery/" rel="prev">旋转木马原理(不用jquery)</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/15/sass笔记/" rel="next">sass和compass笔记</a>
+              <a href="/2015/10/25/设计模式之观察者模式/" rel="next">设计模式之观察者模式</a>
             
           </div>
         </div>
@@ -342,7 +324,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代理模式"><span class="nav-number">1.</span> <span class="nav-text">代理模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
