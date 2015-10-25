@@ -39,16 +39,31 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description">
+<meta name="description" content="代理模式代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。
+模式作用:
+远程代理(一个对象将不同空间的对象进行局部代理)
+虚拟代理(根据需要创建开销很大的对象如渲染网页暂时用占位符代替真图)
+安全代理(控制真实对象的访问权限)
+智能指引(调用对象代理处理另外一些事情如垃圾回收机制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之代理模式">
 <meta property="og:url" content="http://yoursite.com/2015/10/25/设计模式之代理模式/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description">
+<meta property="og:description" content="代理模式代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。
+模式作用:
+远程代理(一个对象将不同空间的对象进行局部代理)
+虚拟代理(根据需要创建开销很大的对象如渲染网页暂时用占位符代替真图)
+安全代理(控制真实对象的访问权限)
+智能指引(调用对象代理处理另外一些事情如垃圾回收机制">
 <meta property="og:image" content="http://zhuangtongfa.github.io/images/bird.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之代理模式">
-<meta name="twitter:description">
+<meta name="twitter:description" content="代理模式代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。
+模式作用:
+远程代理(一个对象将不同空间的对象进行局部代理)
+虚拟代理(根据需要创建开销很大的对象如渲染网页暂时用占位符代替真图)
+安全代理(控制真实对象的访问权限)
+智能指引(调用对象代理处理另外一些事情如垃圾回收机制">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -185,7 +200,7 @@
       
 
       
-        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/bird.jpg" alt=""><br><a id="more"></a></p>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/bird.jpg" alt=""></p>
 <h1 id="代理模式">代理模式</h1><p>代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。</p>
 <h2 id="模式作用:">模式作用:</h2><ol>
 <li>远程代理(一个对象将不同空间的对象进行局部代理)</li>
@@ -194,7 +209,8 @@
 <li>智能指引(调用对象代理处理另外一些事情如垃圾回收机制)</li>
 </ol>
 <h2 id="注意事项">注意事项</h2><ol>
-<li>不能滥用代理,有时候仅仅是给代码增加复杂度<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代理模式需要3方</span></span><br><span class="line"><span class="comment">//1.买家</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">maijia</span><span class="params">(argument)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=<span class="string">"小明"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.中介 卖房</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">zhongjie</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">zhongjie.prototype.maifang=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">new</span> fangdong(<span class="keyword">new</span> maijia()).maifang(<span class="string">'20万'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3.房东 坐等收钱</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fangdong</span><span class="params">(maijia)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.maijia_name=maijia.name;</span><br><span class="line">	<span class="keyword">this</span>.maifang=<span class="function"><span class="keyword">function</span><span class="params">(money)</span></span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"收到了来自["</span>+<span class="keyword">this</span>.maijia_name+<span class="string">"]"</span>+money+<span class="string">"人民币"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">(<span class="keyword">new</span> zhongjie).maifang();<span class="comment">//收到了来自[小明]20万人民币</span></span><br></pre></td></tr></table></figure>
+<li>不能滥用代理,有时候仅仅是给代码增加复杂度<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代理模式需要3方</span></span><br><span class="line"><span class="comment">//1.买家</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">maijia</span><span class="params">(argument)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=<span class="string">"小明"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.中介 卖房</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">zhongjie</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">zhongjie.prototype.maifang=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">new</span> fangdong(<span class="keyword">new</span> maijia()).maifang(<span class="string">'20万'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3.房东 坐等收钱</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fangdong</span><span class="params">(maijia)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.maijia_name=maijia.name;</span><br><span class="line">	<span class="keyword">this</span>.maifang=<span class="function"><span class="keyword">function</span><span class="params">(money)</span></span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"收到了来自["</span>+<span class="keyword">this</span>.maijia_name+<span class="string">"]"</span>+money+<span class="string">"人民币"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">(<span class="keyword">new</span> zhongjie).maifang();<span class="comment">//收到了来自[小明]20万人民币</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </span>
