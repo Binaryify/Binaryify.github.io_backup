@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="js,设计模式," />
 
 
 
@@ -39,15 +39,37 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="种一棵树最好的时间是十年前,其次是现在">
+<meta name="description" content="单例模式单例模式是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例类的特殊类。通过单例模式可以保证系统中一个类只有一个实例而且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。如果希望在系统中某个类的对象只能存在一个，单例模式是最好的解决方案。
+模式作用:
+模块间通信
+系统中某个类的对象只能存在一个
+保护自己的属性和方法
+
+注意事项:
+注意this的使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之单例模式">
 <meta property="og:url" content="http://yoursite.com/2015/10/25/设计模式之单例模式/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="种一棵树最好的时间是十年前,其次是现在">
+<meta property="og:description" content="单例模式单例模式是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例类的特殊类。通过单例模式可以保证系统中一个类只有一个实例而且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。如果希望在系统中某个类的对象只能存在一个，单例模式是最好的解决方案。
+模式作用:
+模块间通信
+系统中某个类的对象只能存在一个
+保护自己的属性和方法
+
+注意事项:
+注意this的使用">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/cover.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之单例模式">
-<meta name="twitter:description" content="种一棵树最好的时间是十年前,其次是现在">
+<meta name="twitter:description" content="单例模式单例模式是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例类的特殊类。通过单例模式可以保证系统中一个类只有一个实例而且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。如果希望在系统中某个类的对象只能存在一个，单例模式是最好的解决方案。
+模式作用:
+模块间通信
+系统中某个类的对象只能存在一个
+保护自己的属性和方法
+
+注意事项:
+注意this的使用">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -184,11 +206,32 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/cover.jpg" alt=""></p>
+<h1 id="单例模式">单例模式</h1><p>单例模式是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例类的特殊类。通过单例模式可以保证系统中一个类只有一个实例而且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。如果希望在系统中某个类的对象只能存在一个，单例模式是最好的解决方案。</p>
+<h2 id="模式作用:">模式作用:</h2><ol>
+<li>模块间通信</li>
+<li>系统中某个类的对象只能存在一个</li>
+<li>保护自己的属性和方法</li>
+</ol>
+<h2 id="注意事项:">注意事项:</h2><ol>
+<li>注意this的使用<a id="more"></a>
+</li>
+</ol>
+<h1 id="例子:">例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.独立的对象 建2个 一个xiaowang 一个xiaoli</span></span><br><span class="line"><span class="comment">// 2.让xiaoli跟xiaowang通过门铃互相通信</span></span><br><span class="line"><span class="comment">// 3.先看一下小wang家有没有门,如果没有门直接通过门铃通讯dididi,如果没有先建门</span></span><br><span class="line"><span class="comment">// 4.两个单例之间开始通信</span></span><br><span class="line"><span class="keyword">var</span> xiaowang=(<span class="function"><span class="keyword">function</span><span class="params">(argument)</span></span>&#123;</span><br><span class="line">	<span class="keyword">var</span> xiaowangjia=<span class="function"><span class="keyword">function</span><span class="params">(message)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.menling=message;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> men;</span><br><span class="line">	<span class="keyword">var</span> info=&#123;</span><br><span class="line">		sendMessage:<span class="function"><span class="keyword">function</span><span class="params">(message)</span></span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(!men)&#123;</span><br><span class="line">				men=<span class="keyword">new</span> xiaowangjia(message);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> men;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">		<span class="keyword">return</span> info;</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="keyword">var</span> xiaoli=&#123;</span><br><span class="line">	callXiaoming:<span class="function"><span class="keyword">function</span><span class="params">(msg)</span></span>&#123;</span><br><span class="line">		<span class="keyword">var</span> _xw=xiaowang.sendMessage(msg);</span><br><span class="line">		<span class="built_in">console</span>.log(_xw.menling);</span><br><span class="line">		_xw=<span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">xiaoli.callXiaoming(<span class="string">"dididi"</span>) <span class="comment">//dididi</span></span><br></pre></td></tr></table></figure>
+<p>页面中有若干按钮,如果用$(‘#id’).click(function(){<br>}),如果逻辑特别多会很乱,数据间通信困难<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>单例模式<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"a"</span>&gt;</span>a<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"d"</span>&gt;</span>d<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> top = &#123;</span><br><span class="line">            init: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">this</span>.render();</span><br><span class="line">                <span class="keyword">this</span>.bind();</span><br><span class="line">            &#125;,</span><br><span class="line">            a: <span class="number">4</span>,</span><br><span class="line">            render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> me = <span class="keyword">this</span>;</span><br><span class="line">                me.btna = $(<span class="string">"#a"</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            bind: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> me = <span class="keyword">this</span>;</span><br><span class="line">                me.btna.click(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    me.test()</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            test: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                a = <span class="number">5</span>;</span><br><span class="line">                <span class="built_in">console</span>.log(a)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> banner = &#123;</span><br><span class="line">            init: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">this</span>.render();</span><br><span class="line">                <span class="keyword">this</span>.bind();</span><br><span class="line">            &#125;,</span><br><span class="line">            a: <span class="number">4</span>,</span><br><span class="line">            render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> me = <span class="keyword">this</span>;</span><br><span class="line">                me.btna = $(<span class="string">"#d"</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            bind: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> me = <span class="keyword">this</span>;</span><br><span class="line">                me.btna.click(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    me.test()</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            test: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                top.a = <span class="number">6</span>;</span><br><span class="line">                <span class="built_in">console</span>.log(top.a)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        top.init();</span><br><span class="line">        banner.init();</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+        </div>
       
 
       
@@ -305,7 +348,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
