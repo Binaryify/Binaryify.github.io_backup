@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="js,prototype," />
+  <meta name="keywords" content="js,设计模式," />
 
 
 
@@ -39,63 +39,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="&amp;lt;script&amp;gt;
-
-    function funA(name){
-
-    this.name=name;
-
-    }
-
-    function funB(){
-
-    }
-
-    funB.prototype=new funA(&amp;quot;Kikty&amp;quot;);
-
-    var People=new funB();
-
-    alert(People.name);">
+<meta name="description" content="命令模式在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。
+模式作用:
+将函数的封装,请求,调用结合为一体
+调用具体的函数解耦命令对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript的prototype">
-<meta property="og:url" content="http://yoursite.com/2015/06/09/JavaScript的prototype/index.html">
+<meta property="og:title" content="设计模式之命令模式">
+<meta property="og:url" content="http://yoursite.com/2015/10/25/设计模式之命令模式/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="&amp;lt;script&amp;gt;
-
-    function funA(name){
-
-    this.name=name;
-
-    }
-
-    function funB(){
-
-    }
-
-    funB.prototype=new funA(&amp;quot;Kikty&amp;quot;);
-
-    var People=new funB();
-
-    alert(People.name);">
+<meta property="og:description" content="命令模式在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。
+模式作用:
+将函数的封装,请求,调用结合为一体
+调用具体的函数解耦命令对">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/4.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript的prototype">
-<meta name="twitter:description" content="&amp;lt;script&amp;gt;
-
-    function funA(name){
-
-    this.name=name;
-
-    }
-
-    function funB(){
-
-    }
-
-    funB.prototype=new funA(&amp;quot;Kikty&amp;quot;);
-
-    var People=new funB();
-
-    alert(People.name);">
+<meta name="twitter:title" content="设计模式之命令模式">
+<meta name="twitter:description" content="命令模式在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。
+模式作用:
+将函数的封装,请求,调用结合为一体
+调用具体的函数解耦命令对">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -105,7 +67,7 @@
   };
 </script>
 
-  <title> JavaScript的prototype | 阿发 </title>
+  <title> 设计模式之命令模式 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +166,7 @@
           
           
             
-              JavaScript的prototype
+              设计模式之命令模式
             
           
         </h1>
@@ -213,8 +175,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-06-09T21:54:19+08:00" content="2015-06-09">
-            2015-06-09
+          <time itemprop="dateCreated" datetime="2015-10-25T20:15:26+08:00" content="2015-10-25">
+            2015-10-25
           </time>
         </span>
 
@@ -232,28 +194,16 @@
       
 
       
-        <span itemprop="articleBody"><pre>
-    &lt;script&gt;
-
-    function funA(name){
-
-    this.name=name;
-
-    }
-
-    function funB(){
-
-    }
-
-    funB.prototype=new funA(&quot;Kikty&quot;);
-
-    var People=new funB();
-
-    alert(People.name);
-
-    &lt;/script&gt;
-</pre>
-</span>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/4.jpg" alt=""></p>
+<h1 id="命令模式">命令模式</h1><p>在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。</p>
+<h2 id="模式作用:">模式作用:</h2><ol>
+<li>将函数的封装,请求,调用结合为一体</li>
+<li>调用具体的函数解耦命令对象与接受对象</li>
+<li>提高程序模块化的灵活性<h2 id="注意事项:">注意事项:</h2></li>
+<li>不需要接口一致,直接调用函数即可,以免造成浪费</li>
+</ol>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lian=&#123;&#125;;</span><br><span class="line">lian.paobing=<span class="function"><span class="keyword">function</span><span class="params">(pao_num)</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(pao_num+<span class="string">"炮"</span>+<span class="string">"开始战斗"</span>);</span><br><span class="line">&#125;</span><br><span class="line">lian.bubing=<span class="function"><span class="keyword">function</span><span class="params">(bubing_num)</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(bubing_num+<span class="string">"人"</span>+<span class="string">"开始战斗"</span>)</span><br><span class="line">&#125;</span><br><span class="line">lian.lianzhang=<span class="function"><span class="keyword">function</span><span class="params">(mingling)</span></span>&#123;</span><br><span class="line">	lian[mingling.type](mingling.num)</span><br><span class="line">&#125;</span><br><span class="line">lian.lianzhang(&#123;</span><br><span class="line">	type:<span class="string">"paobing"</span>,</span><br><span class="line">	num:<span class="string">"100"</span></span><br><span class="line">&#125;)</span><br><span class="line">lian.lianzhang(&#123;</span><br><span class="line">	type:<span class="string">"bubing"</span>,</span><br><span class="line">	num:<span class="string">"50"</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//100炮开始战斗</span></span><br><span class="line"><span class="comment">//50人开始战斗</span></span><br></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -263,7 +213,7 @@
           
             <a href="/tags/js/" rel="tag">#js</a>
           
-            <a href="/tags/prototype/" rel="tag">#prototype</a>
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -272,13 +222,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/11/简单实现jQuery 中的选择器/" rel="prev">简单实现jQuery 中的选择器</a>
+              <a href="/2015/10/25/设计模式之观察者模式/" rel="prev">设计模式之观察者模式</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/05/HTML5图片预览和Filereader-API/" rel="next">HTML5图片预览和Filereader API</a>
+              <a href="/2015/10/25/JavaScript惰性函数/" rel="next">JavaScript惰性函数</a>
             
           </div>
         </div>
@@ -382,7 +332,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令模式"><span class="nav-number">1.</span> <span class="nav-text">命令模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
