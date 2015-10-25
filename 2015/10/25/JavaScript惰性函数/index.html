@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="HTML5,css," />
+  <meta name="keywords" content="javascript,js," />
 
 
 
@@ -39,15 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description">
+<meta name="description" content="背景在开发过程中,有时候需要对浏览器环境进行检测,比如封装一个AJAX函数的时候需要写一个函数进行检测,但是常规的写法有点累赘了,会检测很多遍,但是浏览器环境是固定不变的,检测只需要检测一遍.这样就会造成每次调用这个函数的时候浏览器都会浪费太多时间去再检测一次.这时候就应该用到惰性函数来解决这个问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单动效的实现">
-<meta property="og:url" content="http://yoursite.com/2015/05/20/简单动效的实现/index.html">
+<meta property="og:title" content="JavaScript惰性函数">
+<meta property="og:url" content="http://yoursite.com/2015/10/25/JavaScript惰性函数/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description">
+<meta property="og:description" content="背景在开发过程中,有时候需要对浏览器环境进行检测,比如封装一个AJAX函数的时候需要写一个函数进行检测,但是常规的写法有点累赘了,会检测很多遍,但是浏览器环境是固定不变的,检测只需要检测一遍.这样就会造成每次调用这个函数的时候浏览器都会浪费太多时间去再检测一次.这时候就应该用到惰性函数来解决这个问题">
+<meta property="og:image" content="http://img.hb.aicdn.com/1e53365a9980991f3ee76044449d412c3db4b0d7154ca-b5iwRN_fw658">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简单动效的实现">
-<meta name="twitter:description">
+<meta name="twitter:title" content="JavaScript惰性函数">
+<meta name="twitter:description" content="背景在开发过程中,有时候需要对浏览器环境进行检测,比如封装一个AJAX函数的时候需要写一个函数进行检测,但是常规的写法有点累赘了,会检测很多遍,但是浏览器环境是固定不变的,检测只需要检测一遍.这样就会造成每次调用这个函数的时候浏览器都会浪费太多时间去再检测一次.这时候就应该用到惰性函数来解决这个问题">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +58,7 @@
   };
 </script>
 
-  <title> 简单动效的实现 | 阿发 </title>
+  <title> JavaScript惰性函数 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +157,7 @@
           
           
             
-              简单动效的实现
+              JavaScript惰性函数
             
           
         </h1>
@@ -165,8 +166,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-20T22:34:18+08:00" content="2015-05-20">
-            2015-05-20
+          <time itemprop="dateCreated" datetime="2015-10-25T17:54:59+08:00" content="2015-10-25">
+            2015-10-25
           </time>
         </span>
 
@@ -184,11 +185,10 @@
       
 
       
-        <span itemprop="articleBody"><p><div id="divid1"></div><br><a id="more"></a></p>
-<p><div id="divid2"></div><div id="divid3"></div></p>
-<p><div id="divid3"></div></p>
-<style>
-#divid1{background-color: green;width: 100px;height: 100px;transition:.5s all;}#divid1:hover{background-color: red;border-radius: 50%;}#divid2{background-color: green;width: 100px;height: 100px;position: absolute;margin-top: -100px;-webkit-animation:myan 1s infinite alternate;}@-webkit-keyframes myan{0% {margin-left: 100px;}100% {margin-left: 300px;background-color: red;border-radius: 50%;}}</style>
+        <span itemprop="articleBody"><p><img src="http://img.hb.aicdn.com/1e53365a9980991f3ee76044449d412c3db4b0d7154ca-b5iwRN_fw658" alt=""></p>
+<h1 id="背景">背景</h1><p>在开发过程中,有时候需要对浏览器环境进行检测,比如封装一个AJAX函数的时候需要写一个函数进行检测,但是常规的写法有点累赘了,会检测很多遍,但是浏览器环境是固定不变的,检测只需要检测一遍.这样就会造成每次调用这个函数的时候浏览器都会浪费太多时间去再检测一次.这时候就应该用到惰性函数来解决这个问题<br><a id="more"></a></p>
+<h1 id="惰性函数">惰性函数</h1><p>惰性载入表示函数执行的分支只会在函数第一次掉用的时候执行，在第一次调用过程中，该函数会被覆盖为另一个按照合适方式执行的函数，这样任何对原函数的调用就不用再经过执行的分支了。<br>下面看一段JS代码:<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> xhr;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">'undefined'</span>) &#123;</span><br><span class="line">        xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        createXHR = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Msxml2.XMLHTTP"</span>);</span><br><span class="line">            createXHR = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">"Msxml2.XMLHTTP"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">                createXHR = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                createXHR = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> xhr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>什么意思呢?就是说这个函数在执行第一次的时候正常判断,只是条件成立的时候会重新改写这个函数,并返回相应的结果,这样下次调用的时候就不会浪费时间再去判断相关环境了</p>
 </span>
       
     </div>
@@ -197,9 +197,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTML5/" rel="tag">#HTML5</a>
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
           
-            <a href="/tags/css/" rel="tag">#css</a>
+            <a href="/tags/js/" rel="tag">#js</a>
           
         </div>
       
@@ -208,13 +208,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/20/微信上传下载多媒体php接口（转）/" rel="prev">微信上传下载多媒体php接口（转）</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/18/表单按钮id问题/" rel="next">表单按钮id问题</a>
+              <a href="/2015/10/18/黑客与画家书摘/" rel="next">《黑客与画家》书摘</a>
             
           </div>
         </div>
@@ -318,7 +316,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#惰性函数"><span class="nav-number">2.</span> <span class="nav-text">惰性函数</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
