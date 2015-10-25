@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="HTML5,css,js," />
+  <meta name="keywords" content="js,设计模式," />
 
 
 
@@ -39,15 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="联动菜单">
+<meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="联动菜单">
-<meta property="og:url" content="http://yoursite.com/2015/05/30/联动菜单/index.html">
+<meta property="og:title" content="设计模式之观察者模式">
+<meta property="og:url" content="http://yoursite.com/2015/10/25/设计模式之观察者模式/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="联动菜单">
+<meta property="og:description">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/5.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="联动菜单">
-<meta name="twitter:description" content="联动菜单">
+<meta name="twitter:title" content="设计模式之观察者模式">
+<meta name="twitter:description">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +58,7 @@
   };
 </script>
 
-  <title> 联动菜单 | 阿发 </title>
+  <title> 设计模式之观察者模式 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +157,7 @@
           
           
             
-              联动菜单
+              设计模式之观察者模式
             
           
         </h1>
@@ -165,8 +166,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-30T23:17:37+08:00" content="2015-05-30">
-            2015-05-30
+          <time itemprop="dateCreated" datetime="2015-10-25T20:22:39+08:00" content="2015-10-25">
+            2015-10-25
           </time>
         </span>
 
@@ -184,68 +185,7 @@
       
 
       
-        <span itemprop="articleBody"><p>联动菜单<br><a id="more"></a></p>
-<pre>
-    &lt;!DOCTYPE html&gt;
-
-    &lt;html&gt;
-
-    &lt;head&gt;
-
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-    &lt;title&gt;Document&lt;/title&gt;
-
-    &lt;/head&gt;
-
-    &lt;body&gt;
-
-    &lt;select&gt;
-
-    &lt;option value=&quot;0&quot;&gt;竹园&lt;/option&gt;
-
-    &lt;option value=&quot;1&quot;&gt;梅园&lt;/option&gt;
-
-    &lt;/select&gt;
-
-    &lt;select&gt;&lt;/select&gt;
-
-    &lt;script type=&quot;text/javascript&quot;&gt;
-
-    var sushe=[
-
-    [&#39;竹一&#39;,&#39;竹二&#39;,&#39;竹三&#39;],
-
-    [&#39;梅一&#39;,&#39;梅二&#39;]
-
-    ]
-
-    var select=document.getElementsByTagName(&#39;select&#39;)[0];
-
-    var select2=document.getElementsByTagName(&#39;select&#39;)[1];
-
-    select.onchange=function(){
-
-        var sss=sushe[this.value];
-
-        var option=&quot;&quot;;
-
-        for(i=0;i&lt;sss.length;i++){
-
-        option+=&#39;&lt;option&gt;&#39;+sss[i]+&#39;&lt;/option&gt;&#39;;
-
-        }
-
-         select2.innerHTML=option;
-
-    }
-
-    &lt;/script&gt;
-
-    &lt;/body&gt;
-
-    &lt;/html&gt;
-</pre>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/5.jpg" alt=""><br><a id="more"></a><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>观察者模式<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">		~(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">var</span> o=$(&#123;&#125;);</span><br><span class="line">			$.jianting=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">				o.on.apply(o,<span class="built_in">arguments</span>)</span><br><span class="line">			&#125;</span><br><span class="line">			$.fabu=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">				o.trigger.apply(o,<span class="built_in">arguments</span>)</span><br><span class="line">			&#125;</span><br><span class="line">			$.qingchu=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">				o.off.apply(o,<span class="built_in">arguments</span>)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)()</span><br><span class="line">		$.jianting(<span class="string">'myEvent'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e,a,b,c)</span></span>&#123;</span><br><span class="line">			alert(a+<span class="string">"||"</span>+b+<span class="string">'||'</span>+c);</span><br><span class="line">		&#125;)</span><br><span class="line">		</span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">			$.fabu(<span class="string">'myEvent'</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">		&#125;,<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">	</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 </span>
       
     </div>
@@ -254,11 +194,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTML5/" rel="tag">#HTML5</a>
-          
-            <a href="/tags/css/" rel="tag">#css</a>
-          
             <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -267,13 +205,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/31/隐藏滚动条/" rel="prev">隐藏滚动条</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/29/svg-Path属性中d的相关参数/" rel="next">svg Path属性中d的相关参数</a>
+              <a href="/2015/10/25/JavaScript惰性函数/" rel="next">JavaScript惰性函数</a>
             
           </div>
         </div>
