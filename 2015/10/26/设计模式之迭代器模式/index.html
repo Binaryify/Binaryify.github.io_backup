@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="svg," />
+  <meta name="keywords" content="js,设计模式," />
 
 
 
@@ -39,22 +39,34 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="M = moveto(移动到)
-L = lineto(绘制直线到)
-H = horizontal lineto(水平绘制直线到)">
+<meta name="description" content="迭代器模式迭代器模式（Iterator），提供一种方法顺序访问一个聚合对象中的各种元素，而又不暴露该对象的内部表示。
+模式作用:
+为遍历不同的集合结构提供一个统一的接口,从而支持同样的算法在不同的集合结构上进行操作
+对于集合内部结果常常变化各异,我们不想暴露其内部结构的话,但又想让客户代码透明地访问其中的元素,这种情况下我们可以使用迭代器模式
+
+注意事项:
+一般的迭代,我们至少要有2个方法,has">
 <meta property="og:type" content="article">
-<meta property="og:title" content="svg Path属性中d的相关参数">
-<meta property="og:url" content="http://yoursite.com/2015/05/29/svg-Path属性中d的相关参数/index.html">
+<meta property="og:title" content="设计模式之迭代器模式">
+<meta property="og:url" content="http://yoursite.com/2015/10/26/设计模式之迭代器模式/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="M = moveto(移动到)
-L = lineto(绘制直线到)
-H = horizontal lineto(水平绘制直线到)">
-<meta property="og:image" content="http://7xjckw.com1.z0.glb.clouddn.com/quanxi613svg11.png">
+<meta property="og:description" content="迭代器模式迭代器模式（Iterator），提供一种方法顺序访问一个聚合对象中的各种元素，而又不暴露该对象的内部表示。
+模式作用:
+为遍历不同的集合结构提供一个统一的接口,从而支持同样的算法在不同的集合结构上进行操作
+对于集合内部结果常常变化各异,我们不想暴露其内部结构的话,但又想让客户代码透明地访问其中的元素,这种情况下我们可以使用迭代器模式
+
+注意事项:
+一般的迭代,我们至少要有2个方法,has">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/封面图.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="svg Path属性中d的相关参数">
-<meta name="twitter:description" content="M = moveto(移动到)
-L = lineto(绘制直线到)
-H = horizontal lineto(水平绘制直线到)">
+<meta name="twitter:title" content="设计模式之迭代器模式">
+<meta name="twitter:description" content="迭代器模式迭代器模式（Iterator），提供一种方法顺序访问一个聚合对象中的各种元素，而又不暴露该对象的内部表示。
+模式作用:
+为遍历不同的集合结构提供一个统一的接口,从而支持同样的算法在不同的集合结构上进行操作
+对于集合内部结果常常变化各异,我们不想暴露其内部结构的话,但又想让客户代码透明地访问其中的元素,这种情况下我们可以使用迭代器模式
+
+注意事项:
+一般的迭代,我们至少要有2个方法,has">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +76,7 @@ H = horizontal lineto(水平绘制直线到)">
   };
 </script>
 
-  <title> svg Path属性中d的相关参数 | 阿发 </title>
+  <title> 设计模式之迭代器模式 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,7 +175,7 @@ H = horizontal lineto(水平绘制直线到)">
           
           
             
-              svg Path属性中d的相关参数
+              设计模式之迭代器模式
             
           
         </h1>
@@ -172,8 +184,8 @@ H = horizontal lineto(水平绘制直线到)">
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-29T19:22:35+08:00" content="2015-05-29">
-            2015-05-29
+          <time itemprop="dateCreated" datetime="2015-10-26T10:21:59+08:00" content="2015-10-26">
+            2015-10-26
           </time>
         </span>
 
@@ -191,31 +203,18 @@ H = horizontal lineto(水平绘制直线到)">
       
 
       
-        <span itemprop="articleBody"><p>M = moveto(移动到)</p>
-<p>L = lineto(绘制直线到)</p>
-<p>H = horizontal lineto(水平绘制直线到)<br><a id="more"></a></p>
-<p>V = vertical lineto(垂直绘制直线到)</p>
-<p>C = curveto(二次曲线到)</p>
-<p>S = smooth curveto(光滑曲线到)</p>
-<p>Q = quadratic Bézier curve(三次贝塞尔曲线到)</p>
-<p>T = smooth quadratic Bézier curveto(光滑三次贝塞尔曲线到)</p>
-<p>A = elliptical Arc(椭圆弧)</p>
-<p>Z = closepath(闭合图形)</p>
-<p> 注意：大写代表参数是绝对路径，小写则相对路径<br>M 和 m的绘制有一定区别的，切记！</p>
-<p>说一下弧线参数含义</p>
-<p>A rx ry x-axis-rotation large-arc-flag sweep-flag x y</p>
-<p>rx,ry 指椭圆的两个半轴大小<br>x-axis-rotation 指椭圆的x轴与水平方向顺时针方向夹角，可以想像成一个水平的椭圆绕中心点顺时针旋转的角度<br>large-arc-flag 表示是否选择弧长较长的那段弧线，1表示大角度弧线，0为小角度弧线<br>sweep-flag 确定起点至终点的方向，1为顺时针，0为逆时针<br>x,y 弧的终点坐标</p>
-<pre>
-    &lt;svg width=&quot;100%&quot; height=&quot;1000px&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">        </span>&lt;path d=&quot;M 100 100 h 100 l -100 100 v -100 M 200 100 A 100 100 0 0 1 100 200&quot; &nbsp;fill=&quot;#fff&quot; stroke=&quot;red&quot;/&gt;
-
-    &lt;/svg&gt;
-</pre>
-
-
-<p><img src="http://7xjckw.com1.z0.glb.clouddn.com/quanxi613svg11.png" alt="" style="margin: auto; padding: 0px; border: none; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; max-width: 100%; height: auto; display: block;"></p>
-</span>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/封面图.jpg" alt=""></p>
+<h1 id="迭代器模式">迭代器模式</h1><p>迭代器模式（Iterator），提供一种方法顺序访问一个聚合对象中的各种元素，而又不暴露该对象的内部表示。</p>
+<h2 id="模式作用:">模式作用:</h2><ol>
+<li>为遍历不同的集合结构提供一个统一的接口,从而支持同样的算法在不同的集合结构上进行操作</li>
+<li>对于集合内部结果常常变化各异,我们不想暴露其内部结构的话,但又想让客户代码透明地访问其中的元素,这种情况下我们可以使用迭代器模式</li>
+</ol>
+<h2 id="注意事项:">注意事项:</h2><ol>
+<li>一般的迭代,我们至少要有2个方法,hasNext()和Next(),这样才能做到遍历所有对象</li>
+<li>遍历的同时该百年迭代器所在的集合结构可能会导致问题(比如C#的foreach不允许修改item)<a id="more"></a>
+</li>
+</ol>
+<h1 id="例子:">例子:</h1><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>];</span><br><span class="line">var diedai = (<span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</span><br><span class="line">    var length = arr.length,</span><br><span class="line">        <span class="built_in">index</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        hasNext: <span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">index</span> &lt; length;</span><br><span class="line">        &#125;,</span><br><span class="line">        next: <span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</span><br><span class="line">            var <span class="type">data</span> = arr[<span class="built_in">index</span>];</span><br><span class="line">            <span class="built_in">index</span> = <span class="built_in">index</span> + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="type">data</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        reset: <span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</span><br><span class="line">            <span class="built_in">index</span> = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="keyword">while</span> (diedai.hasNext()) &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(diedai.next()) //<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -223,7 +222,9 @@ H = horizontal lineto(水平绘制直线到)">
       
         <div class="post-tags">
           
-            <a href="/tags/svg/" rel="tag">#svg</a>
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -232,13 +233,11 @@ H = horizontal lineto(水平绘制直线到)">
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/30/联动菜单/" rel="prev">联动菜单</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/28/svg模拟书写/" rel="next">svg模拟书写</a>
+              <a href="/2015/10/26/设计模式之外观模式/" rel="next">设计模式之外观模式</a>
             
           </div>
         </div>
@@ -342,7 +341,7 @@ H = horizontal lineto(水平绘制直线到)">
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代器模式"><span class="nav-number">1.</span> <span class="nav-text">迭代器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
