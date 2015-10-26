@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="HTML5,css,js," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -39,15 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="联动菜单">
+<meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="联动菜单">
-<meta property="og:url" content="http://yoursite.com/2015/05/30/联动菜单/index.html">
+<meta property="og:title" content="按值传递和按引用传递">
+<meta property="og:url" content="http://yoursite.com/2015/10/26/按值传递和按引用传递/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="联动菜单">
+<meta property="og:description">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/geometric-poster-cover.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="联动菜单">
-<meta name="twitter:description" content="联动菜单">
+<meta name="twitter:title" content="按值传递和按引用传递">
+<meta name="twitter:description">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +58,7 @@
   };
 </script>
 
-  <title> 联动菜单 | 阿发 </title>
+  <title> 按值传递和按引用传递 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +157,7 @@
           
           
             
-              联动菜单
+              按值传递和按引用传递
             
           
         </h1>
@@ -165,8 +166,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-30T23:17:37+08:00" content="2015-05-30">
-            2015-05-30
+          <time itemprop="dateCreated" datetime="2015-10-26T19:23:30+08:00" content="2015-10-26">
+            2015-10-26
           </time>
         </span>
 
@@ -184,68 +185,11 @@
       
 
       
-        <span itemprop="articleBody"><p>联动菜单<br><a id="more"></a></p>
-<pre>
-    &lt;!DOCTYPE html&gt;
-
-    &lt;html&gt;
-
-    &lt;head&gt;
-
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-    &lt;title&gt;Document&lt;/title&gt;
-
-    &lt;/head&gt;
-
-    &lt;body&gt;
-
-    &lt;select&gt;
-
-    &lt;option value=&quot;0&quot;&gt;竹园&lt;/option&gt;
-
-    &lt;option value=&quot;1&quot;&gt;梅园&lt;/option&gt;
-
-    &lt;/select&gt;
-
-    &lt;select&gt;&lt;/select&gt;
-
-    &lt;script type=&quot;text/javascript&quot;&gt;
-
-    var sushe=[
-
-    [&#39;竹一&#39;,&#39;竹二&#39;,&#39;竹三&#39;],
-
-    [&#39;梅一&#39;,&#39;梅二&#39;]
-
-    ]
-
-    var select=document.getElementsByTagName(&#39;select&#39;)[0];
-
-    var select2=document.getElementsByTagName(&#39;select&#39;)[1];
-
-    select.onchange=function(){
-
-        var sss=sushe[this.value];
-
-        var option=&quot;&quot;;
-
-        for(i=0;i&lt;sss.length;i++){
-
-        option+=&#39;&lt;option&gt;&#39;+sss[i]+&#39;&lt;/option&gt;&#39;;
-
-        }
-
-         select2.innerHTML=option;
-
-    }
-
-    &lt;/script&gt;
-
-    &lt;/body&gt;
-
-    &lt;/html&gt;
-</pre>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/geometric-poster-cover.jpg" alt=""></p>
+<a id="more"></a>
+<h1 id="例子:">例子:</h1><h2 id="按值传递">按值传递</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function change(<span class="built_in">num</span>)&#123;</span><br><span class="line">  <span class="comment">// 这里对num这个变量创建了一个内存的副本</span></span><br><span class="line">  <span class="keyword">var</span> <span class="built_in">num</span>=<span class="built_in">num</span>+<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">num</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> <span class="built_in">num</span>=<span class="number">1</span>;</span><br><span class="line">console.log(<span class="string">"内部的"</span>,change(<span class="built_in">num</span>)); <span class="comment">//2</span></span><br><span class="line">console.log(<span class="string">"外部的"</span>,<span class="built_in">num</span>);  <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+<h2 id="按引用传递">按引用传递</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">  name:<span class="string">"xiaoming"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">change2</span><span class="params">(obj)</span></span>&#123;</span><br><span class="line"><span class="comment">//当前obj对内存的这个地址指向同一个</span></span><br><span class="line">  obj.age=<span class="number">20</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"内部的"</span>,obj)</span><br><span class="line">&#125;</span><br><span class="line">change(obj)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"外部的"</span>,obj)</span><br><span class="line"><span class="comment">//内部的&#123;name:"xiaoming,age:20&#125;</span></span><br><span class="line"><span class="comment">//外部的&#123;name:"xiaoming,age:20&#125;</span></span><br></pre></td></tr></table></figure>
+<p>按引用传递:object,array(js对象)<br>按值传递:string,number,boolean</p>
 </span>
       
     </div>
@@ -253,10 +197,6 @@
     <footer class="post-footer">
       
         <div class="post-tags">
-          
-            <a href="/tags/HTML5/" rel="tag">#HTML5</a>
-          
-            <a href="/tags/css/" rel="tag">#css</a>
           
             <a href="/tags/js/" rel="tag">#js</a>
           
@@ -267,13 +207,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/31/隐藏滚动条/" rel="prev">隐藏滚动条</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/29/svg-Path属性中d的相关参数/" rel="next">svg Path属性中d的相关参数</a>
+              <a href="/2015/10/26/设计模式之原型模式/" rel="next">设计模式之原型模式</a>
             
           </div>
         </div>
@@ -377,7 +315,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">1.</span> <span class="nav-text">例子:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#按值传递"><span class="nav-number">1.1.</span> <span class="nav-text">按值传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按引用传递"><span class="nav-number">1.2.</span> <span class="nav-text">按引用传递</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
