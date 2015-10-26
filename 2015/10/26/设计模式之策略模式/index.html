@@ -39,34 +39,37 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="迭代器模式迭代器模式（Iterator），提供一种方法顺序访问一个聚合对象中的各种元素，而又不暴露该对象的内部表示。
+<meta name="description" content="策略模式策略模式定义了算法家族,分别封装起来,让他们之间可以相互替换,此模式让方法的变化不会影响到使用算法的客户
 模式作用:
-为遍历不同的集合结构提供一个统一的接口,从而支持同样的算法在不同的集合结构上进行操作
-对于集合内部结果常常变化各异,我们不想暴露其内部结构的话,但又想让客户代码透明地访问其中的元素,这种情况下我们可以使用迭代器模式
+所有的这些算法都是做相同的事情，只是实现不同。
+以相同的方式调用所有的方法，减少了各种算法类与使用算法类之间的耦合。
+单独定义算法类，也方便了单元测试。
 
 注意事项:
-一般的迭代,我们至少要有2个方法,has">
+不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之迭代器模式">
-<meta property="og:url" content="http://yoursite.com/2015/10/26/设计模式之迭代器模式/index.html">
+<meta property="og:title" content="设计模式之策略模式">
+<meta property="og:url" content="http://yoursite.com/2015/10/26/设计模式之策略模式/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="迭代器模式迭代器模式（Iterator），提供一种方法顺序访问一个聚合对象中的各种元素，而又不暴露该对象的内部表示。
+<meta property="og:description" content="策略模式策略模式定义了算法家族,分别封装起来,让他们之间可以相互替换,此模式让方法的变化不会影响到使用算法的客户
 模式作用:
-为遍历不同的集合结构提供一个统一的接口,从而支持同样的算法在不同的集合结构上进行操作
-对于集合内部结果常常变化各异,我们不想暴露其内部结构的话,但又想让客户代码透明地访问其中的元素,这种情况下我们可以使用迭代器模式
+所有的这些算法都是做相同的事情，只是实现不同。
+以相同的方式调用所有的方法，减少了各种算法类与使用算法类之间的耦合。
+单独定义算法类，也方便了单元测试。
 
 注意事项:
-一般的迭代,我们至少要有2个方法,has">
-<meta property="og:image" content="http://zhuangtongfa.github.io/images/封面图.jpg">
+不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就可">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/ElectreeMiniVivienMuller1.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之迭代器模式">
-<meta name="twitter:description" content="迭代器模式迭代器模式（Iterator），提供一种方法顺序访问一个聚合对象中的各种元素，而又不暴露该对象的内部表示。
+<meta name="twitter:title" content="设计模式之策略模式">
+<meta name="twitter:description" content="策略模式策略模式定义了算法家族,分别封装起来,让他们之间可以相互替换,此模式让方法的变化不会影响到使用算法的客户
 模式作用:
-为遍历不同的集合结构提供一个统一的接口,从而支持同样的算法在不同的集合结构上进行操作
-对于集合内部结果常常变化各异,我们不想暴露其内部结构的话,但又想让客户代码透明地访问其中的元素,这种情况下我们可以使用迭代器模式
+所有的这些算法都是做相同的事情，只是实现不同。
+以相同的方式调用所有的方法，减少了各种算法类与使用算法类之间的耦合。
+单独定义算法类，也方便了单元测试。
 
 注意事项:
-一般的迭代,我们至少要有2个方法,has">
+不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就可">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -76,7 +79,7 @@
   };
 </script>
 
-  <title> 设计模式之迭代器模式 | 阿发 </title>
+  <title> 设计模式之策略模式 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -175,7 +178,7 @@
           
           
             
-              设计模式之迭代器模式
+              设计模式之策略模式
             
           
         </h1>
@@ -184,7 +187,7 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-10-26T10:21:59+08:00" content="2015-10-26">
+          <time itemprop="dateCreated" datetime="2015-10-26T20:47:04+08:00" content="2015-10-26">
             2015-10-26
           </time>
         </span>
@@ -203,18 +206,18 @@
       
 
       
-        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/封面图.jpg" alt=""></p>
-<h1 id="迭代器模式">迭代器模式</h1><p>迭代器模式（Iterator），提供一种方法顺序访问一个聚合对象中的各种元素，而又不暴露该对象的内部表示。</p>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/ElectreeMiniVivienMuller1.jpg" alt=""></p>
+<h1 id="策略模式">策略模式</h1><p>策略模式定义了算法家族,分别封装起来,让他们之间可以相互替换,此模式让方法的变化不会影响到使用算法的客户</p>
 <h2 id="模式作用:">模式作用:</h2><ol>
-<li>为遍历不同的集合结构提供一个统一的接口,从而支持同样的算法在不同的集合结构上进行操作</li>
-<li>对于集合内部结果常常变化各异,我们不想暴露其内部结构的话,但又想让客户代码透明地访问其中的元素,这种情况下我们可以使用迭代器模式</li>
+<li>所有的这些算法都是做相同的事情，只是实现不同。</li>
+<li>以相同的方式调用所有的方法，减少了各种算法类与使用算法类之间的耦合。</li>
+<li>单独定义算法类，也方便了单元测试。</li>
 </ol>
 <h2 id="注意事项:">注意事项:</h2><ol>
-<li>一般的迭代,我们至少要有2个方法,hasNext()和Next(),这样才能做到遍历所有对象</li>
-<li>遍历的同时更改迭代器所在的集合结构可能会导致问题(比如C#的foreach不允许修改item)<a id="more"></a>
-</li>
+<li>不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就可以考虑是要策略模式来处理各种变化。</li>
 </ol>
-<h1 id="例子:">例子:</h1><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>];</span><br><span class="line">var diedai = (<span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</span><br><span class="line">    var length = arr.length,</span><br><span class="line">        <span class="built_in">index</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        hasNext: <span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">index</span> &lt; length;</span><br><span class="line">        &#125;,</span><br><span class="line">        next: <span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</span><br><span class="line">            var <span class="type">data</span> = arr[<span class="built_in">index</span>];</span><br><span class="line">            <span class="built_in">index</span> = <span class="built_in">index</span> + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="type">data</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        reset: <span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</span><br><span class="line">            <span class="built_in">index</span> = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="keyword">while</span> (diedai.hasNext()) &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(diedai.next()) //<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+<a id="more"></a>
+<h1 id="例子:">例子:</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>策略模式<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"input"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="keyword">var</span> $input=$(<span class="string">'#input'</span>);</span><br><span class="line"><span class="keyword">var</span> check=&#123;</span><br><span class="line">  isEmpty:<span class="function"><span class="keyword">function</span><span class="params">(argument)</span></span>&#123;</span><br><span class="line">    <span class="comment">//逻辑代码</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  isTel:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//逻辑代码</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ise=check.isEmpty($input.val());</span><br><span class="line"><span class="keyword">var</span> isTel=check.isTel($input.val());</span><br><span class="line"><span class="built_in">console</span>.log(ise);<span class="comment">//false;</span></span><br><span class="line"><span class="built_in">console</span>.log(isTel);<span class="comment">//true</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -233,13 +236,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/26/设计模式之适配器模式/" rel="prev">设计模式之适配器模式</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/26/设计模式之外观模式/" rel="next">设计模式之外观模式</a>
+              <a href="/2015/10/26/设计模式之中介者模式/" rel="next">设计模式之中介者模式</a>
             
           </div>
         </div>
@@ -343,7 +344,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代器模式"><span class="nav-number">1.</span> <span class="nav-text">迭代器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#策略模式"><span class="nav-number">1.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
