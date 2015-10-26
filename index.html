@@ -190,6 +190,10 @@
       
         
           <p><img src="http://zhuangtongfa.github.io/images/geometric-poster-cover.jpg" alt=""></p>
+<h1 id="按值传递_VS-_按引用传递">按值传递 VS. 按引用传递</h1><p>按值传递(call by value)是最常用的求值策略：函数的形参是被调用时所传实参的副本。修改形参的值并不会影响实参。</p>
+<p>按引用传递(call by reference)时，函数的形参接收实参的隐式引用，而不再是副本。这意味着函数形参的值如果被修改，实参也会被修改。同时两者指向相同的值。</p>
+<p>按引用传递会使函数调用的追踪更加困难，有时也会引起一些微妙的BUG。</p>
+<p>按值传递由于每次都需要克隆副本，对一些复杂类型，性能较低。两种传值方式都有各自的问题。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/10/26/按值传递和按引用传递/#more" rel="contents">
               阅读全文 &raquo;
