@@ -1,0 +1,592 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在" />
+
+
+
+  <meta name="keywords" content="js,设计模式," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之模版方法模式">
+<meta property="og:url" content="http://yoursite.com/2015/10/27/设计模式之模版方法模式/index.html">
+<meta property="og:site_name" content="阿发">
+<meta property="og:description">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/封面2.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之模版方法模式">
+<meta name="twitter:description">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 设计模式之模版方法模式 | 阿发 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">阿发</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              设计模式之模版方法模式
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-27T18:07:42+08:00" content="2015-10-27">
+            2015-10-27
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/封面2.jpg" alt=""><br><a id="more"></a></p>
+<h1 id="模版方法模式">模版方法模式</h1><p>模版方法是一种只需使用继承就可以实现的非常简单的模式<br>模版方法模式由两部分结构组成,第一部分是抽象父类,第二部分是具体的实现子类.通常在抽象父类中封装了子类的算法框架,包括实现一些公共方法以及封装子类中所有方法的执行顺序.子类通过继承这个抽象类,也继承了整个算法结构,并且可以选择重写父类的方法</p>
+<h2 id="模式作用:">模式作用:</h2><h2 id="注意事项">注意事项</h2><h1 id="例子">例子</h1><h2 id="Coffee_of_Tea">Coffee of Tea</h2><p>咖啡与茶是一个经典的例子,经常用来讲解模版方法模式</p>
+<h3 id="先泡一杯咖啡">先泡一杯咖啡</h3><p>首先,我们先来泡一杯咖啡,如果没有什么太个性化的的需求,泡咖啡的步骤通常如下:<br>(1) 把水煮沸<br>(2) 用沸水煮咖啡<br>(3) 把咖啡倒进杯子<br>(4) 加糖和牛奶<br>通过下面这段代码,我们就能得到一杯香浓的咖啡:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Coffee=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">Coffee.prototype.boilWater=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"把水煮沸"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Coffee.prototype.brewCoffeeGriends=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"用沸水冲泡咖啡"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Coffee.prototype.pourInCup=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"把咖啡倒进杯子"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Coffee.prototype.addSugarAndMilk=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"加糖和牛奶"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Coffee.prototype.init=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.boilWater();</span><br><span class="line">	<span class="keyword">this</span>.brewCoffeeGriends();</span><br><span class="line">	<span class="keyword">this</span>.pourInCup();</span><br><span class="line">	<span class="keyword">this</span>.addSugarAndMilk();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> coffee=<span class="keyword">new</span> Coffee();</span><br><span class="line">coffee.init();</span><br></pre></td></tr></table></figure></p>
+<h3 id="泡一壶茶">泡一壶茶</h3><p>接下来,开始准备我们的茶,泡茶的步骤跟泡咖啡的步骤相差并不大:<br>(1) 把水煮沸<br>(2) 用沸水浸泡茶叶<br>(3) 把茶水倒进杯子<br>(4) 加柠檬<br>同样用一段代码来实现泡茶的步骤:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Tea=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">Tea.prototype.boilWater=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"把水煮沸"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Tea.prototype.steepTeaBag=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"用沸水浸泡茶叶"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Tea.prototype.pourInCup=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"把茶水倒进杯子"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Tea.prototype.addLemon=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"加柠檬"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Tea.prototype.init=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.boilWater();</span><br><span class="line">	<span class="keyword">this</span>.steepTeaBag();</span><br><span class="line">	<span class="keyword">this</span>.pourInCup();</span><br><span class="line">	<span class="keyword">this</span>.addLemon();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tea=<span class="keyword">new</span> Tea();</span><br><span class="line">tea.init();</span><br></pre></td></tr></table></figure></p>
+<h3 id="分类出共同点">分类出共同点</h3><p>现在我们分别泡好了一杯咖啡和一壶茶,经过思考和比较,我们发现咖啡和茶的冲泡过程是大同小异的.<br>我们找到泡咖啡和泡茶主要有以下不同点</p>
+<ol>
+<li>原料不同.一个是咖啡,一个是查,但我们可以把它们哦度抽象为”饮料”</li>
+<li>泡的方式不同.咖啡是冲泡,而茶叶是浸泡,我们可以把它们都抽象为”泡”</li>
+<li>加入的调料不同.一个是糖和牛奶,一个是柠檬,但我们可以把它们都抽象为”调料”<br>经过抽象之后,不管是泡咖啡还是泡茶,我们都能整理为下面四步:<br>(1) 把水煮沸<br>(2) 用沸水冲泡饮料<br>(3) 把饮料倒进杯子<br>(4) 加调料</li>
+</ol>
+<p>所以,不管是冲泡还是浸泡,我们都能给它一个新的方法名称,比如说brew().同理,不管是加糖和牛奶,还是加柠檬,我们都可以称之为addCoundiments()<br>让我们忘记最开始创建的Coffee和Tea类.现在可以创建一个抽象父类来表示泡一杯饮料的整个过程.不论是Coffee还是Tea,都被我们用Beverage来表示,代码如下:</p>
+<h2 id="使用模版方法:">使用模版方法:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Beverage=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">Beverage.prototype.boilWater=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"把水煮沸"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Beverage.prototype.brew=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"子类必须重写brew方法"</span>)</span><br><span class="line">&#125;</span><br><span class="line">Beverage.prototype.pourInCup</span><br><span class="line">=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"子类必须重写pourInCup方法"</span>)</span><br><span class="line">&#125;</span><br><span class="line">Beverage.prototype.addCondiments=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"子类必须重写addCondiments方法"</span>)</span><br><span class="line">&#125;</span><br><span class="line">Beverage.prototype.init=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.boilWater();</span><br><span class="line">	<span class="keyword">this</span>.brew();</span><br><span class="line">	<span class="keyword">this</span>.pourInCup();</span><br><span class="line">	<span class="keyword">this</span>.addCondiments();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建Coffee子类和Tea子类">创建Coffee子类和Tea子类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Coffee=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">Coffee.prototype=<span class="keyword">new</span> Beverage();</span><br><span class="line">Coffee.prototype.brew=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"用沸水煮咖啡"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Coffee.prototype.pourInCup=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"把咖啡倒进杯子"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Coffee.prototype.addCondiments=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"加糖和牛奶"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> coffee=<span class="keyword">new</span> Coffee();</span><br><span class="line">coffee.init()</span><br></pre></td></tr></table></figure>
+<p>现在我们的Coffee类已经完成了,接下来依葫芦画瓢,创建我们的Tea类:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Tea=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">Tea.prototype=<span class="keyword">new</span> Beverage();</span><br><span class="line">Tea.prototype.brew=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"用沸水煮咖啡"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Tea.prototype.pourInCup=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"把咖啡倒进杯子"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Tea.prototype.addCondiments=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"加糖和牛奶"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tea=<span class="keyword">new</span> Tea();</span><br><span class="line">tea.init()</span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中,到底谁才是所谓的模版方法呢?答案是Beverage.prptotype.init<br>Beverage.prptotype.init 被成为模版方法的原因是,该方法峰会组angle子类的算法框架,它作为一个算法的模版,指导子类以何种顺序去执行哪些方法.在Beverage.prptotype.init方法中,算法内的每一个步骤都清楚地战士在我们眼前.</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/26/设计模式之策略模式/" rel="next">设计模式之策略模式</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">阿发</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前,其次是现在</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模版方法模式"><span class="nav-number">1.</span> <span class="nav-text">模版方法模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Coffee_of_Tea"><span class="nav-number">2.1.</span> <span class="nav-text">Coffee of Tea</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先泡一杯咖啡"><span class="nav-number">2.1.1.</span> <span class="nav-text">先泡一杯咖啡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泡一壶茶"><span class="nav-number">2.1.2.</span> <span class="nav-text">泡一壶茶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类出共同点"><span class="nav-number">2.1.3.</span> <span class="nav-text">分类出共同点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用模版方法:"><span class="nav-number">2.2.</span> <span class="nav-text">使用模版方法:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Coffee子类和Tea子类"><span class="nav-number">2.2.1.</span> <span class="nav-text">创建Coffee子类和Tea子类</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">阿发</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
