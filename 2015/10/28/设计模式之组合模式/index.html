@@ -1,0 +1,610 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="组合模式组合模式，将对象组合成树形结构以表示“部分-整体”的层次结构，组合模式使得用户对单个对象和组合对象的使用具有一致性。掌握组合模式的重点是要理解清楚 “部分/整体” 还有 ”单个对象“ 与 “组合对象” 的含义。组合模式可以让客户端像修改配置文件一样简单的完成本来需要流程控制语句来完成的功能。经典案例：系统目录结构，网站导航结构等。
+模式作用:
+你想表示对象的部分-整体层次结构时
+你希望用户">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之组合模式">
+<meta property="og:url" content="http://yoursite.com/2015/10/28/设计模式之组合模式/index.html">
+<meta property="og:site_name" content="阿发">
+<meta property="og:description" content="组合模式组合模式，将对象组合成树形结构以表示“部分-整体”的层次结构，组合模式使得用户对单个对象和组合对象的使用具有一致性。掌握组合模式的重点是要理解清楚 “部分/整体” 还有 ”单个对象“ 与 “组合对象” 的含义。组合模式可以让客户端像修改配置文件一样简单的完成本来需要流程控制语句来完成的功能。经典案例：系统目录结构，网站导航结构等。
+模式作用:
+你想表示对象的部分-整体层次结构时
+你希望用户">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/weixin8.jpg">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/1.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之组合模式">
+<meta name="twitter:description" content="组合模式组合模式，将对象组合成树形结构以表示“部分-整体”的层次结构，组合模式使得用户对单个对象和组合对象的使用具有一致性。掌握组合模式的重点是要理解清楚 “部分/整体” 还有 ”单个对象“ 与 “组合对象” 的含义。组合模式可以让客户端像修改配置文件一样简单的完成本来需要流程控制语句来完成的功能。经典案例：系统目录结构，网站导航结构等。
+模式作用:
+你想表示对象的部分-整体层次结构时
+你希望用户">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 设计模式之组合模式 | 阿发 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?6308fa0dd9977d2f25ecf88ec7bfd627";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">阿发</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              设计模式之组合模式
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-28T12:51:31+08:00" content="2015-10-28">
+            2015-10-28
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/weixin8.jpg" alt=""></p>
+<h1 id="组合模式">组合模式</h1><p>组合模式，将对象组合成树形结构以表示“部分-整体”的层次结构，组合模式使得用户对单个对象和组合对象的使用具有一致性。掌握组合模式的重点是要理解清楚 “部分/整体” 还有 ”单个对象“ 与 “组合对象” 的含义。<br>组合模式可以让客户端像修改配置文件一样简单的完成本来需要流程控制语句来完成的功能。<br>经典案例：系统目录结构，网站导航结构等。</p>
+<h2 id="模式作用:">模式作用:</h2><ol>
+<li>你想表示对象的部分-整体层次结构时</li>
+<li>你希望用户忽略组合对象和单个对象的不同,用户将统一地使用组合结构中的所有对象(方法)</li>
+</ol>
+<h2 id="注意事项:">注意事项:</h2><ol>
+<li>该模式经常和装饰者模式一起使用,它们通常有一个公共的父类(也就是原型),因此装饰必须支持具有add,remove,getChild操作的component接口</li>
+</ol>
+<a id="more"></a>
+<h1 id="例子:">例子:</h1><p>文件夹和文件之间的关系,非常适合用组合模式来描述.文件夹里既可以包含文件,又可以包含其他文件夹,最终可能组合成一棵树,组合模式在文件夹的应用中有一下两层好处.<br>例如,我在同事的移动硬盘里找到了一些电子书,想把它们复制到F盘中的学习资料文件夹.在复制这些电子书的时候,我并不需要考虑这批文件的类型,不管它们是单独的电子书还是被放在了文件夹中.组合模式让Ctrl+V,Ctrl+C成为了一个统一的操作.<br>当我用杀毒软件扫描该文件夹时,往往不会关心里面有多少文件和子文件夹,组合模式使得我们只需要操作最外层的文件夹进行扫描<br>现在我们来编写代码,首先分别定义好文件夹Folder和文件File这两个类.见如下代码:</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>Folder<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>/</span><br><span class="line">var Folder=function(name)&#123;</span><br><span class="line">  this.name=name;</span><br><span class="line">  this.files=[];</span><br><span class="line">&#125;</span><br><span class="line">Folder.prototype.add=function(file)&#123;</span><br><span class="line">  this.files.push(file)</span><br><span class="line">&#125;</span><br><span class="line">Folder.prototype.scan=function()&#123;</span><br><span class="line">  console.log(<span class="string">"开始扫描文件夹:"</span>+this.name);</span><br><span class="line">  for(var i=0,file,files=this.files;file=files[i++];)&#123;</span><br><span class="line">    file.scan();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>File<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>/</span><br><span class="line">var File=function(name)&#123;</span><br><span class="line">  this.name=name;</span><br><span class="line">&#125;</span><br><span class="line">File.prototype.add=function()&#123;</span><br><span class="line">  throw new Error(<span class="string">"文件下面不能添加文件"</span>);</span><br><span class="line">&#125;</span><br><span class="line">File.prototype.scan=function()&#123;</span><br><span class="line">  console.log(<span class="string">"开始扫描文件:"</span>+this.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来创建一些文件夹和文件对象,并且让它们组合成一棵树,这棵树就是我们F盘里的现有文件目录结构:<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> folder=<span class="keyword">new</span> Folder(<span class="string">"学习资料"</span>);</span><br><span class="line"><span class="keyword">var</span> folder1=<span class="keyword">new</span> Folder(<span class="string">"JavaScript"</span>);</span><br><span class="line"><span class="keyword">var</span> folder2=<span class="keyword">new</span> Folder(<span class="string">"JQuery"</span>);</span><br><span class="line"><span class="keyword">var</span> file1=<span class="keyword">new</span> File(<span class="string">"JavaScript设计模式与开发实践"</span>)</span><br><span class="line"><span class="keyword">var</span> file2=<span class="keyword">new</span> File(<span class="string">"精通JQuery"</span>);</span><br><span class="line"><span class="keyword">var</span> file3=<span class="keyword">new</span> File(<span class="string">"重构与模式"</span>);</span><br><span class="line">folder1.add(file1);</span><br><span class="line">folder2.add(file2);</span><br><span class="line">folder.add(folder1);</span><br><span class="line">folder.add(folder2);</span><br><span class="line">folder.add(file3);</span><br></pre></td></tr></table></figure></p>
+<p>现在的需求是把移动硬盘里的文件和文件夹都复制到这棵树中,假设我们已经得到了这些文件对象:<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> folder3=<span class="keyword">new</span> Folder(<span class="string">"Nodejs"</span>);</span><br><span class="line"><span class="keyword">var</span> file4=<span class="keyword">new</span> File(<span class="string">"深入浅出Node.js"</span>);</span><br><span class="line">folder3.add(file4);</span><br><span class="line"><span class="keyword">var</span> file5=<span class="keyword">new</span> File(<span class="string">"JavaScript语言精髓与编程实践"</span>);</span><br><span class="line">folder.add(folder3);</span><br><span class="line">folder.add(file5);</span><br></pre></td></tr></table></figure></p>
+<p>通过这个例子,我们再次看到客户是如何同等对待组合对象和叶对象.在添加一批文件的操作过程中,客户不用分辨它们到底是文件还是文件夹.新增加的文件和文件夹能够很容易地添加到原来的树结构中,和树里已有的对象一起工作<br>我们改变了树的结构,添加了新的数据,却不用修改任何一句原有的代码,这是符合开放-封闭原则的.<br>运用了组合模式之后,扫描整个文件夹的操作也是轻而易举的,我们只需要操作树的最顶端对象<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">folder.<span class="built_in">scan</span>();</span><br></pre></td></tr></table></figure></p>
+<p>执行结果如下如所示:<br><img src="http://zhuangtongfa.github.io/images/1.png" alt=""></p>
+<h2 id="一些值得注意的地方">一些值得注意的地方</h2><ol>
+<li>组合模式不是父子关系<br>组合模式的树形结构容易让人误以为组合对象和叶对象是父子关系,这是不正确的.<br>组合模式是一种HAS-A(聚合)的关系,而不是IS-A.组合对象包含一组叶对象,但Leaf并不是composite的子类.组合对象把请求委托给它所包含的所有叶对象,它们能够合作的关键是拥有相同的接口.</li>
+<li>和叶对象操作的一致性<br>组合模式除了要求组合对象和叶对象拥有相同的接口之外,还有一个必要条件,就是对一组叶对象的操作必须具有一致性.<br>比如公司要给全体员工发放元旦的过节费1000块,这个场景可以运用组合模式,但如果公司给今天过生日的员工发送一封生日祝福的邮件,组合模式在这里就没有用武之地了,除非先把今天过生日的员工挑选出来.只有用一致的方式对待列表中的每个叶对象的时候,才适合使用组合模式</li>
+<li>双向映射关系<br>发放过节费的通知步骤是从公司到各个部门,再到各个小组,最后到每个员工的邮箱里.这本身是个组合模式的好例子,但要考虑的一种情况是,也许某些员工属于多个组织架构.比如某位架构师既隶属于开发组,又隶属于架构组,对象之间的关系并不是严格意义上的层次结构,在这种情况下,是不适合使用组合模式的额,该架构师很可能会收到两份过节费.<br>这种复合情况下我们必须给父节点和子节点建立双向映射关系,一个简单的方法是给小组和员工对象都增加集合来保存对方的引用.但是这种相互间的引用相当复杂,而且对象之间产生了过多的耦合性,修改或者删除一个对象都变得困难,此时我们可以引入中介者模式来管理这些对象</li>
+<li>用职责链模式来提高组合模式性能<br>在组合模式中,如果树的结构比较复杂,节点数量很多,在遍历树的过程中,性能方面也许表现得不够理想.有时候我们确实可以借助一些技巧,在实际操作中避免遍历整棵树,有一种现成的方案是借助职责链模式.职责链模式一般需要我们手动去设置链条,但在组合模式中,父对象和自对象之间实际上形成了天然的职责链.让请求顺着链条从父对象往子对象传递,或者是反过来从子对象往父对象传递,直到遇到可以处理该请求的对象为止,这也是职责链模式的经典运用场景之一.</li>
+</ol>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/28/设计模式之职责链模式/" rel="next">设计模式之职责链模式</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">阿发</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前,其次是现在</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#组合模式"><span class="nav-number">1.</span> <span class="nav-text">组合模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一些值得注意的地方"><span class="nav-number">2.1.</span> <span class="nav-text">一些值得注意的地方</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">阿发</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
