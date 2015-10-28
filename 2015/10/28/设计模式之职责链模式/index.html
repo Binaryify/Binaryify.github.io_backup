@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="javascript,js," />
+  <meta name="keywords" content="js,设计模式," />
 
 
 
@@ -39,16 +39,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="背景在开发过程中,有时候需要对浏览器环境进行检测,比如封装一个AJAX函数的时候需要写一个函数进行检测,但是常规的写法有点累赘了,会检测很多遍,但是浏览器环境是固定不变的,检测只需要检测一遍.这样就会造成每次调用这个函数的时候浏览器都会浪费太多时间去再检测一次.这时候就应该用到惰性函数来解决这个问题">
+<meta name="description" content="职责链模式责任链模式是一种设计模式。在责任链模式里，很多对象由每一个对象对其下家的引用而连接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织和分配责任。
+模式作用:
+dom的冒泡有些类似职责链
+nodejs当controller有很多负责操作逻辑的时候拆分中间件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript惰性函数">
-<meta property="og:url" content="http://yoursite.com/2015/10/25/JavaScript惰性函数/index.html">
+<meta property="og:title" content="设计模式之职责链模式">
+<meta property="og:url" content="http://yoursite.com/2015/10/28/设计模式之职责链模式/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="背景在开发过程中,有时候需要对浏览器环境进行检测,比如封装一个AJAX函数的时候需要写一个函数进行检测,但是常规的写法有点累赘了,会检测很多遍,但是浏览器环境是固定不变的,检测只需要检测一遍.这样就会造成每次调用这个函数的时候浏览器都会浪费太多时间去再检测一次.这时候就应该用到惰性函数来解决这个问题">
-<meta property="og:image" content="http://zhuangtongfa.github.io/images/3.jpg">
+<meta property="og:description" content="职责链模式责任链模式是一种设计模式。在责任链模式里，很多对象由每一个对象对其下家的引用而连接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织和分配责任。
+模式作用:
+dom的冒泡有些类似职责链
+nodejs当controller有很多负责操作逻辑的时候拆分中间件">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/weixin8.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript惰性函数">
-<meta name="twitter:description" content="背景在开发过程中,有时候需要对浏览器环境进行检测,比如封装一个AJAX函数的时候需要写一个函数进行检测,但是常规的写法有点累赘了,会检测很多遍,但是浏览器环境是固定不变的,检测只需要检测一遍.这样就会造成每次调用这个函数的时候浏览器都会浪费太多时间去再检测一次.这时候就应该用到惰性函数来解决这个问题">
+<meta name="twitter:title" content="设计模式之职责链模式">
+<meta name="twitter:description" content="职责链模式责任链模式是一种设计模式。在责任链模式里，很多对象由每一个对象对其下家的引用而连接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织和分配责任。
+模式作用:
+dom的冒泡有些类似职责链
+nodejs当controller有很多负责操作逻辑的时候拆分中间件">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -58,7 +67,7 @@
   };
 </script>
 
-  <title> JavaScript惰性函数 | 阿发 </title>
+  <title> 设计模式之职责链模式 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -167,7 +176,7 @@
           
           
             
-              JavaScript惰性函数
+              设计模式之职责链模式
             
           
         </h1>
@@ -176,8 +185,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-10-25T17:54:59+08:00" content="2015-10-25">
-            2015-10-25
+          <time itemprop="dateCreated" datetime="2015-10-28T11:04:03+08:00" content="2015-10-28">
+            2015-10-28
           </time>
         </span>
 
@@ -195,10 +204,18 @@
       
 
       
-        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/3.jpg" alt=""></p>
-<h1 id="背景">背景</h1><p>在开发过程中,有时候需要对浏览器环境进行检测,比如封装一个AJAX函数的时候需要写一个函数进行检测,但是常规的写法有点累赘了,会检测很多遍,但是浏览器环境是固定不变的,检测只需要检测一遍.这样就会造成每次调用这个函数的时候浏览器都会浪费太多时间去再检测一次.这时候就应该用到惰性函数来解决这个问题<br><a id="more"></a></p>
-<h1 id="惰性函数">惰性函数</h1><p>惰性载入表示函数执行的分支只会在函数第一次掉用的时候执行，在第一次调用过程中，该函数会被覆盖为另一个按照合适方式执行的函数，这样任何对原函数的调用就不用再经过执行的分支了。<br>下面看一段JS代码:<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> xhr;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">'undefined'</span>) &#123;</span><br><span class="line">        xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        createXHR = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Msxml2.XMLHTTP"</span>);</span><br><span class="line">            createXHR = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">"Msxml2.XMLHTTP"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">                createXHR = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                createXHR = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> xhr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>什么意思呢?就是说这个函数在执行第一次的时候正常判断,只是条件成立的时候会重新改写这个函数,并返回相应的结果,这样下次调用的时候就不会浪费时间再去判断相关环境了</p>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/weixin8.jpg" alt=""></p>
+<h1 id="职责链模式">职责链模式</h1><p>责任链模式是一种设计模式。在责任链模式里，很多对象由每一个对象对其下家的引用而连接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织和分配责任。</p>
+<h2 id="模式作用:">模式作用:</h2><ol>
+<li>dom的冒泡有些类似职责链</li>
+<li>nodejs当controller有很多负责操作逻辑的时候拆分中间件</li>
+<li>解耦发送者和接收者</li>
+</ol>
+<h2 id="注意事项:">注意事项:</h2><ol>
+<li>JavaScript中的每一次【.】是有代价的,在有必要的时候应用<a id="more"></a>
+<h1 id="例子:">例子:</h1>别人给老板一个需求,提供一个php程序,老板把需求委托给项目经理,项目经理把需求委托给程序员<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//老板</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">laoban</span><span class="params">(xiangmujingli)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(xiangmujingli)&#123;</span><br><span class="line">		<span class="keyword">this</span>.xiangmujingli=xiangmujingli;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">laoban.prototype.write=<span class="function"><span class="keyword">function</span><span class="params">(todo)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.xiangmujingli.write(todo)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//项目经理</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xiangmujingli</span><span class="params">(coder)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(coder)&#123;</span><br><span class="line">		<span class="keyword">this</span>.coder=coder;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">xiangmujingli.prototype.write=<span class="function"><span class="keyword">function</span><span class="params">(todo)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.coder.write(todo);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 程序员</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">coder</span><span class="params">(todo)</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">coder.prototype.write=<span class="function"><span class="keyword">function</span><span class="params">(todo)</span></span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"coding..."</span>+todo);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//begin发起coder来结束</span></span><br><span class="line"><span class="keyword">var</span> begin=<span class="keyword">new</span> laoban(<span class="keyword">new</span> xiangmujingli(<span class="keyword">new</span> coder()))</span><br><span class="line">begin.write(<span class="string">"php"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 </span>
       
     </div>
@@ -207,9 +224,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript/" rel="tag">#javascript</a>
-          
             <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -218,13 +235,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/25/设计模式之观察者模式/" rel="prev">设计模式之观察者模式</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/18/黑客与画家书摘/" rel="next">《黑客与画家》书摘</a>
+              <a href="/2015/10/27/设计模式之模版方法模式/" rel="next">设计模式之模版方法模式</a>
             
           </div>
         </div>
@@ -328,7 +343,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#惰性函数"><span class="nav-number">2.</span> <span class="nav-text">惰性函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#职责链模式"><span class="nav-number">1.</span> <span class="nav-text">职责链模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
