@@ -168,6 +168,73 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/29/JavaScript面向切面编程/" itemprop="url">
+                JavaScript面向切面编程
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-29T08:31:16+08:00" content="2015-10-29">
+            2015-10-29
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p><img src="http://zhuangtongfa.github.io/images/weixin11.jpg" alt=""></p>
+<h1 id="面向切面编程">面向切面编程</h1><p>Aspect Oriented Programming(AOP)，面向切面编程，是一个比较热门的话题。AOP主要实现的目的是针对业务处理过程中的切面进行提取，它所面对的是处理过程中的某个步骤或阶段，以获得逻辑过程中各部分之间低耦合性的隔离效果。比如我们最常见的就是日志记录了，举个例子，我们现在提供一个查询学生信息的服务，但是我们希望记录有谁进行了这个查询。如果按照传统的OOP的实现的话，那我们实现了一个查询学生信息的服务接口(StudentInfoService)和其实现 类 （StudentInfoServiceImpl.java），同时为了要进行记录的话，那我们在实现类(StudentInfoServiceImpl.java)中要添加其实现记录的过程。这样的话，假如我们要实现的服务有多个呢？那就要在每个实现的类都添加这些记录过程。这样做的话就会有点繁琐，而且每个实现类都与记录服务日志的行为紧耦合，违反了面向对象的规则。那么怎样才能把记录服务的行为与业务处理过程中分离出来呢？看起来好像就是查询学生的服务自己在进行，但却是背后日志记录对这些行为进行记录，并且查询学生的服务不知道存在这些记录过程，这就是我们要讨论AOP的目的所在。AOP的编程，好像就是把我们在某个方面的功能提出来与一批对象进行隔离，这样与一批对象之间降低了耦合性，可以就某个功能进行编程。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/29/JavaScript面向切面编程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/10/28/设计模式之组合模式/" itemprop="url">
                 设计模式之组合模式
               </a>
@@ -819,80 +886,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/10/26/设计模式之外观模式/" itemprop="url">
-                设计模式之外观模式
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-26T09:54:36+08:00" content="2015-10-26">
-            2015-10-26
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><img src="http://zhuangtongfa.github.io/images/banner6.jpg" alt=""></p>
-<h1 id="外观模式">外观模式</h1><p>外观模式（Facade），为子系统中的一组接口提供一个一致的界面，定义一个高层接口，这个接口使得这一子系统更加容易使用。</p>
-<h2 id="模式作用:">模式作用:</h2><ol>
-<li>在设计初期,应该有意识地将不同的两个层分离,比如经典的三层结构</li>
-<li>在开发阶段,子系统往往因为不断的重构演化而变得越来越复杂,增加外观模式可以提供一个简单的接口,减少他们之间的依赖</li>
-<li>在维护一个遗留的大型系统时,为系统开发一个外观Facade类,为设计粗糙和高度复杂的遗留代码一共比较清晰的接口,让新系统和Facade类对象交互</li>
-</ol>
-<h2 id="注意事项:">注意事项:</h2><ol>
-<li>外观模式被开发者连续使用时会产生一定的性能问题,因为每次调用时都要检测功能的可用性(PS:可用函数的惰性加载来解决)
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/26/设计模式之外观模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -931,7 +924,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-count">64</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

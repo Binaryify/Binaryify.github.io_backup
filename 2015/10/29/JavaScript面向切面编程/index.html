@@ -39,15 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="源码:">
+<meta name="description" content="面向切面编程Aspect Oriented Programming(AOP)，面向切面编程，是一个比较热门的话题。AOP主要实现的目的是针对业务处理过程中的切面进行提取，它所面对的是处理过程中的某个步骤或阶段，以获得逻辑过程中各部分之间低耦合性的隔离效果。比如我们最常见的就是日志记录了，举个例子，我们现在提供一个查询学生信息的服务，但是我们希望记录有谁进行了这个查询。如果按照传统的OOP的实现的话">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原生js实现回到顶部">
-<meta property="og:url" content="http://yoursite.com/2015/07/16/原生js实现回到顶部/index.html">
+<meta property="og:title" content="JavaScript面向切面编程">
+<meta property="og:url" content="http://yoursite.com/2015/10/29/JavaScript面向切面编程/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="源码:">
+<meta property="og:description" content="面向切面编程Aspect Oriented Programming(AOP)，面向切面编程，是一个比较热门的话题。AOP主要实现的目的是针对业务处理过程中的切面进行提取，它所面对的是处理过程中的某个步骤或阶段，以获得逻辑过程中各部分之间低耦合性的隔离效果。比如我们最常见的就是日志记录了，举个例子，我们现在提供一个查询学生信息的服务，但是我们希望记录有谁进行了这个查询。如果按照传统的OOP的实现的话">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/weixin11.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原生js实现回到顶部">
-<meta name="twitter:description" content="源码:">
+<meta name="twitter:title" content="JavaScript面向切面编程">
+<meta name="twitter:description" content="面向切面编程Aspect Oriented Programming(AOP)，面向切面编程，是一个比较热门的话题。AOP主要实现的目的是针对业务处理过程中的切面进行提取，它所面对的是处理过程中的某个步骤或阶段，以获得逻辑过程中各部分之间低耦合性的隔离效果。比如我们最常见的就是日志记录了，举个例子，我们现在提供一个查询学生信息的服务，但是我们希望记录有谁进行了这个查询。如果按照传统的OOP的实现的话">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +58,7 @@
   };
 </script>
 
-  <title> 原生js实现回到顶部 | 阿发 </title>
+  <title> JavaScript面向切面编程 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -166,7 +167,7 @@
           
           
             
-              原生js实现回到顶部
+              JavaScript面向切面编程
             
           
         </h1>
@@ -175,8 +176,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-07-16T19:27:39+08:00" content="2015-07-16">
-            2015-07-16
+          <time itemprop="dateCreated" datetime="2015-10-29T08:31:16+08:00" content="2015-10-29">
+            2015-10-29
           </time>
         </span>
 
@@ -194,102 +195,10 @@
       
 
       
-        <span itemprop="articleBody"><p>源码:<br><a id="more"></a></p>
-<pre>
-&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
-
-&lt;head&gt;
-
-&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
-
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&nbsp; &nbsp; &lt;style media=&quot;screen&quot;&gt;
-
-&nbsp; &nbsp; &nbsp; &nbsp; body {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 3000px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 80%;
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; div {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 50px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 50px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: fixed;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; right: 10px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bottom: 10px;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display: none;
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &lt;/style&gt;
-
-&nbsp; &nbsp; &lt;div&gt;&lt;/div&gt;
-
-&nbsp; &nbsp; &lt;script&gt;
-
-&nbsp; &nbsp; &nbsp; &nbsp; var backtop = document.documentElement.clientHeight;
-
-&nbsp; &nbsp; &nbsp; &nbsp; window.onscroll = function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h = document.body.scrollTop;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (h &gt;= backtop / 2) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.display = &quot;block&quot;;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; div.style.display = &quot;none&quot;;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; var div = document.getElementsByTagName(&#39;div&#39;)[0];
-
-&nbsp; &nbsp; &nbsp; &nbsp; div.onclick = function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var time = setInterval(function() {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var h = document.body.scrollTop;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var speed = h / 5;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.body.scrollTop -= speed;
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (h == 0) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(time);
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }, 30)
-
-&nbsp; &nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &lt;/script&gt;
-
-&lt;/body&gt;
-
-&lt;/html&gt;
-</pre>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/weixin11.jpg" alt=""></p>
+<h1 id="面向切面编程">面向切面编程</h1><p>Aspect Oriented Programming(AOP)，面向切面编程，是一个比较热门的话题。AOP主要实现的目的是针对业务处理过程中的切面进行提取，它所面对的是处理过程中的某个步骤或阶段，以获得逻辑过程中各部分之间低耦合性的隔离效果。比如我们最常见的就是日志记录了，举个例子，我们现在提供一个查询学生信息的服务，但是我们希望记录有谁进行了这个查询。如果按照传统的OOP的实现的话，那我们实现了一个查询学生信息的服务接口(StudentInfoService)和其实现 类 （StudentInfoServiceImpl.java），同时为了要进行记录的话，那我们在实现类(StudentInfoServiceImpl.java)中要添加其实现记录的过程。这样的话，假如我们要实现的服务有多个呢？那就要在每个实现的类都添加这些记录过程。这样做的话就会有点繁琐，而且每个实现类都与记录服务日志的行为紧耦合，违反了面向对象的规则。那么怎样才能把记录服务的行为与业务处理过程中分离出来呢？看起来好像就是查询学生的服务自己在进行，但却是背后日志记录对这些行为进行记录，并且查询学生的服务不知道存在这些记录过程，这就是我们要讨论AOP的目的所在。AOP的编程，好像就是把我们在某个方面的功能提出来与一批对象进行隔离，这样与一批对象之间降低了耦合性，可以就某个功能进行编程。</p>
+<a id="more"></a>
+<h1 id="例子:">例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 统计当前函数耗时时长</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"2"</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"my test"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.before=<span class="function"><span class="keyword">function</span><span class="params">(fn)</span></span>&#123;</span><br><span class="line">  <span class="keyword">var</span> __self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// this指向了调用的函数</span></span><br><span class="line">    <span class="keyword">if</span>(fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)==<span class="literal">false</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">      <span class="keyword">return</span> __self.apply(__self,<span class="built_in">arguments</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.after=<span class="function"><span class="keyword">function</span><span class="params">(fn)</span></span>&#123;</span><br><span class="line">  <span class="comment">//after先执行本身this再回调</span></span><br><span class="line">  <span class="keyword">var</span> __self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result=__self.apply(__self,<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="keyword">if</span>(result==<span class="literal">false</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">test.after(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;).before(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="comment">//1,2,3</span></span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -307,13 +216,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/17/canvas复制video内容/" rel="prev">canvas复制video内容</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/15/闭包判断点击具体li/" rel="next">闭包判断点击具体li</a>
+              <a href="/2015/10/28/设计模式之组合模式/" rel="next">设计模式之组合模式</a>
             
           </div>
         </div>
@@ -417,7 +324,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向切面编程"><span class="nav-number">1.</span> <span class="nav-text">面向切面编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
