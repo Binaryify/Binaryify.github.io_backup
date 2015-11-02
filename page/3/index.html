@@ -168,76 +168,6 @@
           
           
             
-              <a class="post-title-link" href="/2015/10/17/对函数柯里化的理解/" itemprop="url">
-                对函数柯里化的理解
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-17T20:20:12+08:00" content="2015-10-17">
-            2015-10-17
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><img src="http://liyaodong.qiniudn.com/uploads/2015/0806/mailcheck-hd.jpg" alt=""></p>
-<h1 id="柯里化">柯里化</h1><blockquote>
-<p>柯里化(curring)的概念最早由俄国数学家Moses_Schönfinkel发明,而后由著名的数理逻辑学家Haskell将其丰富和发展,curring由此得名</p>
-<p>curring又称部分求值.一个curring的函数首先会接受一些参数,接受了这些参数之后,该函数不会立即求值,而是继续返回另一个函数,刚才传入的参数在函数形成的闭包中被保存起来.待到函数被真正需要求值的时候,之前传入的所有参数都会被一次性用于求值</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/17/对函数柯里化的理解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2015/09/14/nwjs实践/" itemprop="url">
                 nwjs实践
               </a>
@@ -741,7 +671,7 @@
         
           <span itemprop="articleBody"><p>CSS的transform配合keyframes和animation很强大,可以做很多动画,而且transfrom有个transform-style的属性,可以用来设置3D,做一个3D的动画</p>
 <p><pre>transform-style: preserve-3d;<br></pre><br>比如可以做个3D立方体<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/3d/1.png" alt="3D立方体"></p>
-<h1 id="demo:_戳我">demo:  <a href="http://zhuangtongfa.gitcafe.io/demo/3d.html" target="_blank" rel="external">戳我</a></h1><p>HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置-webkit-transform-style: preserve-3d,让动画变成3D形式的,再给6个li分别设置不同的transform,让这6个li成为个立方体,然后在给ul设置旋转的动画,然后一个旋转的立方体就出现了,还可以修饰下,给不同的li加颜色变化的动画<br>同理,我们也可以做一个3D的视频播放器什么的,这里就不详细介绍了,因为原理都是一样的</p>
+<h1 id="demo:_戳我">demo:  <a href="http://zhuangtongfa.gitcafe.io/demo/3d.html" target="_blank" rel="external">戳我</a></h1><p>HTML结构很简单,就一个ul包住6个li,CSS方面是给ul设置<code>-webkit-transform-style</code>: <code>preserve-3d</code>,让动画变成3D形式的,再给6个li分别设置不同的transform,让这6个li成为个立方体,然后在给ul设置旋转的动画,然后一个旋转的立方体就出现了,还可以修饰下,给不同的li加颜色变化的动画<br>同理,我们也可以做一个3D的视频播放器什么的,这里就不详细介绍了,因为原理都是一样的</p>
 </span>
         
       
@@ -808,6 +738,72 @@
 <p><img src="https://camo.githubusercontent.com/b375ab8e1042da89e078e7da962701a2db168e3c/687474703a2f2f69312e74696574756b752e636f6d2f376639333938363437376664373736662e6a7067" alt="图一"><br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/07/24/light-UI 1.0发布/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/17/canvas复制video内容/" itemprop="url">
+                canvas复制video内容
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-07-17T18:05:58+08:00" content="2015-07-17">
+            2015-07-17
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单,drawImage接收视频信息,然后用定时器一直重绘就行<br>源码:<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/canvas%E5%88%86%E5%89%B2%E8%A7%86%E9%A2%91/1.png" alt="canvas分割视频"><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/17/canvas复制video内容/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

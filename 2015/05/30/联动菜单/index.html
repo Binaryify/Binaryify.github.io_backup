@@ -194,68 +194,7 @@
       
 
       
-        <span itemprop="articleBody"><p>联动菜单<br><a id="more"></a></p>
-<pre>
-    &lt;!DOCTYPE html&gt;
-
-    &lt;html&gt;
-
-    &lt;head&gt;
-
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-    &lt;title&gt;Document&lt;/title&gt;
-
-    &lt;/head&gt;
-
-    &lt;body&gt;
-
-    &lt;select&gt;
-
-    &lt;option value=&quot;0&quot;&gt;竹园&lt;/option&gt;
-
-    &lt;option value=&quot;1&quot;&gt;梅园&lt;/option&gt;
-
-    &lt;/select&gt;
-
-    &lt;select&gt;&lt;/select&gt;
-
-    &lt;script type=&quot;text/javascript&quot;&gt;
-
-    var sushe=[
-
-    [&#39;竹一&#39;,&#39;竹二&#39;,&#39;竹三&#39;],
-
-    [&#39;梅一&#39;,&#39;梅二&#39;]
-
-    ]
-
-    var select=document.getElementsByTagName(&#39;select&#39;)[0];
-
-    var select2=document.getElementsByTagName(&#39;select&#39;)[1];
-
-    select.onchange=function(){
-
-        var sss=sushe[this.value];
-
-        var option=&quot;&quot;;
-
-        for(i=0;i&lt;sss.length;i++){
-
-        option+=&#39;&lt;option&gt;&#39;+sss[i]+&#39;&lt;/option&gt;&#39;;
-
-        }
-
-         select2.innerHTML=option;
-
-    }
-
-    &lt;/script&gt;
-
-    &lt;/body&gt;
-
-    &lt;/html&gt;
-</pre>
+        <span itemprop="articleBody"><p>联动菜单<br><a id="more"></a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"0"</span>&gt;</span>竹园<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"1"</span>&gt;</span>梅园<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">select</span>&gt;</span><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> sushe = [</span><br><span class="line"></span><br><span class="line">        [<span class="string">'竹一'</span>, <span class="string">'竹二'</span>, <span class="string">'竹三'</span>],</span><br><span class="line"></span><br><span class="line">        [<span class="string">'梅一'</span>, <span class="string">'梅二'</span>]</span><br><span class="line"></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> select = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'select'</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> select2 = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'select'</span>)[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    select.onchange = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> sss = sushe[<span class="keyword">this</span>.value];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> option = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; sss.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">            option += <span class="string">'&lt;option&gt;'</span> + sss[i] + <span class="string">'&lt;/option&gt;'</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        select2.innerHTML = option;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 </span>
       
     </div>

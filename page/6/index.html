@@ -168,8 +168,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/05/27/HTML5新特性/" itemprop="url">
-                HTML5新特性
+              <a class="post-title-link" href="/2015/05/27/自适应/" itemprop="url">
+                自适应
               </a>
             
           
@@ -179,7 +179,7 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-27T13:52:26+08:00" content="2015-05-27">
+          <time itemprop="dateCreated" datetime="2015-05-27T12:25:10+08:00" content="2015-05-27">
             2015-05-27
           </time>
         </span>
@@ -199,13 +199,9 @@
 
       
         
-          <p>一：正则表达式</p>
-<pre>
-&lt;input type=&quot;email&quot; pattern=&quot;[^ @]*@[^ @]*&quot; value=&quot;&quot;&gt;
-
-</pre>
+          <p>淘宝前端rem自适应脚本<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/27/HTML5新特性/#more" rel="contents">
+            <a class="btn" href="/2015/05/27/自适应/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -238,8 +234,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/05/27/自适应/" itemprop="url">
-                自适应
+              <a class="post-title-link" href="/2015/05/27/关于创建svg圆形进度按钮的简单实现/" itemprop="url">
+                关于创建svg圆形进度按钮的简单实现
               </a>
             
           
@@ -249,7 +245,7 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-27T12:25:10+08:00" content="2015-05-27">
+          <time itemprop="dateCreated" datetime="2015-05-27T09:47:46+08:00" content="2015-05-27">
             2015-05-27
           </time>
         </span>
@@ -269,9 +265,9 @@
 
       
         
-          <p>rem自适应脚本<br>
+          <p>老大给我看了一个svg圆形进度按钮，ps：<a href="http://www.tuicool.com/articles/In6f2a">http://www.tuicool.com/articles/In6f2a</a> ，让我照着这个做出来，觉得原来的太麻烦，各种库，好在前两天学了svg，自己弄了一早上，简单实现如下： （由于是400%放大情况下做的，放大到400%才能正常显示，需要的可以再修改）
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/27/自适应/#more" rel="contents">
+            <a class="btn" href="/2015/05/27/关于创建svg圆形进度按钮的简单实现/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -335,8 +331,8 @@
 
       
         
-          <span itemprop="articleBody"><p>网上有很多不错的css和svg加载动画,但是如何使用它们呢?下面是使用AJAX技术是用这些动画的源码,原理是在动画页面使用AJAX加载另外一个要加载的页面,并且为了保证动画能持续一段时间而防止加载的页面小导致加载动画一闪而过使用了setTimeout这个方法<br>JS:</p>
-<p><pre><br>    function haha(){<br>        $(‘body’).load(‘index.php’,function(a,status,c){<br>            // console.log(status);<br>            if(status==’error’){<br>                $(body).text(‘加载错误’);<br>            }<br>        })<br>    }<br>    setTimeout(“haha()”,2000);<br></pre><br>需要调用jquery或者zepto</p>
+          <span itemprop="articleBody"><p>网上有很多不错的css和svg加载动画,但是如何使用它们呢?下面是使用AJAX技术是用这些动画的源码,原理是在动画页面使用AJAX加载另外一个要加载的页面,并且为了保证动画能持续一段时间而防止加载的页面小导致加载动画一闪而过使用了setTimeout这个方法<br>JS:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span><span class="params">()</span></span>&#123;</span><br><span class="line">	$(<span class="string">'body'</span>).load(<span class="string">'index.php'</span>,<span class="function"><span class="keyword">function</span><span class="params">(a,status,c)</span></span>&#123;</span><br><span class="line">		<span class="comment">// console.log(status);</span></span><br><span class="line">		<span class="keyword">if</span>(status==<span class="string">'error'</span>)&#123;</span><br><span class="line">			$(body).text(<span class="string">'加载错误'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line">setTimeout(<span class="string">"haha()"</span>,<span class="number">2000</span>);</span><br></pre></td></tr></table></figure></p>
+<p>需要调用jquery或者zepto</p>
 </span>
         
       
@@ -785,7 +781,7 @@
 
       
         
-          <p>昨天做一个表单设计的时候遇到一个奇葩的问题，form表单里面的button如果设置了id=submit，
+          <p>昨天做一个表单设计的时候遇到一个奇葩的问题，form表单里面的button如果设置了id=submit，<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/05/18/表单按钮id问题/#more" rel="contents">
               阅读全文 &raquo;

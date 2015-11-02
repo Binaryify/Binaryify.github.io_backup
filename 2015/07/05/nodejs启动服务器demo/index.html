@@ -194,13 +194,9 @@
       
 
       
-        <span itemprop="articleBody"><p>源码:<br><a id="more"></a></p>
-<p><pre><br>    var http= require(&#39;http&#39;);<br>    var server= http.createServer(function(req, res){<br>    &nbsp; res.writeHead(200,{ &#39;Content-Type&#39;: &#39;text/html&#39; });<br>    &nbsp; res.end(&#39;&lt;h1&gt;test&lt;/h1&gt;&#39;);<br>    });<br>    server.listen(8080);<br>    console.log(&quot;服务器启动…8080端口&quot;);</pre></p>
-<p><br>使用方法:<br>保存源码为:server.js,使用</p>
-<pre>
-
-<p>node server.js</p>
-<p></p></pre><br>命令即可(如没安装nodejs需要自行安装,在此不具体介绍),地址栏输入127.0.0.1:8080或者ip:8080<p></p>
+        <span itemprop="articleBody"><p>源码:<br><a id="more"></a><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var http= require(&amp;#39;http&amp;#39;);</span><br><span class="line">var server= http.createServer(function(req, res)&#123;</span><br><span class="line">&amp;nbsp; res.writeHead(200,&#123; &amp;#39;Content-Type&amp;#39;: &amp;#39;text/html&amp;#39; &#125;);</span><br><span class="line">&amp;nbsp; res.end(&amp;#39;&amp;lt;h1&amp;gt;test&amp;lt;/h1&amp;gt;&amp;#39;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(8080);</span><br><span class="line">console.log(&amp;quot;服务器启动...8080端口&amp;quot;);</span><br></pre></td></tr></table></figure></p>
+<p>使用方法:<br>保存源码为:server.js,使用<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node <span class="keyword">server</span>.js</span><br></pre></td></tr></table></figure></p>
+<p>命令即可(如没安装nodejs需要自行安装,在此不具体介绍),地址栏输入127.0.0.1:8080或者ip:8080</p>
 </span>
       
     </div>
