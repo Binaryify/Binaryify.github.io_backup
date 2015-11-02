@@ -39,27 +39,15 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="1:隐藏滚动条
-
-    ::-webkit-scrollbar{
-        width:0px;
-    }">
+<meta name="description" content="1:隐藏滚动条123::-webkit-scrollbar&amp;#123;	width:0px;&amp;#125;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端开发经验">
 <meta property="og:url" content="http://yoursite.com/2015/05/31/移动端开发经验/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="1:隐藏滚动条
-
-    ::-webkit-scrollbar{
-        width:0px;
-    }">
+<meta property="og:description" content="1:隐藏滚动条123::-webkit-scrollbar&amp;#123;	width:0px;&amp;#125;">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端开发经验">
-<meta name="twitter:description" content="1:隐藏滚动条
-
-    ::-webkit-scrollbar{
-        width:0px;
-    }">
+<meta name="twitter:description" content="1:隐藏滚动条123::-webkit-scrollbar&amp;#123;	width:0px;&amp;#125;">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -206,139 +194,12 @@
       
 
       
-        <span itemprop="articleBody"><p>1:隐藏滚动条</p>
-<pre>
-    ::-webkit-scrollbar{
-        width:0px;
-    }
-</pre>
+        <span itemprop="articleBody"><p>1:隐藏滚动条<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="pseudo">::-webkit-scrollbar</span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">0px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-2:移动端字体
-<pre>
-    font-family: 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
-</pre>
-3:tab菜单切换
-原理利用了事件委托获取具体对象，点击后对css进行重绘
-<pre>
-
-    &lt;div id=&quot;div1&quot;&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;ul&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">        </span>&lt;li id=&quot;0&quot;&gt;常用&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">        </span>&lt;li id=&quot;1&quot;&gt;学院&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">        </span>&lt;li id=&quot;2&quot;&gt;服务&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">        </span>
-
-    &lt;/div&gt;
-
-    &lt;div id=&quot;container&quot;&gt;
-
-    &lt;ul&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;1&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;2&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;3&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;4&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;5&lt;/li&gt;
-
-    &lt;/ul&gt;
-
-    &lt;ul&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;1&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;2&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;3&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;4&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;5&lt;/li&gt;
-
-    &lt;/ul&gt;
-
-    &lt;ul&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;1&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;2&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;3&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;4&lt;/li&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">            </span>&lt;li&gt;5&lt;/li&gt;
-
-    &lt;/ul&gt;<span class="Apple-tab-span" style="white-space:pre">    </span>
-
-    &lt;/div&gt;
-
-    &lt;script type=&quot;text/javascript&quot;&gt;
-
-    document.getElementById(&#39;div1&#39;).addEventListener(&quot;click&quot;,haha,false);
-
-    function haha(ev){
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>var ul=document.getElementById(&#39;div1&#39;).getElementsByTagName(&#39;ul&#39;)[0];
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>var li=ul.getElementsByTagName(&#39;li&#39;);
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>var liLen=li.length;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>var ul2=document.getElementById(&#39;container&#39;).getElementsByTagName(&#39;ul&#39;);
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>for(i=0;i&lt;liLen;i++){
-
-    <span class="Apple-tab-span" style="white-space:pre">        </span>li[i].style.background=&quot;#eee&quot;;
-
-    <span class="Apple-tab-span" style="white-space:pre">        </span>ul2[i].style.display=&quot;none&quot;;
-
-    <span class="Apple-tab-span" style="white-space:pre">        </span>// console.log(ul2[i]);
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>}
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>// console.log(ev.target.nodeName.toLowerCase());
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>ev.target.style.background=&quot;white&quot;;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>// console.log(ev.target.id);
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>var id=ev.target.id;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>// console.log(id);
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>ul2[id].style.display=&quot;block&quot;;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>
-
-    }
-
-    &lt;/script&gt;
-
-</pre>
-3:穿透
-<pre>
-    pointer-events:none
-</pre>
-
-<p>4:手机端页面的时候，点击按钮、图片、input文本框时会有<em>*</em>的阴影，加上下面的CSS样式就可以解决了。</p>
-<pre>
-    a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);}
-</pre>
+<p>2:移动端字体<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*<span class="rules">&#123;<span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'helvetica neue'</span>,tahoma,<span class="string">'hiragino sans gb'</span>,stheiti,<span class="string">'wenquanyi micro hei'</span>,\<span class="number">5</span>FAE\<span class="number">8</span>F6F\<span class="number">96</span>C5\<span class="number">9</span>ED1,\<span class="number">5</span>B8B\<span class="number">4</span>F53,sans-serif</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>3:tab菜单切换<br>原理利用了事件委托获取具体对象，点击后对css进行重绘<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"div1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">id</span>=<span class="value">"0"</span>&gt;</span>常用<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">id</span>=<span class="value">"1"</span>&gt;</span>学院<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">id</span>=<span class="value">"2"</span>&gt;</span>服务<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>1<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>2<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>3<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>4<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>5<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>1<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>2<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>3<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>4<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>5<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>1<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>2<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>3<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>4<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>5<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'div1'</span>).addEventListener(<span class="string">"click"</span>, haha, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haha</span><span class="params">(ev)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'div1'</span>).getElementsByTagName(<span class="string">'ul'</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> li = ul.getElementsByTagName(<span class="string">'li'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> liLen = li.length;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> ul2 = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>).getElementsByTagName(<span class="string">'ul'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; liLen; i++) &#123;</span><br><span class="line"></span><br><span class="line">        li[i].style.background = <span class="string">"#eee"</span>;</span><br><span class="line"></span><br><span class="line">        ul2[i].style.display = <span class="string">"none"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// console.log(ul2[i]);</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// console.log(ev.target.nodeName.toLowerCase());</span></span><br><span class="line"></span><br><span class="line">    ev.target.style.background = <span class="string">"white"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// console.log(ev.target.id);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> id = ev.target.id;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// console.log(id);</span></span><br><span class="line"></span><br><span class="line">    ul2[id].style.display = <span class="string">"block"</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>3:穿透<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#divid</span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">pointer-events</span>:<span class="value">none</span><br><span class="line">&#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
+<p>4:手机端页面的时候，点击按钮、图片、input文本框时会有<em>*</em>的阴影，加上下面的CSS样式就可以解决了。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">a</span>,<span class="tag">img</span>,<span class="tag">button</span>,<span class="tag">input</span>,<span class="tag">textarea</span><span class="rules">&#123;<span class="rule"><span class="attribute">-webkit-tap-highlight-color</span>:<span class="value"><span class="function">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0</span>)</span></span>;&#125;</span></span><br></pre></td></tr></table></figure></p>
 </span>
       
     </div>

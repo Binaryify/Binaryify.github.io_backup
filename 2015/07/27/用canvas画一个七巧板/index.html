@@ -195,49 +195,9 @@
       
 
       
-        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E4%B8%83%E5%B7%A7%E6%9D%BF/1.png" alt="七巧板"><br><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/%E4%B8%83%E5%B7%A7%E6%9D%BF.html" target="_blank" rel="external">demo</a><br>首先定义一个数组来储存七巧板的路径<br><a id="more"></a></p>
-<pre>
-var tangram=[
-      {p:[{x:0,y:0},{x:800,y:0},{x:400,y:400}],color:"green"},
-      {p:[{x:0,y:0},{x:400,y:400},{x:0,y:800}],color:"red"},
-      {p:[{x:800,y:0},{x:800,y:400},{x:600,y:600},{x:600,y:200}],color:"yellow"},
-      {p:[{x:600,y:200},{x:600,y:600},{x:400,y:400}],color:"blue"},
-      {p:[{x:400,y:400},{x:600,y:600},{x:400,y:800},{x:200,y:600}],color:"pink"},
-      {p:[{x:200,y:600},{x:400,y:800},{x:0,y:800}],color:"black"},
-      {p:[{x:800,y:400},{x:800,y:800},{x:400,y:800}],color:"gray"}
-      ];
-</pre>
-接下来是循环遍历tangram,调用draw方法,传入tangram[i]和context
-<pre>
-    for(var i=0;i&lt;tangram.length;i++){
-
-    &nbsp; draw(tangram[i],context);
-
-    }
-</pre>
-
-<p>声明draw方法,每次循环都找到七巧板的对应路径,用fill()画出来</p>
-<pre>
-&nbsp; &nbsp; function draw(piece, cxt) {
-
-&nbsp; &nbsp; &nbsp; cxt.beginPath();
-
-&nbsp; &nbsp; &nbsp; cxt.moveTo(piece.p[0].x, piece.p[0].y);
-
-&nbsp; &nbsp; &nbsp; for (var i = 1; i &lt; piece.p.length; i++) {
-
-&nbsp; &nbsp; &nbsp; &nbsp; cxt.lineTo(piece.p[i].x, piece.p[i].y);
-
-&nbsp; &nbsp; &nbsp; }
-
-&nbsp; &nbsp; &nbsp; cxt.fillStyle = piece.color;
-
-&nbsp; &nbsp; &nbsp; cxt.fill();
-
-&nbsp; &nbsp; &nbsp; cxt.closePath();
-
-&nbsp; &nbsp; }
-</pre>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E4%B8%83%E5%B7%A7%E6%9D%BF/1.png" alt="七巧板"><br><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/%E4%B8%83%E5%B7%A7%E6%9D%BF.html" target="_blank" rel="external">demo</a><br>首先定义一个数组来储存七巧板的路径<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tangram=[</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">0</span>,y:<span class="number">0</span>&#125;,&#123;x:<span class="number">800</span>,y:<span class="number">0</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">400</span>&#125;],color:<span class="string">"green"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">0</span>,y:<span class="number">0</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">400</span>&#125;,&#123;x:<span class="number">0</span>,y:<span class="number">800</span>&#125;],color:<span class="string">"red"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">800</span>,y:<span class="number">0</span>&#125;,&#123;x:<span class="number">800</span>,y:<span class="number">400</span>&#125;,&#123;x:<span class="number">600</span>,y:<span class="number">600</span>&#125;,&#123;x:<span class="number">600</span>,y:<span class="number">200</span>&#125;],color:<span class="string">"yellow"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">600</span>,y:<span class="number">200</span>&#125;,&#123;x:<span class="number">600</span>,y:<span class="number">600</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">400</span>&#125;],color:<span class="string">"blue"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">400</span>,y:<span class="number">400</span>&#125;,&#123;x:<span class="number">600</span>,y:<span class="number">600</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">800</span>&#125;,&#123;x:<span class="number">200</span>,y:<span class="number">600</span>&#125;],color:<span class="string">"pink"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">200</span>,y:<span class="number">600</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">800</span>&#125;,&#123;x:<span class="number">0</span>,y:<span class="number">800</span>&#125;],color:<span class="string">"black"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">800</span>,y:<span class="number">400</span>&#125;,&#123;x:<span class="number">800</span>,y:<span class="number">800</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">800</span>&#125;],color:<span class="string">"gray"</span>&#125;</span><br><span class="line">      ];</span><br></pre></td></tr></table></figure></p>
+<p>接下来是循环遍历tangram,调用draw方法,传入tangram[i]和context<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;tangram.length;i++)&#123;</span><br><span class="line">      draw(tangram[i],context);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>声明draw方法,每次循环都找到七巧板的对应路径,用fill()画出来<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span><span class="params">(piece, cxt)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      cxt.beginPath();</span><br><span class="line"></span><br><span class="line">      cxt.moveTo(piece.p[<span class="number">0</span>].x, piece.p[<span class="number">0</span>].y);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; piece.p.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">        cxt.lineTo(piece.p[i].x, piece.p[i].y);</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      cxt.fillStyle = piece.color;</span><br><span class="line"></span><br><span class="line">      cxt.fill();</span><br><span class="line"></span><br><span class="line">      cxt.closePath();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 </span>
       
     </div>

@@ -194,54 +194,9 @@
       
 
       
-        <span itemprop="articleBody"><p>前台代码：<a id="more"></a></p>
-<pre>
-     <span class="Apple-tab-span" style="white-space: pre;">    </span>&lt;script src=&quot;lrz.mobile.min.js&quot;&gt;&lt;/script&gt;
-    &lt;input type=&quot;file&quot; &gt;
-
-    &lt;form action=&quot;1.php&quot; method=&quot;post&quot;&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;text&quot; name=&quot;bb&quot;&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-
-    &lt;/form&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">    </span>&lt;script&gt;
-
-    var input = document.querySelector(&#39;input&#39;);
-
-    input.onchange = function () {
-
-    &nbsp; &nbsp; // 也可以传入图片路径：lrz(&#39;../demo.jpg&#39;, ...
-
-    &nbsp; &nbsp; lrz(this.files[0], function (results) {
-
-    &nbsp; &nbsp; &nbsp; // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。
-
-    &nbsp; &nbsp; &nbsp; document.getElementsByTagName(&#39;p&#39;)[0].innerHTML=results.base64;
-
-    &nbsp; &nbsp; &nbsp; document.getElementsByTagName(&#39;input&#39;)[1].value=results.base64;
-
-    &nbsp; &nbsp; });
-
-    }
-
-    <span class="Apple-tab-span" style="white-space: pre;">    </span>&lt;/script&gt;
-
-</pre>
-
-
-<p>后台代码：</p>
-<pre>
-
-<p>$str = $_POST[&#39;bb&#39;];</p>
-<p>$strLen=strLen($str);</p>
-<p>$str1=substr(＄str,23 ,$strLen);</p>
-<p>echo $str1;</p>
-<p>$img= base64_decode($str1);</p>
-<p>file_put_contents(&#39;xxx.jpg&#39;,$img);</p>
-<p></p></pre><br>原文库github地址：<a href="https://github.com/think2011/localResizeIMG3/blob/master/README.md" target="_blank" rel="external">https://github.com/think2011/localResizeIMG3/blob/master/README.md</a><p></p>
+        <span itemprop="articleBody"><p>前台代码：<a id="more"></a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"lrz.mobile.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"file"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"1.php"</span> <span class="attribute">method</span>=<span class="value">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"bb"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="keyword">var</span> input = <span class="built_in">document</span>.querySelector(<span class="string">'input'</span>);</span><br><span class="line"></span><br><span class="line">input.onchange = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 也可以传入图片路径：lrz('../demo.jpg', ...</span></span><br><span class="line"></span><br><span class="line">    lrz(<span class="keyword">this</span>.files[<span class="number">0</span>], <span class="function"><span class="keyword">function</span><span class="params">(results)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>].innerHTML = results.base64;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">document</span>.getElementsByTagName(<span class="string">'input'</span>)[<span class="number">1</span>].value = results.base64;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>后台代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$str</span> = <span class="variable">$_POST</span>[<span class="string">'bb'</span>];</span><br><span class="line"><span class="variable">$strLen</span>=strLen(<span class="variable">$str</span>);</span><br><span class="line"><span class="variable">$str1</span>=substr(＄str,<span class="number">23</span> ,<span class="variable">$strLen</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$str1</span>;</span><br><span class="line"><span class="variable">$img</span>= base64_decode(<span class="variable">$str1</span>);</span><br><span class="line">file_put_contents(<span class="string">'xxx.jpg'</span>,<span class="variable">$img</span>);</span><br></pre></td></tr></table></figure></p>
+<p>原文库github地址：<a href="https://github.com/think2011/localResizeIMG3/blob/master/README.md" target="_blank" rel="external">https://github.com/think2011/localResizeIMG3/blob/master/README.md</a></p>
 </span>
       
     </div>

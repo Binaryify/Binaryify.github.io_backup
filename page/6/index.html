@@ -168,6 +168,76 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/27/HTML5新特性/" itemprop="url">
+                HTML5新特性
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-05-27T13:52:26+08:00" content="2015-05-27">
+            2015-05-27
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>一：正则表达式</p>
+<pre>
+&lt;input type=&quot;email&quot; pattern=&quot;[^ @]*@[^ @]*&quot; value=&quot;&quot;&gt;
+
+</pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/27/HTML5新特性/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/05/27/自适应/" itemprop="url">
                 自适应
               </a>
@@ -202,72 +272,6 @@
           <p>rem自适应脚本<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/05/27/自适应/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/27/关于创建svg圆形进度按钮的简单实现/" itemprop="url">
-                关于创建svg圆形进度按钮的简单实现
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-05-27T09:47:46+08:00" content="2015-05-27">
-            2015-05-27
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>老大给我看了一个svg圆形进度按钮，ps：<a href="http://www.tuicool.com/articles/In6f2a">http://www.tuicool.com/articles/In6f2a</a> ，让我照着这个做出来，觉得原来的太麻烦，各种库，好在前两天学了svg，自己弄了一早上，简单实现如下：<br>（由于是400%放大情况下做的，放大到400%才能正常显示，需要的可以再修改）<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/27/关于创建svg圆形进度按钮的简单实现/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -394,12 +398,8 @@
 
       
         
-          <span itemprop="articleBody"><p>svg有很多优点,但是有时候我们想利用svg做一些效果的时候会发现svg是无法通过直接document.getElementById(‘xxx’).className=”classxxx”来修改class，解决的方法是：document.getElementById(‘xxx’).setAttribute(“class”,”classxxx”);</p>
-<p>ps:js获取svg路径长度</p>
-<pre>
-var path = document.querySelector('path');
-var length = path.getTotalLength();
-</pre>
+          <span itemprop="articleBody"><p>svg有很多优点,但是有时候我们想利用svg做一些效果的时候会发现svg是无法通过直接<code>document.getElementById(&#39;xxx&#39;).className=&quot;classxxx&quot;</code>来修改class，解决的方法是：<code>document.getElementById(&#39;xxx&#39;).setAttribute(&quot;class&quot;,&quot;classxxx&quot;);</code></p>
+<p>ps:js获取svg路径长度<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">document</span>.querySelector(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> length = path.getTotalLength();</span><br></pre></td></tr></table></figure></p>
 </span>
         
       
@@ -461,15 +461,9 @@ var length = path.getTotalLength();
 
       
         
-          <p><div class="div1"><svg width="300" height="300" ><polygon points="220,100 300,210 170,250 123,234" style="fill:transparent;stroke:white;stroke-width:2"/></svg></div><style type="text/css">.div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes dash {to {stroke-dashoffset: 0;}}</style></p>
-<pre>
-
-    &lt;style type=&quot;text/css&quot;&gt;<br/>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/25/SVG描边动画实现/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          <span itemprop="articleBody"><p><div class="div1"><svg width="300" height="300"><polygon points="220,100 300,210 170,250 123,234" style="fill:transparent;stroke:white;stroke-width:2"/></svg></div><style type="text/css">.div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes dash {to {stroke-dashoffset: 0;}}</style><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line"><span class="tag">html</span>,</span><br><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> green</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">polygon</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">stroke-dasharray</span>:<span class="value"> <span class="number">490</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">stroke-dashoffset</span>:<span class="value"> <span class="number">490</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-animation</span>:<span class="value"> dash <span class="number">1s</span> linear infinite alternate</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="at_rule">@<span class="keyword">-webkit-keyframes</span> dash </span>&#123;</span><br><span class="line">    <span class="tag">to</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">stroke-dashoffset</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">svg</span> <span class="attribute">width</span>=<span class="value">"300"</span> <span class="attribute">height</span>=<span class="value">"300"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">polygon</span> <span class="attribute">points</span>=<span class="value">"220,100 300,210 170,250 123,234"</span> <span class="attribute">style</span>=<span class="value">"fill:transparent;</span><br><span class="line"></span><br><span class="line">    stroke:white;stroke-width:2"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">svg</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>svg实现路径动画主要是利用css中的stroke-dasharray和stroke-dashoffset这两个属性,这两个属性原本是用于制作虚线效果的,但是大家想象一下,一根火腿肠12厘米，要在上面画虚线，虚线间隔有15厘米，如果没有dashoffset，则火腿肠前面15厘米会被辣椒酱覆盖！实际上只有12厘米，因此，我们看到的是整个火腿肠都有辣椒酱。现在，dashoffset也是15厘米，也就是虚线要往后偏移15厘米，结果，辣椒酱要抹在火腿肠之外，也就是火腿肠上什么辣椒酱也没有。如果换成上面的直线SVG，也就是直线看不见了。我们把dashoffset值逐渐变小，则会发现，火腿肠上的辣椒酱一点一点出现了，好像辣椒酱从火腿肠根部涂抹上去一样。于是实现路径动画的思路就出来了,只需要用css中的keyframe控制stroke-dashoffset让它的值逐渐变0就能形成路径动画了</p>
+</span>
         
       
     </div>

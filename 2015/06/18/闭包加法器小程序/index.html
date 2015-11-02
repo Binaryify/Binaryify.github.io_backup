@@ -198,33 +198,7 @@
 <p>简单来说闭包拥有三个特性：</p>
 <p>1.函数嵌套函数<br>2.函数内部可以引用外部的参数和变量<br>3.参数和变量不会被垃圾回收机制回收</p>
 <a id="more"></a>
-<pre>
-
-    &lt;script type=&quot;text/javascript&quot;&gt;
-
-    function f1(){
-       var i=0;
-       iadd=function(n){
-       i+=n;
-       }
-
-       return function f2(){
-       alert(i);
-       }
-
-     }
-
-     var result=f1();
-
-     result();  //0
-
-     iadd(20);
-
-     result(); //20
-
-     &lt;/script&gt;
-
-</pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">var</span> i=<span class="number">0</span>;</span><br><span class="line">   iadd=<span class="function"><span class="keyword">function</span><span class="params">(n)</span></span>&#123;</span><br><span class="line">   i+=n;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">f2</span><span class="params">()</span></span>&#123;</span><br><span class="line">   alert(i);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">var</span> result=f1();</span><br><span class="line"> result();  <span class="comment">//0</span></span><br><span class="line"> iadd(<span class="number">20</span>);</span><br><span class="line"> result(); <span class="comment">//20</span></span><br></pre></td></tr></table></figure>
 </span>
       
     </div>

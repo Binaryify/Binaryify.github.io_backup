@@ -194,61 +194,7 @@
       
 
       
-        <span itemprop="articleBody"><p>源码:<br><a id="more"></a></p>
-<pre>
-&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
-
-&lt;head&gt;
-
-&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;
-
-&nbsp; &nbsp; &lt;title&gt;Document&lt;/title&gt;
-
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&nbsp; &nbsp; &lt;ul id=&quot;ul&quot;&gt;
-
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
-
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
-
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
-
-&nbsp; &nbsp; &nbsp;&lt;li&gt;click me&lt;/ li&gt;
-
-&nbsp; &nbsp; &lt;/ul&gt;
-
-&nbsp; &nbsp; &lt;script&gt;
-
-&nbsp; &nbsp; var Ul=document.getElementById(&quot;ul&quot;);
-
-&nbsp; &nbsp; var Lis=Ul.getElementsByTagName(&quot;li&quot;);
-
-&nbsp; &nbsp; 　　for(var i=0;i&lt;Lis.length;i++){
-
-&nbsp; &nbsp; &nbsp;Lis[i].onclick=(function(i){
-
-&nbsp; &nbsp; &nbsp;　　return function(){
-
-&nbsp; &nbsp; &nbsp;　　　　alert(&quot;我是第&quot;+(i+1)+&quot;个list&quot;);
-
-&nbsp; &nbsp; &nbsp;　　}
-
-&nbsp; &nbsp; &nbsp;}(i))
-
-&nbsp; &nbsp; 　　}
-
-&nbsp; &nbsp; &lt;/script&gt;
-
-&lt;/body&gt;
-
-&lt;/html&gt;
-</pre>
-
+        <span itemprop="articleBody"><p>源码:<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"ul"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">li</span>&gt;</span>click me<span class="tag">&lt;/ <span class="attribute">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">li</span>&gt;</span>click me<span class="tag">&lt;/ <span class="attribute">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">li</span>&gt;</span>click me<span class="tag">&lt;/ <span class="attribute">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">li</span>&gt;</span>click me<span class="tag">&lt;/ <span class="attribute">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> Ul=<span class="built_in">document</span>.getElementById(<span class="string">"ul"</span>);</span><br><span class="line">    <span class="keyword">var</span> Lis=Ul.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">    　　<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;Lis.length;i++)&#123;</span><br><span class="line">     Lis[i].onclick=(<span class="function"><span class="keyword">function</span><span class="params">(i)</span></span>&#123;</span><br><span class="line">     　　 <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">     　　　　alert(<span class="string">"我是第"</span>+(i+<span class="number">1</span>)+<span class="string">"个list"</span>);</span><br><span class="line">     　　 &#125;</span><br><span class="line">     &#125;(i))</span><br><span class="line">    　　&#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <p>原理:通过循环和闭包传参让每一个li的i数值不同</p>
 </span>
       
