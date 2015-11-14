@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="svg," />
+  <meta name="keywords" content="React,js," />
 
 
 
@@ -39,22 +39,23 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="M = moveto(移动到)
-L = lineto(绘制直线到)
-H = horizontal lineto(水平绘制直线到)">
+<meta name="description" content="前言:React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设 Instagram的网站。做出来以后，发现这套东西很好用，就在2013年5月开源了。
+此教程的demo基于阮一峰的React入门实例教程的demo使用ES6语法重写而来(原博地址)
+零、安装React 的安装包，可以到官网下载。不过，React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="svg Path属性中d的相关参数">
-<meta property="og:url" content="http://yoursite.com/2015/05/29/svg-Path属性中d的相关参数/index.html">
+<meta property="og:title" content="React入门实例教程(ES6版)">
+<meta property="og:url" content="http://yoursite.com/2015/11/14/React入门实例教程-ES6版/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="M = moveto(移动到)
-L = lineto(绘制直线到)
-H = horizontal lineto(水平绘制直线到)">
-<meta property="og:image" content="http://7xjckw.com1.z0.glb.clouddn.com/quanxi613svg11.png">
+<meta property="og:description" content="前言:React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设 Instagram的网站。做出来以后，发现这套东西很好用，就在2013年5月开源了。
+此教程的demo基于阮一峰的React入门实例教程的demo使用ES6语法重写而来(原博地址)
+零、安装React 的安装包，可以到官网下载。不过，React">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/cover-chair.jpg">
+<meta property="og:image" content="http://zhuangtongfa.github.io/images/react.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="svg Path属性中d的相关参数">
-<meta name="twitter:description" content="M = moveto(移动到)
-L = lineto(绘制直线到)
-H = horizontal lineto(水平绘制直线到)">
+<meta name="twitter:title" content="React入门实例教程(ES6版)">
+<meta name="twitter:description" content="前言:React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设 Instagram的网站。做出来以后，发现这套东西很好用，就在2013年5月开源了。
+此教程的demo基于阮一峰的React入门实例教程的demo使用ES6语法重写而来(原博地址)
+零、安装React 的安装包，可以到官网下载。不过，React">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +65,7 @@ H = horizontal lineto(水平绘制直线到)">
   };
 </script>
 
-  <title> svg Path属性中d的相关参数 | 阿发 </title>
+  <title> React入门实例教程(ES6版) | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -173,7 +174,7 @@ H = horizontal lineto(水平绘制直线到)">
           
           
             
-              svg Path属性中d的相关参数
+              React入门实例教程(ES6版)
             
           
         </h1>
@@ -182,8 +183,8 @@ H = horizontal lineto(水平绘制直线到)">
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-29T19:22:35+08:00" content="2015-05-29">
-            2015-05-29
+          <time itemprop="dateCreated" datetime="2015-11-14T20:43:40+08:00" content="2015-11-14">
+            2015-11-14
           </time>
         </span>
 
@@ -201,30 +202,12 @@ H = horizontal lineto(水平绘制直线到)">
       
 
       
-        <span itemprop="articleBody"><p>M = moveto(移动到)</p>
-<p>L = lineto(绘制直线到)</p>
-<p>H = horizontal lineto(水平绘制直线到)<br><a id="more"></a></p>
-<p>V = vertical lineto(垂直绘制直线到)</p>
-<p>C = curveto(二次曲线到)</p>
-<p>S = smooth curveto(光滑曲线到)</p>
-<p>Q = quadratic Bézier curve(三次贝塞尔曲线到)</p>
-<p>T = smooth quadratic Bézier curveto(光滑三次贝塞尔曲线到)</p>
-<p>A = elliptical Arc(椭圆弧)</p>
-<p>Z = closepath(闭合图形)</p>
-<p> 注意：大写代表参数是绝对路径，小写则相对路径<br>M 和 m的绘制有一定区别的，切记！</p>
-<p>说一下弧线参数含义</p>
-<p>A rx ry x-axis-rotation large-arc-flag sweep-flag x y</p>
-<p>rx,ry 指椭圆的两个半轴大小<br>x-axis-rotation 指椭圆的x轴与水平方向顺时针方向夹角，可以想像成一个水平的椭圆绕中心点顺时针旋转的角度<br>large-arc-flag 表示是否选择弧长较长的那段弧线，1表示大角度弧线，0为小角度弧线<br>sweep-flag 确定起点至终点的方向，1为顺时针，0为逆时针<br>x,y 弧的终点坐标</p>
-<pre>
-    &lt;svg width=&quot;100%&quot; height=&quot;1000px&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
-
-    <span class="Apple-tab-span" style="white-space:pre">        </span>&lt;path d=&quot;M 100 100 h 100 l -100 100 v -100 M 200 100 A 100 100 0 0 1 100 200&quot; &nbsp;fill=&quot;#fff&quot; stroke=&quot;red&quot;/&gt;
-
-    &lt;/svg&gt;
-</pre>
-
-
-<p><img src="http://7xjckw.com1.z0.glb.clouddn.com/quanxi613svg11.png" alt="" style="margin: auto; padding: 0px; border: none; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; max-width: 100%; height: auto; display: block;"></p>
+        <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/cover-chair.jpg" alt=""></p>
+<h1 id="前言:">前言:</h1><p>React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设 Instagram的网站。做出来以后，发现这套东西很好用，就在2013年5月开源了。</p>
+<p>此教程的demo基于阮一峰的<a href="https://github.com/ruanyf/react-demos" target="_blank" rel="external">React入门实例教程</a>的demo使用ES6语法重写而来(<a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">原博地址</a>)</p>
+<h1 id="零、安装">零、安装</h1><p>React 的安装包，可以到官网下载。不过，React Demos已经自带React源码，不用另外安装，只需把这个库拷贝到你的硬盘就行了。<br><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git<span class="keyword">@github</span>.com:zhuangtongfa/react-demos-ES6-<span class="keyword">version</span>-.git</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://zhuangtongfa.github.io/images/react.png" alt=""><br>下面要讲解的12个例子在各个 Demo 子目录，每个目录都有一个 index.html 文件，在浏览器打开这个文件（大多数情况下双击即可），就能立刻看到效果。<br>需要说明的是，React可以在浏览器运行，也可以在服务器运行，但是本教程只涉及浏览器。一方面是为了尽量保持简单，另一方面React的语法是一致的，服务器的用法与浏览器差别不大。Demo13 是服务器首屏渲染的例子，有兴趣的朋友可以自己去看源码。</p>
+<h1 id="HTML模版">HTML模版</h1><p>使用React的网页源码,大致如下</p>
 </span>
       
     </div>
@@ -233,7 +216,9 @@ H = horizontal lineto(水平绘制直线到)">
       
         <div class="post-tags">
           
-            <a href="/tags/svg/" rel="tag">#svg</a>
+            <a href="/tags/React/" rel="tag">#React</a>
+          
+            <a href="/tags/js/" rel="tag">#js</a>
           
         </div>
       
@@ -242,13 +227,11 @@ H = horizontal lineto(水平绘制直线到)">
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/30/联动菜单/" rel="prev">联动菜单</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/28/svg模拟书写/" rel="next">svg模拟书写</a>
+              <a href="/2015/11/10/关于不成长/" rel="next">关于不成长</a>
             
           </div>
         </div>
@@ -352,7 +335,7 @@ H = horizontal lineto(水平绘制直线到)">
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言:"><span class="nav-number">1.</span> <span class="nav-text">前言:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#零、安装"><span class="nav-number">2.</span> <span class="nav-text">零、安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML模版"><span class="nav-number">3.</span> <span class="nav-text">HTML模版</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
