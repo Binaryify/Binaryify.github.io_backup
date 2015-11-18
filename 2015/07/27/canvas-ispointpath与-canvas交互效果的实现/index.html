@@ -46,6 +46,7 @@
 <meta property="og:site_name" content="阿发">
 <meta property="og:description" content="canvas可以做出很多绚丽的特效,但是canvas内的内容怎么交互呢?">
 <meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/isPointInPath/1.gif">
+<meta property="og:updated_time" content="2015-11-02T09:22:08.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvas isPointInPath与 canvas交互效果的实现">
 <meta name="twitter:description" content="canvas可以做出很多绚丽的特效,但是canvas内的内容怎么交互呢?">
@@ -197,12 +198,12 @@
       
         <span itemprop="articleBody"><p><img src="http://zhuangtongfa.gitcafe.io/demo/image/isPointInPath/1.gif" alt="demo"><br>canvas可以做出很多绚丽的特效,但是canvas内的内容怎么交互呢?<a id="more"></a><br>canvas有个重要的方法,isPointInPath()</p>
 <hr>
-<h1 id="isPointInPath()定义和用法">isPointInPath()定义和用法</h1><p>isPointInPath() 方法返回 true，如果指定的点位于当前路径中；否则返回 false。</p>
+<p>#isPointInPath()定义和用法<br>isPointInPath() 方法返回 true，如果指定的点位于当前路径中；否则返回 false。</p>
 <hr>
-<h1 id="JavaScript_语法：">JavaScript 语法：</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.isPointInPath(x,y);</span><br></pre></td></tr></table></figure>
+<p>#JavaScript 语法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.isPointInPath(x,y);</span><br></pre></td></tr></table></figure></p>
 <p>x:测试的 x 坐标<br>y:测试的 y 坐标<br>使用的时候只需要判断点是否路径里就能知道是否点击或触摸了,并且在此之上可以再进行重绘,这样就形成交互了</p>
 <hr>
-<h1 id="demo"><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/isPointInPath.html" target="_blank" rel="external">demo</a></h1><p>在这个demo里,我设置了个for循环生成10个小球的位置,大小的数据,循环的时候都把生成的小球的数据添加到balls这个数组里,然后调用draw方法画出这10个小球,然后给canvas添加了点击事件监听,每次点击循环取出balls中小球数据,并且判断点击的位置是否在相对应的小球里,是的话就让被点击的小球颜色随机变化</p>
+<p>#<a href="http://zhuangtongfa.gitcafe.io/demo/canvas/isPointInPath.html" target="_blank" rel="external">demo</a><br>在这个demo里,我设置了个for循环生成10个小球的位置,大小的数据,循环的时候都把生成的小球的数据添加到balls这个数组里,然后调用draw方法画出这10个小球,然后给canvas添加了点击事件监听,每次点击循环取出balls中小球数据,并且判断点击的位置是否在相对应的小球里,是的话就让被点击的小球颜色随机变化</p>
 <hr>
 <p>需要注意的是,获取canvas点击位置的方法是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=event.clientX-canvas.getBoundingClientRect().left;</span><br><span class="line"><span class="keyword">var</span> y=event.clientY-canvas.getBoundingClientRect().top;</span><br></pre></td></tr></table></figure></p>
 <p>这个需要记住<br>虽然用offset也可以,但是精度没有<code>getBoundingClientRect()</code>高</p>
@@ -337,7 +338,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#isPointInPath()定义和用法"><span class="nav-number">1.</span> <span class="nav-text">isPointInPath()定义和用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript_语法："><span class="nav-number">2.</span> <span class="nav-text">JavaScript 语法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#demo"><span class="nav-number">3.</span> <span class="nav-text">demo</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

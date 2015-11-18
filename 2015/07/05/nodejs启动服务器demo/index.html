@@ -45,6 +45,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/07/05/nodejs启动服务器demo/index.html">
 <meta property="og:site_name" content="阿发">
 <meta property="og:description" content="源码:">
+<meta property="og:updated_time" content="2015-11-02T09:41:48.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nodejs启动服务器demo">
 <meta name="twitter:description" content="源码:">
@@ -195,7 +196,7 @@
 
       
         <span itemprop="articleBody"><p>源码:<br><a id="more"></a><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var http= require(&amp;#39;http&amp;#39;);</span><br><span class="line">var server= http.createServer(function(req, res)&#123;</span><br><span class="line">&amp;nbsp; res.writeHead(200,&#123; &amp;#39;Content-Type&amp;#39;: &amp;#39;text/html&amp;#39; &#125;);</span><br><span class="line">&amp;nbsp; res.end(&amp;#39;&amp;lt;h1&amp;gt;test&amp;lt;/h1&amp;gt;&amp;#39;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(8080);</span><br><span class="line">console.log(&amp;quot;服务器启动...8080端口&amp;quot;);</span><br></pre></td></tr></table></figure></p>
-<p>使用方法:<br>保存源码为:server.js,使用<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node <span class="keyword">server</span>.js</span><br></pre></td></tr></table></figure></p>
+<p>使用方法:<br>保存源码为:server.js,使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node server.js</span><br></pre></td></tr></table></figure></p>
 <p>命令即可(如没安装nodejs需要自行安装,在此不具体介绍),地址栏输入127.0.0.1:8080或者ip:8080</p>
 </span>
       

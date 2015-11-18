@@ -27,13 +27,13 @@
 <p>The script must be loaded prior to instantiating FastClick on any element of the page.</p>
 <p>To instantiate FastClick on the <code>body</code>, which is the recommended method of use:</p>
 <pre><code class="js"><span class="keyword">if</span> (<span class="string">'addEventListener'</span> <span class="keyword">in</span> <span class="built_in">document</span>) {
-    <span class="built_in">document</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    <span class="built_in">document</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
         FastClick.attach(<span class="built_in">document</span>.body);
     }, <span class="literal">false</span>);
 }
 </code></pre>
 <p>Or, if you’re using jQuery:</p>
-<pre><code class="js">$(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+<pre><code class="js">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
     FastClick.attach(<span class="built_in">document</span>.body);
 });
 </code></pre>

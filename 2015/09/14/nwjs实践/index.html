@@ -62,6 +62,7 @@ nwjs-app/├── app.js├── index.html├── package.json└── sty
 <meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/2.jpg">
 <meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/3.png">
 <meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/4.png">
+<meta property="og:updated_time" content="2015-10-12T01:34:23.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nwjs实践">
 <meta name="twitter:description" content="前提条件，安装 NW.js
@@ -221,22 +222,22 @@ nwjs-app/├── app.js├── index.html├── package.json└── sty
 <ol>
 <li>前提条件，安装 NW.js</li>
 </ol>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> nw -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nw -g</span><br></pre></td></tr></table></figure>
 <ol>
 <li>建立文件, 目录</li>
 </ol>
 <p>nwjs-app/<br>├── app.js<br>├── index.html<br>├── package.json<br>└── style.css</p>
 <a id="more"></a>
 <p>package.json 内容</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="collection">&#123;</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Hello NW.js"</span>,</span><br><span class="line">  <span class="string">"window"</span>: <span class="collection">&#123;</span><br><span class="line">//    <span class="string">"toolbar"</span>: <span class="literal">false</span> //这个选项对于开发太重要了</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#10;  &#34;main&#34;: &#34;index.html&#34;,&#10;  &#34;name&#34;: &#34;Hello NW.js&#34;,&#10;  &#34;window&#34;: &#123;&#10;//    &#34;toolbar&#34;: false //&#36825;&#20010;&#36873;&#39033;&#23545;&#20110;&#24320;&#21457;&#22826;&#37325;&#35201;&#20102;&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
 <p>index.html 内容：</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'console app.js'</span>);</span><br><span class="line"><span class="built_in">document</span>.writeln(<span class="string">"out put from app.js"</span>);</span><br></pre></td></tr></table></figure>
-<p>style.css 内容：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">background-color</span>:<span class="value"> lightgray</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;console app.js&#39;);&#10;document.writeln(&#34;out put from app.js&#34;);</span><br></pre></td></tr></table></figure>
+<p>style.css 内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;&#10;  background-color: lightgray;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
 <ol>
 <li>运行程序</li>
 </ol>
-<p>命令行下进到项目所在的项目，直接执行 nw<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nwjs-app <span class="variable">$ </span>nw</span><br></pre></td></tr></table></figure></p>
-<p>或者为 nw 指定应用目录，如<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">nw</span> nwjs-app</span><br></pre></td></tr></table></figure></p>
+<p>命令行下进到项目所在的项目，直接执行 nw<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nwjs-app $ nw</span><br></pre></td></tr></table></figure></p>
+<p>或者为 nw 指定应用目录，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nw nwjs-app</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/1.jpg" alt="截图1"></p>
 <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/2.jpg" alt="截图2"></p>
 <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/nwjs/3.png" alt="截图3"></p>
