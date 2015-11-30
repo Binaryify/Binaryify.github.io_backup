@@ -234,69 +234,6 @@
           
           
             
-              <a class="post-title-link" href="/2015/06/11/简单实现jQuery 中的选择器/" itemprop="url">
-                简单实现jQuery 中的选择器
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-11T22:52:10+08:00" content="2015-06-11">
-            2015-06-11
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>简单demo,核心代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $ = <span class="function"><span class="keyword">function</span>(<span class="params">selector</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.querySelector(selector);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> $$ = <span class="function"><span class="keyword">function</span>(<span class="params">selector</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.querySelectorAll(selector);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$(<span class="string">'#div'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    alert(<span class="string">'1'</span>);</span><br><span class="line"></span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">$$(<span class="string">'div'</span>)[<span class="number">0</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    alert(<span class="string">'2'</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不是任何时候都适合用jQuery的,比如移动端,通过这段代码就可以实现jQuery的选择器了(当然jQuey的实现比这复杂),大大减少代码量,如果不要求兼容性的话够用了(兼容IE8+,Chrome,firefox)</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2015/06/05/HTML5图片预览和Filereader-API/" itemprop="url">
                 HTML5图片预览和Filereader API
               </a>
@@ -689,8 +626,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/05/24/HTML5中类jQuery选择器querySelector的使用/" itemprop="url">
-                HTML5中类jQuery选择器querySelector的使用 
+              <a class="post-title-link" href="/2015/05/20/微信上传下载多媒体php接口（转）/" itemprop="url">
+                微信上传下载多媒体php接口（转）
               </a>
             
           
@@ -700,8 +637,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-24T18:18:32+08:00" content="2015-05-24">
-            2015-05-24
+          <time itemprop="dateCreated" datetime="2015-05-20T22:49:32+08:00" content="2015-05-20">
+            2015-05-20
           </time>
         </span>
 
@@ -720,12 +657,8 @@
 
       
         
-          <h1 id="简介">简介</h1><p>  HTML5向Web API新引入了<br>    <code>element = document.querySelector(&#39;selectors&#39;);</code><br>    以及<code>elementList = document.querySelectorAll(&#39;selectors&#39;);</code>两个方法用来更方便地从DOM选取元素，功能类似于jQuery的选择器。这使得在编写原生JavaScript代码时方便了许多。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/24/HTML5中类jQuery选择器querySelector的使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          <span itemprop="articleBody"><p>原文链接：<a href="http://www.thinkphp.cn/code/516.html" target="_blank" rel="external">http://www.thinkphp.cn/code/516.html</a><br>上传下载多媒体文件，这个作为高级接口的一部分功能，可能使用的人并不多，所以现在网上关于这个接口的使用教程很少。于是我就写了这个接口的使用方法，主要是两个函数:</p>
+</span>
         
       
     </div>
@@ -755,8 +688,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/05/21/图片压缩通过base64码保存到服务器模块/" itemprop="url">
-                图片压缩通过base64码保存到服务器模块
+              <a class="post-title-link" href="/2015/05/18/表单按钮id问题/" itemprop="url">
+                表单按钮id问题
               </a>
             
           
@@ -766,8 +699,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-21T10:49:00+08:00" content="2015-05-21">
-            2015-05-21
+          <time itemprop="dateCreated" datetime="2015-05-18T18:35:28+08:00" content="2015-05-18">
+            2015-05-18
           </time>
         </span>
 
@@ -786,9 +719,9 @@
 
       
         
-          <p>前台代码：
+          <p>昨天做一个表单设计的时候遇到一个奇葩的问题，form表单里面的button如果设置了id=submit，<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/21/图片压缩通过base64码保存到服务器模块/#more" rel="contents">
+            <a class="btn" href="/2015/05/18/表单按钮id问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -814,7 +747,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </nav>
 
  </div>
@@ -848,7 +781,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -862,7 +795,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
