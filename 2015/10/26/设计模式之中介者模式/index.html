@@ -41,21 +41,22 @@
 
 <meta name="description" content="中介者模式中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式)
 模式作用:
-在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都要">
+在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之中介者模式">
 <meta property="og:url" content="http://yoursite.com/2015/10/26/设计模式之中介者模式/index.html">
 <meta property="og:site_name" content="阿发">
 <meta property="og:description" content="中介者模式中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式)
 模式作用:
-在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都要">
+在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都">
 <meta property="og:image" content="http://zhuangtongfa.github.io/images/img2.jpg">
-<meta property="og:updated_time" content="2015-11-14T13:36:21.252Z">
+<meta property="og:updated_time" content="2015-11-14T13:36:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之中介者模式">
 <meta name="twitter:description" content="中介者模式中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式)
 模式作用:
-在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都要">
+在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都">
+<meta name="twitter:image" content="http://zhuangtongfa.github.io/images/img2.jpg">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -203,15 +204,15 @@
 
       
         <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/img2.jpg" alt=""></p>
-<h1 id="中介者模式">中介者模式</h1><p>中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。<br>(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式)</p>
-<h2 id="模式作用:">模式作用:</h2><ol>
+<h1 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h1><p>中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。<br>(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式)</p>
+<h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都要创建一个中央控制点让其各模块通过中央控制点进行交互.中介者模式可以让这些子模块不需要直接沟通,从而达到进行解耦的目的.</li>
 </ol>
-<h2 id="注意事项:">注意事项:</h2><ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h2><ol>
 <li>当系统出现了多对多交互复杂的对象群时,先不急于使用中介者模式,而是思考一下是不是系统设计有问题.</li>
 </ol>
 <a id="more"></a>
-<h1 id="例子:">例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//飞机</span></span><br><span class="line"><span class="keyword">var</span> feiji=<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name=name;</span><br><span class="line">&#125;</span><br><span class="line">feiji.prototype.send=<span class="function"><span class="keyword">function</span>(<span class="params">msg,to</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">"发送了信息"</span>)</span><br><span class="line">  tatai.send(msg,to)</span><br><span class="line">&#125;</span><br><span class="line">feiji.prototype.jieshou=<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">"[接收到]"</span>+msg)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//塔台</span></span><br><span class="line"><span class="keyword">var</span> tatai=&#123;</span><br><span class="line">  all:&#123;&#125;,</span><br><span class="line">  zhuce:<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.all[f.name]=f;</span><br><span class="line">  &#125;,send:<span class="function"><span class="keyword">function</span>(<span class="params">msg,to</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.all[to.name].jieshou(msg)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> feiji1=<span class="keyword">new</span> feiji(<span class="string">"feiji1"</span>);</span><br><span class="line"><span class="keyword">var</span> feiji2=<span class="keyword">new</span> feiji(<span class="string">"feiji2"</span>);</span><br><span class="line">tatai.zhuce(feiji1);</span><br><span class="line">tatai.zhuce(feiji2);</span><br><span class="line">feiji1.send(<span class="string">'我马上降落,还有200米'</span>,feiji2)</span><br><span class="line"><span class="comment">//feiji1发送了信息</span></span><br><span class="line"><span class="comment">//feiji2[接收到]我马上降落,还有200米</span></span><br></pre></td></tr></table></figure>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//飞机</span></span><br><span class="line"><span class="keyword">var</span> feiji=<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name=name;</span><br><span class="line">&#125;</span><br><span class="line">feiji.prototype.send=<span class="function"><span class="keyword">function</span>(<span class="params">msg,to</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">"发送了信息"</span>)</span><br><span class="line">  tatai.send(msg,to)</span><br><span class="line">&#125;</span><br><span class="line">feiji.prototype.jieshou=<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">"[接收到]"</span>+msg)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//塔台</span></span><br><span class="line"><span class="keyword">var</span> tatai=&#123;</span><br><span class="line">  all:&#123;&#125;,</span><br><span class="line">  zhuce:<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.all[f.name]=f;</span><br><span class="line">  &#125;,send:<span class="function"><span class="keyword">function</span>(<span class="params">msg,to</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.all[to.name].jieshou(msg)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> feiji1=<span class="keyword">new</span> feiji(<span class="string">"feiji1"</span>);</span><br><span class="line"><span class="keyword">var</span> feiji2=<span class="keyword">new</span> feiji(<span class="string">"feiji2"</span>);</span><br><span class="line">tatai.zhuce(feiji1);</span><br><span class="line">tatai.zhuce(feiji2);</span><br><span class="line">feiji1.send(<span class="string">'我马上降落,还有200米'</span>,feiji2)</span><br><span class="line"><span class="comment">//feiji1发送了信息</span></span><br><span class="line"><span class="comment">//feiji2[接收到]我马上降落,还有200米</span></span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -299,7 +300,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -341,7 +342,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中介者模式"><span class="nav-number">1.</span> <span class="nav-text">中介者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中介者模式"><span class="nav-number">1.</span> <span class="nav-text">中介者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -358,7 +359,7 @@
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

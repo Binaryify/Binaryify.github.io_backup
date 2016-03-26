@@ -168,6 +168,138 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/17/canvas复制video内容/" itemprop="url">
+                canvas复制video内容
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-07-17T18:05:58+08:00" content="2015-07-17">
+            2015-07-17
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单,drawImage接收视频信息,然后用定时器一直重绘就行<br>源码:<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/canvas%E5%88%86%E5%89%B2%E8%A7%86%E9%A2%91/1.png" alt="canvas分割视频"><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/17/canvas复制video内容/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/29/div宽度按屏幕比例-让高度自适应和宽度相同非js解决方案/" itemprop="url">
+                div宽度按屏幕比例,让高度自适应和宽度相同非js解决方案
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-29T23:09:58+08:00" content="2015-06-29">
+            2015-06-29
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>有时候我们给div宽度设为百分比,但是同时又想高度也跟宽度一样,怎么办呢?其实可以利用伪元素和padding-bottom属性来解决<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/29/div宽度按屏幕比例-让高度自适应和宽度相同非js解决方案/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/06/20/旋转木马原理-不用jquery/" itemprop="url">
                 旋转木马原理(不用jquery)
               </a>
@@ -397,12 +529,12 @@
 
       
         
-          <span itemprop="articleBody"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">M = moveto(&#31227;&#21160;&#21040;)&#10;&#10;L = lineto(&#32472;&#21046;&#30452;&#32447;&#21040;)&#10;&#10;H = horizontal lineto(&#27700;&#24179;&#32472;&#21046;&#30452;&#32447;&#21040;)&#10;&#60;!--more--&#62;&#10;&#10;V = vertical lineto(&#22402;&#30452;&#32472;&#21046;&#30452;&#32447;&#21040;)&#10;&#10;C = curveto(&#20108;&#27425;&#26354;&#32447;&#21040;)&#10;&#10;S = smooth curveto(&#20809;&#28369;&#26354;&#32447;&#21040;)&#10;&#10;Q = quadratic B&#233;zier curve(&#19977;&#27425;&#36125;&#22622;&#23572;&#26354;&#32447;&#21040;)&#10;&#10;T = smooth quadratic B&#233;zier curveto(&#20809;&#28369;&#19977;&#27425;&#36125;&#22622;&#23572;&#26354;&#32447;&#21040;)&#10;&#10;A = elliptical Arc(&#26925;&#22278;&#24359;)&#10;&#10;Z = closepath(&#38381;&#21512;&#22270;&#24418;)</span><br></pre></td></tr></table></figure>
+          <span itemprop="articleBody"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">M = moveto(移动到)</span><br><span class="line"></span><br><span class="line">L = lineto(绘制直线到)</span><br><span class="line"></span><br><span class="line">H = horizontal lineto(水平绘制直线到)</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line">V = vertical lineto(垂直绘制直线到)</span><br><span class="line"></span><br><span class="line">C = curveto(二次曲线到)</span><br><span class="line"></span><br><span class="line">S = smooth curveto(光滑曲线到)</span><br><span class="line"></span><br><span class="line">Q = quadratic Bézier curve(三次贝塞尔曲线到)</span><br><span class="line"></span><br><span class="line">T = smooth quadratic Bézier curveto(光滑三次贝塞尔曲线到)</span><br><span class="line"></span><br><span class="line">A = elliptical Arc(椭圆弧)</span><br><span class="line"></span><br><span class="line">Z = closepath(闭合图形)</span><br></pre></td></tr></table></figure>
 <p> 注意：大写代表参数是绝对路径，小写则相对路径<br>M 和 m的绘制有一定区别的，切记！</p>
 <p>说一下弧线参数含义</p>
 <p>A rx ry x-axis-rotation large-arc-flag sweep-flag x y</p>
 <p>rx,ry 指椭圆的两个半轴大小<br>x-axis-rotation 指椭圆的x轴与水平方向顺时针方向夹角，可以想像成一个水平的椭圆绕中心点顺时针旋转的角度<br>large-arc-flag 表示是否选择弧长较长的那段弧线，1表示大角度弧线，0为小角度弧线<br>sweep-flag 确定起点至终点的方向，1为顺时针，0为逆时针<br>x,y 弧的终点坐标</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">svg</span> <span class="attribute">width</span>=<span class="value">"100%"</span> <span class="attribute">height</span>=<span class="value">"1000px"</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">path</span> <span class="attribute">d</span>=<span class="value">"M 100 100 h 100 l -100 100 v -100 M 200 100 A 100 100 0 0 1 100 200"</span>  <span class="attribute">fill</span>=<span class="value">"#fff"</span> <span class="attribute">stroke</span>=<span class="value">"red"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"1000px"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M 100 100 h 100 l -100 100 v -100 M 200 100 A 100 100 0 0 1 100 200"</span>  <span class="attr">fill</span>=<span class="string">"#fff"</span> <span class="attr">stroke</span>=<span class="string">"red"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://7xjckw.com1.z0.glb.clouddn.com/quanxi613svg11.png" alt="" style="margin: auto; padding: 0px; border: none; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; max-width: 100%; height: auto; display: block;"></p>
 </span>
         
@@ -597,7 +729,7 @@
 
       
         
-          <span itemprop="articleBody"><p><div class="div1"><svg width="300" height="300"><polygon points="220,100 300,210 170,250 123,234" style="fill:transparent;stroke:white;stroke-width:2"/></svg></div><style type="text/css">.div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes dash {to {stroke-dashoffset: 0;}}</style><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line"><span class="tag">html</span>,</span><br><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> green</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">polygon</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">stroke-dasharray</span>:<span class="value"> <span class="number">490</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">stroke-dashoffset</span>:<span class="value"> <span class="number">490</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-animation</span>:<span class="value"> dash <span class="number">1s</span> linear infinite alternate</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="at_rule">@<span class="keyword">-webkit-keyframes</span> dash </span>&#123;</span><br><span class="line">    <span class="tag">to</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">stroke-dashoffset</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">svg</span> <span class="attribute">width</span>=<span class="value">"300"</span> <span class="attribute">height</span>=<span class="value">"300"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">polygon</span> <span class="attribute">points</span>=<span class="value">"220,100 300,210 170,250 123,234"</span> <span class="attribute">style</span>=<span class="value">"fill:transparent;</span><br><span class="line"></span><br><span class="line">    stroke:white;stroke-width:2"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">svg</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+          <span itemprop="articleBody"><p><div class="div1"><svg width="300" height="300"><polygon points="220,100 300,210 170,250 123,234" style="fill:transparent;stroke:white;stroke-width:2"/></svg></div><style type="text/css">.div1{width:300px;height:300px;margin:0;padding:0;background-color: green;}polygon{stroke-dasharray: 490;stroke-dashoffset: 490;-webkit-animation: dash 1s linear infinite alternate;}@-webkit-keyframes dash {to {stroke-dashoffset: 0;}}</style><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><br><span class="line">html,</span><br><span class="line">body &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">    background-color: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">polygon &#123;</span><br><span class="line">    stroke-dasharray: 490;</span><br><span class="line">    stroke-dashoffset: 490;</span><br><span class="line">    -webkit-animation: dash 1s linear infinite alternate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@-webkit-keyframes dash &#123;</span><br><span class="line">    to &#123;</span><br><span class="line">        stroke-dashoffset: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">height</span>=<span class="string">"300"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">"220,100 300,210 170,250 123,234"</span> <span class="attr">style</span>=<span class="string">"fill:transparent;</span><br><span class="line"></span><br><span class="line">    stroke:white;stroke-width:2"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>svg实现路径动画主要是利用css中的stroke-dasharray和stroke-dashoffset这两个属性,这两个属性原本是用于制作虚线效果的,但是大家想象一下,一根火腿肠12厘米，要在上面画虚线，虚线间隔有15厘米，如果没有dashoffset，则火腿肠前面15厘米会被辣椒酱覆盖！实际上只有12厘米，因此，我们看到的是整个火腿肠都有辣椒酱。现在，dashoffset也是15厘米，也就是虚线要往后偏移15厘米，结果，辣椒酱要抹在火腿肠之外，也就是火腿肠上什么辣椒酱也没有。如果换成上面的直线SVG，也就是直线看不见了。我们把dashoffset值逐渐变小，则会发现，火腿肠上的辣椒酱一点一点出现了，好像辣椒酱从火腿肠根部涂抹上去一样。于是实现路径动画的思路就出来了,只需要用css中的keyframe控制stroke-dashoffset让它的值逐渐变0就能形成路径动画了</p>
 </span>
         
@@ -680,77 +812,11 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/18/表单按钮id问题/" itemprop="url">
-                表单按钮id问题
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-05-18T18:35:28+08:00" content="2015-05-18">
-            2015-05-18
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>昨天做一个表单设计的时候遇到一个奇葩的问题，form表单里面的button如果设置了id=submit，<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/18/表单按钮id问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">&raquo;</a>
   </nav>
 
  </div>
@@ -784,7 +850,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -832,7 +898,7 @@
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

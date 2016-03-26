@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="canvas,js," />
+  <meta name="keywords" content="js,canvas," />
 
 
 
@@ -46,10 +46,11 @@
 <meta property="og:site_name" content="阿发">
 <meta property="og:description" content="很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单,drawImage接收视频信息,然后用定时器一直重绘就行源码:">
 <meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/canvas%E5%88%86%E5%89%B2%E8%A7%86%E9%A2%91/1.png">
-<meta property="og:updated_time" content="2015-11-02T09:20:24.847Z">
+<meta property="og:updated_time" content="2015-11-02T09:20:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvas复制video内容">
 <meta name="twitter:description" content="很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单,drawImage接收视频信息,然后用定时器一直重绘就行源码:">
+<meta name="twitter:image" content="http://zhuangtongfa.gitcafe.io/demo/image/canvas%E5%88%86%E5%89%B2%E8%A7%86%E9%A2%91/1.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -196,7 +197,7 @@
       
 
       
-        <span itemprop="articleBody"><p>很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单,drawImage接收视频信息,然后用定时器一直重绘就行<br>源码:<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/canvas%E5%88%86%E5%89%B2%E8%A7%86%E9%A2%91/1.png" alt="canvas分割视频"><br><a id="more"></a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">video</span> <span class="attribute">autoplay</span> <span class="attribute">src</span>=<span class="value">"权力的游戏S5E10.mp4"</span> <span class="attribute">controls</span>&gt;</span><span class="tag">&lt;/<span class="title">video</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">canvas</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> v = <span class="built_in">document</span>.querySelector(<span class="string">"video"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> c = <span class="built_in">document</span>.querySelector(<span class="string">"canvas"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> ct = c.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">    v.ondurationchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">            ct.drawImage(v, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        &#125;, <span class="number">30</span>);</span><br><span class="line"></span><br><span class="line">        c.style.height = v.offsetHeight;</span><br><span class="line"></span><br><span class="line">        c.style.width = v.offsetWidth;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+        <span itemprop="articleBody"><p>很多人只知道canvas可以复制图片信息,但是不知道也可以复制video信息,其实原理很简单,drawImage接收视频信息,然后用定时器一直重绘就行<br>源码:<br><img src="http://zhuangtongfa.gitcafe.io/demo/image/canvas%E5%88%86%E5%89%B2%E8%A7%86%E9%A2%91/1.png" alt="canvas分割视频"><br><a id="more"></a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">autoplay</span> <span class="attr">src</span>=<span class="string">"权力的游戏S5E10.mp4"</span> <span class="attr">controls</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> v = <span class="built_in">document</span>.querySelector(<span class="string">"video"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> c = <span class="built_in">document</span>.querySelector(<span class="string">"canvas"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> ct = c.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">    v.ondurationchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">            ct.drawImage(v, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        &#125;, <span class="number">30</span>);</span><br><span class="line"></span><br><span class="line">        c.style.height = v.offsetHeight;</span><br><span class="line"></span><br><span class="line">        c.style.width = v.offsetWidth;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>利用这个原理,也可以做一个canvas分割视频显示的效果,只需要在drawImage这个方法里设置相对应的参数就行</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);</span><br></pre></td></tr></table></figure>
 <p>img:规定要使用的图像、画布或视频。<br>sx:可选。开始剪切的 x 坐标位置。<br>sy:可选。开始剪切的 y 坐标位置。<br>swidth:可选。被剪切图像的宽度。<br>sheight:可选。被剪切图像的高度。<br>x:在画布上放置图像的 x 坐标位置。<br>y:在画布上放置图像的 y 坐标位置。<br>width:可选。要使用的图像的宽度。（伸展或缩小图像）<br>height:可选。要使用的图像的高度。（伸展或缩小图像）</p>
@@ -209,9 +210,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/canvas/" rel="tag">#canvas</a>
-          
             <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/canvas/" rel="tag">#canvas</a>
           
         </div>
       
@@ -288,7 +289,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -347,7 +348,7 @@
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

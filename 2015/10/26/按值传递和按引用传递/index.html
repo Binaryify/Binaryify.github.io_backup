@@ -42,7 +42,7 @@
 <meta name="description" content="按值传递 VS. 按引用传递按值传递(call by value)是最常用的求值策略：函数的形参是被调用时所传实参的副本。修改形参的值并不会影响实参。
 按引用传递(call by reference)时，函数的形参接收实参的隐式引用，而不再是副本。这意味着函数形参的值如果被修改，实参也会被修改。同时两者指向相同的值。
 按引用传递会使函数调用的追踪更加困难，有时也会引起一些微妙的BUG。
-按值传递由">
+按值传递">
 <meta property="og:type" content="article">
 <meta property="og:title" content="按值传递和按引用传递">
 <meta property="og:url" content="http://yoursite.com/2015/10/26/按值传递和按引用传递/index.html">
@@ -50,15 +50,16 @@
 <meta property="og:description" content="按值传递 VS. 按引用传递按值传递(call by value)是最常用的求值策略：函数的形参是被调用时所传实参的副本。修改形参的值并不会影响实参。
 按引用传递(call by reference)时，函数的形参接收实参的隐式引用，而不再是副本。这意味着函数形参的值如果被修改，实参也会被修改。同时两者指向相同的值。
 按引用传递会使函数调用的追踪更加困难，有时也会引起一些微妙的BUG。
-按值传递由">
+按值传递">
 <meta property="og:image" content="http://zhuangtongfa.github.io/images/geometric-poster-cover.jpg">
-<meta property="og:updated_time" content="2015-10-26T11:42:13.537Z">
+<meta property="og:updated_time" content="2015-10-26T11:42:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="按值传递和按引用传递">
 <meta name="twitter:description" content="按值传递 VS. 按引用传递按值传递(call by value)是最常用的求值策略：函数的形参是被调用时所传实参的副本。修改形参的值并不会影响实参。
 按引用传递(call by reference)时，函数的形参接收实参的隐式引用，而不再是副本。这意味着函数形参的值如果被修改，实参也会被修改。同时两者指向相同的值。
 按引用传递会使函数调用的追踪更加困难，有时也会引起一些微妙的BUG。
-按值传递由">
+按值传递">
+<meta name="twitter:image" content="http://zhuangtongfa.github.io/images/geometric-poster-cover.jpg">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -206,12 +207,12 @@
 
       
         <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/geometric-poster-cover.jpg" alt=""></p>
-<h1 id="按值传递_VS-_按引用传递">按值传递 VS. 按引用传递</h1><p>按值传递(call by value)是最常用的求值策略：函数的形参是被调用时所传实参的副本。修改形参的值并不会影响实参。</p>
+<h1 id="按值传递-VS-按引用传递"><a href="#按值传递-VS-按引用传递" class="headerlink" title="按值传递 VS. 按引用传递"></a>按值传递 VS. 按引用传递</h1><p>按值传递(call by value)是最常用的求值策略：函数的形参是被调用时所传实参的副本。修改形参的值并不会影响实参。</p>
 <p>按引用传递(call by reference)时，函数的形参接收实参的隐式引用，而不再是副本。这意味着函数形参的值如果被修改，实参也会被修改。同时两者指向相同的值。</p>
 <p>按引用传递会使函数调用的追踪更加困难，有时也会引起一些微妙的BUG。</p>
 <p>按值传递由于每次都需要克隆副本，对一些复杂类型，性能较低。两种传值方式都有各自的问题。<br><a id="more"></a></p>
-<h1 id="例子:">例子:</h1><h2 id="按值传递">按值传递</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function change(num)&#123;&#10;  // &#36825;&#37324;&#23545;num&#36825;&#20010;&#21464;&#37327;&#21019;&#24314;&#20102;&#19968;&#20010;&#20869;&#23384;&#30340;&#21103;&#26412;&#10;  var num=num+1;&#10;  return num;&#10;&#125;&#10;var num=1;&#10;console.log(&#34;&#20869;&#37096;&#30340;&#34;,change(num)); //2&#10;console.log(&#34;&#22806;&#37096;&#30340;&#34;,num);  //1</span><br></pre></td></tr></table></figure>
-<h2 id="按引用传递">按引用传递</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;&#10;  name:&#34;xiaoming&#34;&#10;&#125;&#10;function change2(obj)&#123;&#10;//&#24403;&#21069;obj&#23545;&#20869;&#23384;&#30340;&#36825;&#20010;&#22320;&#22336;&#25351;&#21521;&#21516;&#19968;&#20010;&#10;  obj.age=20;&#10;  console.log(&#34;&#20869;&#37096;&#30340;&#34;,obj)&#10;&#125;&#10;change(obj)&#10;console.log(&#34;&#22806;&#37096;&#30340;&#34;,obj)&#10;//&#20869;&#37096;&#30340;&#123;name:&#34;xiaoming,age:20&#125;&#10;//&#22806;&#37096;&#30340;&#123;name:&#34;xiaoming,age:20&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h1><h2 id="按值传递"><a href="#按值传递" class="headerlink" title="按值传递"></a>按值传递</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function change(num)&#123;</span><br><span class="line">  // 这里对num这个变量创建了一个内存的副本</span><br><span class="line">  var num=num+1;</span><br><span class="line">  return num;</span><br><span class="line">&#125;</span><br><span class="line">var num=1;</span><br><span class="line">console.log(&quot;内部的&quot;,change(num)); //2</span><br><span class="line">console.log(&quot;外部的&quot;,num);  //1</span><br></pre></td></tr></table></figure>
+<h2 id="按引用传递"><a href="#按引用传递" class="headerlink" title="按引用传递"></a>按引用传递</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;</span><br><span class="line">  name:&quot;xiaoming&quot;</span><br><span class="line">&#125;</span><br><span class="line">function change2(obj)&#123;</span><br><span class="line">//当前obj对内存的这个地址指向同一个</span><br><span class="line">  obj.age=20;</span><br><span class="line">  console.log(&quot;内部的&quot;,obj)</span><br><span class="line">&#125;</span><br><span class="line">change(obj)</span><br><span class="line">console.log(&quot;外部的&quot;,obj)</span><br><span class="line">//内部的&#123;name:&quot;xiaoming,age:20&#125;</span><br><span class="line">//外部的&#123;name:&quot;xiaoming,age:20&#125;</span><br></pre></td></tr></table></figure>
 <p>按引用传递:object,array(js对象)<br>按值传递:string,number,boolean</p>
 </span>
       
@@ -298,7 +299,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -340,7 +341,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#按值传递_VS-_按引用传递"><span class="nav-number">1.</span> <span class="nav-text">按值传递 VS. 按引用传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#按值传递"><span class="nav-number">2.1.</span> <span class="nav-text">按值传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按引用传递"><span class="nav-number">2.2.</span> <span class="nav-text">按引用传递</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#按值传递-VS-按引用传递"><span class="nav-number">1.</span> <span class="nav-text">按值传递 VS. 按引用传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#按值传递"><span class="nav-number">2.1.</span> <span class="nav-text">按值传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按引用传递"><span class="nav-number">2.2.</span> <span class="nav-text">按引用传递</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -357,7 +358,7 @@
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

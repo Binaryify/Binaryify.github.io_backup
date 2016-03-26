@@ -42,7 +42,7 @@
 <meta name="description" content="命令模式在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。
 模式作用:
 将函数的封装,请求,调用结合为一体
-调用具体的函数解耦命令对">
+调用具体的函数解耦命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之命令模式">
 <meta property="og:url" content="http://yoursite.com/2015/10/25/设计模式之命令模式/index.html">
@@ -50,15 +50,16 @@
 <meta property="og:description" content="命令模式在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。
 模式作用:
 将函数的封装,请求,调用结合为一体
-调用具体的函数解耦命令对">
+调用具体的函数解耦命令">
 <meta property="og:image" content="http://zhuangtongfa.github.io/images/weixin9.jpg">
-<meta property="og:updated_time" content="2015-11-02T08:55:47.150Z">
+<meta property="og:updated_time" content="2015-11-02T08:55:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之命令模式">
 <meta name="twitter:description" content="命令模式在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。
 模式作用:
 将函数的封装,请求,调用结合为一体
-调用具体的函数解耦命令对">
+调用具体的函数解耦命令">
+<meta name="twitter:image" content="http://zhuangtongfa.github.io/images/weixin9.jpg">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -206,17 +207,17 @@
 
       
         <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/weixin9.jpg" alt=""></p>
-<h1 id="命令模式">命令模式</h1><p>在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。</p>
-<h2 id="模式作用:">模式作用:</h2><ol>
+<h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。</p>
+<h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>将函数的封装,请求,调用结合为一体</li>
 <li>调用具体的函数解耦命令对象与接收对象</li>
 <li>提高程序模块化的灵活性</li>
 </ol>
-<h2 id="注意事项:">注意事项:</h2><ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h2><ol>
 <li>不需要接口一致,直接调用函数即可,以免造成浪费<a id="more"></a>
 </li>
 </ol>
-<h1 id="例子:">例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lian=&#123;&#125;;</span><br><span class="line">lian.paobing=<span class="function"><span class="keyword">function</span>(<span class="params">pao_num</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(pao_num+<span class="string">"炮"</span>+<span class="string">"开始战斗"</span>);</span><br><span class="line">&#125;</span><br><span class="line">lian.bubing=<span class="function"><span class="keyword">function</span>(<span class="params">bubing_num</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(bubing_num+<span class="string">"人"</span>+<span class="string">"开始战斗"</span>)</span><br><span class="line">&#125;</span><br><span class="line">lian.lianzhang=<span class="function"><span class="keyword">function</span>(<span class="params">mingling</span>)</span>&#123;</span><br><span class="line">	lian[mingling.type](mingling.num)</span><br><span class="line">&#125;</span><br><span class="line">lian.lianzhang(&#123;</span><br><span class="line">	type:<span class="string">"paobing"</span>,</span><br><span class="line">	num:<span class="string">"100"</span></span><br><span class="line">&#125;)</span><br><span class="line">lian.lianzhang(&#123;</span><br><span class="line">	type:<span class="string">"bubing"</span>,</span><br><span class="line">	num:<span class="string">"50"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lian=&#123;&#125;;</span><br><span class="line">lian.paobing=<span class="function"><span class="keyword">function</span>(<span class="params">pao_num</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(pao_num+<span class="string">"炮"</span>+<span class="string">"开始战斗"</span>);</span><br><span class="line">&#125;</span><br><span class="line">lian.bubing=<span class="function"><span class="keyword">function</span>(<span class="params">bubing_num</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(bubing_num+<span class="string">"人"</span>+<span class="string">"开始战斗"</span>)</span><br><span class="line">&#125;</span><br><span class="line">lian.lianzhang=<span class="function"><span class="keyword">function</span>(<span class="params">mingling</span>)</span>&#123;</span><br><span class="line">	lian[mingling.type](mingling.num)</span><br><span class="line">&#125;</span><br><span class="line">lian.lianzhang(&#123;</span><br><span class="line">	type:<span class="string">"paobing"</span>,</span><br><span class="line">	num:<span class="string">"100"</span></span><br><span class="line">&#125;)</span><br><span class="line">lian.lianzhang(&#123;</span><br><span class="line">	type:<span class="string">"bubing"</span>,</span><br><span class="line">	num:<span class="string">"50"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -236,7 +237,7 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/26/设计模式之外观模式/" rel="prev">设计模式之外观模式</a>
+              <a href="/2015/10/26/test/" rel="prev">设计模式之外观模式</a>
             
           </div>
 
@@ -304,7 +305,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -346,7 +347,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令模式"><span class="nav-number">1.</span> <span class="nav-text">命令模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令模式"><span class="nav-number">1.</span> <span class="nav-text">命令模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -363,7 +364,7 @@
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

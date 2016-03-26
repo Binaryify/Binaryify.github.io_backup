@@ -43,7 +43,7 @@
 模式作用:
 使用一个已经存在的对象,但其方法与接口不符合你的要求
 创建一个可复用的对象,该对象可以与其他不相关或不可见的对象协同工作
-使用一个已经存在的一个或多个对象,但是不能进行继承已匹配它">
+使用一个已经存在的一个或多个对象,但是不能进行继承已匹配">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之适配器模式">
 <meta property="og:url" content="http://yoursite.com/2015/10/26/设计模式之适配器模式/index.html">
@@ -52,16 +52,17 @@
 模式作用:
 使用一个已经存在的对象,但其方法与接口不符合你的要求
 创建一个可复用的对象,该对象可以与其他不相关或不可见的对象协同工作
-使用一个已经存在的一个或多个对象,但是不能进行继承已匹配它">
+使用一个已经存在的一个或多个对象,但是不能进行继承已匹配">
 <meta property="og:image" content="http://zhuangtongfa.github.io/images/封面.jpg">
-<meta property="og:updated_time" content="2015-11-02T08:58:34.620Z">
+<meta property="og:updated_time" content="2015-11-02T08:58:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之适配器模式">
 <meta name="twitter:description" content="适配器模式在计算机编程中，适配器模式（有时候也称包装样式或者包装）将一个类的接口适配成用户所期待的。一个适配允许通常因为接口不兼容而不能在一起工作的类工作在一起，做法是将类自己的接口包裹在一个已存在的类中。
 模式作用:
 使用一个已经存在的对象,但其方法与接口不符合你的要求
 创建一个可复用的对象,该对象可以与其他不相关或不可见的对象协同工作
-使用一个已经存在的一个或多个对象,但是不能进行继承已匹配它">
+使用一个已经存在的一个或多个对象,但是不能进行继承已匹配">
+<meta name="twitter:image" content="http://zhuangtongfa.github.io/images/封面.jpg">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -209,17 +210,17 @@
 
       
         <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/封面.jpg" alt=""></p>
-<h1 id="适配器模式">适配器模式</h1><p>在计算机编程中，适配器模式（有时候也称包装样式或者包装）将一个类的接口适配成用户所期待的。一个适配允许通常因为接口不兼容而不能在一起工作的类工作在一起，做法是将类自己的接口包裹在一个已存在的类中。</p>
-<h2 id="模式作用:">模式作用:</h2><ol>
+<h1 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h1><p>在计算机编程中，适配器模式（有时候也称包装样式或者包装）将一个类的接口适配成用户所期待的。一个适配允许通常因为接口不兼容而不能在一起工作的类工作在一起，做法是将类自己的接口包裹在一个已存在的类中。</p>
+<h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>使用一个已经存在的对象,但其方法与接口不符合你的要求</li>
 <li>创建一个可复用的对象,该对象可以与其他不相关或不可见的对象协同工作</li>
 <li>使用一个已经存在的一个或多个对象,但是不能进行继承已匹配它的接口</li>
 </ol>
-<h2 id="注意事项:">注意事项:</h2><ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h2><ol>
 <li>与代理模式的区别,代理模式是不改变原接口,适配模式是原接口不符合规范<a id="more"></a>
 </li>
 </ol>
-<h1 id="例子:">例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pp</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.test=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"test"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pp.prototype.gogo=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"gogo"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shipeiqi</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> s=<span class="keyword">new</span> pp();</span><br><span class="line">	<span class="keyword">var</span> aa=&#123;</span><br><span class="line">		test:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			s.test()</span><br><span class="line">		&#125;,</span><br><span class="line">		gogo:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			s.gogo()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> aa;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> aa=shipeiqi();</span><br><span class="line">aa.test(); <span class="comment">//test</span></span><br></pre></td></tr></table></figure>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pp</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.test=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"test"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pp.prototype.gogo=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"gogo"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shipeiqi</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> s=<span class="keyword">new</span> pp();</span><br><span class="line">	<span class="keyword">var</span> aa=&#123;</span><br><span class="line">		test:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			s.test()</span><br><span class="line">		&#125;,</span><br><span class="line">		gogo:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			s.gogo()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> aa;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> aa=shipeiqi();</span><br><span class="line">aa.test(); <span class="comment">//test</span></span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -307,7 +308,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -349,7 +350,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#适配器模式"><span class="nav-number">1.</span> <span class="nav-text">适配器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#适配器模式"><span class="nav-number">1.</span> <span class="nav-text">适配器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -366,7 +367,7 @@
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

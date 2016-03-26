@@ -46,7 +46,7 @@
 单独定义算法类，也方便了单元测试。
 
 注意事项:
-不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就可">
+不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之策略模式">
 <meta property="og:url" content="http://yoursite.com/2015/10/26/设计模式之策略模式/index.html">
@@ -58,9 +58,9 @@
 单独定义算法类，也方便了单元测试。
 
 注意事项:
-不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就可">
+不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就">
 <meta property="og:image" content="http://zhuangtongfa.github.io/images/ElectreeMiniVivienMuller1.jpg">
-<meta property="og:updated_time" content="2015-11-02T08:57:08.857Z">
+<meta property="og:updated_time" content="2015-11-02T08:57:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之策略模式">
 <meta name="twitter:description" content="策略模式策略模式定义了算法家族,分别封装起来,让他们之间可以相互替换,此模式让方法的变化不会影响到使用算法的客户
@@ -70,7 +70,8 @@
 单独定义算法类，也方便了单元测试。
 
 注意事项:
-不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就可">
+不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就">
+<meta name="twitter:image" content="http://zhuangtongfa.github.io/images/ElectreeMiniVivienMuller1.jpg">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -218,17 +219,17 @@
 
       
         <span itemprop="articleBody"><p><img src="http://zhuangtongfa.github.io/images/ElectreeMiniVivienMuller1.jpg" alt=""></p>
-<h1 id="策略模式">策略模式</h1><p>策略模式定义了算法家族,分别封装起来,让他们之间可以相互替换,此模式让方法的变化不会影响到使用算法的客户</p>
-<h2 id="模式作用:">模式作用:</h2><ol>
+<h1 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h1><p>策略模式定义了算法家族,分别封装起来,让他们之间可以相互替换,此模式让方法的变化不会影响到使用算法的客户</p>
+<h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>所有的这些算法都是做相同的事情，只是实现不同。</li>
 <li>以相同的方式调用所有的方法，减少了各种算法类与使用算法类之间的耦合。</li>
 <li>单独定义算法类，也方便了单元测试。</li>
 </ol>
-<h2 id="注意事项:">注意事项:</h2><ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h2><ol>
 <li>不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就可以考虑是要策略模式来处理各种变化。</li>
 </ol>
 <a id="more"></a>
-<h1 id="例子:">例子:</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span>策略模式<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"input"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="keyword">var</span> $input=$(<span class="string">'#input'</span>);</span><br><span class="line"><span class="keyword">var</span> check=&#123;</span><br><span class="line">  isEmpty:<span class="function"><span class="keyword">function</span>(<span class="params">argument</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//逻辑代码</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  isTel:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//逻辑代码</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ise=check.isEmpty($input.val());</span><br><span class="line"><span class="keyword">var</span> isTel=check.isTel($input.val());</span><br><span class="line"><span class="built_in">console</span>.log(ise);<span class="comment">//false;</span></span><br><span class="line"><span class="built_in">console</span>.log(isTel);<span class="comment">//true</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>策略模式<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"input"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="keyword">var</span> $input=$(<span class="string">'#input'</span>);</span><br><span class="line"><span class="keyword">var</span> check=&#123;</span><br><span class="line">  isEmpty:<span class="function"><span class="keyword">function</span>(<span class="params">argument</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//逻辑代码</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  isTel:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//逻辑代码</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ise=check.isEmpty($input.val());</span><br><span class="line"><span class="keyword">var</span> isTel=check.isTel($input.val());</span><br><span class="line"><span class="built_in">console</span>.log(ise);<span class="comment">//false;</span></span><br><span class="line"><span class="built_in">console</span>.log(isTel);<span class="comment">//true</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -316,7 +317,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -358,7 +359,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#策略模式"><span class="nav-number">1.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用:"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项:"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子:"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#策略模式"><span class="nav-number">1.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -375,7 +376,7 @@
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>
