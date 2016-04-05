@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="zhuangtongfa" />
+  <meta name="keywords" content="," />
 
 
 
@@ -39,15 +39,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="种一棵树最好的时间是十年前,其次是现在">
+<meta name="description" content="有时候我们给div宽度设为百分比,但是同时又想高度也跟宽度一样,怎么办呢?其实可以利用伪元素和padding-bottom属性来解决">
+<meta name="keywords">
 <meta property="og:type" content="website">
-<meta property="og:title" content="阿发">
-<meta property="og:url" content="http://yoursite.com/archives/page/5/index.html">
+<meta property="og:title" content="div宽度按屏幕比例,让高度自适应和宽度相同非js解决方案">
+<meta property="og:url" content="http://yoursite.com/老博文/div宽度按屏幕比例-让高度自适应和宽度相同非js解决方案.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="种一棵树最好的时间是十年前,其次是现在">
+<meta property="og:description" content="有时候我们给div宽度设为百分比,但是同时又想高度也跟宽度一样,怎么办呢?其实可以利用伪元素和padding-bottom属性来解决">
+<meta property="og:updated_time" content="2015-11-02T09:18:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿发">
-<meta name="twitter:description" content="种一棵树最好的时间是十年前,其次是现在">
+<meta name="twitter:title" content="div宽度按屏幕比例,让高度自适应和宽度相同非js解决方案">
+<meta name="twitter:description" content="有时候我们给div宽度设为百分比,但是同时又想高度也跟宽度一样,怎么办呢?其实可以利用伪元素和padding-bottom属性来解决">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +59,13 @@
   };
 </script>
 
-  <title> 归档 | 阿发 </title>
+  <title>
+  
+
+  
+    div宽度按屏幕比例,让高度自适应和宽度相同非js解决方案 | 阿发
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -85,7 +93,7 @@
 
 
 
-  <div class="container one-column  page-archive ">
+  <div class="container one-column ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -154,67 +162,23 @@
       <div class="main-inner">
         <div id="content" class="content"> 
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 41 篇日志。 继续努力。
-    </span>
+  <div id="posts" class="posts-expand">
+    
+    
+      <p>有时候我们给div宽度设为百分比,但是同时又想高度也跟宽度一样,怎么办呢?其实可以利用伪元素和padding-bottom属性来解决<br><a id="more"></a><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">20%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">    <span class="attribute">padding-bottom</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>主要用到了padding-bottom 这个属性<br>设置padding-bottom值来计算div的纵横比例。如果宽高比是4:3，设置padding-bottom值为75%；如果是1:1,则为100%;</p>
 
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/05/18/表单按钮id问题/" itemprop="url">
-              <span itemprop="name">表单按钮id问题</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2015-05-18T10:35:28.000Z" itemprop="dateCreated" content="2015-05-18"> 05-18 </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo;</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
-
+  </div>
 
  </div>
 
         
 
+        
+          <div class="comments" id="comments">
+            
+          </div>
         
       </div>
 
@@ -242,7 +206,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -320,12 +284,6 @@
   
   
   
-    <script type="text/javascript">
-      postMotionOptions = {stagger: 100, drag: true};
-    </script>
-  
-
-  
     
     
 
@@ -353,12 +311,6 @@
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
 
   <script type="text/javascript">
     $(document).ready(function () {

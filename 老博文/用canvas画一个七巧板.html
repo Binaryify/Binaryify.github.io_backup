@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="zhuangtongfa" />
+  <meta name="keywords" content=",,," />
 
 
 
@@ -39,15 +39,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="种一棵树最好的时间是十年前,其次是现在">
+<meta name="description" content="demo 戳我首先定义一个数组来储存七巧板的路径">
+<meta name="keywords">
 <meta property="og:type" content="website">
-<meta property="og:title" content="阿发">
-<meta property="og:url" content="http://yoursite.com/tags/3D/index.html">
+<meta property="og:title" content="用canvas画一个七巧板">
+<meta property="og:url" content="http://yoursite.com/老博文/用canvas画一个七巧板.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="种一棵树最好的时间是十年前,其次是现在">
+<meta property="og:description" content="demo 戳我首先定义一个数组来储存七巧板的路径">
+<meta property="og:image" content="http://zhuangtongfa.gitcafe.io/demo/image/%E4%B8%83%E5%B7%A7%E6%9D%BF/1.png">
+<meta property="og:updated_time" content="2016-04-05T15:14:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿发">
-<meta name="twitter:description" content="种一棵树最好的时间是十年前,其次是现在">
+<meta name="twitter:title" content="用canvas画一个七巧板">
+<meta name="twitter:description" content="demo 戳我首先定义一个数组来储存七巧板的路径">
+<meta name="twitter:image" content="http://zhuangtongfa.gitcafe.io/demo/image/%E4%B8%83%E5%B7%A7%E6%9D%BF/1.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +61,13 @@
   };
 </script>
 
-  <title> 标签: 3D | 阿发 </title>
+  <title>
+  
+
+  
+    用canvas画一个七巧板 | 阿发
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,44 +164,24 @@
       <div class="main-inner">
         <div id="content" class="content"> 
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        3D
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/07/24/3D立方体的实现/" itemprop="url">
-              <span itemprop="name">3D立方体的实现</span>
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" datetime="2015-07-24T14:25:53.000Z" itemprop="dateCreated" content="2015-07-24"> 07-24 </time>
-      </div>
-
-    </header>
-  </article>
-
+    
+      <p><img src="http://zhuangtongfa.gitcafe.io/demo/image/%E4%B8%83%E5%B7%A7%E6%9D%BF/1.png" alt="七巧板"><br><a href="http://zhuangtongfa.gitcafe.io/demo/canvas/%E4%B8%83%E5%B7%A7%E6%9D%BF.html" target="_blank" rel="external">demo 戳我</a><br>首先定义一个数组来储存七巧板的路径<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tangram=[</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">0</span>,y:<span class="number">0</span>&#125;,&#123;x:<span class="number">800</span>,y:<span class="number">0</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">400</span>&#125;],color:<span class="string">"green"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">0</span>,y:<span class="number">0</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">400</span>&#125;,&#123;x:<span class="number">0</span>,y:<span class="number">800</span>&#125;],color:<span class="string">"red"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">800</span>,y:<span class="number">0</span>&#125;,&#123;x:<span class="number">800</span>,y:<span class="number">400</span>&#125;,&#123;x:<span class="number">600</span>,y:<span class="number">600</span>&#125;,&#123;x:<span class="number">600</span>,y:<span class="number">200</span>&#125;],color:<span class="string">"yellow"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">600</span>,y:<span class="number">200</span>&#125;,&#123;x:<span class="number">600</span>,y:<span class="number">600</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">400</span>&#125;],color:<span class="string">"blue"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">400</span>,y:<span class="number">400</span>&#125;,&#123;x:<span class="number">600</span>,y:<span class="number">600</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">800</span>&#125;,&#123;x:<span class="number">200</span>,y:<span class="number">600</span>&#125;],color:<span class="string">"pink"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">200</span>,y:<span class="number">600</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">800</span>&#125;,&#123;x:<span class="number">0</span>,y:<span class="number">800</span>&#125;],color:<span class="string">"black"</span>&#125;,</span><br><span class="line">      &#123;p:[&#123;x:<span class="number">800</span>,y:<span class="number">400</span>&#125;,&#123;x:<span class="number">800</span>,y:<span class="number">800</span>&#125;,&#123;x:<span class="number">400</span>,y:<span class="number">800</span>&#125;],color:<span class="string">"gray"</span>&#125;</span><br><span class="line">      ];</span><br></pre></td></tr></table></figure></p>
+<p>接下来是循环遍历tangram,调用draw方法,传入tangram[i]和context<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;tangram.length;i++)&#123;</span><br><span class="line">      draw(tangram[i],context);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>声明draw方法,每次循环都找到七巧板的对应路径,用fill()画出来<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params">piece, cxt</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">      cxt.beginPath();</span><br><span class="line"></span><br><span class="line">      cxt.moveTo(piece.p[<span class="number">0</span>].x, piece.p[<span class="number">0</span>].y);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; piece.p.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">        cxt.lineTo(piece.p[i].x, piece.p[i].y);</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      cxt.fillStyle = piece.color;</span><br><span class="line"></span><br><span class="line">      cxt.fill();</span><br><span class="line"></span><br><span class="line">      cxt.closePath();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 
     
   </div>
 
-  
  </div>
 
         
 
+        
+          <div class="comments" id="comments">
+            
+          </div>
         
       </div>
 
@@ -219,7 +209,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -296,12 +286,6 @@
 
   
   
-  
-    <script type="text/javascript">
-      postMotionOptions = {stagger: 100, drag: true};
-    </script>
-  
-
   
     
     
