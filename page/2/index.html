@@ -199,7 +199,7 @@
 
       
         
-          <p><img src="http://zhuangtongfa.github.io/images/banner21.jpg" alt=""></p>
+          <p><img src="http://binaryify.github.io/images/banner21.jpg" alt=""></p>
 <h1 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h1><p>原型模式(prototype)是指原型实例指向对象的种类,并且通过拷贝这些原型创建新的对象</p>
 <h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>原型对象本身就是有效地利用了每个构造器创建的对象</li>
@@ -272,7 +272,7 @@
 
       
         
-          <p><img src="http://zhuangtongfa.github.io/images/封面.jpg" alt=""></p>
+          <p><img src="http://binaryify.github.io/images/封面.jpg" alt=""></p>
 <h1 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h1><p>在计算机编程中，适配器模式（有时候也称包装样式或者包装）将一个类的接口适配成用户所期待的。一个适配允许通常因为接口不兼容而不能在一起工作的类工作在一起，做法是将类自己的接口包裹在一个已存在的类中。</p>
 <h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>使用一个已经存在的对象,但其方法与接口不符合你的要求</li>
@@ -346,7 +346,7 @@
 
       
         
-          <p><img src="http://zhuangtongfa.github.io/images/封面图.jpg" alt=""></p>
+          <p><img src="http://binaryify.github.io/images/封面图.jpg" alt=""></p>
 <h1 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h1><p>迭代器模式（Iterator），提供一种方法顺序访问一个聚合对象中的各种元素，而又不暴露该对象的内部表示。</p>
 <h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>为遍历不同的集合结构提供一个统一的接口,从而支持同样的算法在不同的集合结构上进行操作</li>
@@ -357,6 +357,81 @@
 <li>遍历的同时更改迭代器所在的集合结构可能会导致问题(比如C#的foreach不允许修改item)
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/10/26/设计模式之迭代器模式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/10/26/设计模式之外观模式/" itemprop="url">
+                设计模式之外观模式
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-26T09:54:36+08:00" content="2015-10-26">
+            2015-10-26
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p><img src="http://binaryify.github.io/images/banner6.jpg" alt=""></p>
+<h1 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h1><p>外观模式（Facade），为子系统中的一组接口提供一个一致的界面，定义一个高层接口，这个接口使得这一子系统更加容易使用。</p>
+<h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
+<li>在设计初期,应该有意识地将不同的两个层分离,比如经典的三层结构</li>
+<li>在开发阶段,子系统往往因为不断的重构演化而变得越来越复杂,增加外观模式可以提供一个简单的接口,减少他们之间的依赖</li>
+<li>在维护一个遗留的大型系统时,为系统开发一个外观Facade类,为设计粗糙和高度复杂的遗留代码一共比较清晰的接口,让新系统和Facade类对象交互</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h2><ol>
+<li>外观模式被开发者连续使用时会产生一定的性能问题,因为每次调用时都要检测功能的可用性(PS:可用函数的惰性加载来解决)</li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/26/设计模式之外观模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -461,81 +536,6 @@
           
           
             
-              <a class="post-title-link" href="/2015/10/26/设计模式之外观模式/" itemprop="url">
-                设计模式之外观模式
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-26T09:54:36+08:00" content="2015-10-26">
-            2015-10-26
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><img src="http://zhuangtongfa.github.io/images/banner6.jpg" alt=""></p>
-<h1 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h1><p>外观模式（Facade），为子系统中的一组接口提供一个一致的界面，定义一个高层接口，这个接口使得这一子系统更加容易使用。</p>
-<h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
-<li>在设计初期,应该有意识地将不同的两个层分离,比如经典的三层结构</li>
-<li>在开发阶段,子系统往往因为不断的重构演化而变得越来越复杂,增加外观模式可以提供一个简单的接口,减少他们之间的依赖</li>
-<li>在维护一个遗留的大型系统时,为系统开发一个外观Facade类,为设计粗糙和高度复杂的遗留代码一共比较清晰的接口,让新系统和Facade类对象交互</li>
-</ol>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h2><ol>
-<li>外观模式被开发者连续使用时会产生一定的性能问题,因为每次调用时都要检测功能的可用性(PS:可用函数的惰性加载来解决)</li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/26/设计模式之外观模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2015/10/25/设计模式之单例模式/" itemprop="url">
                 设计模式之单例模式
               </a>
@@ -567,7 +567,7 @@
 
       
         
-          <p><img src="http://zhuangtongfa.github.io/images/cover.jpg" alt=""></p>
+          <p><img src="http://binaryify.github.io/images/cover.jpg" alt=""></p>
 <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>单例模式是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例类的特殊类。通过单例模式可以保证系统中一个类只有一个实例而且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。如果希望在系统中某个类的对象只能存在一个，单例模式是最好的解决方案。</p>
 <h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>模块间通信</li>
@@ -641,7 +641,7 @@
 
       
         
-          <p><img src="http://zhuangtongfa.github.io/images/weixin9.jpg" alt=""></p>
+          <p><img src="http://binaryify.github.io/images/weixin9.jpg" alt=""></p>
 <h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。</p>
 <h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>将函数的封装,请求,调用结合为一体</li>
@@ -715,7 +715,7 @@
 
       
         
-          <p><img src="http://zhuangtongfa.github.io/images/weixin2.jpg" alt=""></p>
+          <p><img src="http://binaryify.github.io/images/weixin2.jpg" alt=""></p>
 <h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><p>工厂模式是我们最常用的实例化对象模式了，是用工厂方法代替new操作的一种模式。著名的Jive论坛 ,就大量使用了工厂模式，工厂模式在Java程序系统可以说是随处可见。因为工厂模式就相当于创建实例对象的new，我们经常要根据类Class生成实例对象，如var a=new A() 工厂模式也是用来创建实例对象的，所以以后new时就要多个心眼，是否可以考虑使用工厂模式，虽然这样做，可能多做一些工作，但会给你系统带来更大的可扩展性和尽量少的修改量</p>
 <h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用"></a>模式作用</h2><ol>
 <li>对象的构建十分复杂</li>
@@ -790,7 +790,7 @@
 
       
         
-          <p><img src="http://zhuangtongfa.github.io/images/bird.jpg" alt=""></p>
+          <p><img src="http://binaryify.github.io/images/bird.jpg" alt=""></p>
 <h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式:"></a>代理模式:</h1><p>代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。</p>
 <h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>远程代理(一个对象将不同空间的对象进行局部代理)</li>
@@ -865,7 +865,7 @@
 
       
         
-          <p><img src="http://zhuangtongfa.github.io/images/mouse.jpg" alt=""></p>
+          <p><img src="http://binaryify.github.io/images/mouse.jpg" alt=""></p>
 <h1 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h1><p>观察者模式（Observer）完美的将观察者和被观察的对象分离开。举个例子，用户界面可以作为一个观察者，业务数据是被观察者，用户界面观察业务数据的变化，发现数据变化后，就显示在界面上。面向对象设计的一个原则是：系统中的每个类将重点放在某一个功能上，而不是其他方面。一个对象只做一件事情，并且将他做好。观察者模式在模块之间划定了清晰的界限，提高了应用程序的可维护性和重用性。<br>观察者设计模式定义了对象间的一种一对多的依赖关系，以便一个对象的状态发生变化时，所有依赖于它的对象都得到通知并自动刷新。</p>
 <h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
 <li>支持简单的广播通信,自动通知所有已经订阅过的对象</li>
