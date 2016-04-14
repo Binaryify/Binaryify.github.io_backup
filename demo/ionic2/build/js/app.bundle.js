@@ -26,7 +26,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var MyApp = exports.MyApp = (_dec = (0, _ionicAngular.App)({
   template: '<ion-nav [root]="rootPage"></ion-nav>',
   config: {
-    mode: 'ios' } }), _dec(_class = function () {
+    mode: 'ios',
+    backButtonText: "返回" } }), _dec(_class = function () {
   _createClass(MyApp, null, [{
     key: 'parameters',
     get: function get() {
