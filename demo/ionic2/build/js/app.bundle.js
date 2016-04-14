@@ -20,10 +20,13 @@ var _tabs = require('./pages/tabs/tabs');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+// tabbarPlacement: 'bottom',
+// iconMode: 'md',
 // http://ionicframework.com/docs/v2/api/config/Config/
 var MyApp = exports.MyApp = (_dec = (0, _ionicAngular.App)({
   template: '<ion-nav [root]="rootPage"></ion-nav>',
-  config: {} }), _dec(_class = function () {
+  config: {
+    mode: 'ios' } }), _dec(_class = function () {
   _createClass(MyApp, null, [{
     key: 'parameters',
     get: function get() {
@@ -79,6 +82,7 @@ var Detail = exports.Detail = (_dec = (0, _ionicAngular.Page)({
     this.params = params;
     console.log(this.params.data);
     console.log(this.params.data.paramsData);
+    this.tabBarElement = document.querySelector('#tabs ion-tabbar-section');
     this.init();
   }
 
@@ -86,6 +90,16 @@ var Detail = exports.Detail = (_dec = (0, _ionicAngular.Page)({
     key: 'init',
     value: function init() {
       console.log('init...');
+    }
+  }, {
+    key: 'onPageDidEnter',
+    value: function onPageDidEnter() {
+      this.tabBarElement.style.display = 'none';
+    }
+  }, {
+    key: 'onPageWillLeave',
+    value: function onPageWillLeave() {
+      this.tabBarElement.style.display = 'block';
     }
   }]);
 

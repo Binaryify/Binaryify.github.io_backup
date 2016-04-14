@@ -39,30 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="外观模式外观模式（Facade），为子系统中的一组接口提供一个一致的界面，定义一个高层接口，这个接口使得这一子系统更加容易使用。
-模式作用:
-在设计初期,应该有意识地将不同的两个层分离,比如经典的三层结构
-在开发阶段,子系统往往因为不断的重构演化而变得越来越复杂,增加外观模式可以提供一个简单的接口,减少他们之间的依赖
-在维护一个遗留的大型系统时,为系统开发一个外观Facade类,为设计粗糙和高度">
+<meta name="description" content="正则表达式正则表达式（ Regular Expression ， regex ）是一个工具。向所有其他工具一样，正则表达式是用来解决一类特定问题的。理解正则表达式以及其可以做什么的最好方式就是理解它们可以解决什么问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之外观模式">
-<meta property="og:url" content="http://yoursite.com/2015/10/26/设计模式之外观模式/index.html">
+<meta property="og:title" content="阿发">
+<meta property="og:url" content="http://yoursite.com/2016/04/13/写个正则能有多难/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="外观模式外观模式（Facade），为子系统中的一组接口提供一个一致的界面，定义一个高层接口，这个接口使得这一子系统更加容易使用。
-模式作用:
-在设计初期,应该有意识地将不同的两个层分离,比如经典的三层结构
-在开发阶段,子系统往往因为不断的重构演化而变得越来越复杂,增加外观模式可以提供一个简单的接口,减少他们之间的依赖
-在维护一个遗留的大型系统时,为系统开发一个外观Facade类,为设计粗糙和高度">
-<meta property="og:image" content="http://binaryify.github.io/images/banner6.jpg">
-<meta property="og:updated_time" content="2016-04-05T15:06:34.000Z">
+<meta property="og:description" content="正则表达式正则表达式（ Regular Expression ， regex ）是一个工具。向所有其他工具一样，正则表达式是用来解决一类特定问题的。理解正则表达式以及其可以做什么的最好方式就是理解它们可以解决什么问题。">
+<meta property="og:updated_time" content="2016-04-13T03:31:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之外观模式">
-<meta name="twitter:description" content="外观模式外观模式（Facade），为子系统中的一组接口提供一个一致的界面，定义一个高层接口，这个接口使得这一子系统更加容易使用。
-模式作用:
-在设计初期,应该有意识地将不同的两个层分离,比如经典的三层结构
-在开发阶段,子系统往往因为不断的重构演化而变得越来越复杂,增加外观模式可以提供一个简单的接口,减少他们之间的依赖
-在维护一个遗留的大型系统时,为系统开发一个外观Facade类,为设计粗糙和高度">
-<meta name="twitter:image" content="http://binaryify.github.io/images/banner6.jpg">
+<meta name="twitter:title" content="阿发">
+<meta name="twitter:description" content="正则表达式正则表达式（ Regular Expression ， regex ）是一个工具。向所有其他工具一样，正则表达式是用来解决一类特定问题的。理解正则表达式以及其可以做什么的最好方式就是理解它们可以解决什么问题。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -72,7 +58,7 @@
   };
 </script>
 
-  <title> 设计模式之外观模式 | 阿发 </title>
+  <title>  | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -181,7 +167,7 @@
           
           
             
-              设计模式之外观模式
+              
             
           
         </h1>
@@ -190,8 +176,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-10-26T09:54:36+08:00" content="2015-10-26">
-            2015-10-26
+          <time itemprop="dateCreated" datetime="2016-04-13T11:20:26+08:00" content="2016-04-13">
+            2016-04-13
           </time>
         </span>
 
@@ -209,18 +195,7 @@
       
 
       
-        <span itemprop="articleBody"><p><img src="http://binaryify.github.io/images/banner6.jpg" alt=""></p>
-<h1 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h1><p>外观模式（Facade），为子系统中的一组接口提供一个一致的界面，定义一个高层接口，这个接口使得这一子系统更加容易使用。</p>
-<h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
-<li>在设计初期,应该有意识地将不同的两个层分离,比如经典的三层结构</li>
-<li>在开发阶段,子系统往往因为不断的重构演化而变得越来越复杂,增加外观模式可以提供一个简单的接口,减少他们之间的依赖</li>
-<li>在维护一个遗留的大型系统时,为系统开发一个外观Facade类,为设计粗糙和高度复杂的遗留代码一共比较清晰的接口,让新系统和Facade类对象交互</li>
-</ol>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h2><ol>
-<li>外观模式被开发者连续使用时会产生一定的性能问题,因为每次调用时都要检测功能的可用性(PS:可用函数的惰性加载来解决)</li>
-</ol>
-<a id="more"></a>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopEvent</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 同时阻止事件默认行为和时间冒泡</span></span><br><span class="line">    e.stopPropagation()</span><br><span class="line">    e.preventDefault()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// stopEvent本身就是外观</span></span><br><span class="line">$(<span class="string">'#btn'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">	stopEvent(e)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        <span itemprop="articleBody"><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>正则表达式（ Regular Expression ， regex ）是一个工具。向所有其他工具一样，正则表达式是用来解决一类特定问题的。理解正则表达式以及其可以做什么的最好方式就是理解它们可以解决什么问题。</p>
 </span>
       
     </div>
@@ -232,13 +207,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/26/设计模式之迭代器模式/" rel="prev">设计模式之迭代器模式</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/25/设计模式之单例模式/" rel="next">设计模式之单例模式</a>
+              <a href="/2016/03/26/梦断代码书摘与读后感/" rel="next">「梦断代码」书摘与读后感</a>
             
           </div>
         </div>
@@ -342,7 +315,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#外观模式"><span class="nav-number">1.</span> <span class="nav-text">外观模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模式作用"><span class="nav-number">1.1.</span> <span class="nav-text">模式作用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.2.</span> <span class="nav-text">注意事项:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.</span> <span class="nav-text">正则表达式</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
