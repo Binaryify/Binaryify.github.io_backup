@@ -92,8 +92,8 @@ var Detail = exports.Detail = (_dec = (0, _ionicAngular.Page)({
       console.log('init...');
     }
   }, {
-    key: 'onPageDidEnter',
-    value: function onPageDidEnter() {
+    key: 'onPageWillEnter',
+    value: function onPageWillEnter() {
       this.tabBarElement.style.display = 'none';
     }
   }, {
