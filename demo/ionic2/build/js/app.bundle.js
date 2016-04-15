@@ -197,19 +197,69 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Page2 = undefined;
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _dec, _class;
 
 var _ionicAngular = require('ionic-angular');
+
+var _core = require('angular2/core');
+
+var _http = require('angular2/http');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Page2 = exports.Page2 = (_dec = (0, _ionicAngular.Page)({
   templateUrl: 'build/pages/page2/page2.html'
-}), _dec(_class = function Page2() {
-  _classCallCheck(this, Page2);
-}) || _class);
+}), _dec(_class = function () {
+  _createClass(Page2, null, [{
+    key: 'parameters',
+    get: function get() {
+      return [[_http.Http]];
+    }
+  }]);
 
-},{"ionic-angular":341}],5:[function(require,module,exports){
+  function Page2(http) {
+    var _this = this;
+
+    _classCallCheck(this, Page2);
+
+    this.username = "Join";
+    console.log(http);
+    this.http = http;
+    setTimeout(function () {
+      return _this.init();
+    }, 3000);
+  }
+
+  _createClass(Page2, [{
+    key: 'init',
+    value: function init() {
+      var _this2 = this;
+
+      this.http.get('./test.json').subscribe(function (res) {
+        console.log(res.json());
+        _this2.username = res.json().test;
+      });
+    }
+  }, {
+    key: 'sub',
+    value: function sub() {
+      var data = JSON.stringify({
+        username: this.username
+      });
+      console.log(data);
+      this.http.post('http://jsonplaceholder.typicode.com/posts', data).subscribe(function (res) {
+        console.log(res.json());
+        alert("id:" + res.json().id);
+      });
+    }
+  }]);
+
+  return Page2;
+}()) || _class);
+
+},{"angular2/core":9,"angular2/http":10,"ionic-angular":341}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
