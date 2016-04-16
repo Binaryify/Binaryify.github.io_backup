@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ionic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link ios-href="build/css/app.ios.css" rel="stylesheet">
+  <link md-href="build/css/app.md.css" rel="stylesheet">
+  <link wp-href="build/css/app.wp.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- this Ionic's root component and where the app will load -->
+  <ion-app></ion-app>
+
+  <!-- cordova.js required for cordova apps -->
+  <script>
+function checkScript(o,fun){
+var scriptList=document.getElementsByTagName('script');
+var listLength=scriptList.length;
+var flag=false;
+for(var i=0;i<listLength;i++){
+  // console.log(1)
+  // console.log(scriptList[i].src);
+  // console.log(2)
+  if(scriptList[i].src=="http://localhost:8100/"+o){
+    // console.log("http://localhost:8100/build/js/"+o)
+    // console.log(111)
+    flag=true;
+  }
+}
+console.log(flag)
+if(!flag){
+  var script=document.createElement('script')
+  script.src=o;
+  document.body.appendChild(script)
+}
+fun()
+
+}
+  </script>
+
+  <script>
+    // var script=document.createElement('script');
+    // script.src="1.app.bundle.js"
+    // document.body.appendChild(script)
+    // var script2=document.createElement('script');
+    // script2.src="2.app.bundle.js"
+    // document.body.appendChild(script2)
+  </script>
+  <script src="cordova.js"></script>
+  <!-- Zone.js and Reflect-metadata  -->
+  <script src="build/js/angular2-polyfills.js"></script>
+  <!-- the bundle which is built from the app's source code -->
+  <script src="build/js/app.bundle.js"></script>
+  <!-- <script src="build/js/1.app.bundle.js"></script>
+  <script src="build/js/2.app.bundle.js"></script> -->
+</body>
+</html>
