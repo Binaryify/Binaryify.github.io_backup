@@ -43,8 +43,8 @@
   当然,也许还有其他的方式能够解决相同的问题.但通常,用一句正确的正则表达式很有可能就可以省略半屏幕的代码.
 为什么正则表达式很牛  假设我们要验证一个字符串是否为格式正确的手机号码.手机号码开头都是1,然后后面都是数字,然后长">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式书摘整理">
-<meta property="og:url" content="http://yoursite.com/2016/04/19/正则表达式书摘整理/index.html">
+<meta property="og:title" content="正则表达式整理">
+<meta property="og:url" content="http://yoursite.com/2016/04/19/正则表达式整理/index.html">
 <meta property="og:site_name" content="阿发">
 <meta property="og:description" content="为什么要学正则表达式  虽然很多web开发者在忽视正则表达式后,还可以顺利工作,但在javascript中还存在一些问题,如果不用正则表达式,是没办法进行很好的解决的.
   当然,也许还有其他的方式能够解决相同的问题.但通常,用一句正确的正则表达式很有可能就可以省略半屏幕的代码.
@@ -55,9 +55,9 @@
 <meta property="og:image" content="http://binaryify.github.io/images/regexp/e.png">
 <meta property="og:image" content="http://binaryify.github.io/images/regexp/f.png">
 <meta property="og:image" content="http://binaryify.github.io/images/regexp/g.png">
-<meta property="og:updated_time" content="2016-04-21T15:21:09.000Z">
+<meta property="og:updated_time" content="2016-04-21T15:23:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式书摘整理">
+<meta name="twitter:title" content="正则表达式整理">
 <meta name="twitter:description" content="为什么要学正则表达式  虽然很多web开发者在忽视正则表达式后,还可以顺利工作,但在javascript中还存在一些问题,如果不用正则表达式,是没办法进行很好的解决的.
   当然,也许还有其他的方式能够解决相同的问题.但通常,用一句正确的正则表达式很有可能就可以省略半屏幕的代码.
 为什么正则表达式很牛  假设我们要验证一个字符串是否为格式正确的手机号码.手机号码开头都是1,然后后面都是数字,然后长">
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title> 正则表达式书摘整理 | 阿发 </title>
+  <title> 正则表达式整理 | 阿发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -180,7 +180,7 @@
           
           
             
-              正则表达式书摘整理
+              正则表达式整理
             
           
         </h1>
@@ -214,7 +214,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPhoneNumber</span>(<span class="params">candidate</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> candidate !== <span class="string">"string"</span> || candidate.length!=<span class="number">11</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;   <span class="comment">//过滤明显不符合条件的输入内容</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">isNaN</span>(candidate))&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">//过滤非纯数字的输入内容</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  虽然这段代码实现的很合理,检查了输入内容的类型和长度,但是对于一个简单的手机号码检查,看起来依然有太多的代码<br>  现在考虑这样一种方式</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPhoneNumber</span>(<span class="params">candidate</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^1[0-9]&#123;10&#125;$/</span>.test(candidate)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  除了函数体内的一些深奥的语法以外,这种方式看起来更简洁,更优雅,不是吗?<br>这就是正则表达式的威力,而且这只是它冰山的一角.如果语法看起来像键盘上爬行的蜥蜴的话,也不要担心.</p>
+<p>  除了函数体内的一些深奥的语法以外,这种方式看起来更简洁,更优雅,不是吗?<br>这就是正则表达式的威力,而且这只是它冰山的一角.如果语法看起来像键盘上爬行的蜥蜴的话,也不要担心.<br><a id="more"></a></p>
 <h1 id="正则表达式进阶"><a href="#正则表达式进阶" class="headerlink" title="正则表达式进阶"></a>正则表达式进阶</h1><p>  让我们开始对正则表达式进行深挖,要学习正则表达式,就先了解正则表达式出现的由来</p>
 <h2 id="正则表达式解释"><a href="#正则表达式解释" class="headerlink" title="正则表达式解释"></a>正则表达式解释</h2><p>  “正则表达式(regular expression)” 这个词愿与中世纪的数学,当时,一个名叫Stephen Kleene的数学家,使用了一个名为”正则集合”的数学符号描述自动计算模式.但这不会帮助我们了解任何关于正则表达式的内容,那么让我们把它简单化,正则表达式通常被称为一个模式(pattern),是一个用简单方式描述或者匹配一系列符合某个语法规则的字符串.表达式本身包含了允许定义这些模式的术语和操作符.我们很快就会看到这些术语和操作符.</p>
 <p>  在 javascript 中,与大多数其他对象类型一样,有两种方式可以创建正则表达式:通过正则表达式字面量,或者通过构造 RegExp 对象的实例.</p>
