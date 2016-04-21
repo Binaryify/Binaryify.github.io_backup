@@ -199,18 +199,221 @@
 
       
         
-          <h1 id="为什么要学正则表达式"><a href="#为什么要学正则表达式" class="headerlink" title="为什么要学正则表达式"></a>为什么要学正则表达式</h1><p>  虽然很多web开发者在忽视正则表达式后,还可以顺利工作,但在javascript中还存在一些问题,如果不用正则表达式,是没办法进行很好的解决的.</p>
+          <span itemprop="articleBody"><h1 id="为什么要学正则表达式"><a href="#为什么要学正则表达式" class="headerlink" title="为什么要学正则表达式"></a>为什么要学正则表达式</h1><p>  虽然很多web开发者在忽视正则表达式后,还可以顺利工作,但在javascript中还存在一些问题,如果不用正则表达式,是没办法进行很好的解决的.</p>
 <p>  当然,也许还有其他的方式能够解决相同的问题.但通常,用一句正确的正则表达式很有可能就可以省略半屏幕的代码.</p>
 <h1 id="为什么正则表达式很牛"><a href="#为什么正则表达式很牛" class="headerlink" title="为什么正则表达式很牛"></a>为什么正则表达式很牛</h1><p>  假设我们要验证一个字符串是否为格式正确的手机号码.手机号码开头都是1,然后后面都是数字,然后长度都为11位<br>  让我们创建一个函数,对一个输入内容进行验证</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPhoneNumber</span>(<span class="params">candidate</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> candidate !== <span class="string">"string"</span> || candidate.length!=<span class="number">11</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;   <span class="comment">//过滤明显不符合条件的输入内容</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">isNaN</span>(candidate))&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">//过滤非纯数字的输入内容</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  虽然这段代码实现的很合理,检查了输入内容的类型和长度,但是对于一个简单的手机号码检查,看起来依然有太多的代码<br>现在考虑这样一种方式</p>
+<p>  虽然这段代码实现的很合理,检查了输入内容的类型和长度,但是对于一个简单的手机号码检查,看起来依然有太多的代码<br>  现在考虑这样一种方式</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPhoneNumber</span>(<span class="params">candidate</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^1[0-9]&#123;10&#125;$/</span>.test(candidate)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  除了函数体内的一些深奥的语法以外,这种方式看起来更简洁,更优雅,不是吗?<br>这就是正则表达式的威力,而且这只是它冰山的一角.如果语法看起来像键盘上爬行的蜥蜴的话,也不要担心.<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/19/正则表达式书摘整理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<p>  除了函数体内的一些深奥的语法以外,这种方式看起来更简洁,更优雅,不是吗?<br>这就是正则表达式的威力,而且这只是它冰山的一角.如果语法看起来像键盘上爬行的蜥蜴的话,也不要担心.</p>
+<h1 id="正则表达式进阶"><a href="#正则表达式进阶" class="headerlink" title="正则表达式进阶"></a>正则表达式进阶</h1><p>  让我们开始对正则表达式进行深挖,要学习正则表达式,就先了解正则表达式出现的由来</p>
+<h2 id="正则表达式解释"><a href="#正则表达式解释" class="headerlink" title="正则表达式解释"></a>正则表达式解释</h2><p>  “正则表达式(regular expression)” 这个词愿与中世纪的数学,当时,一个名叫Stephen Kleene的数学家,使用了一个名为”正则集合”的数学符号描述自动计算模式.但这不会帮助我们了解任何关于正则表达式的内容,那么让我们把它简单化,正则表达式通常被称为一个模式(pattern),是一个用简单方式描述或者匹配一系列符合某个语法规则的字符串.表达式本身包含了允许定义这些模式的术语和操作符.我们很快就会看到这些术语和操作符.</p>
+<p>  在 javascript 中,与大多数其他对象类型一样,有两种方式可以创建正则表达式:通过正则表达式字面量,或者通过构造 RegExp 对象的实例.</p>
+<p>  例如,如果要创建一个正则表达式 (或简称为正则(regex)),用于精确匹配字符串 “test” ,可以使用正则字面量:  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/test/</span>;</span><br></pre></td></tr></table></figure>
+<p>  正斜杠可能看起来有点奇怪,但是就像字符串使用引号进行界定的一样,正则字面量是用正斜杠进行界定的.</p>
+<p>  或者,我们可以构造一个 RegExp 实例,将正则作为字符串传入:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern = <span class="keyword">new</span> RexExp(<span class="string">'test'</span>);</span><br></pre></td></tr></table></figure>
+<p>  这两种格式在pattern变量中创建的正则表达式都是一样的.</p>
+<p>  在开发过程中,如果正则是已知的,则优先选择字面量语法,而构造器方式则是用于在运行时,通过动态创建字符串来构建正则表达式.</p>
+<p>  字面量语法优先于用字符串构建正则表达式的其中一个原因是反斜杠字符在正则表达式中发挥重要的作用(很快就能看到).但由于反斜杠字符在普通字符串中也是一个转义字符,所以,如果要在字符串内表示反斜杠,我们就要使用 <code>\\</code> (两个反斜杠).这回让本来语法就很神秘的正则表达式变得更加怪异了.</p>
+<p> 除了表达本身,还有三个标志可以与正则表达式进行关联.</p>
+<ul>
+<li><code>i</code>  让正则表达式不区分大小写,所以<code>/test/i</code>不仅可以匹配  “test” ,还可以匹配 “Test” “TEST” “tEsT” 等.</li>
+</ul>
+<ul>
+<li><code>g</code>  匹配模式中的所有实例,而不是默认的只匹配第一次出现的结果</li>
+</ul>
+<ul>
+<li><p><code>m</code>  允许匹配多个行,比如可以匹配文本区元素(textarea)钟德志</p>
+<p>这些标志将附加到字面量尾部(例如: <code>/test/ig</code>) 或者作为 RegExp 构造器的第二个字符参数 (<code>new RegExp(&quot;test&quot;,&quot;ig&quot;)</code>) .   </p>
+</li>
+</ul>
+<h1 id="RegExp-对象方法"><a href="#RegExp-对象方法" class="headerlink" title="RegExp 对象方法"></a>RegExp 对象方法</h1><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compile</td>
+<td>编译正则表达式。</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>检索字符串中指定的值。返回找到的值，并确定其位置。</td>
+</tr>
+<tr>
+<td>test</td>
+<td>检索字符串中指定的值。返回 true 或 false。</td>
+</tr>
+</tbody>
+</table>
+<p>例子:</p>
+<p> <img src="http://binaryify.github.io/images/regexp/b.png" alt=""></p>
+<p>需要注意的是String对象也有个match方法,也可以检索目标字符串,用法和RegExp的exec方法类似,区别是</p>
+<p> <img src="http://binaryify.github.io/images/regexp/a.png" alt=""></p>
+<ol>
+<li><p>exec是正则表达式的方法，而不是字符串的方法，它的参数才是字符串</p>
+</li>
+<li><p>exec和match返回的都是数组,但是match是返回所有匹配的字符串合成的数组，但是正则表达式必须指定全局g属性才能返回所有匹配，不指定g属性则会返回一个只有一个元素的数组。exec永远返回与第一个匹配相关的信息，其返回数组包括第一个匹配的字串，所有分组的反向引用。  </p>
+</li>
+</ol>
+<p><a href="http://www.jb51.net/article/46374.htm" target="_blank" rel="external">参考资料:http://www.jb51.net/article/46374.htm</a></p>
+<p>   ​</p>
+<h1 id="术语与操作符"><a href="#术语与操作符" class="headerlink" title="术语与操作符"></a>术语与操作符</h1><p>  正则表达式,就像我们熟悉的大多数其他表达式一样,由术语和验证这些术语的操作符组成.在接下来的小节中,我们将了解这些术语和操作符,看看它们是如何用于表达模式的.</p>
+<h2 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h2><p>  如果一个字符不是特殊字符或操作符(后续会进行介绍),则表示该字符必须在表达式中出现.例如,在<code>/test/</code>正则中,有4个术语,它们表示这些字符必须在一个字符串中出现,才能匹配该模式.</p>
+<p>  一个接一个的字符,隐式表达了”后面跟着(followed by)”这样一个操作.所以,<code>/test/</code>的意思是说, “t” 后面跟着 “e”,”e” 后面跟着 “s”,”s” 后面又跟着 “t”.</p>
+<h2 id="匹配一类字符"><a href="#匹配一类字符" class="headerlink" title="匹配一类字符"></a>匹配一类字符</h2><p>  很多时候,我们并不像匹配一个特定的字符,而是想匹配一个有限字符集中的某一个字符.我们可以通过将字符集放到中括号内,来指定该字符集操作符(也被称为字符类(character class)操作符): <code>[abc]</code></p>
+<p>  上述示例,是说我们要匹配 “a” “b” “c” 中的任何一个字符.</p>
+<p>  有的时候,我们想要匹配一组有限字符集以外的字符.可以通过在中括号第一个开括号后面加一个插入符(^)来实现,比如:</p>
+<p><code>[^abc]</code></p>
+<p>  其意义将改变为:除了 “a” “b” 或 “c” 以外的任意字符.</p>
+<p>  在字符集操作方面,还有一个更加重要的变异操作: 指定一个范围. 例如,如果要匹配 “a” 和 “m” 之间的任何一个小写字母,我们可以这样写: <code>[abcdefghijklm]</code>但可以写成更加简洁的 <code>[a-m]</code></p>
+<p>  中横线表示从 “a” 到 “m” 之间的所有字符 (包含 a 和 m,按字典顺序)都在该字符集内.</p>
+<h2 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h2><p>  并不是所有的字符和其字符字面量都是等价的.当然,所有的字母和十进制数字字符都能代表自己,但是,我们很快就会发现.像$ 和点(.) 这样的特殊字符,表示的是他们自身以外的东西,或者表示为验证术语的操作符. 事实上,我们已经看到了如何用<code>[、]、-、^</code>字符表示它们自身以外的东西</p>
+<p>  如果我们需要匹配[、]、$、^或其他这样的特殊字符,该怎么办?在正则里,使用反斜杠可以对任意字符进行转义,让被转义字符作为字符本身进行匹配.所以,<code>\[</code>表示要匹配<code>[</code>字符.两个反斜杠(<code>\\</code>)则匹配一个反斜杠</p>
+<h2 id="匹配开始于匹配结束"><a href="#匹配开始于匹配结束" class="headerlink" title="匹配开始于匹配结束"></a>匹配开始于匹配结束</h2><p>  我们可能经常需要确保模式匹配一个字符串的开始,或者一个字符串的结束.插入符号(^),如果作为正则表达式的第一个字符,则表示要从字符串的开头进行匹配,这样<code>/^test/</code>就只能匹配以 “test” 开头的字符串了.(注意,这只是&amp;字符的一个重载,它还可以用于否定一个字符类集,比如  <code>/[^abc]/</code> 用于选择除了除了 “a” “b” 或 “c” 以外的任意字符)</p>
+<p>  类似的,美元符号$表示该模式必须出现在字符串的结尾:<code>/test$/</code>.</p>
+<p>  同时使用^和$则表明指定的模式必须包含整个候选字符串.</p>
+<h2 id="重复出现"><a href="#重复出现" class="headerlink" title="重复出现"></a>重复出现</h2><p>  如果要匹配连续的4个 “a” 字符,可以用<code>/aaaa/</code>来表示,但如果我们想匹配任意数量的相同字符串呢?</p>
+<p>  在重复选项上,正则表达式提供了很多方式.</p>
+<ul>
+<li>在一个字符后面加一个问号( ? ),可以定义为该字符是可选的(也就是,可以出现一次,或根本不出现)</li>
+<li>如果一个字符要出现一次或多次,可以使用加号( + ),例如<code>/t+est/</code>可以匹配”test”,”ttest”,”tttest”,而不能匹配”est”</li>
+<li>如果一个字符要出现零次或多次,可以使用星号( <em> ),例如`/t</em>est/`可以匹配”test”,”ttest”,”tttest”,以及”est”</li>
+<li>也可以在字符后面的花括号里指定一个数字来表示重复次数,例如,<code>/a{4}/</code>表示匹配含有连续四个”a”字符的字符串</li>
+<li>也可以在字符后面的花括号里指定两个数字(用逗号隔开)来表示重复次数区间,例如,<code>/a{4,10}/</code>表示匹配任何含有连续4个至10个 “a” 字符的字符串.</li>
+<li><p>次数区间的第二个值是可选的(但是要保留逗号),其表示一个开区间.例如,<code>/a{4,}/</code>表示匹配任何含有连续4个或多于4个 “a” 字符的字符串.</p>
+<p>这些重复操作符可以是贪婪的(greedy)或非贪婪的(nongreedy).默认情况下,它们是贪婪的:它们匹配所有的字符组合.在操作符后面加一个问号?字符(?操作符的一个重载),如 a+?,可以让该表达式变成非贪婪的:进行最小限度的匹配</p>
+<p>举个例子,如果我们对字符串 “aaa” 进行匹配,正则表达式 <code>/a+/</code>将匹配所有这三个字符,而非贪婪表达式<code>/a+?/</code> 则只匹配一个 “a” 字符,因为一个a字符就可以符合a+术语.</p>
+</li>
+</ul>
+<h2 id="预定义字符类"><a href="#预定义字符类" class="headerlink" title="预定义字符类"></a>预定义字符类</h2><p>  有一些我们想匹配的字符,是不可能用字面量字符来表示的(如像回车的控制字符),还有一些我们可能经常想匹配的字符类,比如小数位数或一组空白字符.正则表达式语法提供了很多表示这些字符或常用类的预定义术语,这样在正则表达式中,我们就可以使用这些控制字符进行匹配了,因此,我们不需要再去依靠常用的字符集.</p>
+<p>下面列出了这些术语以及它们表示的字符或字符集.</p>
+<table>
+<thead>
+<tr>
+<th>预定义术语</th>
+<th>匹配内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\t</code></td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>空格</td>
+</tr>
+<tr>
+<td><code>\v</code></td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td><code>\f</code></td>
+<td>换页符</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>回车</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>换行符</td>
+</tr>
+<tr>
+<td><code>\cA: \cZ</code></td>
+<td>控制符,例如<code>\cM</code>匹配一个Control-M</td>
+</tr>
+<tr>
+<td><code>\x0000:\xFFFF</code></td>
+<td>十六进制Unicode码</td>
+</tr>
+<tr>
+<td><code>\x00:\xFF</code></td>
+<td>十六进制ASCII码</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>匹配除了新行(<code>\n</code>)之外的任意字符</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>匹配任意数字,等价于<code>[0-9]</code></td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>匹配任意数字,等价于<code>[^0-9]</code></td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>匹配包括下划线的任意单词字符,等价于<code>[A-Za-z0-0]</code></td>
+</tr>
+<tr>
+<td><code>\W</code></td>
+<td>匹配任何非单词字符,等价于<code>[^A-Za-z0-9]</code></td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>匹配任何空白字符,包括空格,制表符,换页符</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>匹配任何非空白字符</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>匹配单词边界</td>
+</tr>
+<tr>
+<td><code>\B</code></td>
+<td>匹配非单词边界</td>
+</tr>
+</tbody>
+</table>
+<p>这些预定义集,让正则表达式看起来不那么过于神秘了.</p>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><p>  到目前为止,我们看到的操作符(如+和*)只能影响前面的术语.如果将操作符应用于一组术语,可以像数学表达式一样在该组上使用小括号.例如,<code>/(ab)+/</code>匹配一个或多个连续出现的字字符串 “ab”.</p>
+<p>  当正则表达式有一部分使用括号进行分组时,它具有双重责任,同时也创建所谓的捕获(capture).正则表达式有很多捕获,我们将在下面对其进行更深入的讨论.</p>
+<h2 id="或操作符-OR"><a href="#或操作符-OR" class="headerlink" title="或操作符(OR)"></a>或操作符(OR)</h2><p>  可以用竖线(|)字符表示或者的关系.例如:<code>/a|b/</code>匹配 “a” 或 “b” 字符,<code>/(ab)+|(cd)+/</code> 则匹配出现一次或多次的 “ab” 或 “cd”.</p>
+<h2 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h2><p>  正则表达式中最复杂的术语是在正则中所定义的捕获(captures)的反向引用,我们将在后面几节花很大篇幅来介绍捕获方面的内容,但现在就将捕获作为正则表达式中能够成功匹配术语时的候选字符串.</p>
+<p>  这种术语表示法是在反斜杠后面加一个要引用的捕获数量,该数字从1开始,如<code>\1</code>,<code>\2</code>等</p>
+<p>  举例来说,<code>/^([dtn])a\1/</code>表示可以任意一个以 “d” “t” “n” 开头,且后面跟着一个 a 字符,并且后面跟着的是和第一个捕获相同字符的字符串.后面这一点很重要! 它和<code>/^[dtn]a[dtn]/</code>不一样,因为a后面跟着的虽然也是”d” “t” “n” 中的一个,但可能和开头字符不同,例如:在全局模式下,有两个字符串”dad” 和 “dat”  <code>/^([dtn])a\1/</code>会选中 “dad”,而不会选中 “dat”,</p>
+<p><code>/^[dtn]a[dtn]/</code> 既选中 “dad”,也会选中 “dat”</p>
+<p>  要匹配像 “ <strong>whatever</strong>“ 这样的元素,不适用反向引用,是无法做到的,因为我们无法知道关闭标签和开始标签是否匹配.</p>
+<p>例如:<code>/&lt;(\w+).+&lt;\/\1&gt;/g</code>就可以选中正常闭合的简单标签</p>
+<p> <img src="http://binaryify.github.io/images/regexp/d.png" alt=""></p>
+<p><a href="http://regexr.com/" target="_blank" rel="external">正则在线测试</a></p>
+<p>至此,我们已经掌握了正则表达式,接下来看看,我们如何在代码中进行合理的使用.</p>
+<h2 id="分组与捕获"><a href="#分组与捕获" class="headerlink" title="分组与捕获"></a>分组与捕获</h2><p>有时候我们需要在一个字符串里找到特定的数据,比如需要在爬虫爬到的数据里找到特定的数据,比如天气温度,用户id,特定标签里面的内容.拿在特定标签里找里面的内容来举例,用正则匹配的话我们通常会先找到这个标签,比如<code>&lt;(strong).+&lt;\/\1&gt;</code>,这样就能匹配到整个strong标签和strong标签里面的内容了,</p>
+<p> <img src="http://binaryify.github.io/images/regexp/e.png" alt=""></p>
+<p>我们找到了strong标签和它里面的内容,那么又怎么找到strong标签里面的test呢?</p>
+<p>其实,只需要给’’.+’’加个括号就行</p>
+<p> <img src="http://binaryify.github.io/images/regexp/f.png" alt=""></p>
+<p>于是我们看到匹配内容多了个test</p>
+<p>由于返回的匹配是个数组,所以我们只需要用数组下标就能取到test这个值</p>
+<p> <img src="http://binaryify.github.io/images/regexp/g.png" alt=""></p>
+<p>为什么加个括号就能取到test了呢 ?</p>
+<p>我们前面已经知道了小括号具有双重责任,不仅可以用来分组,还会创建所谓的 “捕获” .</p>
+<p>因此,使用小括号指定一个子表达式后，匹配这个子表达式的文本(也就是此分组捕获的内容)可以在表达式或其它程序中作进一步的处理。</p>
+<p>既然小括号既有分组的作用,又有捕获的作用,如果我们只想分组,又不想捕获怎么办呢?</p>
+<p>思考一下如下的正则表达式:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern=<span class="regexp">/((good-)+)man/</span>;</span><br></pre></td></tr></table></figure>
+<p>在单词 “man” 前面,允许前缀 “good” 出现一次或多次,并且希望捕获整个前缀.这个正则表达式需要两层括号</p>
+<ol>
+<li>定义捕获(man 之前的所有字符串)的小括号</li>
+<li>针对+操作符,对 “good-“ 文本进行分组的小括号</li>
+</ol>
+<p>一切运行正常,但由于括号分组的功能,不仅是单一目标捕获</p>
+<p>要让一组括号不进行结果捕获,正则表达式的语法允许我们在开始括号后加一个 <code>?:</code> 标记.这就是所谓的 <strong>被动表达式</strong></p>
+<p>将我们的正则表达式修改成如下这样:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern=<span class="regexp">/((?:good-)+)man/</span>;</span><br></pre></td></tr></table></figure>
+<p>该表达式只会为外层的括号创建捕获.内层括号被转换为一个被动子表达式</p>
+<p><a href="http://gold.xitu.io/entry/571807a88ac247005f117209" target="_blank" rel="external">参考资料:知道这 20 个正则表达式，能让你少写 1,000 行代码</a></p>
+</span>
         
       
     </div>
