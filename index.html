@@ -212,7 +212,30 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPhoneNumber</span>(<span class="params">candidate</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> candidate !== <span class="string">"string"</span> || candidate.length!=<span class="number">11</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;   <span class="comment">//过滤明显不符合条件的输入内容</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">isNaN</span>(candidate))&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">//过滤非纯数字的输入内容</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  虽然这段代码实现的很合理,检查了输入内容的类型和长度,但是对于一个简单的手机号码检查,看起来依然有太多的代码<br>  现在考虑这样一种方式</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPhoneNumber</span>(<span class="params">candidate</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^1[0-9]&#123;10&#125;$/</span>.test(candidate)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  除了函数体内的一些深奥的语法以外,这种方式看起来更简洁,更优雅,不是吗?<br>这就是正则表达式的威力,而且这只是它冰山的一角.如果语法看起来像键盘上爬行的蜥蜴的话,也不要担心.<br>
+<p>  除了函数体内的一些深奥的语法以外,这种方式看起来更简洁,更优雅,不是吗?<br>这就是正则表达式的威力,而且这只是它冰山的一角.如果语法看起来像键盘上爬行的蜥蜴的话,也不要担心.</p>
+<h1 id="正则表达式进阶"><a href="#正则表达式进阶" class="headerlink" title="正则表达式进阶"></a>正则表达式进阶</h1><p>  让我们开始对正则表达式进行深挖,要学习正则表达式,就先了解正则表达式出现的由来</p>
+<h2 id="正则表达式解释"><a href="#正则表达式解释" class="headerlink" title="正则表达式解释"></a>正则表达式解释</h2><p>  “正则表达式(regular expression)” 这个词愿与中世纪的数学,当时,一个名叫Stephen Kleene的数学家,使用了一个名为”正则集合”的数学符号描述自动计算模式.但这不会帮助我们了解任何关于正则表达式的内容,那么让我们把它简单化,正则表达式通常被称为一个模式(pattern),是一个用简单方式描述或者匹配一系列符合某个语法规则的字符串.表达式本身包含了允许定义这些模式的术语和操作符.我们很快就会看到这些术语和操作符.</p>
+<p>  在 javascript 中,与大多数其他对象类型一样,有两种方式可以创建正则表达式:通过正则表达式字面量,或者通过构造 RegExp 对象的实例.</p>
+<p>  例如,如果要创建一个正则表达式 (或简称为正则(regex)),用于精确匹配字符串 “test” ,可以使用正则字面量:  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/test/</span>;</span><br></pre></td></tr></table></figure>
+<p>  正斜杠可能看起来有点奇怪,但是就像字符串使用引号进行界定的一样,正则字面量是用正斜杠进行界定的.</p>
+<p>  或者,我们可以构造一个 RegExp 实例,将正则作为字符串传入:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern = <span class="keyword">new</span> RexExp(<span class="string">'test'</span>);</span><br></pre></td></tr></table></figure>
+<p>  这两种格式在pattern变量中创建的正则表达式都是一样的.</p>
+<p>  在开发过程中,如果正则是已知的,则优先选择字面量语法,而构造器方式则是用于在运行时,通过动态创建字符串来构建正则表达式.</p>
+<p>  字面量语法优先于用字符串构建正则表达式的其中一个原因是反斜杠字符在正则表达式中发挥重要的作用(很快就能看到).但由于反斜杠字符在普通字符串中也是一个转义字符,所以,如果要在字符串内表示反斜杠,我们就要使用 <code>\\</code> (两个反斜杠).这回让本来语法就很神秘的正则表达式变得更加怪异了.</p>
+<p> 除了表达本身,还有三个标志可以与正则表达式进行关联.</p>
+<ul>
+<li><code>i</code>  让正则表达式不区分大小写,所以<code>/test/i</code>不仅可以匹配  “test” ,还可以匹配 “Test” “TEST” “tEsT” 等.</li>
+</ul>
+<ul>
+<li><code>g</code>  匹配模式中的所有实例,而不是默认的只匹配第一次出现的结果</li>
+</ul>
+<ul>
+<li><p><code>m</code>  允许匹配多个行,比如可以匹配文本区元素(textarea)钟德志</p>
+<p>这些标志将附加到字面量尾部(例如: <code>/test/ig</code>) 或者作为 RegExp 构造器的第二个字符参数 (<code>new RegExp(&quot;test&quot;,&quot;ig&quot;)</code>) .   </p>
+</li>
+</ul>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/19/正则表达式整理/#more" rel="contents">
               阅读全文 &raquo;
