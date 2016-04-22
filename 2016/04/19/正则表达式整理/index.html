@@ -55,7 +55,7 @@
 <meta property="og:image" content="http://binaryify.github.io/images/regexp/e.png">
 <meta property="og:image" content="http://binaryify.github.io/images/regexp/f.png">
 <meta property="og:image" content="http://binaryify.github.io/images/regexp/g.png">
-<meta property="og:updated_time" content="2016-04-22T12:41:48.000Z">
+<meta property="og:updated_time" content="2016-04-22T12:45:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式整理">
 <meta name="twitter:description" content="为什么要学正则表达式  虽然很多web开发者在忽视正则表达式后,还可以顺利工作,但在javascript中还存在一些问题,如果不用正则表达式,是没办法进行很好的解决的.
@@ -269,9 +269,9 @@
 </tbody>
 </table>
 <p>例子:</p>
-<p> <img src="http://binaryify.github.io/images/regexp/b.png" alt="b"></p>
+<p> <img src="http://binaryify.github.io/images/regexp/b.png" alt=""></p>
 <p>需要注意的是String对象也有个match方法,也可以检索目标字符串,用法和RegExp的exec方法类似,区别是</p>
-<p> <img src="http://binaryify.github.io/images/regexp/a.png" alt="a"></p>
+<p> <img src="http://binaryify.github.io/images/regexp/a.png" alt=""></p>
 <ol>
 <li><p>exec是正则表达式的方法，而不是字符串的方法，它的参数才是字符串</p>
 </li>
@@ -402,7 +402,7 @@
 <p><code>/^[dtn]a[dtn]/</code> 既选中 “dad”,也会选中 “dat”</p>
 <p>  要匹配像 “ <strong>whatever</strong>“ 这样的元素,不适用反向引用,是无法做到的,因为我们无法知道关闭标签和开始标签是否匹配.</p>
 <p>例如:<code>/&lt;(\w+).+&lt;\/\1&gt;/g</code>就可以选中正常闭合的简单标签</p>
-<p> <img src="http://binaryify.github.io/images/regexp/d.png" alt="d"></p>
+<p> <img src="http://binaryify.github.io/images/regexp/d.png" alt=""></p>
 <p><a href="http://regexr.com/" target="_blank" rel="external">正则在线测试</a></p>
 <p>在上面的代码中,我们使用<code>\1</code>引用了表达式中的第一个捕获,在本例中,该捕获是标签名称</p>
 <p>还有一个方法可以获取捕捉的引用,那就是通过调用String对象的replace()方法替换字符串.在这里,我们使用<code>$1</code> <code>$2</code> <code>$3</code> 语法表示每个捕获的数字.</p>
@@ -411,13 +411,13 @@
 <p>在上面的代码中,首先获取的捕获值(在本例中是大写字母F),在替换字符串中进行了引用(通过$1).这种方式允许我们制定一个替换字符串,即便是在运行之前还不知道它的值.这是个强大的武器.</p>
 <p>这种可以引用正则表达式捕捉结果的能力,让很多本来很复杂困难的代码变得相当简单.其富有表现力的特性,将本来可能很迟钝,复杂且冗长的代码,最终变成了一些简短的语句.</p>
 <h2 id="分组与捕获"><a href="#分组与捕获" class="headerlink" title="分组与捕获"></a>分组与捕获</h2><p>有时候我们需要在一个字符串里找到特定的数据,比如需要在爬虫爬到的数据里找到特定的数据,比如天气温度,用户id,特定标签里面的内容.拿在特定标签里找里面的内容来举例,用正则匹配的话我们通常会先找到这个标签,比如<code>&lt;(strong).+&lt;\/\1&gt;</code>,这样就能匹配到整个strong标签和strong标签里面的内容了,</p>
-<p> <img src="http://binaryify.github.io/images/regexp/e.png" alt="e"></p>
+<p> <img src="http://binaryify.github.io/images/regexp/e.png" alt=""></p>
 <p>我们找到了strong标签和它里面的内容,那么又怎么找到strong标签里面的test呢?</p>
 <p>其实,只需要给’’.+’’加个括号就行</p>
-<p> <img src="http://binaryify.github.io/images/regexp/f.png" alt="f"></p>
+<p> <img src="http://binaryify.github.io/images/regexp/f.png" alt=""></p>
 <p>于是我们看到匹配内容多了个test</p>
 <p>由于返回的匹配是个数组,所以我们只需要用数组下标就能取到test这个值</p>
-<p> <img src="http://binaryify.github.io/images/regexp/g.png" alt="g"></p>
+<p> <img src="http://binaryify.github.io/images/regexp/g.png" alt=""></p>
 <p>为什么加个括号就能取到test了呢 ?</p>
 <p>我们前面已经知道了小括号具有双重责任,不仅可以用来分组,还会创建所谓的 “捕获” .</p>
 <p>因此,使用小括号指定一个子表达式后，匹配这个子表达式的文本(也就是此分组捕获的内容)可以在表达式或其它程序中作进一步的处理。</p>
