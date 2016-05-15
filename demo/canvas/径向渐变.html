@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<style>
+  canvas{
+    border: 1px solid black;
+  }
+</style>
+<script>
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+canvas.height=800;
+canvas.width=800;
+
+ctx.save();
+var grd=ctx.createRadialGradient(400,800,0,400,800,800);
+grd.addColorStop(0.0,'#035');
+
+grd.addColorStop(1.0,'black');
+ctx.fillStyle=grd;
+ctx.fillRect(0,0,800,800);
+ctx.fill();
+
+ctx.restore();
+
+</script>
+</body>
+</html>

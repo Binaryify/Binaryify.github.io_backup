@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    canvas {
+      border: 1px solid black;
+      display: block;
+      margin: 5px auto;
+    }
+  </style>
+  <canvas id="canvas" height="800" width="800"></canvas>
+  <script type="text/javascript">
+    window.onload = function() {
+      var canvas = document.getElementById('canvas');
+      var context = canvas.getContext('2d');
+      context.fillStyle="black";
+      context.fillRect(0,0,canvas.width,canvas.height);
+      context.strokeStyle = "yellow";
+      context.lineWidth = 10;
+      context.fillStyle="yellow";
+      // drawStar(context,300,150,400,400,400);
+      var i=0;
+
+      for(var i=0;i<10;i++){
+          var r=Math.random()*5+10;
+          var x=Math.random()*canvas.width;
+          var y=Math.random()*canvas.height/2.5;
+          var rot=Math.random()*360;
+          drawStar(context,r,r/2.0,x,y,rot);
+      }
+
+
+}
+
+    function drawStar(ctx,R,r,x,y,rot){
+      ctx.beginPath();
+      for(var i=0;i<5;i++){
+        ctx.lineTo(Math.cos((18+i*72-rot)/180*Math.PI)*R+x,-Math.sin((18+i*72-rot)/180*Math.PI)*R+y)
+        ctx.lineTo(Math.cos((54+i*72-rot)/180*Math.PI)*r+x,-Math.sin((54+i*72-rot)/180*Math.PI)*r+y);
+      }
+      ctx.closePath();
+      ctx.stroke();
+      ctx.fill();
+    }
+  </script>
+</body>
+
+</html>

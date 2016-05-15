@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    canvas{
+      border: 1px #000 solid;
+    }
+  </style>
+<canvas id="canvas" width="300" height="300"></canvas>
+<script type="text/javascript">
+  var canvas=document.getElementById('canvas');
+  var ctx=canvas.getContext('2d');
+  window.onload=function(){
+    ctx.lineWidth=10;
+    ctx.strokeStyle="red";
+    ctx.lineCap = "square";
+    var i=0;
+    var ss=setInterval(function(){
+      ctx.beginPath()
+      ctx.arc(100,100,30,2*Math.PI*(i-1)/100,2*Math.PI*i/100);
+      i++;
+      console.log(i)
+      if(i>99){
+        clearInterval(ss);
+      }
+      // ctx.closePath()
+      ctx.stroke()
+    },10)
+
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>数字</title>
+  <script src="./digit.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <style>
+    canvas {
+      border: 1px rgb(0, 102, 153) solid;
+    }
+  </style>
+  <canvas id="canvas"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var RADIUS = 8;
+    var MARGINTOP = 60;
+    var MARGINLEFT = 30;
+    window.onload = function() {
+      canvas.height = 600;
+      canvas.width = 1024;
+      render(ctx);
+    }
+
+    function render(ctx) {
+      var hours = 12;
+      var minites = 23
+      var seconds = 34;
+      renderDigit(MARGINLEFT, MARGINTOP, parseInt(hours / 10), ctx);
+      renderDigit(MARGINLEFT + 15 * (RADIUS + 1), MARGINTOP, parseInt(hours % 10), ctx);
+      renderDigit(MARGINLEFT + 30 * (RADIUS + 1), MARGINTOP, 10, ctx);
+      renderDigit(MARGINLEFT + 39 * (RADIUS + 1), MARGINTOP, parseInt(minites / 10), ctx);
+      renderDigit(MARGINLEFT + 54 * (RADIUS + 1), MARGINTOP, parseInt(minites % 10), ctx);
+      renderDigit(MARGINLEFT + 69 * (RADIUS + 1), MARGINTOP, 10, ctx);
+      renderDigit(MARGINLEFT + 78 * (RADIUS + 1), MARGINTOP, parseInt(seconds / 10), ctx);
+      renderDigit(MARGINLEFT + 93 * (RADIUS + 1), MARGINTOP, parseInt(seconds % 10), ctx);
+    }
+
+    function renderDigit(x, y, num, ctx) {
+      ctx.fillStyle = "rgb(0,102,153)";
+      for (var i = 0; i < digit[num].length; i++)
+        for (var j = 0; j < digit[num][i].length; j++) {
+          if (digit[num][i][j] == 1) {
+            ctx.beginPath();
+            ctx.arc(x + j * 2 * (RADIUS + 1) + (RADIUS + 1), y + i * 2 * (RADIUS + 1) + (RADIUS + 1), RADIUS, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.fill();
+          }
+        }
+    }
+  </script>
+</body>
+
+</html>

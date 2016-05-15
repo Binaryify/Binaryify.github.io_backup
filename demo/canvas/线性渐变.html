@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<style>
+  canvas{
+    border: 1px solid black;
+  }
+</style>
+<script>
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+canvas.height=800;
+canvas.width=800;
+
+
+var linearGrad=ctx.createLinearGradient(0,0,400,400);
+var linearGrad2=ctx.createLinearGradient(400,400,800,800);
+linearGrad.addColorStop(0.0,'#fff');
+linearGrad.addColorStop(1.0,'#000');
+linearGrad2.addColorStop(0.0,'rgba(0,0,0,.5)');
+linearGrad2.addColorStop(1.0,'rgba(0,255,0,.9)');
+ctx.fillStyle=linearGrad;
+// ctx.fillStyle=linearGrad2;
+ctx.fillRect(0,0,400,400)
+
+ctx.fillStyle=linearGrad2;
+ctx.fillRect(100,100,800,800)
+
+
+
+
+</script>
+</body>
+</html>

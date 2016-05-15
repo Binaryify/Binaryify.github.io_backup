@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+  <canvas id="canvas"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.height = 800;
+    canvas.width = 800;
+    ctx.lineWidth = 5;
+    ctx.lineCap = "round";
+    ctx.fillStyle="white";
+    ctx.rect(0,0,canvas.width,canvas.height);
+    ctx.fill();
+    var state = 0;
+    canvas.addEventListener('mousedown', function(ev) {
+      ctx.beginPath();
+      ctx.strokeStyle = "red";
+      ctx.moveTo(ev.pageX - this.offsetLeft, ev.pageY - this.offsetTop);
+      state = 1;
+    }, false);
+
+    canvas.addEventListener('mouseup', function(ev) {
+      state = 0;
+    }, false);
+
+    canvas.addEventListener('mousemove', function(ev) {
+      if (state) {
+        ctx.lineTo(ev.pageX - this.offsetLeft, ev.pageY - this.offsetTop);
+        ctx.stroke();
+      }
+    }, false)
+  </script>
+
+
+</body>
+
+</html>

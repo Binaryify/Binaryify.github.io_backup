@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<style>
+  canvas{
+    border: 1px solid black;
+  }
+</style>
+<script>
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+canvas.height=800;
+canvas.width=800;
+
+ctx.save();
+ctx.beginPath();
+ctx.strokeStyle = "#333";
+ctx.moveTo(190, 86);
+ctx.quadraticCurveTo(369, 153, 209, 321);
+ctx.stroke();
+ctx.closePath()
+ctx.restore();
+
+</script>
+</body>
+</html>

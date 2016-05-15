@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.height = 800;
+    canvas.width = 800;
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(25, 175);
+    ctx.lineTo(60, 80);
+    ctx.lineTo(150, 30);
+    ctx.lineTo(170, 150);
+    ctx.stroke();
+
+    //绘制3次贝塞尔曲线
+    ctx.beginPath();
+    ctx.moveTo(25, 175);
+    ctx.bezierCurveTo(60, 80, 150, 30, 170, 150);
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+
+    ctx.closePath()
+    ctx.restore();
+  </script>
+</body>
+
+</html>

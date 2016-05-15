@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="./digit.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var WINDOW_WIDTH = 1014;
+    var WINDOW_HEIGHT = 768;
+    var RADIUS=8;
+    var MARGINTOP=60;
+    var MARGINLEFT=30;
+    var endTime=new Date(2016,4,15,10,10,10);
+    var curShowTimeSeconds=0;
+    window.onload = function() {
+      canvas.width = WINDOW_WIDTH;
+      canvas.height = WINDOW_HEIGHT;
+      curShowTimeSeconds=getCurrentShowTimeSeconds();
+
+
+          setInterval(
+              function(){
+                  render( ctx );
+                  update();
+              }
+              ,
+              50
+          );
+
+    }
+    function getCurrentShowTimeSeconds(){
+      var curTime=new Date();
+      var ret=endTime.getTime()-curTime.getTime();
+      ret=Math.round(ret/1000);
+      return ret>=0 ?ret:0;
+
+
+    }
+    function render(ctx) {
+      ctx.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
+
+      var hours = parseInt(curShowTimeSeconds/3600);
+      var minites = parseInt((curShowTimeSeconds-hours*3600)/60);
+      var seconds =curShowTimeSeconds%60;
+
+
+
+      renderDigit(MARGINLEFT, MARGINTOP, parseInt(hours / 10), ctx);
+      renderDigit(MARGINLEFT+15*(RADIUS+1), MARGINTOP, parseInt(hours % 10), ctx);
+      renderDigit(MARGINLEFT+30*(RADIUS+1), MARGINTOP, 10, ctx);
+      renderDigit(MARGINLEFT+39*(RADIUS+1), MARGINTOP, parseInt(minites/10), ctx);
+      renderDigit(MARGINLEFT+54*(RADIUS+1), MARGINTOP, parseInt(minites%10), ctx);
+      renderDigit(MARGINLEFT+69*(RADIUS+1), MARGINTOP, 10, ctx);
+      renderDigit(MARGINLEFT+78*(RADIUS+1), MARGINTOP, parseInt(seconds/10), ctx);
+      renderDigit(MARGINLEFT+93*(RADIUS+1), MARGINTOP, parseInt(seconds%10), ctx);
+
+
+    }
+
+    function renderDigit(x, y, num, ctx) {
+      ctx.fillStyle = "rgb(0,102,153)";
+      for (var i = 0; i < digit[num].length; i++)
+        for (var j = 0; j < digit[num][i].length; j++) {
+          if (digit[num][i][j] == 1) {
+            ctx.beginPath();
+            ctx.arc(x+j*2*(RADIUS+1)+(RADIUS+1),y+i*2*(RADIUS+1)+(RADIUS+1),RADIUS,0,2*Math.PI);
+            ctx.closePath();
+
+            ctx.fill();
+
+          }
+        }
+    }
+
+
+    function update(){
+
+        var nextShowTimeSeconds = getCurrentShowTimeSeconds();
+
+        var nextHours = parseInt( nextShowTimeSeconds / 3600);
+        var nextMinutes = parseInt( (nextShowTimeSeconds - nextHours * 3600)/60 )
+        var nextSeconds = nextShowTimeSeconds % 60
+
+        var curHours = parseInt( curShowTimeSeconds / 3600);
+        var curMinutes = parseInt( (curShowTimeSeconds - curHours * 3600)/60 )
+        var curSeconds = curShowTimeSeconds % 60
+
+        if( nextSeconds != curSeconds ){
+
+            curShowTimeSeconds = nextShowTimeSeconds;
+        }
+    }
+  </script>
+</body>
+
+</html>

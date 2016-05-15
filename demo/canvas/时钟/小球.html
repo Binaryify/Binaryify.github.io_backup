@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    canvas{
+      border: 1px solid gray;
+    }
+  </style>
+<canvas id="canvas"></canvas>
+
+<script>
+  var canvas=document.getElementById('canvas');
+  var ctx=canvas.getContext('2d');
+  canvas.height=400;
+  canvas.width=800;
+
+  var ball={x:750,y:50,r:10,g:1,vy:-8,vx:-8,color:"blue"};
+window.onload=function(){
+  init();
+}
+
+  // setInterval(function(){
+  //   update();
+  //   render();
+  // },30)
+
+
+  function init(){
+      update();
+      render();
+      requestAnimationFrame(init);
+    }
+
+  function update(){
+      ball.x+=ball.vx;
+      ball.y+=ball.vy;
+      ball.vy+=ball.g;
+      if(ball.y>=canvas.height-ball.r){
+        ball.y=canvas.height-ball.r;
+        ball.vy=-0.5*ball.vy;
+      }
+  }
+
+  function render(){
+    ctx.fillStyle=ball.color;
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.beginPath();
+    ctx.arc(ball.x,ball.y,ball.r,0,2*Math.PI,false);
+    ctx.fill();
+    ctx.closePath();
+
+  }
+
+
+
+
+</script>
+</body>
+</html>

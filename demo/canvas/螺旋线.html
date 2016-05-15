@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="contents">
+      <canvas id="canvas" width="460" height="460">
+      </canvas>
+  </div>
+
+<style>
+
+#contents
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 460px;
+  height:460px;
+  overflow:hidden;
+}
+
+#canvas
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 460px;
+  height:460px;
+}
+</style>
+<script>
+
+window.addEventListener("load", init, false);
+
+function init()
+{
+  var theCanvas = document.getElementById("canvas");
+  var centerX = (theCanvas.currentStyle || document.defaultView.getComputedStyle(theCanvas,'')).width;
+  centerX = Number(centerX.replace('px',''));
+  centerX =  centerX / 2;
+  var centerY = (theCanvas.currentStyle || document.defaultView.getComputedStyle(theCanvas,'')).height;
+  centerY = Number(centerY.replace('px',''));
+  centerY =  centerY / 2;
+  var ctx = theCanvas.getContext("2d");
+
+  var dis = 300;
+  var fai = ((1 + Math.sqrt(5)) / 2);
+  centerY -= 150;
+
+  var x = 0;
+  var y = 0;
+  ctx.lineWidth=1;
+  ctx.strokeStyle="#000000";
+  ctx.beginPath();
+  ctx.moveTo(centerX + x, centerY + y);
+
+  var deg = 72;
+  x = Math.cos(deg * Math.PI / 180) * dis + x;
+  y = Math.sin(deg * Math.PI / 180) * dis + y;
+  ctx.lineTo(centerX + x, centerY + y);
+
+  deg += 108;
+  x = Math.cos(deg * Math.PI / 180) * (dis/fai) + x;
+  y = Math.sin(deg * Math.PI / 180) * (dis/fai) + y;
+  ctx.lineTo(centerX + x, centerY + y);
+  ctx.stroke();
+
+  var d = 0;
+  for (var i = 0; i < 10; i++)
+  {
+      //Triangle draw
+      deg += 108;
+      dis = dis / fai;
+      ctx.lineWidth=1;
+      ctx.strokeStyle="#000000";
+      ctx.beginPath();
+      ctx.moveTo(centerX + x, centerY + y);
+      x = Math.cos(deg * Math.PI / 180) * (dis/fai) + x;
+      y = Math.sin(deg * Math.PI / 180) * (dis/fai) + y;
+      ctx.lineTo(centerX + x, centerY + y);
+      ctx.stroke();
+      var x0 = Math.cos(deg * Math.PI / 180) * (dis) + x;
+      var y0 = Math.sin(deg * Math.PI / 180) * (dis) + y;
+
+      ctx.lineWidth=1;
+      ctx.strokeStyle="#000000";
+      ctx.beginPath();
+      ctx.moveTo(centerX + x, centerY + y);
+      ctx.lineTo(centerX + x0, centerY + y0);
+      ctx.stroke();
+      //Spiral draw
+      ctx.lineWidth=1;
+      ctx.strokeStyle="#ff0000";
+      ctx.beginPath();
+      ctx.moveTo(centerX + x0, centerY + y0);
+      d = deg;
+      for (var j = 0; j <= 108; j++)
+      {
+          d++;
+          x0 = Math.cos(d * Math.PI / 180) * (dis) + x;
+          y0 = Math.sin(d * Math.PI / 180) * (dis) + y;
+          ctx.lineTo(centerX + x0, centerY + y0);
+      }
+      ctx.stroke();
+  }
+  ctx.strokeStyle="#000000";
+  ctx.moveTo(centerX + x, centerY + y);
+  ctx.lineTo(centerX + x0, centerY + y0);
+  ctx.stroke();
+}
+</script>
+
+</body>
+</html>

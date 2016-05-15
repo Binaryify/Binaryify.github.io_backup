@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>路径动画</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <style>
+    canvas {
+      border: 1px #000 solid;
+    }
+  </style>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    window.onload = function() {
+      canvas.height = 400;
+      canvas.width = 400;
+      var x = 200;
+      var y = 200;
+      var r = 100;
+      drawCircle(x, y, r);
+    }
+
+    function drawCircle(x, y, r) {
+      ctx.strokeStyle = "red";
+      var i = 1;
+      if (i < 100) {
+        var interval = setInterval(function() {
+          ctx.beginPath()
+          ctx.arc(x, y, r, 2 * Math.PI * (i - 1) / 100, 2 * Math.PI * i / 100);
+          ctx.stroke()
+          console.log(i / 100)
+          i++;
+          if (i > 100) {
+            clearInterval(interval);
+          }
+        }, 10)
+
+      }
+
+    }
+  </script>
+</body>
+
+</html>

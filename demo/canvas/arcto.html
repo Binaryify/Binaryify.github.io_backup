@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<style>
+  canvas{
+    border: 1px solid black;
+  }
+</style>
+<script>
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+canvas.height=800;
+canvas.width=800;
+
+ctx.save();
+ctx.beginPath();
+ctx.moveTo(150,150);
+ctx.arcTo(650,150,650,650,500);
+ctx.lineWidth=10;
+ctx.strokeStyle="red";
+ctx.stroke();
+ctx.closePath();
+ctx.beginPath()
+ctx.moveTo(150,150);
+ctx.lineTo(650,150);
+ctx.lineTo(650,650);
+ctx.lineWidth=2;
+ctx.strokeStyle="gray";
+ctx.stroke();
+ctx.closePath()
+ctx.restore();
+
+</script>
+</body>
+</html>

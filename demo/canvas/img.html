@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<style>
+  canvas{
+    border: 1px solid black;
+  }
+</style>
+<script>
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+canvas.height=800;
+canvas.width=800;
+
+ctx.save();
+var img=new Image();
+img.src="1.jpg";
+img.onload=function(){
+  var pattren=ctx.createPattern(img,"repeat");
+  ctx.fillStyle=pattren;
+  ctx.fillRect(0,0,800,800);
+  ctx.fill();
+}
+
+ctx.restore();
+
+</script>
+</body>
+</html>

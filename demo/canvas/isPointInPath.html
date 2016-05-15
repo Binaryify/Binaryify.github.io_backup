@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>isPointInPath</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<style>
+  canvas{
+    border: 1px solid black;
+  }
+</style>
+<script>
+var balls=[];
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+var colors=['red','green','yellow','gray'];
+window.onload=function(){
+  canvas.height=800;
+  canvas.width=800;
+  for(var i=0;i<10;i++){
+    var aBall={x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*50+20};
+    balls[i]=aBall;
+  }
+  draw();
+  canvas.addEventListener('click',detect);
+
+}
+
+function draw(){
+  for(var i=0;i<balls.length;i++){
+    ctx.beginPath();
+    ctx.arc(balls[i].x,balls[i].y,balls[i].r,0,Math.PI*2);
+    ctx.fillStyle="#058";
+    ctx.fill();
+  }
+}
+
+function detect(event){
+  var x=event.clientX-canvas.getBoundingClientRect().left;
+  var y=event.clientY-canvas.getBoundingClientRect().top;
+
+  for(var i=0;i<balls.length;i++){
+    ctx.beginPath();
+    ctx.arc(balls[i].x,balls[i].y,balls[i].r,0,Math.PI*2);
+
+    if(ctx.isPointInPath(x,y)){
+      ctx.fillStyle=colors[parseInt(Math.random()*3)];
+      ctx.fill();
+    }
+    // console.log(balls[i])
+  }
+}
+
+</script>
+</body>
+</html>

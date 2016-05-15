@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>数字</title>
+  <script src="./digit.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <style>
+    canvas {
+      border: 1px rgb(0, 102, 153) solid;
+    }
+  </style>
+  <canvas id="canvas"></canvas>
+  <button id="btn">点我</button>
+  <button id="btn2">运动</button>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var RADIUS = 4;
+    var MARGINTOP = 60;
+    var MARGINLEFT = 30;
+    var balls = [];
+    var btn = document.getElementById('btn');
+    var btn2 = document.getElementById('btn2');
+    var colors=['red','green','yellow','gray','blue','pink'];
+    window.onload = function() {
+      canvas.height = 500;
+      canvas.width = 1024;
+      render(ctx);
+      var x = 200;
+      var y = 50;
+      var num = 5;
+      btn.addEventListener('click', function() {
+        change(x, y, num);
+        console.log(balls)
+      }, false)
+      btn2.addEventListener('click', function() {
+        function yundong(){
+          for (var i = 0; i < balls.length; i++) {
+            balls[i].x += balls[i].vx;
+            balls[i].y+=balls[i].vy;
+            balls[i].vy+=balls[i].g;
+              if(balls[i].y>=canvas.height-RADIUS){
+                balls[i].y=canvas.height-RADIUS;
+                balls[i].vy=-0.5*balls[i].vy;
+              }
+          }
+        }
+        setInterval(function(){
+          yundong()
+          update();
+          render(ctx)
+        },30)
+      }, false)
+    }
+    function update(){
+      ctx.clearRect(0,0,canvas.width,canvas.height)
+      for(var i=0;i<balls.length;i++){
+        ctx.fillStyle=balls[i].color;
+        ctx.beginPath();
+        ctx.arc(balls[i].x,balls[i].y,RADIUS,0,2*Math.PI,true);
+        ctx.closePath();
+        ctx.fill()
+        console.log('1')
+      }
+    }
+    function change(x, y, num) {
+      for (var i = 0; i < digit[num].length; i++) {
+        for (var j = 0; j < digit[num][i].length; j++) {
+          if (digit[num][i][j] == 1) {
+            var aball = {
+              x: x + j * 2 * (RADIUS + 1) + (RADIUS + 1),
+              y: y + i * 2 * (RADIUS + 1) + (RADIUS + 1),
+              g: 1 + Math.random(),
+              vx: Math.pow(-1, Math.ceil(Math.random() * 1000)) * 5,
+              vy: -5,
+              color: colors[parseInt(Math.random()*7)]
+            }
+            balls.push(aball);
+          }
+        }
+      }
+    }
+
+    function render(ctx) {
+      var hours = 12;
+      var minites = 23
+      var seconds = 34;
+      renderDigit(MARGINLEFT, MARGINTOP, 1, ctx);
+      renderDigit(MARGINLEFT + 15 * (RADIUS + 1) + (RADIUS + 1), MARGINTOP, 2, ctx);
+      renderDigit(MARGINLEFT + 30 * (RADIUS + 1) + (RADIUS + 1), MARGINTOP, 10, ctx);
+      renderDigit(MARGINLEFT + 39 * (RADIUS + 1) + (RADIUS + 1), MARGINTOP, 1, ctx);
+      renderDigit(MARGINLEFT + 54 * (RADIUS + 1) + (RADIUS + 1), MARGINTOP, 2, ctx);
+      renderDigit(MARGINLEFT + 69 * (RADIUS + 1) + (RADIUS + 1), MARGINTOP, 10, ctx);
+      renderDigit(MARGINLEFT + 78 * (RADIUS + 1) + (RADIUS + 1), MARGINTOP, 2, ctx);
+      renderDigit(MARGINLEFT + 93 * (RADIUS + 1) + (RADIUS + 1), MARGINTOP, 2, ctx);
+
+    }
+
+    function renderDigit(x, y, num, ctx) {
+      ctx.fillStyle = "rgb(0,102,153)";
+      for (var i = 0; i < digit[num].length; i++) {
+        for (var j = 0; j < digit[num][i].length; j++) {
+          if (digit[num][i][j] == 1) {
+            ctx.beginPath()
+            ctx.arc(x + j * 2 * (RADIUS + 1) + (RADIUS + 1), y + i * 2 * (RADIUS + 1) + (RADIUS), RADIUS, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.fill();
+
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
