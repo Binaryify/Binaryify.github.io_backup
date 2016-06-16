@@ -1,0 +1,29 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Console test</title>
+</head>
+<body>
+<h1>Press F12 / ctrl+shift+J / cmd+opt+J</h1>
+<h2>console opened: <span id="count">0</span> times</h2>
+<script>
+   
+        var span = document.getElementById('count');
+        var count = 0;
+        var time=new Date();
+        // setInterval(function(){
+        //     console.log(time)
+        // },1000)
+         console.log(time)
+
+        time.toString = function () {
+            span.textContent = ++count;
+            return ''
+        };
+
+   
+</script>
+</body>
+</html>
