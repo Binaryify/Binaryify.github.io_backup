@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="./dest/css/app.css">
+    <link rel="stylesheet" href="./src/css/normalize.min.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1463325038_738017.css">
+    <script src="./src/js/rem.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header id="header">
+        <img src="" class="header_img" />
+        <div class="header_container">
+            <div class="header_title">
+                XXXXX
+            </div>
+            <div class="header_info">
+                地址:xxxxxxxxxxxxxx
+                <br/> 商家电话:xxxxxxx/xxxxxx
+            </div>
+        </div>
+        <div class="notice">
+            <i class="iconfont icon-gonggao"></i> &nbsp; 公告:iduhfiu
+        </div>
+    </header>
+    <ul class="split">
+        <li>
+            类别
+        </li><li>
+            菜单
+        </li>
+    </ul>
+    <div class="sidebar">
+        <ul>
+            <li v-for="item in listData" @click="slideIndex=$index"
+              style="background:{{slideIndex==$index?'white':'#eee'}}"
+            >
+                {{item.kind}}
+            </li>
+        </ul>
+    </div>
+
+    <div id="container">
+        <ul>
+            <li v-for="item in listData[slideIndex].content">
+                <div class="left">
+                    <img/>
+                </div>
+                <div class="right">
+                    <div class="title">
+                        {{item.shopName}}
+                    </div>
+                    <div class="sales">
+                        月售:{{item.totle}}
+                    </div>
+                    <div class="money">
+                        ¥{{item.money}}起
+                    </div>
+                    <div class="counter" v-show="item.number==0">
+                        <div class="add iconfont icon-tianjia" @click="add(item,$index)"></div>
+                    </div>
+                    <div class="counterChoose" v-show="item.number>0">
+                        <div class="reduce iconfont icon-jianshao" @click="reduce(item,$index)"></div>
+                        &nbsp;<span class="number">{{item.number}}</span> &nbsp;<div class="add iconfont icon-tianjia" @click="add(item,$index)"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+      <div id="shopCar" v-show="shopCarShopState">
+        <div class="top">
+          <div>购物车</div>
+        </div>
+        <ul>
+          <li v-for="item in shopCar">
+          <div class="shopName">{{item.shopName}} </div>
+          <div class="right">
+            <div class="money">共¥{{item.money}} 元</div>
+            <div class="counter">
+              <div class="reduce iconfont icon-jianshao" @click="reduce(item,$index)"></div>
+              <span class="number">  {{item.number}} </span>
+              <div class="add iconfont icon-tianjia"
+                @click="add(item,$index)"
+               ></div>
+            </div>
+          </div>
+          <div class="bottom"></div>
+        </li>
+        </ul>
+      </div>
+      <div class="footer">
+          <div class="shopCarIcon iconfont icon-gouwuche" @click="toggleShopCar">
+            <span>{{totle}}</span>
+          </div>
+          <div class="totle">
+            共¥{{totleMoney}}元
+          </div>
+          <button class="confirm" @click="sendData"
+              style="background:{{totle>0?'':'gray'}}"
+          >选好啦</button>
+      </div>
+    </div>
+    <script src="http://cdn.bootcss.com/vue/1.0.24/vue.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

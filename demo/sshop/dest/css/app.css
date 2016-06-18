@@ -1,0 +1,265 @@
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+
+::-webkit-scrollbar {
+  width: 0; }
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  font-size: 0.6rem;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.5);
+  /*overflow-y:hidden;*/
+  font-family: 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+#container {
+  overflow-y: auto;
+  height: calc(100vh - 6rem - 40px);
+  margin-top: 40px;
+  width: calc(100% - 2.5rem);
+  position: fixed;
+  left: 2.5rem;
+  top: 6rem; }
+  #container li {
+    width: inherit;
+    height: 100px;
+    position: relative;
+    padding: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+  #container .left {
+    width: 100px;
+    height: inherit;
+    margin-right: 0;
+    position: relative; }
+    #container .left img {
+      height: 70px;
+      width: 70px;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%); }
+  #container .right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 120px;
+    width: calc(100% - 120px); }
+    #container .right .title {
+      font-size: 14px;
+      color: #365bce;
+      font-weight: 600; }
+    #container .right .sales {
+      font-size: 12px;
+      display: inline; }
+    #container .right .money {
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 1px; }
+    #container .right .iconfont {
+      height: 25px;
+      width: 25px;
+      text-align: center;
+      line-height: 25px;
+      color: rgba(0, 0, 0, 0.3);
+      font-weight: 100; }
+    #container .right .add, #container .right .reduce {
+      border: none;
+      background: #d5e2ff;
+      border-radius: 50%; }
+    #container .right .counter {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 25px; }
+    #container .right .counterChoose, #container .right .counter {
+      height: 25px; }
+    #container .right .counterChoose {
+      line-height: 25px;
+      width: auto;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 50px; }
+      #container .right .counterChoose .iconfont {
+        display: inline-block; }
+      #container .right .counterChoose .add {
+        position: absolute;
+        float: right; }
+      #container .right .counterChoose .reduce {
+        float: left; }
+
+.footer {
+  height: 40px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  bottom: 0;
+  color: white; }
+  .footer .shopCarIcon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #365bce;
+    background: white;
+    color: #365bce;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 600;
+    transform: translateX(10px) translateY(-30%); }
+    .footer .shopCarIcon span {
+      color: white;
+      background: #365bce;
+      border-radius: 50%;
+      height: 16px;
+      width: 16px;
+      line-height: 16px;
+      text-align: center;
+      font-size: 12px;
+      z-index: 999;
+      position: absolute; }
+  .footer .totle {
+    left: 60px;
+    font-weight: 100;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+  .footer .confirm {
+    height: 40px;
+    width: 90px;
+    background: #365bce;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    color: white; }
+
+#header {
+  height: 6rem;
+  width: 100%;
+  background: #365bce;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 200;
+  position: relative; }
+  #header .header_img {
+    height: 3rem;
+    width: 3rem;
+    border: 1px solid white;
+    border-radius: 50%;
+    left: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+  #header .header_container {
+    height: 3rem;
+    width: calc(100% - 153px);
+    left: 150px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+    #header .header_container .header_title {
+      font-size: 1rem; }
+    #header .header_container .header_info {
+      position: absolute;
+      bottom: 0;
+      font-size: 0.5rem; }
+
+.notice {
+  width: 100%;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  bottom: 0;
+  line-height: 20px;
+  padding-left: 6px;
+  font-size: 12px; }
+
+
+#shopCar {
+  width: 100vw;
+  background: white;
+  position: absolute;
+  bottom: 40px; }
+  #shopCar .top {
+    background: #f0f0f0;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px;
+    font-size: 14px;
+    padding-left: 10px; }
+  #shopCar li {
+    line-height: 30px;
+    font-size: 14px;
+    position: relative;
+    padding: 10px 5px 10px 5px; }
+    #shopCar li .bottom {
+      width: 80%;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.2);
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%); }
+    #shopCar li div {
+      display: inline-block; }
+    #shopCar li .shopName {
+      font-weight: 700; }
+    #shopCar li .right {
+      position: absolute;
+      right: 10px; }
+    #shopCar li .money {
+      margin-right: 10px;
+      color: #fa7d43;
+      font-weight: 100; }
+    #shopCar li .iconfont {
+      height: 25px;
+      width: 25px;
+      text-align: center;
+      line-height: 25px;
+      color: rgba(0, 0, 0, 0.3);
+      font-weight: 100; }
+    #shopCar li .add, #shopCar li .reduce {
+      border: none;
+      background: #d5e2ff;
+      border-radius: 50%; }
+    #shopCar li .counter div {
+      display: inline-block; }
+    #shopCar li .counter .number {
+      color: rgba(0, 0, 0, 0.56); }
+
+.sidebar ul {
+  width: 2.5rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(0, 0, 0, 0.1); }
+
+.sidebar li {
+  width: 2.5rem;
+  height: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
+
+.split {
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid rgba(54, 91, 206, 0.2); }
+  .split li {
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    color: #365bce; }
+    .split li:nth-child(1) {
+      width: 2.5rem;
+      background: #eee; }
+    .split li:nth-child(2) {
+      width: calc(100% - 2.5rem); }
+
+/*# sourceMappingURL=app.css.map */

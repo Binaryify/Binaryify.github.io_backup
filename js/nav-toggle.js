@@ -33,7 +33,6 @@ $(document).ready(function() {
 
   // 添加监听器，在title里显示状态变化
   document.addEventListener(visibilityChange, function() {
-
     if (document[state] == "hidden") {
       document.title = "出bug了,快看!";
     } else {
