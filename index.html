@@ -168,6 +168,171 @@
           
           
             
+              <a class="post-title-link" href="/2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/" itemprop="url">
+                使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-08-01T11:06:34+08:00" content="2016-08-01">
+            2016-08-01
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>接上篇<br><a href="http://binaryify.github.io/2016/07/30/%E4%BD%BF%E7%94%A8socket.io%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E7%82%B9%E9%A4%90%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%93%9D%E7%89%99%E6%89%93%E5%8D%B0%E5%B0%8F%E7%A5%A8%E5%8A%9F%E8%83%BD(%E4%B8%80" target="_blank" rel="external">使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)</a>/)<br>我们现在已经能在app里打印了,但是我们想要的功能是在用户端点击下单,然后商家后台的手机要能根据用户下的订单打印出对应的票据出来,普通的ajax请求已经不能满足我们的需求了,用轮询的话性能太差,这时候就该轮到websocket协议出场了. websocket是长连接的,完全能满足我们的需求<br>所以第一步就是搭建websocket服务器,我是用nodejs开发,然后选择了express和socket.io这两个库.  </p>
+<p>使用socket.io这个库的原因是因为兼容性强,Socket.io将Websocket和轮询 （Polling）机制以及其它的实时通信方式封装成了通用的接口，并且在服务端实现了这些实时机制的相应代码,用的人也多<br>由于手机和打印设备众多,如何让用户下单后就能让对应商家手机通知打印机打印呢?  </p>
+<p>我想到的是商家手机上安装的app存有唯一的id,每个用户通过扫描携带商家id的二维码,然后下单后再emit一个事件,携带id和要打印的数据到服务器,服务器再广播一个事件,把这个id广播出去,商家端app接收后再对比这个id和本地id是否相同,相同则打印服务端携带的数据<br>整体思路就是这样  </p>
+<p>说干就干,服务端代码简单</p>
+<p><img src="http://binaryify.github.io/images/printer_socket/1.png" alt=""><br>核心功能就是监听sendData事件,接收携带id和打印内容的数据,然后接收完毕就广播print事件,发送id和打印内容<br>商家客户端方面也不难,监听print事件,接受id和打印内容,如果接收到的id和本地设备id相同,则控制打印机进行打印<br>ps:要注意的是之前点击这个按钮是直接打印的,现在变成监听print事件,接收完数据再打印接收到的内容<br><img src="http://binaryify.github.io/images/printer_socket/2.png" alt=""><br>用户网页端方面,我简单做了个demo,只有简单的html<br><img src="http://binaryify.github.io/images/printer_socket/3.png" alt=""></p>
+<p><img src="http://binaryify.github.io/images/printer_socket/4.png" alt=""></p>
+<p><img src="http://binaryify.github.io/images/printer_socket/5.png" alt=""><br>如上图所示每次点击发送按钮的时候,都会把商家id和打印内容发送到服务器,然后服务器把id和打印内容广播到每台商家端app上,app接收到信息检测接收到的id是否和本地设备id相等,相等则打印接收到的内容<br>可以通过这个视频感受一下</p>
+<video src="http://binaryify.github.io/images/printer_socket/210618010816aab4cd480370.mp4" controls="controls" style="width:50vw;"></video>
+
+<p>ps:需要注意的是cordova打包后会出现无法连接socket,但是网页正常的现象,这是因为cordova默认只允许”file”协议,这时候应该装个<a href="https://github.com/apache/cordova-plugin-whitelist" target="_blank" rel="external">cordova-plugin-whitelist</a>,让cordova允许其他协议<br>即:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin add cordova-plugin-whitelist</span><br></pre></td></tr></table></figure></p>
+<p>官网文档提到<br>By default, navigations only to file:// URLs, are allowed. To allow others URLs, you must add <allow-navigation> tags to your config.xml:</allow-navigation></p>
+<p>cordova默认只允许file协议,所以下面需要修改config.xml,让cordova允许http协议,添加下面内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- A wildcard can be used to whitelist the entire network,</span><br><span class="line">     over HTTP and HTTPS.</span><br><span class="line">     *NOT RECOMMENDED* --&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;*&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- The above is equivalent to these three declarations --&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;http://*/*&quot; /&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;https://*/*&quot; /&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;data:*&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这样就没问题了</p>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><p>我们现在的是实时打印的,万一商家端手机网络中断,蓝牙关闭,不小心把app关了,这样就会错过要打印的内容,这可不能容忍,所以我们还得给加上消息队列的功能<br>思路很简单:<br>在服务器端创建一个空数组,然后监听打印成功事件,如果没数据传回来就把sendData事件传过来的id和打印内容的 json 字符串 push 到这个数组里,遍历这个数组,如果成功了,就从这个数组剔除打印成功的元素<br>然后给客户端的打印成功的回调那里加一个emit事件,emit打印成功这个事件<br>这样一个消息队列就搞定了,原理简单,但是还有很多要注意的,比如隔多长时间遍历一次数组,多长时间取消打印回收内存等等</p>
+<h3 id="2016-08-05-更新"><a href="#2016-08-05-更新" class="headerlink" title="2016/08/05 更新"></a>2016/08/05 更新</h3><p>最后发现用数组很难维护,最后我使用mongoDB解决的,我的做法如下:<br>设置一个保存数据到数据库的函数,status(是否已经打印)都为false<br><img src="http://binaryify.github.io/images/printer_socket/6.png" alt=""><br>每次接收到sendData事件就把数据存到数据库,同时监听hadPrint事件,商家app每次完成打印都会触发hadPrint事件<br><img src="http://binaryify.github.io/images/printer_socket/7.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/8.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/9.png" alt=""><br>hadPrint被触发时,会根据orderId来查找对应订单,同时设置该订单的status(是否已经打印)为true  </p>
+<p>最后设置一个定时函数,定时检测数据库里status为false的订单,找到了就把它打印,这样我们的项目基本雏形就完成了,由于商业项目,不能具体描述代码详情,只能简单介绍下思路,抛砖引玉,希望对读者有所帮助<br><img src="http://binaryify.github.io/images/printer_socket/10.png" alt=""></p>
+<p>最后附上成果:<br><img src="http://binaryify.github.io/images/printer_socket/11.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/14.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/15.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/16.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/12.jpg" alt=""></p>
+<p>还有又被我浪费的一卷打印纸<br><img src="http://binaryify.github.io/images/printer_socket/13.jpg" alt=""><br>(完)</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/07/30/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/" itemprop="url">
+                使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-07-30T10:00:46+08:00" content="2016-07-30">
+            2016-07-30
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/07/30/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>近期公司要开发个能连接蓝牙,并用蓝牙打印的一个app,由于遇到的坑比较多,特此纪录<br>也许你会问,为啥前端还要研究硬件?<br>前端为啥就不能研究硬件,前端工程师首先是工程师,不能把眼界局限在前端.而且通过cordova,用JS的语法就能开发硬件了,还能提高自己JS姿势,何乐而不为?<br>我们选择的打印机是主流的芯烨XP-58IIH热敏蓝牙打印机,厂家也提供了足够多的文档,编程手册,和开发实例.<br>我选择了 vue 和 cordova 来开发这个app,然后就是蓝牙插件的选择了,然后这里就遇到了第一个坑,一开始使用了 <strong>cordova-plugin-ble-central</strong> 这个蓝牙插件,也能扫描出来打印机的蓝牙信号,就是死活连不上,在查了资料,折腾了几个钟后才恍然大悟,我用的是低功耗蓝牙的插件,于是就选择了另外一个蓝牙插件  <strong>BluetoothSerial</strong> ,总算是能连上了,连接代码如下:<br><img src="http://binaryify.github.io/images/printer/20.png" alt=""><br><img src="http://binaryify.github.io/images/printer/21.png" alt=""><br><img src="http://binaryify.github.io/images/printer/25.png" alt=""></p>
+<p>连上了就该打印了,打印英文还是很简单的<br><img src="http://binaryify.github.io/images/printer/3.png" alt=""><br><img src="http://binaryify.github.io/images/printer/4.jpg" alt=""><br>但是,在打印中文的时候就出问题了,</p>
+<p><img src="http://binaryify.github.io/images/printer/5.png" alt=""></p>
+<p><img src="http://binaryify.github.io/images/printer/6.jpg" alt=""><br>这肯定不行,下意识查看厂家提供的资料<br>厂家提供的是安卓源码,首先查找核心打印部分的代码,很快就找到了<br><img src="http://binaryify.github.io/images/printer/1.png" alt=""><br>然后开始分析这段代码:<br>这段代码主要作用是获取输入框内容,然后进行字符串拼接,最后通过<code>getBytes(&quot;GBK&quot;)</code>来转换成gbk码的字节数组<br>JAVA代码简单,到JS这里就不是一回事了,首先就卡在gbk编码上了,花了好长时间查询JS怎么转gbk编码,发现js原生不支持gbk转换,最后才锁定一个库,不过年久失修,原地址失效了,找了好久才下载到,于是我把它用module.exports包装了下,然后放到github上了<br><a href="https://github.com/Binaryify/myLib/blob/master/gbk.js" target="_blank" rel="external">传送门</a><br>这个库能把中文转换成gbk编码的十六进制字符串,格式是%xx%yy形式的,比如转换”哈”这个字,是转换成”%B9%FE”的,然而我通过一番搜索发现打印机需要的格式是十六进制字节数组的,即类似[‘0xB9’,’0xFE’]格式的,这个好办,我写了个转换函数,用 replace加正则去掉第一个”%”,然后用split(“%”)转换成数组,再用map加上”0x”就行.不过最后也发现,这个库不会转换数字和字母,于是我又用 <code>str.charCodeAt(0).toString(16)</code>转换成对应的ASCII码,再加上”0x”,就OK了,整个转换函数也写好了,不知道还有没有更好的方法<br><img src="http://binaryify.github.io/images/printer/demo.png" alt=""><br>整个转换源码如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> $ = <span class="built_in">require</span>(<span class="string">'./gbk.js'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports=<span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> result = $.encode(str[i])</span><br><span class="line">    <span class="keyword">const</span> length = result.length</span><br><span class="line">    <span class="keyword">switch</span> (length) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">const</span> c = result.charCodeAt(<span class="number">0</span>).toString(<span class="number">16</span>)</span><br><span class="line">        arr.push(<span class="string">"0x"</span> +c)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        arr.push(<span class="string">"0x"</span> + result.replace(<span class="regexp">/%/</span>, <span class="string">''</span>))</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">const</span> tmp = result.replace(<span class="regexp">/%/</span>, <span class="string">''</span>).split(<span class="string">'%'</span>)</span><br><span class="line">        <span class="keyword">const</span> newArr = tmp.map(item =&gt; <span class="string">"0x"</span> + item)</span><br><span class="line">        arr.push(...newArr)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.push(<span class="string">'0x0a'</span>)</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://binaryify.github.io/images/printer/7.png" alt=""><br>然后在组件处引入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> encode =<span class="built_in">require</span>(<span class="string">'../encode.js'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>再把这里要打印的内容用encode函数包起来<br><img src="http://binaryify.github.io/images/printer/8.png" alt=""><br>最后就可以愉快的打印中英文啦</p>
+<p>如果需要打印表单内容,把encode里面内容换成this.content就行</p>
+<p><img src="http://binaryify.github.io/images/printer/9.jpg" alt=""></p>
+<p>app原始界面:<br><img src="http://binaryify.github.io/images/printer/app.png" alt=""></p>
+<p>ps:文章简单,填坑艰辛,望能为后来人提供有用的帮助信息</p>
+<p><img src="http://binaryify.github.io/images/printer/10.jpg" alt=""></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/04/19/正则表达式整理/" itemprop="url">
                 正则表达式整理
               </a>
@@ -830,168 +995,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/10/26/设计模式之策略模式/" itemprop="url">
-                设计模式之策略模式
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-26T20:47:04+08:00" content="2015-10-26">
-            2015-10-26
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/10/26/设计模式之策略模式/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/26/设计模式之策略模式/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><img src="http://binaryify.github.io/images/ElectreeMiniVivienMuller1.jpg" alt=""></p>
-<h1 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h1><p>策略模式定义了算法家族,分别封装起来,让他们之间可以相互替换,此模式让方法的变化不会影响到使用算法的客户</p>
-<h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
-<li>所有的这些算法都是做相同的事情，只是实现不同。</li>
-<li>以相同的方式调用所有的方法，减少了各种算法类与使用算法类之间的耦合。</li>
-<li>单独定义算法类，也方便了单元测试。</li>
-</ol>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h2><ol>
-<li>不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就可以考虑是要策略模式来处理各种变化。</li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/26/设计模式之策略模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/10/26/设计模式之中介者模式/" itemprop="url">
-                设计模式之中介者模式
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-26T19:54:44+08:00" content="2015-10-26">
-            2015-10-26
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/10/26/设计模式之中介者模式/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/26/设计模式之中介者模式/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><img src="http://binaryify.github.io/images/img2.jpg" alt=""></p>
-<h1 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h1><p>中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。<br>(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式)</p>
-<h2 id="模式作用"><a href="#模式作用" class="headerlink" title="模式作用:"></a>模式作用:</h2><ol>
-<li>在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都要创建一个中央控制点让其各模块通过中央控制点进行交互.中介者模式可以让这些子模块不需要直接沟通,从而达到进行解耦的目的.</li>
-</ol>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h2><ol>
-<li>当系统出现了多对多交互复杂的对象群时,先不急于使用中介者模式,而是思考一下是不是系统设计有问题.</li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/26/设计模式之中介者模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1030,7 +1033,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1044,7 +1047,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -1078,7 +1081,7 @@
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

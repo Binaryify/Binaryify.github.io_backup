@@ -1,0 +1,653 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在" />
+
+
+
+  <meta name="keywords" content="js,蓝牙,打印机,websocket,socket.io," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="接上篇使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/)我们现在已经能在app里打印了,但是我们想要的功能是在用户端点击下单,然后商家后台的手机要能根据用户下的订单打印出对应的票据出来,普通的ajax请求已经不能满足我们的需求了,用轮询的话性能太差,这时候就该轮到websocket协议出场了. websocket是长连接的,完全能满足我们的需求所以第一步就是搭建websocket">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)">
+<meta property="og:url" content="http://yoursite.com/2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/index.html">
+<meta property="og:site_name" content="阿发">
+<meta property="og:description" content="接上篇使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/)我们现在已经能在app里打印了,但是我们想要的功能是在用户端点击下单,然后商家后台的手机要能根据用户下的订单打印出对应的票据出来,普通的ajax请求已经不能满足我们的需求了,用轮询的话性能太差,这时候就该轮到websocket协议出场了. websocket是长连接的,完全能满足我们的需求所以第一步就是搭建websocket">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/1.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/2.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/3.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/4.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/5.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/6.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/7.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/8.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/9.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/10.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/11.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/14.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/15.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/16.png">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/12.jpg">
+<meta property="og:image" content="http://binaryify.github.io/images/printer_socket/13.jpg">
+<meta property="og:updated_time" content="2016-08-05T16:32:15.745Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)">
+<meta name="twitter:description" content="接上篇使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/)我们现在已经能在app里打印了,但是我们想要的功能是在用户端点击下单,然后商家后台的手机要能根据用户下的订单打印出对应的票据出来,普通的ajax请求已经不能满足我们的需求了,用轮询的话性能太差,这时候就该轮到websocket协议出场了. websocket是长连接的,完全能满足我们的需求所以第一步就是搭建websocket">
+<meta name="twitter:image" content="http://binaryify.github.io/images/printer_socket/1.png">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide'
+  };
+</script>
+
+  <title> 使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二) | 阿发 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?6308fa0dd9977d2f25ecf88ec7bfd627";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">阿发</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-08-01T11:06:34+08:00" content="2016-08-01">
+            2016-08-01
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>接上篇<br><a href="http://binaryify.github.io/2016/07/30/%E4%BD%BF%E7%94%A8socket.io%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E7%82%B9%E9%A4%90%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%93%9D%E7%89%99%E6%89%93%E5%8D%B0%E5%B0%8F%E7%A5%A8%E5%8A%9F%E8%83%BD(%E4%B8%80" target="_blank" rel="external">使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)</a>/)<br>我们现在已经能在app里打印了,但是我们想要的功能是在用户端点击下单,然后商家后台的手机要能根据用户下的订单打印出对应的票据出来,普通的ajax请求已经不能满足我们的需求了,用轮询的话性能太差,这时候就该轮到websocket协议出场了. websocket是长连接的,完全能满足我们的需求<br>所以第一步就是搭建websocket服务器,我是用nodejs开发,然后选择了express和socket.io这两个库.  </p>
+<p>使用socket.io这个库的原因是因为兼容性强,Socket.io将Websocket和轮询 （Polling）机制以及其它的实时通信方式封装成了通用的接口，并且在服务端实现了这些实时机制的相应代码,用的人也多<br>由于手机和打印设备众多,如何让用户下单后就能让对应商家手机通知打印机打印呢?  </p>
+<p>我想到的是商家手机上安装的app存有唯一的id,每个用户通过扫描携带商家id的二维码,然后下单后再emit一个事件,携带id和要打印的数据到服务器,服务器再广播一个事件,把这个id广播出去,商家端app接收后再对比这个id和本地id是否相同,相同则打印服务端携带的数据<br>整体思路就是这样  </p>
+<p>说干就干,服务端代码简单</p>
+<p><img src="http://binaryify.github.io/images/printer_socket/1.png" alt=""><br>核心功能就是监听sendData事件,接收携带id和打印内容的数据,然后接收完毕就广播print事件,发送id和打印内容<br>商家客户端方面也不难,监听print事件,接受id和打印内容,如果接收到的id和本地设备id相同,则控制打印机进行打印<br>ps:要注意的是之前点击这个按钮是直接打印的,现在变成监听print事件,接收完数据再打印接收到的内容<br><img src="http://binaryify.github.io/images/printer_socket/2.png" alt=""><br>用户网页端方面,我简单做了个demo,只有简单的html<br><img src="http://binaryify.github.io/images/printer_socket/3.png" alt=""></p>
+<p><img src="http://binaryify.github.io/images/printer_socket/4.png" alt=""></p>
+<p><img src="http://binaryify.github.io/images/printer_socket/5.png" alt=""><br>如上图所示每次点击发送按钮的时候,都会把商家id和打印内容发送到服务器,然后服务器把id和打印内容广播到每台商家端app上,app接收到信息检测接收到的id是否和本地设备id相等,相等则打印接收到的内容<br>可以通过这个视频感受一下</p>
+<video src="http://binaryify.github.io/images/printer_socket/210618010816aab4cd480370.mp4" controls="controls" style="width:50vw;"></video>
+
+<p>ps:需要注意的是cordova打包后会出现无法连接socket,但是网页正常的现象,这是因为cordova默认只允许”file”协议,这时候应该装个<a href="https://github.com/apache/cordova-plugin-whitelist" target="_blank" rel="external">cordova-plugin-whitelist</a>,让cordova允许其他协议<br>即:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin add cordova-plugin-whitelist</span><br></pre></td></tr></table></figure></p>
+<p>官网文档提到<br>By default, navigations only to file:// URLs, are allowed. To allow others URLs, you must add <allow-navigation> tags to your config.xml:</allow-navigation></p>
+<p>cordova默认只允许file协议,所以下面需要修改config.xml,让cordova允许http协议,添加下面内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- A wildcard can be used to whitelist the entire network,</span><br><span class="line">     over HTTP and HTTPS.</span><br><span class="line">     *NOT RECOMMENDED* --&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;*&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- The above is equivalent to these three declarations --&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;http://*/*&quot; /&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;https://*/*&quot; /&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;data:*&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这样就没问题了</p>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><p>我们现在的是实时打印的,万一商家端手机网络中断,蓝牙关闭,不小心把app关了,这样就会错过要打印的内容,这可不能容忍,所以我们还得给加上消息队列的功能<br>思路很简单:<br>在服务器端创建一个空数组,然后监听打印成功事件,如果没数据传回来就把sendData事件传过来的id和打印内容的 json 字符串 push 到这个数组里,遍历这个数组,如果成功了,就从这个数组剔除打印成功的元素<br>然后给客户端的打印成功的回调那里加一个emit事件,emit打印成功这个事件<br>这样一个消息队列就搞定了,原理简单,但是还有很多要注意的,比如隔多长时间遍历一次数组,多长时间取消打印回收内存等等</p>
+<h3 id="2016-08-05-更新"><a href="#2016-08-05-更新" class="headerlink" title="2016/08/05 更新"></a>2016/08/05 更新</h3><p>最后发现用数组很难维护,最后我使用mongoDB解决的,我的做法如下:<br>设置一个保存数据到数据库的函数,status(是否已经打印)都为false<br><img src="http://binaryify.github.io/images/printer_socket/6.png" alt=""><br>每次接收到sendData事件就把数据存到数据库,同时监听hadPrint事件,商家app每次完成打印都会触发hadPrint事件<br><img src="http://binaryify.github.io/images/printer_socket/7.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/8.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/9.png" alt=""><br>hadPrint被触发时,会根据orderId来查找对应订单,同时设置该订单的status(是否已经打印)为true  </p>
+<p>最后设置一个定时函数,定时检测数据库里status为false的订单,找到了就把它打印,这样我们的项目基本雏形就完成了,由于商业项目,不能具体描述代码详情,只能简单介绍下思路,抛砖引玉,希望对读者有所帮助<br><img src="http://binaryify.github.io/images/printer_socket/10.png" alt=""></p>
+<p>最后附上成果:<br><img src="http://binaryify.github.io/images/printer_socket/11.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/14.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/15.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/16.png" alt=""><br><img src="http://binaryify.github.io/images/printer_socket/12.jpg" alt=""></p>
+<p>还有又被我浪费的一卷打印纸<br><img src="http://binaryify.github.io/images/printer_socket/13.jpg" alt=""><br>(完)</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/蓝牙/" rel="tag">#蓝牙</a>
+          
+            <a href="/tags/打印机/" rel="tag">#打印机</a>
+          
+            <a href="/tags/websocket/" rel="tag">#websocket</a>
+          
+            <a href="/tags/socket-io/" rel="tag">#socket.io</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/30/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/" rel="next">使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/"
+                   data-title="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)" data-url="http://yoursite.com/2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">阿发</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前,其次是现在</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#消息队列"><span class="nav-number">1.</span> <span class="nav-text">消息队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2016-08-05-更新"><span class="nav-number">1.1.</span> <span class="nav-text">2016/08/05 更新</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">阿发</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"binaryify"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
