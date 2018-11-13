@@ -1,50 +1,52 @@
 <!doctype html>
 <html class="theme-next use-motion theme-next-mist">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   
 
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
 
 
-    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在" />
-
-
-
-  <meta name="keywords" content="js,蓝牙,打印机,websocket,socket.io," />
+    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在">
 
 
 
+  <meta name="keywords" content="js,蓝牙,打印机,websocket,socket.io,">
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
 <meta name="description" content="近期公司要开发个能连接蓝牙,并用蓝牙打印的一个app,由于遇到的坑比较多,特此纪录也许你会问,为啥前端还要研究硬件?前端为啥就不能研究硬件,前端工程师首先是工程师,不能把眼界局限在前端.而且通过cordova,用JS的语法就能开发硬件了,还能提高自己JS姿势,何乐而不为?我们选择的打印机是主流的芯烨XP-58IIH热敏蓝牙打印机,厂家也提供了足够多的文档,编程手册,和开发实例.我选择了 vue 和">
+<meta name="keywords" content="js,蓝牙,打印机,websocket,socket.io">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)">
 <meta property="og:url" content="http://yoursite.com/2016/07/30/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/index.html">
 <meta property="og:site_name" content="阿发">
 <meta property="og:description" content="近期公司要开发个能连接蓝牙,并用蓝牙打印的一个app,由于遇到的坑比较多,特此纪录也许你会问,为啥前端还要研究硬件?前端为啥就不能研究硬件,前端工程师首先是工程师,不能把眼界局限在前端.而且通过cordova,用JS的语法就能开发硬件了,还能提高自己JS姿势,何乐而不为?我们选择的打印机是主流的芯烨XP-58IIH热敏蓝牙打印机,厂家也提供了足够多的文档,编程手册,和开发实例.我选择了 vue 和">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://binaryify.github.io/images/printer/20.png">
 <meta property="og:image" content="http://binaryify.github.io/images/printer/21.png">
 <meta property="og:image" content="http://binaryify.github.io/images/printer/25.png">
@@ -59,7 +61,7 @@
 <meta property="og:image" content="http://binaryify.github.io/images/printer/9.jpg">
 <meta property="og:image" content="http://binaryify.github.io/images/printer/app.png">
 <meta property="og:image" content="http://binaryify.github.io/images/printer/10.jpg">
-<meta property="og:updated_time" content="2016-08-05T16:30:18.016Z">
+<meta property="og:updated_time" content="2016-08-05T16:30:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)">
 <meta name="twitter:description" content="近期公司要开发个能连接蓝牙,并用蓝牙打印的一个app,由于遇到的坑比较多,特此纪录也许你会问,为啥前端还要研究硬件?前端为啥就不能研究硬件,前端工程师首先是工程师,不能把眼界局限在前端.而且通过cordova,用JS的语法就能开发硬件了,还能提高自己JS姿势,何乐而不为?我们选择的打印机是主流的芯烨XP-58IIH热敏蓝牙打印机,厂家也提供了足够多的文档,编程手册,和开发实例.我选择了 vue 和">
@@ -76,7 +78,7 @@
   <title> 使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一) | 阿发 </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   <!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
@@ -104,7 +106,7 @@
   <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><h1 class="site-meta">
   <span class="logo-line-before"><i></i></span>
   <a href="/" class="brand" rel="start">
@@ -133,7 +135,7 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            <i class="menu-item-icon icon-next-home"></i> <br>
             首页
           </a>
         </li>
@@ -141,7 +143,7 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
+            <i class="menu-item-icon icon-next-archives"></i> <br>
             归档
           </a>
         </li>
@@ -149,7 +151,7 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
+            <i class="menu-item-icon icon-next-tags"></i> <br>
             标签
           </a>
         </li>
@@ -173,7 +175,7 @@
   <div id="posts" class="posts-expand">
     
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <header class="post-header">
 
       
@@ -220,7 +222,7 @@
         <span itemprop="articleBody"><p>近期公司要开发个能连接蓝牙,并用蓝牙打印的一个app,由于遇到的坑比较多,特此纪录<br>也许你会问,为啥前端还要研究硬件?<br>前端为啥就不能研究硬件,前端工程师首先是工程师,不能把眼界局限在前端.而且通过cordova,用JS的语法就能开发硬件了,还能提高自己JS姿势,何乐而不为?<br>我们选择的打印机是主流的芯烨XP-58IIH热敏蓝牙打印机,厂家也提供了足够多的文档,编程手册,和开发实例.<br>我选择了 vue 和 cordova 来开发这个app,然后就是蓝牙插件的选择了,然后这里就遇到了第一个坑,一开始使用了 <strong>cordova-plugin-ble-central</strong> 这个蓝牙插件,也能扫描出来打印机的蓝牙信号,就是死活连不上,在查了资料,折腾了几个钟后才恍然大悟,我用的是低功耗蓝牙的插件,于是就选择了另外一个蓝牙插件  <strong>BluetoothSerial</strong> ,总算是能连上了,连接代码如下:<br><img src="http://binaryify.github.io/images/printer/20.png" alt=""><br><img src="http://binaryify.github.io/images/printer/21.png" alt=""><br><img src="http://binaryify.github.io/images/printer/25.png" alt=""></p>
 <p>连上了就该打印了,打印英文还是很简单的<br><img src="http://binaryify.github.io/images/printer/3.png" alt=""><br><img src="http://binaryify.github.io/images/printer/4.jpg" alt=""><br>但是,在打印中文的时候就出问题了,</p>
 <p><img src="http://binaryify.github.io/images/printer/5.png" alt=""></p>
-<p><img src="http://binaryify.github.io/images/printer/6.jpg" alt=""><br>这肯定不行,下意识查看厂家提供的资料<br>厂家提供的是安卓源码,首先查找核心打印部分的代码,很快就找到了<br><img src="http://binaryify.github.io/images/printer/1.png" alt=""><br>然后开始分析这段代码:<br>这段代码主要作用是获取输入框内容,然后进行字符串拼接,最后通过<code>getBytes(&quot;GBK&quot;)</code>来转换成gbk码的字节数组<br>JAVA代码简单,到JS这里就不是一回事了,首先就卡在gbk编码上了,花了好长时间查询JS怎么转gbk编码,发现js原生不支持gbk转换,最后才锁定一个库,不过年久失修,原地址失效了,找了好久才下载到,于是我把它用module.exports包装了下,然后放到github上了<br><a href="https://github.com/Binaryify/myLib/blob/master/gbk.js" target="_blank" rel="external">传送门</a><br>这个库能把中文转换成gbk编码的十六进制字符串,格式是%xx%yy形式的,比如转换”哈”这个字,是转换成”%B9%FE”的,然而我通过一番搜索发现打印机需要的格式是十六进制字节数组的,即类似[‘0xB9’,’0xFE’]格式的,这个好办,我写了个转换函数,用 replace加正则去掉第一个”%”,然后用split(“%”)转换成数组,再用map加上”0x”就行.不过最后也发现,这个库不会转换数字和字母,于是我又用 <code>str.charCodeAt(0).toString(16)</code>转换成对应的ASCII码,再加上”0x”,就OK了,整个转换函数也写好了,不知道还有没有更好的方法<br><img src="http://binaryify.github.io/images/printer/demo.png" alt=""><br>整个转换源码如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> $ = <span class="built_in">require</span>(<span class="string">'./gbk.js'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports=<span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> result = $.encode(str[i])</span><br><span class="line">    <span class="keyword">const</span> length = result.length</span><br><span class="line">    <span class="keyword">switch</span> (length) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">const</span> c = result.charCodeAt(<span class="number">0</span>).toString(<span class="number">16</span>)</span><br><span class="line">        arr.push(<span class="string">"0x"</span> +c)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        arr.push(<span class="string">"0x"</span> + result.replace(<span class="regexp">/%/</span>, <span class="string">''</span>))</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">const</span> tmp = result.replace(<span class="regexp">/%/</span>, <span class="string">''</span>).split(<span class="string">'%'</span>)</span><br><span class="line">        <span class="keyword">const</span> newArr = tmp.map(item =&gt; <span class="string">"0x"</span> + item)</span><br><span class="line">        arr.push(...newArr)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.push(<span class="string">'0x0a'</span>)</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://binaryify.github.io/images/printer/6.jpg" alt=""><br>这肯定不行,下意识查看厂家提供的资料<br>厂家提供的是安卓源码,首先查找核心打印部分的代码,很快就找到了<br><img src="http://binaryify.github.io/images/printer/1.png" alt=""><br>然后开始分析这段代码:<br>这段代码主要作用是获取输入框内容,然后进行字符串拼接,最后通过<code>getBytes(&quot;GBK&quot;)</code>来转换成gbk码的字节数组<br>JAVA代码简单,到JS这里就不是一回事了,首先就卡在gbk编码上了,花了好长时间查询JS怎么转gbk编码,发现js原生不支持gbk转换,最后才锁定一个库,不过年久失修,原地址失效了,找了好久才下载到,于是我把它用module.exports包装了下,然后放到github上了<br><a href="https://github.com/Binaryify/myLib/blob/master/gbk.js" target="_blank" rel="noopener">传送门</a><br>这个库能把中文转换成gbk编码的十六进制字符串,格式是%xx%yy形式的,比如转换”哈”这个字,是转换成”%B9%FE”的,然而我通过一番搜索发现打印机需要的格式是十六进制字节数组的,即类似[‘0xB9’,’0xFE’]格式的,这个好办,我写了个转换函数,用 replace加正则去掉第一个”%”,然后用split(“%”)转换成数组,再用map加上”0x”就行.不过最后也发现,这个库不会转换数字和字母,于是我又用 <code>str.charCodeAt(0).toString(16)</code>转换成对应的ASCII码,再加上”0x”,就OK了,整个转换函数也写好了,不知道还有没有更好的方法<br><img src="http://binaryify.github.io/images/printer/demo.png" alt=""><br>整个转换源码如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> $ = <span class="built_in">require</span>(<span class="string">'./gbk.js'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports=<span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> result = $.encode(str[i])</span><br><span class="line">    <span class="keyword">const</span> length = result.length</span><br><span class="line">    <span class="keyword">switch</span> (length) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">const</span> c = result.charCodeAt(<span class="number">0</span>).toString(<span class="number">16</span>)</span><br><span class="line">        arr.push(<span class="string">"0x"</span> +c)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        arr.push(<span class="string">"0x"</span> + result.replace(<span class="regexp">/%/</span>, <span class="string">''</span>))</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">const</span> tmp = result.replace(<span class="regexp">/%/</span>, <span class="string">''</span>).split(<span class="string">'%'</span>)</span><br><span class="line">        <span class="keyword">const</span> newArr = tmp.map(<span class="function"><span class="params">item</span> =&gt;</span> <span class="string">"0x"</span> + item)</span><br><span class="line">        arr.push(...newArr)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.push(<span class="string">'0x0a'</span>)</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://binaryify.github.io/images/printer/7.png" alt=""><br>然后在组件处引入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> encode =<span class="built_in">require</span>(<span class="string">'../encode.js'</span>)</span><br></pre></td></tr></table></figure></p>
 <p>再把这里要打印的内容用encode函数包起来<br><img src="http://binaryify.github.io/images/printer/8.png" alt=""><br>最后就可以愉快的打印中英文啦</p>
 <p>如果需要打印表单内容,把encode里面内容换成this.content就行</p>
@@ -284,8 +286,7 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/07/30/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/"
-                   data-title="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)" data-url="http://yoursite.com/2016/07/30/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/">
+              <div class="ds-thread" data-thread-key="2016/07/30/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/" data-title="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)" data-url="http://yoursite.com/2016/07/30/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/">
               </div>
             
           </div>
@@ -307,7 +308,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -317,15 +318,15 @@
       
 
       <section class="site-overview">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image"/>
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image">
           <p class="site-author-name" itemprop="name">阿发</p>
         </div>
         <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前,其次是现在</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -381,10 +382,10 @@
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner"> <div class="copyright">
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

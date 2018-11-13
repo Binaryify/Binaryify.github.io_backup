@@ -1,50 +1,52 @@
 <!doctype html>
 <html class="theme-next use-motion theme-next-mist">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   
 
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
 
 
-    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在" />
-
-
-
-  <meta name="keywords" content="js,蓝牙,打印机,websocket,socket.io," />
+    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在">
 
 
 
+  <meta name="keywords" content="js,蓝牙,打印机,websocket,socket.io,">
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
 <meta name="description" content="接上篇使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/)我们现在已经能在app里打印了,但是我们想要的功能是在用户端点击下单,然后商家后台的手机要能根据用户下的订单打印出对应的票据出来,普通的ajax请求已经不能满足我们的需求了,用轮询的话性能太差,这时候就该轮到websocket协议出场了. websocket是长连接的,完全能满足我们的需求所以第一步就是搭建websocket">
+<meta name="keywords" content="js,蓝牙,打印机,websocket,socket.io">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)">
 <meta property="og:url" content="http://yoursite.com/2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/index.html">
 <meta property="og:site_name" content="阿发">
 <meta property="og:description" content="接上篇使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/)我们现在已经能在app里打印了,但是我们想要的功能是在用户端点击下单,然后商家后台的手机要能根据用户下的订单打印出对应的票据出来,普通的ajax请求已经不能满足我们的需求了,用轮询的话性能太差,这时候就该轮到websocket协议出场了. websocket是长连接的,完全能满足我们的需求所以第一步就是搭建websocket">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://binaryify.github.io/images/printer_socket/1.png">
 <meta property="og:image" content="http://binaryify.github.io/images/printer_socket/2.png">
 <meta property="og:image" content="http://binaryify.github.io/images/printer_socket/3.png">
@@ -61,7 +63,7 @@
 <meta property="og:image" content="http://binaryify.github.io/images/printer_socket/16.png">
 <meta property="og:image" content="http://binaryify.github.io/images/printer_socket/12.jpg">
 <meta property="og:image" content="http://binaryify.github.io/images/printer_socket/13.jpg">
-<meta property="og:updated_time" content="2016-08-05T16:32:15.745Z">
+<meta property="og:updated_time" content="2016-08-05T16:32:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)">
 <meta name="twitter:description" content="接上篇使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)/)我们现在已经能在app里打印了,但是我们想要的功能是在用户端点击下单,然后商家后台的手机要能根据用户下的订单打印出对应的票据出来,普通的ajax请求已经不能满足我们的需求了,用轮询的话性能太差,这时候就该轮到websocket协议出场了. websocket是长连接的,完全能满足我们的需求所以第一步就是搭建websocket">
@@ -78,7 +80,7 @@
   <title> 使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二) | 阿发 </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   <!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
@@ -106,7 +108,7 @@
   <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><h1 class="site-meta">
   <span class="logo-line-before"><i></i></span>
   <a href="/" class="brand" rel="start">
@@ -135,7 +137,7 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            <i class="menu-item-icon icon-next-home"></i> <br>
             首页
           </a>
         </li>
@@ -143,7 +145,7 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
+            <i class="menu-item-icon icon-next-archives"></i> <br>
             归档
           </a>
         </li>
@@ -151,7 +153,7 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
+            <i class="menu-item-icon icon-next-tags"></i> <br>
             标签
           </a>
         </li>
@@ -175,7 +177,7 @@
   <div id="posts" class="posts-expand">
     
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <header class="post-header">
 
       
@@ -219,7 +221,7 @@
       
 
       
-        <span itemprop="articleBody"><p>接上篇<br><a href="http://binaryify.github.io/2016/07/30/%E4%BD%BF%E7%94%A8socket.io%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E7%82%B9%E9%A4%90%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%93%9D%E7%89%99%E6%89%93%E5%8D%B0%E5%B0%8F%E7%A5%A8%E5%8A%9F%E8%83%BD(%E4%B8%80" target="_blank" rel="external">使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)</a>/)<br>我们现在已经能在app里打印了,但是我们想要的功能是在用户端点击下单,然后商家后台的手机要能根据用户下的订单打印出对应的票据出来,普通的ajax请求已经不能满足我们的需求了,用轮询的话性能太差,这时候就该轮到websocket协议出场了. websocket是长连接的,完全能满足我们的需求<br>所以第一步就是搭建websocket服务器,我是用nodejs开发,然后选择了express和socket.io这两个库.  </p>
+        <span itemprop="articleBody"><p>接上篇<br><a href="http://binaryify.github.io/2016/07/30/%E4%BD%BF%E7%94%A8socket.io%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E7%82%B9%E9%A4%90%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%93%9D%E7%89%99%E6%89%93%E5%8D%B0%E5%B0%8F%E7%A5%A8%E5%8A%9F%E8%83%BD(%E4%B8%80" target="_blank" rel="noopener">使用socket.io开发微信点餐并在后台蓝牙打印小票功能(一)</a>/)<br>我们现在已经能在app里打印了,但是我们想要的功能是在用户端点击下单,然后商家后台的手机要能根据用户下的订单打印出对应的票据出来,普通的ajax请求已经不能满足我们的需求了,用轮询的话性能太差,这时候就该轮到websocket协议出场了. websocket是长连接的,完全能满足我们的需求<br>所以第一步就是搭建websocket服务器,我是用nodejs开发,然后选择了express和socket.io这两个库.  </p>
 <p>使用socket.io这个库的原因是因为兼容性强,Socket.io将Websocket和轮询 （Polling）机制以及其它的实时通信方式封装成了通用的接口，并且在服务端实现了这些实时机制的相应代码,用的人也多<br>由于手机和打印设备众多,如何让用户下单后就能让对应商家手机通知打印机打印呢?  </p>
 <p>我想到的是商家手机上安装的app存有唯一的id,每个用户通过扫描携带商家id的二维码,然后下单后再emit一个事件,携带id和要打印的数据到服务器,服务器再广播一个事件,把这个id广播出去,商家端app接收后再对比这个id和本地id是否相同,相同则打印服务端携带的数据<br>整体思路就是这样  </p>
 <p>说干就干,服务端代码简单</p>
@@ -228,7 +230,7 @@
 <p><img src="http://binaryify.github.io/images/printer_socket/5.png" alt=""><br>如上图所示每次点击发送按钮的时候,都会把商家id和打印内容发送到服务器,然后服务器把id和打印内容广播到每台商家端app上,app接收到信息检测接收到的id是否和本地设备id相等,相等则打印接收到的内容<br>可以通过这个视频感受一下</p>
 <video src="http://binaryify.github.io/images/printer_socket/210618010816aab4cd480370.mp4" controls="controls" style="width:50vw;"></video>
 
-<p>ps:需要注意的是cordova打包后会出现无法连接socket,但是网页正常的现象,这是因为cordova默认只允许”file”协议,这时候应该装个<a href="https://github.com/apache/cordova-plugin-whitelist" target="_blank" rel="external">cordova-plugin-whitelist</a>,让cordova允许其他协议<br>即:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin add cordova-plugin-whitelist</span><br></pre></td></tr></table></figure></p>
+<p>ps:需要注意的是cordova打包后会出现无法连接socket,但是网页正常的现象,这是因为cordova默认只允许”file”协议,这时候应该装个<a href="https://github.com/apache/cordova-plugin-whitelist" target="_blank" rel="noopener">cordova-plugin-whitelist</a>,让cordova允许其他协议<br>即:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin add cordova-plugin-whitelist</span><br></pre></td></tr></table></figure></p>
 <p>官网文档提到<br>By default, navigations only to file:// URLs, are allowed. To allow others URLs, you must add <allow-navigation> tags to your config.xml:</allow-navigation></p>
 <p>cordova默认只允许file协议,所以下面需要修改config.xml,让cordova允许http协议,添加下面内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- A wildcard can be used to whitelist the entire network,</span><br><span class="line">     over HTTP and HTTPS.</span><br><span class="line">     *NOT RECOMMENDED* --&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;*&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- The above is equivalent to these three declarations --&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;http://*/*&quot; /&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;https://*/*&quot; /&gt;</span><br><span class="line">&lt;allow-navigation href=&quot;data:*&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
 <p>这样就没问题了</p>
@@ -262,6 +264,8 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/07/20/用Vue、Vuex、Immutable做俄罗斯方块/" rel="prev">用Vue、Vuex、Immutable做俄罗斯方块</a>
+            
           </div>
 
           <div class="post-nav-next post-nav-item">
@@ -291,8 +295,7 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/"
-                   data-title="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)" data-url="http://yoursite.com/2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/">
+              <div class="ds-thread" data-thread-key="2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/" data-title="使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)" data-url="http://yoursite.com/2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/">
               </div>
             
           </div>
@@ -314,7 +317,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -324,15 +327,15 @@
       
 
       <section class="site-overview">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image"/>
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image">
           <p class="site-author-name" itemprop="name">阿发</p>
         </div>
         <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前,其次是现在</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -388,10 +391,10 @@
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner"> <div class="copyright">
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

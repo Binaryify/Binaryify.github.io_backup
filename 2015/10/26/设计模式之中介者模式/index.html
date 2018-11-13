@@ -1,61 +1,57 @@
 <!doctype html>
 <html class="theme-next use-motion theme-next-mist">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   
 
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
 
 
-    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在" />
-
-
-
-  <meta name="keywords" content="js,设计模式," />
+    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在">
 
 
 
+  <meta name="keywords" content="js,设计模式,">
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="中介者模式中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式)
-模式作用:
-在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都">
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="中介者模式中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式) 模式作用: 在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都">
+<meta name="keywords" content="js,设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之中介者模式">
 <meta property="og:url" content="http://yoursite.com/2015/10/26/设计模式之中介者模式/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="中介者模式中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式)
-模式作用:
-在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都">
+<meta property="og:description" content="中介者模式中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式) 模式作用: 在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://binaryify.github.io/images/img2.jpg">
 <meta property="og:updated_time" content="2016-04-05T15:06:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之中介者模式">
-<meta name="twitter:description" content="中介者模式中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式)
-模式作用:
-在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都">
+<meta name="twitter:description" content="中介者模式中介者模式（Mediator Pattern）：定义一个中介对象来封装系列对象之间的交互。中介者使各个对象不需要显示地相互引用，从而使其耦合性松散，而且可以独立地改变他们之间的交互。(注意:中介者模式和代理模式字面意思相近,但却是完全不同的模式) 模式作用: 在软件开发中,中介者是一个行为设计模式,通过提供一个统一的接口让系统不同部分进行通信.一般,如果系统有很多子模块需要直接沟通,都">
 <meta name="twitter:image" content="http://binaryify.github.io/images/img2.jpg">
 
 
@@ -69,7 +65,7 @@
   <title> 设计模式之中介者模式 | 阿发 </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   <!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
@@ -97,7 +93,7 @@
   <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><h1 class="site-meta">
   <span class="logo-line-before"><i></i></span>
   <a href="/" class="brand" rel="start">
@@ -126,7 +122,7 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            <i class="menu-item-icon icon-next-home"></i> <br>
             首页
           </a>
         </li>
@@ -134,7 +130,7 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
+            <i class="menu-item-icon icon-next-archives"></i> <br>
             归档
           </a>
         </li>
@@ -142,7 +138,7 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
+            <i class="menu-item-icon icon-next-tags"></i> <br>
             标签
           </a>
         </li>
@@ -166,7 +162,7 @@
   <div id="posts" class="posts-expand">
     
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <header class="post-header">
 
       
@@ -219,7 +215,7 @@
 <li>当系统出现了多对多交互复杂的对象群时,先不急于使用中介者模式,而是思考一下是不是系统设计有问题.</li>
 </ol>
 <a id="more"></a>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//飞机</span></span><br><span class="line"><span class="keyword">var</span> feiji=<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name=name;</span><br><span class="line">&#125;</span><br><span class="line">feiji.prototype.send=<span class="function"><span class="keyword">function</span>(<span class="params">msg,to</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">"发送了信息"</span>)</span><br><span class="line">  tatai.send(msg,to)</span><br><span class="line">&#125;</span><br><span class="line">feiji.prototype.jieshou=<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">"[接收到]"</span>+msg)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//塔台</span></span><br><span class="line"><span class="keyword">var</span> tatai=&#123;</span><br><span class="line">  all:&#123;&#125;,</span><br><span class="line">  zhuce:<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.all[f.name]=f;</span><br><span class="line">  &#125;,send:<span class="function"><span class="keyword">function</span>(<span class="params">msg,to</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.all[to.name].jieshou(msg)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> feiji1=<span class="keyword">new</span> feiji(<span class="string">"feiji1"</span>);</span><br><span class="line"><span class="keyword">var</span> feiji2=<span class="keyword">new</span> feiji(<span class="string">"feiji2"</span>);</span><br><span class="line">tatai.zhuce(feiji1);</span><br><span class="line">tatai.zhuce(feiji2);</span><br><span class="line">feiji1.send(<span class="string">'我马上降落,还有200米'</span>,feiji2)</span><br><span class="line"><span class="comment">//feiji1发送了信息</span></span><br><span class="line"><span class="comment">//feiji2[接收到]我马上降落,还有200米</span></span><br></pre></td></tr></table></figure>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//飞机</span></span><br><span class="line"><span class="keyword">var</span> feiji=<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name=name;</span><br><span class="line">&#125;</span><br><span class="line">feiji.prototype.send=<span class="function"><span class="keyword">function</span>(<span class="params">msg,to</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">"发送了信息"</span>)</span><br><span class="line">  tatai.send(msg,to)</span><br><span class="line">&#125;</span><br><span class="line">feiji.prototype.jieshou=<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">"[接收到]"</span>+msg)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//塔台</span></span><br><span class="line"><span class="keyword">var</span> tatai=&#123;</span><br><span class="line">  all:&#123;&#125;,</span><br><span class="line">  zhuce:<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.all[f.name]=f;</span><br><span class="line">  &#125;,<span class="attr">send</span>:<span class="function"><span class="keyword">function</span>(<span class="params">msg,to</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.all[to.name].jieshou(msg)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> feiji1=<span class="keyword">new</span> feiji(<span class="string">"feiji1"</span>);</span><br><span class="line"><span class="keyword">var</span> feiji2=<span class="keyword">new</span> feiji(<span class="string">"feiji2"</span>);</span><br><span class="line">tatai.zhuce(feiji1);</span><br><span class="line">tatai.zhuce(feiji2);</span><br><span class="line">feiji1.send(<span class="string">'我马上降落,还有200米'</span>,feiji2)</span><br><span class="line"><span class="comment">//feiji1发送了信息</span></span><br><span class="line"><span class="comment">//feiji2[接收到]我马上降落,还有200米</span></span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -270,8 +266,7 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/10/26/设计模式之中介者模式/"
-                   data-title="设计模式之中介者模式" data-url="http://yoursite.com/2015/10/26/设计模式之中介者模式/">
+              <div class="ds-thread" data-thread-key="2015/10/26/设计模式之中介者模式/" data-title="设计模式之中介者模式" data-url="http://yoursite.com/2015/10/26/设计模式之中介者模式/">
               </div>
             
           </div>
@@ -293,7 +288,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -303,15 +298,15 @@
       
 
       <section class="site-overview">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image"/>
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image">
           <p class="site-author-name" itemprop="name">阿发</p>
         </div>
         <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前,其次是现在</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -367,10 +362,10 @@
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner"> <div class="copyright">
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

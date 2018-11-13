@@ -1,0 +1,707 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
+
+
+    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在">
+
+
+
+  <meta name="keywords" content="zhuangtongfa">
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="description" content="English introductionPlease view README.md 用Vue、Vuex、Immutable做俄罗斯方块 本项目灵感来源于 React 版的俄罗斯方块,由于对其实现原理较感兴趣,而且相比于 React 更喜欢 Vue, 于是把 React 版的重构为了 Vue 版的,大致思路是把组件当成一个个函数,保证一个输入(props)能得到一个确定的输出(view),然后对不同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Vue、Vuex、Immutable做俄罗斯方块">
+<meta property="og:url" content="http://yoursite.com/2017/07/20/用Vue、Vuex、Immutable做俄罗斯方块/index.html">
+<meta property="og:site_name" content="阿发">
+<meta property="og:description" content="English introductionPlease view README.md 用Vue、Vuex、Immutable做俄罗斯方块 本项目灵感来源于 React 版的俄罗斯方块,由于对其实现原理较感兴趣,而且相比于 React 更喜欢 Vue, 于是把 React 版的重构为了 Vue 版的,大致思路是把组件当成一个个函数,保证一个输入(props)能得到一个确定的输出(view),然后对不同">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1Ag7CNXXXXXaoXXXXXXXXXXXX-320-483.gif">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1AdjZNXXXXXcCapXXXXXXXXXX-480-343.gif">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1kvJyOVXXXXbhaFXXXXXXXXXX-320-555.gif">
+<meta property="og:image" content="http://static.binaryify.com/persistence.gif">
+<meta property="og:image" content="http://static.binaryify.com/vuex.gif">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1fYgzNXXXXXXnXpXXXXXXXXXX-633-358.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1nBf1NXXXXXagapXXXXXXXXXX-520-371.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB15z4VOVXXXXahaXXXXXXXXXXX-679-133.png">
+<meta property="og:image" content="https://img.alicdn.com/tps/TB1qq7kNXXXXXacXFXXXXXXXXXX-400-186.png">
+<meta property="og:updated_time" content="2018-11-13T09:28:54.496Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用Vue、Vuex、Immutable做俄罗斯方块">
+<meta name="twitter:description" content="English introductionPlease view README.md 用Vue、Vuex、Immutable做俄罗斯方块 本项目灵感来源于 React 版的俄罗斯方块,由于对其实现原理较感兴趣,而且相比于 React 更喜欢 Vue, 于是把 React 版的重构为了 Vue 版的,大致思路是把组件当成一个个函数,保证一个输入(props)能得到一个确定的输出(view),然后对不同">
+<meta name="twitter:image" content="https://img.alicdn.com/tps/TB1Ag7CNXXXXXaoXXXXXXXXXXXX-320-483.gif">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide'
+  };
+</script>
+
+  <title> 用Vue、Vuex、Immutable做俄罗斯方块 | 阿发 </title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?6308fa0dd9977d2f25ecf88ec7bfd627";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">阿发</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br>
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br>
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              用Vue、Vuex、Immutable做俄罗斯方块
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2017-07-20T11:09:58+08:00" content="2017-07-20">
+            2017-07-20
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2017/07/20/用Vue、Vuex、Immutable做俄罗斯方块/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/20/用Vue、Vuex、Immutable做俄罗斯方块/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h3 id="English-introduction"><a href="#English-introduction" class="headerlink" title="English introduction"></a>English introduction</h3><p>Please view <a href="https://github.com/Binaryify/vue-tetris/blob/master/README-EN.md" target="_blank" rel="noopener">README.md</a></p>
+<h2 id="用Vue、Vuex、Immutable做俄罗斯方块"><a href="#用Vue、Vuex、Immutable做俄罗斯方块" class="headerlink" title="用Vue、Vuex、Immutable做俄罗斯方块"></a>用Vue、Vuex、Immutable做俄罗斯方块</h2><hr>
+<p>本项目灵感来源于 React 版的<a href="https://github.com/chvin/react-tetris" target="_blank" rel="noopener">俄罗斯方块</a>,由于对其实现原理较感兴趣,而且相比于 React 更喜欢 Vue, 于是把 React 版的重构为了 Vue 版的,大致思路是把组件当成一个个函数,保证一个输入(props)能得到一个确定的输出(view),然后对不同方法也是做同样处理,对于 Redux 使用 Vuex 精简化</p>
+<p>戳：<a href="http://binaryify.github.io/vue-tetris/?lan=zh" target="_blank" rel="noopener">http://binaryify.github.io/vue-tetris/?lan=zh</a> 玩一玩！</p>
+<hr>
+<h3 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h3><p><img src="https://img.alicdn.com/tps/TB1Ag7CNXXXXXaoXXXXXXXXXXXX-320-483.gif" alt="效果预览"></p>
+<p>正常速度的录制，体验流畅。</p>
+<h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><p><img src="https://img.alicdn.com/tps/TB1AdjZNXXXXXcCapXXXXXXXXXX-480-343.gif" alt="响应式"></p>
+<p>不仅指屏幕的自适应，而是<code>在PC使用键盘、在手机使用手指的响应式操作</code>：</p>
+<p><img src="https://img.alicdn.com/tps/TB1kvJyOVXXXXbhaFXXXXXXXXXX-320-555.gif" alt="手机"></p>
+<h3 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h3><p><img src="http://static.binaryify.com/persistence.gif" alt="previes"><br><a href="http://static.binaryify.com/persistence.mp4" target="_blank" rel="noopener">视频</a></p>
+<p>玩单机游戏最怕什么？断电。通过订阅 <code>store.subscribe</code>，将state储存在localStorage，精确记录所有状态。网页关了刷新了、程序崩溃了、手机没电了，重新打开连接，都可以继续。</p>
+<h3 id="Vuex-状态预览（Vue-DevTools-extension）"><a href="#Vuex-状态预览（Vue-DevTools-extension）" class="headerlink" title="Vuex 状态预览（Vue DevTools extension）"></a>Vuex 状态预览（<a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue DevTools extension</a>）</h3><p><img src="http://static.binaryify.com/vuex.gif" alt="preview"></p>
+<p><a href="http://static.binaryify.com/vuex.mp4" target="_blank" rel="noopener">视频</a></p>
+<p>Vuex 设计管理了所有应存的状态，这是上面持久化的保证。</p>
+<hr>
+<p>游戏框架使用的是 <a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">Vue</a> + <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>，其中再加入了 <a href="https://facebook.github.io/immutable-js/" target="_blank" rel="noopener">Immutable.js</a>,确保性能和数据可靠性</p>
+<a id="more"></a>
+<h2 id="1、什么是-Immutable？"><a href="#1、什么是-Immutable？" class="headerlink" title="1、什么是 Immutable？"></a>1、什么是 Immutable？</h2><p>Immutable 是一旦创建，就不能再被更改的数据。对 Immutable 对象的任何修改或添加删除操作都会返回一个新的 Immutable 对象。</p>
+<h3 id="初识："><a href="#初识：" class="headerlink" title="初识："></a>初识：</h3><p>让我们看下面一段代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">keyLog</span>(<span class="params">touchFn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> data = &#123; <span class="attr">key</span>: <span class="string">'value'</span> &#125;;</span><br><span class="line">  f(data);</span><br><span class="line">  <span class="built_in">console</span>.log(data.key); <span class="comment">// 猜猜会打印什么？</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不查看f，不知道它对 <code>data</code> 做了什么，无法确认会打印什么。但如果 <code>data</code> 是 Immutable，你可以确定打印的是 <code>value</code>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">keyLog</span>(<span class="params">touchFn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> data = Immutable.Map(&#123; <span class="attr">key</span>: <span class="string">'value'</span> &#125;);</span><br><span class="line">  f(data);</span><br><span class="line">  <span class="built_in">console</span>.log(data.get(<span class="string">'key'</span>));  <span class="comment">// value</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>JavaScript 中的<code>Object</code>与<code>Array</code>等使用的是引用赋值，新的对象简单的引用了原始对象，改变新也将影响旧的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">foo = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;  bar = foo;  bar.a = <span class="number">2</span>;</span><br><span class="line">foo.a <span class="comment">// 2</span></span><br></pre></td></tr></table></figure></p>
+<p>虽然这样做可以节约内存，但当应用复杂后，造成了状态不可控，是很大的隐患，节约的内存优点变得得不偿失。</p>
+<p>Immutable则不一样，相应的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">foo = Immutable.Map(&#123; <span class="attr">a</span>: <span class="number">1</span> &#125;);  bar = foo.set(<span class="string">'a'</span>, <span class="number">2</span>);</span><br><span class="line">foo.get(<span class="string">'a'</span>) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="关于-“-”："><a href="#关于-“-”：" class="headerlink" title="关于 “===”："></a>关于 “===”：</h3><p>我们知道对于<code>Object</code>与<code>Array</code>的<code>===</code>比较，是对引用地址的比较而不是“值比较”，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125; === &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;; <span class="comment">// false</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]] === [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]]; <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<p>对于上面只能采用 <code>deepCopy</code>、<code>deepCompare</code>来遍历比较，不仅麻烦且好性能。</p>
+<p>我们感受来一下<code>Immutable</code>的做法！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">map1 = Immutable.Map(&#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;);</span><br><span class="line">map2 = Immutable.Map(&#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;);</span><br><span class="line">Immutable.is(map1, map2); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// List1 = Immutable.List([1, 2, Immutable.List[3, 4]]);</span></span><br><span class="line">List1 = Immutable.fromJS([<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]]);</span><br><span class="line">List2 = Immutable.fromJS([<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]]);</span><br><span class="line">Immutable.is(List1, List2); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<p>Immutable学习资料：</p>
+<ul>
+<li><a href="http://facebook.github.io/immutable-js/" target="_blank" rel="noopener">Immutable.js</a></li>
+</ul>
+<h2 id="2、Web-Audio-Api"><a href="#2、Web-Audio-Api" class="headerlink" title="2、Web Audio Api"></a>2、Web Audio Api</h2><p>游戏里有很多不同的音效，而实际上只引用了一个音效文件：<a href="https://github.com/Binaryify/vue-tetris/blob/master/build/music.mp3" target="_blank" rel="noopener">/build/music.mp3</a>。借助<code>Web Audio Api</code>能够以毫秒级精确、高频率的播放音效，这是<code>&lt;audio&gt;</code>标签所做不到的。在游戏进行中按住方向键移动方块，便可以听到高频率的音效。</p>
+<p><img src="https://img.alicdn.com/tps/TB1fYgzNXXXXXXnXpXXXXXXXXXX-633-358.png" alt="网页音效进阶"></p>
+<p><code>WAA</code> 是一套全新的相对独立的接口系统，对音频文件拥有更高的处理权限以及更专业的内置音频效果，是W3C的推荐接口，能专业处理“音速、音量、环境、音色可视化、高频、音向”等需求，下图介绍了WAA的使用流程。</p>
+<p><img src="https://img.alicdn.com/tps/TB1nBf1NXXXXXagapXXXXXXXXXX-520-371.png" alt="流程"></p>
+<p>其中Source代表一个音频源，Destination代表最终的输出，多个Source合成出了Destination。<br>源代码：<a href="https://github.com/Binaryify/vue-tetris/blob/master/src/unit/music.js" target="_blank" rel="noopener">/src/unit/music.js</a> 实现了ajax加载mp3，并转为WAA，控制播放的过程。</p>
+<p><code>WAA</code> 在各个浏览器的最新2个版本下的支持情况（<a href="http://caniuse.com/#search=webaudio" target="_blank" rel="noopener">CanIUse</a>）</p>
+<p><img src="https://img.alicdn.com/tps/TB15z4VOVXXXXahaXXXXXXXXXXX-679-133.png" alt="浏览器兼容"></p>
+<p>可以看到IE阵营与大部分安卓机不能使用，其他ok。</p>
+<p>Web Audio Api 学习资料：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Audio_API" target="_blank" rel="noopener">Web API 接口| MDN</a></li>
+<li><a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/" target="_blank" rel="noopener">Getting Started with Web Audio API</a></li>
+</ul>
+<hr>
+<h2 id="3、游戏在体验上的优化"><a href="#3、游戏在体验上的优化" class="headerlink" title="3、游戏在体验上的优化"></a>3、游戏在体验上的优化</h2><ul>
+<li>技术：<ul>
+<li>按下方向键水平移动和竖直移动的触发频率是不同的，游戏可以定义触发频率，代替原生的事件频率，源代码：<a href="https://github.com/Binaryify/vue-tetris/blob/master/src/unit/event.js" target="_blank" rel="noopener">/src/unit/event.js</a> ；</li>
+<li>左右移动可以 delay 掉落的速度，但在撞墙移动的时候 delay 的稍小；在速度为6级时 通过delay 会保证在一行内水平完整移动一次；</li>
+<li>对按钮同时注册<code>touchstart</code>和<code>mousedown</code>事件，以供响应式游戏。当<code>touchstart</code>发生时，不会触发<code>mousedown</code>，而当<code>mousedown</code>发生时，由于鼠标移开事件元素可以不触发<code>mouseup</code>，将同时监听<code>mouseout</code> 模拟 <code>mouseup</code>。源代码：<a href="https://github.com/Binaryify/vue-tetris/blob/master/src/components/keyboard/index.js" target="_blank" rel="noopener">/src/components/keyboard/index.js</a>；</li>
+<li>监听了 <code>visibilitychange</code> 事件，当页面被隐藏\切换的时候，游戏将不会进行，切换回来将继续，这个<code>focus</code>状态也被写进了 Vuex 中。所以当用手机玩来<code>电话</code>时，游戏进度将保存；PC开着游戏干别的也不会听到gameover，这有点像 <code>ios</code> 应用的切换。</li>
+<li>在<code>任意</code>时刻刷新网页，（比如消除方块时、游戏结束时）也能还原当前状态；</li>
+<li>游戏中唯一用到的图片是<img src="https://img.alicdn.com/tps/TB1qq7kNXXXXXacXFXXXXXXXXXX-400-186.png" alt="image">，其他都是CSS；</li>
+<li>游戏兼容 Chrome、Firefox、IE9+、Edge等；</li>
+</ul>
+</li>
+<li>玩法：<ul>
+<li>可以在游戏未开始时制定初始的棋盘（十个级别）和速度（六个级别）；</li>
+<li>一次消除1行得100分、2行得300分、3行得700分、4行得1500分；</li>
+<li>方块掉落速度会随着消除的行数增加（每20行增加一个级别）；</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="4、开发中的经验梳理-以及如何把-React-项目重构为-Vue-版本"><a href="#4、开发中的经验梳理-以及如何把-React-项目重构为-Vue-版本" class="headerlink" title="4、开发中的经验梳理,以及如何把 React 项目重构为 Vue 版本"></a>4、开发中的经验梳理,以及如何把 React 项目重构为 Vue 版本</h2><p>Vue 版本和 React 版本核心代码基本相同,但在编写组件的时候遇到了几个问题,比如:</p>
+<ol>
+<li><p>React 版的 store  使用了 immutable 结构的数据,vuex 上的 store 如果使用了 immutable 结构,不利用监听数据变化,故把store 的数据全部使用了普通的数据,在需要这些数据的地方通过 immutable 提供的 <code>fromJS</code> 转换,在需要普通数据的地方再通过 immutable 的 <code>toJS</code> 转换成普通数据,在实际重构过程中,我尽量避开了核心游戏实现逻辑,实际上我是在没弄懂游戏实现逻辑的情况下完成重构的,只是保证了方法的输入和输出的一致性,要做的只是耐心  </p>
+</li>
+<li><p>如何把 React 组件改写成 Vue 的,我的思路是把组件当成函数,保证一个输入(props)能得到一个确定的输出(view),然后对不同方法也是做同样处理, React 的 setState 会触发 render 方法,所以可以在 methods 自定义 render 方法再在 state 变化后手动触发 render 方法</p>
+</li>
+<li><p>生命周期,简单来说, React 的 <code>componentWillMount</code> 对应 Vue 的 <code>beforeMount</code>, React 的 <code>componentDidMount</code> 对应 Vue 的 <code>mounted</code>,React 的用来优化性能的 <code>shouldComponentUpdate</code> 在 Vue 里并不需要,不需要手动优化这也是我喜欢 Vue 的一点</p>
+</li>
+<li><p>Vue 没有 React 的<code>componentWillReceiveProps</code> 的生命周期,我的解决方法是使用 watch 配合 <code>deep:true</code> 来监听 props 的变化,如:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  $props: &#123;</span><br><span class="line">    deep: <span class="literal">true</span>,</span><br><span class="line">    handler(nextProps) &#123;</span><br><span class="line">      <span class="comment">//xxx</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在必要时候使用 jsx 和 ‘render’ 函数,是的, vue 支持 jsx,在这个项目中<code>matrix 组件</code> 的功能逻辑较复杂,使用 <code>template</code> 模版来渲染组件已经不合适了, React 每次 setState 会触发 ‘render’ 方法,所以我们可以在 methods自定义 ‘render’ 方法再在 state 变化后手动触发 ‘render’ 方法,但是这个方法对有复杂逻辑的组件来说会变得很繁琐,我的解决方法是通过 Vue 的 jsx 转换插件<a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx" target="_blank" rel="noopener">babel-plugin-transform-vue-jsx</a>来使用 jsx 语法对页面进行渲染,当 props 或 state 变化了自动触发 ‘render’ 方法,另外要注意的是 vue 的 jsx 和 React 的 jsx 书写上有一点的差异, 当 ‘render’ 方法存在时,template 语法会失效. ‘render’ 函数一个比较实用的用处是在开发类似 React-log 之类的不需要渲染 html 只需要执行一些方法的组件时 template 会显得很多余,因为这时候并不需要渲染 dom 了,如果用了 ‘render’ 函数,简单的在 ‘render’ 函数里 return false 就行,如: <a href="https://github.com/diegomura/react-log/blob/b1bb695a6997cd1be399170186cf6ff1e27393d7/src/Log.js#L33" target="_blank" rel="noopener">react-log</a></p>
+</li>
+</ol>
+<h2 id="5、架构差异"><a href="#5、架构差异" class="headerlink" title="5、架构差异"></a>5、架构差异</h2><p>Redux 的数据流向是通过 <code>mapStateToProps</code> 把 store 的状态转化为 props 然后通过<code>connect</code> 函数注入到 根组件,根组件再把这些 props 传入不同组件,当 store 的状态变化,根组件会重新 render, 更新子组件上的 props,子组件再 根据新 props重新 render<br>引用知乎一个答友的回答<a href="https://www.zhihu.com/question/47686258" target="_blank" rel="noopener">https://www.zhihu.com/question/47686258</a>来说就是:</p>
+<blockquote>
+<p>单例store的数据在react中可以通过view组件的属性（props）不断由父模块<strong>“单向”</strong>传递给子模块，形成一个树状分流结构。如果我们把redux比作整个应用的“心肺” （redux的flux功能像心脏，reducer功能像肺部毛细血管），那么这个过程可以比作心脏（store）将氧分子（数据）通过动脉毛细血管（props）送到各个器官组织（view组件）末端的view组件，又可以通过flux机制，将携带交互意图信息的action反馈给store。这个过程有点像将携带代谢产物的“红细胞”（action）通过静脉毛细血管又泵回心脏（store）action流回到store以后，action以参数的形式又被分流到各个具体的reducer组件中，这些reducer同样构成一个树状的hierarchy。这个过程像静脉血中的红细胞（action）被运输到肺部毛细血管（reducer组件）接收到action后，各个child reducer以返回值的形式，将最新的state返回给parent reducer，最终确保整个单例store的所有数据是最新的。这个过程可以比作肺部毛细血管的血液充氧后，又被重新泵回了心脏</p>
+</blockquote>
+<p>而 vuex 的思路则不同,任何组件都随时可以通过 this.$store.state.xxx 获取 store 上的数据,更自由,从 store 实例中读取状态最简单的方法就是在计算属性中返回某个状态：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    keyboard () &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.store.state.keyboard</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>调用 store.commit 提交 payload修改数据 或者 store.dispatch 提交 mutation 间接修改 store 上的数据, commit 和 dispatch 的区别在于 commit 用于同步修改状态, dispatch 用于异步修改状态,异步完成需要再调用 commit,一般简单的需求只需要 commit 一个 payload 就行,只要 store 上的数据变了,组件都会自动重新渲染</p>
+<h2 id="6、开发"><a href="#6、开发" class="headerlink" title="6、开发"></a>6、开发</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<p>浏览自动打开 <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></p>
+<h3 id="多语言"><a href="#多语言" class="headerlink" title="多语言"></a>多语言</h3><p>在 <a href="https://github.com/Binaryify/vue-tetris/blob/master/src/i18n.json" target="_blank" rel="noopener">i18n.json</a> 配置多语言环境，使用”lan”参数匹配语言如：<code>https://Binaryify.github.io/vue-tetris/?lan=en</code></p>
+<p><code>http://binaryify.github.io/vue-tetris/?lan=zh</code></p>
+<h3 id="打包编译"><a href="#打包编译" class="headerlink" title="打包编译"></a>打包编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<p>在 <code>dist</code> 文件夹下生成结果。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/13/Vue限制输入/" rel="prev">Vue限制输入</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/" rel="next">使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2017/07/20/用Vue、Vuex、Immutable做俄罗斯方块/" data-title="用Vue、Vuex、Immutable做俄罗斯方块" data-url="http://yoursite.com/2017/07/20/用Vue、Vuex、Immutable做俄罗斯方块/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image">
+          <p class="site-author-name" itemprop="name">阿发</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前,其次是现在</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#English-introduction"><span class="nav-number">1.</span> <span class="nav-text">English introduction</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#用Vue、Vuex、Immutable做俄罗斯方块"><span class="nav-number"></span> <span class="nav-text">用Vue、Vuex、Immutable做俄罗斯方块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#效果预览"><span class="nav-number">1.</span> <span class="nav-text">效果预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式"><span class="nav-number">2.</span> <span class="nav-text">响应式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据持久化"><span class="nav-number">3.</span> <span class="nav-text">数据持久化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vuex-状态预览（Vue-DevTools-extension）"><span class="nav-number">4.</span> <span class="nav-text">Vuex 状态预览（Vue DevTools extension）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、什么是-Immutable？"><span class="nav-number"></span> <span class="nav-text">1、什么是 Immutable？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初识："><span class="nav-number">1.</span> <span class="nav-text">初识：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-“-”："><span class="nav-number">2.</span> <span class="nav-text">关于 “===”：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、Web-Audio-Api"><span class="nav-number"></span> <span class="nav-text">2、Web Audio Api</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、游戏在体验上的优化"><span class="nav-number"></span> <span class="nav-text">3、游戏在体验上的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、开发中的经验梳理-以及如何把-React-项目重构为-Vue-版本"><span class="nav-number"></span> <span class="nav-text">4、开发中的经验梳理,以及如何把 React 项目重构为 Vue 版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、架构差异"><span class="nav-number"></span> <span class="nav-text">5、架构差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、开发"><span class="nav-number"></span> <span class="nav-text">6、开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">2.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多语言"><span class="nav-number">3.</span> <span class="nav-text">多语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包编译"><span class="nav-number">4.</span> <span class="nav-text">打包编译</span></a></li></ol></li></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright">
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">阿发</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"binaryify"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

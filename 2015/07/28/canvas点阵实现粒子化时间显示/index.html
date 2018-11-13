@@ -1,50 +1,50 @@
 <!doctype html>
 <html class="theme-next use-motion theme-next-mist">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   
 
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5">
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1">
 
 
-    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在" />
-
-
-
-  <meta name="keywords" content="js,HTML5,canvas," />
+    <meta name="description" content="种一棵树最好的时间是十年前,其次是现在">
 
 
 
+  <meta name="keywords" content="js,HTML5,canvas,">
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description">
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
+
+
+<meta name="keywords" content="js,HTML5,canvas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="canvas点阵实现粒子化时间显示">
 <meta property="og:url" content="http://yoursite.com/2015/07/28/canvas点阵实现粒子化时间显示/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://binaryify.github.io/images/数字/0.png">
 <meta property="og:image" content="http://binaryify.github.io/images/%E6%95%B0%E5%AD%97/1.png">
 <meta property="og:image" content="http://binaryify.github.io/images/%E6%95%B0%E5%AD%97/2.png">
@@ -52,7 +52,6 @@
 <meta property="og:updated_time" content="2016-05-15T01:10:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvas点阵实现粒子化时间显示">
-<meta name="twitter:description">
 <meta name="twitter:image" content="http://binaryify.github.io/images/数字/0.png">
 
 
@@ -66,7 +65,7 @@
   <title> canvas点阵实现粒子化时间显示 | 阿发 </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   <!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
@@ -94,7 +93,7 @@
   <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><h1 class="site-meta">
   <span class="logo-line-before"><i></i></span>
   <a href="/" class="brand" rel="start">
@@ -123,7 +122,7 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            <i class="menu-item-icon icon-next-home"></i> <br>
             首页
           </a>
         </li>
@@ -131,7 +130,7 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
+            <i class="menu-item-icon icon-next-archives"></i> <br>
             归档
           </a>
         </li>
@@ -139,7 +138,7 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
+            <i class="menu-item-icon icon-next-tags"></i> <br>
             标签
           </a>
         </li>
@@ -163,7 +162,7 @@
   <div id="posts" class="posts-expand">
     
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
     <header class="post-header">
 
       
@@ -212,7 +211,7 @@
 <p>数字和冒号都可以调用这个renderDigit函数画出来,只是x和y的位置不同,所以我们再定义一个render函数,传入ctx,定义hours,minites,seconds变量,为了让第一个数字位置在合适的位置,设置这几个全局变量,MARGINTOP和MARGINLEFT,还有小球半径RADIUS,在传入x的时候为了和左边的数字留有间隙,所以多加了1个(RADIUS+1),也就是2x7x(RADIUS+1),需要注意的是冒号不同隔那么远,只需要隔9x(RADIUS),同时因为绘制不同数字是把数字拆分来绘制的,所以在传入num的时候是需要拆分十位和个位数的,冒号就直接传个10就行,因为在三位数组里冒号是第11个,而数组是从0开始的</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">ctx</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> hours = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> minites = <span class="number">23</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> seconds = <span class="number">34</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    renderDigit(MARGINLEFT, MARGINTOP, <span class="built_in">parseInt</span>(hours / <span class="number">10</span>), ctx);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    renderDigit(MARGINLEFT + <span class="number">15</span>(RADIUS + <span class="number">1</span>), MARGINTOP, <span class="built_in">parseInt</span>(hours % <span class="number">10</span>), ctx);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    renderDigit(MARGINLEFT + <span class="number">30</span>(RADIUS + <span class="number">1</span>), MARGINTOP, <span class="number">10</span>, ctx);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    renderDigit(MARGINLEFT + <span class="number">39</span>(RADIUS + <span class="number">1</span>), MARGINTOP, <span class="built_in">parseInt</span>(minites / <span class="number">10</span>), ctx);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    renderDigit(MARGINLEFT + <span class="number">54</span>(RADIUS + <span class="number">1</span>), MARGINTOP, <span class="built_in">parseInt</span>(minites % <span class="number">10</span>), ctx);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    renderDigit(MARGINLEFT + <span class="number">69</span>(RADIUS + <span class="number">1</span>), MARGINTOP, <span class="number">10</span>, ctx);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    renderDigit(MARGINLEFT + <span class="number">78</span>(RADIUS + <span class="number">1</span>), MARGINTOP, <span class="built_in">parseInt</span>(seconds / <span class="number">10</span>), ctx);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    renderDigit(MARGINLEFT + <span class="number">93</span> * (RADIUS + <span class="number">1</span>), MARGINTOP, <span class="built_in">parseInt</span>(seconds % <span class="number">10</span>), ctx);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后直接调用render函数并且传入ctx,就能画出这些粒子化的数字了<br>但是上面的hours,minites,seconds都是写死的,如果要用来显示时间的话,要用new Date()来获取具体时间,这样一个粒子化的时钟就做好了</p>
-<p>demo:<a href="http://binaryify.github.io/demo/canvas/%E6%97%B6%E9%92%9F/%E6%95%B0%E5%AD%97.html" target="_blank" rel="external">戳我</a></p>
+<p>demo:<a href="http://binaryify.github.io/demo/canvas/%E6%97%B6%E9%92%9F/%E6%95%B0%E5%AD%97.html" target="_blank" rel="noopener">戳我</a></p>
 </span>
       
     </div>
@@ -265,8 +264,7 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/07/28/canvas点阵实现粒子化时间显示/"
-                   data-title="canvas点阵实现粒子化时间显示" data-url="http://yoursite.com/2015/07/28/canvas点阵实现粒子化时间显示/">
+              <div class="ds-thread" data-thread-key="2015/07/28/canvas点阵实现粒子化时间显示/" data-title="canvas点阵实现粒子化时间显示" data-url="http://yoursite.com/2015/07/28/canvas点阵实现粒子化时间显示/">
               </div>
             
           </div>
@@ -288,7 +286,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -298,15 +296,15 @@
       
 
       <section class="site-overview">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image"/>
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="阿发" itemprop="image">
           <p class="site-author-name" itemprop="name">阿发</p>
         </div>
         <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前,其次是现在</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -362,10 +360,10 @@
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner"> <div class="copyright">
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>
