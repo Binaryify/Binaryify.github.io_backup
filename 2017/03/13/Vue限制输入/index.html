@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="js,HTML5,">
+  <meta name="keywords" content="zhuangtongfa">
 
 
 
@@ -39,18 +39,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1">
 
 
-<meta name="description" content="利用HTML5的Filereader可以获取input file 上传的图片的base64码,通过这个原理,可以进行图片预览">
-<meta name="keywords" content="js,HTML5">
+<meta name="description" content="众所周知,Vue 要限制输入还是比较麻烦的,如果使用双向绑定,在数据变化后再去做处理,输入内容会闪烁,体验并不是很好想要输入不闪烁,就不能使用双向绑定了,那么有什么办法呢?首先可以监听键盘输入事件,然后判断 event.target.value 的值,但是这也有个明显的缺点,那就是移动端不会触发 keyup/keypress/keydown 事件,所以比较好的方法就是监听 input 事件 虽然现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML5图片预览和Filereader API">
-<meta property="og:url" content="http://yoursite.com/2015/06/05/HTML5图片预览和Filereader-API/index.html">
+<meta property="og:title" content="Vue限制输入">
+<meta property="og:url" content="http://yoursite.com/2017/03/13/Vue限制输入/index.html">
 <meta property="og:site_name" content="阿发">
-<meta property="og:description" content="利用HTML5的Filereader可以获取input file 上传的图片的base64码,通过这个原理,可以进行图片预览">
+<meta property="og:description" content="众所周知,Vue 要限制输入还是比较麻烦的,如果使用双向绑定,在数据变化后再去做处理,输入内容会闪烁,体验并不是很好想要输入不闪烁,就不能使用双向绑定了,那么有什么办法呢?首先可以监听键盘输入事件,然后判断 event.target.value 的值,但是这也有个明显的缺点,那就是移动端不会触发 keyup/keypress/keydown 事件,所以比较好的方法就是监听 input 事件 虽然现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2015-12-05T05:13:42.000Z">
+<meta property="og:updated_time" content="2018-11-16T06:15:52.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5图片预览和Filereader API">
-<meta name="twitter:description" content="利用HTML5的Filereader可以获取input file 上传的图片的base64码,通过这个原理,可以进行图片预览">
+<meta name="twitter:title" content="Vue限制输入">
+<meta name="twitter:description" content="众所周知,Vue 要限制输入还是比较麻烦的,如果使用双向绑定,在数据变化后再去做处理,输入内容会闪烁,体验并不是很好想要输入不闪烁,就不能使用双向绑定了,那么有什么办法呢?首先可以监听键盘输入事件,然后判断 event.target.value 的值,但是这也有个明显的缺点,那就是移动端不会触发 keyup/keypress/keydown 事件,所以比较好的方法就是监听 input 事件 虽然现">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +59,7 @@
   };
 </script>
 
-  <title> HTML5图片预览和Filereader API | 阿发 </title>
+  <title> Vue限制输入 | 阿发 </title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -169,7 +168,7 @@
           
           
             
-              HTML5图片预览和Filereader API
+              Vue限制输入
             
           
         </h1>
@@ -178,8 +177,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-06-05T19:22:44+08:00" content="2015-06-05">
-            2015-06-05
+          <time itemprop="dateCreated" datetime="2017-03-13T16:51:44+08:00" content="2017-03-13">
+            2017-03-13
           </time>
         </span>
 
@@ -189,8 +188,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/06/05/HTML5图片预览和Filereader-API/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/05/HTML5图片预览和Filereader-API/" itemprop="commentsCount"></span>
+              <a href="/2017/03/13/Vue限制输入/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/Vue限制输入/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -204,33 +203,29 @@
       
 
       
-        <span itemprop="articleBody"><p>利用HTML5的Filereader可以获取input file 上传的图片的base64码,通过这个原理,可以进行图片预览<br><a id="more"></a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>简单的html5 File测试 for pic2base64<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> input = <span class="built_in">document</span>.getElementById(<span class="string">"demo_input"</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> result = <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> img_area = <span class="built_in">document</span>.getElementById(<span class="string">"img_area"</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (<span class="keyword">typeof</span>(FileReader) === <span class="string">'undefined'</span>) &#123;</span></span><br><span class="line"><span class="javascript">            result.innerHTML = <span class="string">"抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！"</span>;</span></span><br><span class="line"><span class="javascript">            input.setAttribute(<span class="string">'disabled'</span>, <span class="string">'disabled'</span>);</span></span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            input.addEventListener(<span class="string">'change'</span>, readFile, <span class="literal">false</span>);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">readFile</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> file = <span class="keyword">this</span>.files[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">        <span class="comment">//这里我们判断下类型如果不是图片就返回 去掉就可以上传任意文件</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (!<span class="regexp">/image\/\w+/</span>.test(file.type)) &#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">"请确保文件为图像类型"</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</span></span><br><span class="line"><span class="undefined">        reader.readAsDataURL(file);</span></span><br><span class="line"><span class="javascript">        reader.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            result.innerHTML = <span class="string">'&lt;img src="'</span> + <span class="keyword">this</span>.result + <span class="string">'" alt=""/&gt;'</span>;</span></span><br><span class="line"><span class="xml">            img_area.innerHTML = '<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sitetip"</span>&gt;</span>图片img标签展示：<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"' + this.result + '"</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span>';</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">value</span>=<span class="string">"sdgsdg"</span> <span class="attr">id</span>=<span class="string">"demo_input"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">"result"</span> <span class="attr">rows</span>=<span class="string">30</span> <span class="attr">cols</span>=<span class="string">300</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"img_area"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</span>
+        <span itemprop="articleBody"><p>众所周知,Vue 要限制输入还是比较麻烦的,如果使用双向绑定,在数据变化后再去做处理,输入内容会闪烁,体验并不是很好<br>想要输入不闪烁,就不能使用双向绑定了,那么有什么办法呢?<br>首先可以监听键盘输入事件,然后判断 <code>event.target.value</code> 的值,但是这也有个明显的缺点,那就是移动端不会触发 keyup/keypress/keydown 事件,所以比较好的方法就是监听 <code>input</code> 事件</p>
+<p>虽然现在解决了输入限制,但是不能使用双向绑定也不是办法,如何使用双向绑定呢?</p>
+<p>这个也不复杂,我们可以把这个输入限制封装成组件,然后给这个组件添加 v-model=”value” 属性,在组件内部声明 props:[‘value’],在限制输入的函数最后 emit 处理过后的值给父组件就完成了既能够输入限制,又支持双向绑定的组件了</p>
+<a id="more"></a>
+<p>示例代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- parent.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">common-input</span> <span class="attr">v-model</span>=<span class="string">"value"</span> <span class="attr">:fixed</span>=<span class="string">'fixed'</span> <span class="attr">:sum</span>=<span class="string">"sum"</span>  &gt;</span><span class="tag">&lt;/<span class="name">common-input</span>&gt;</span></span><br><span class="line">    &#123;&#123;value&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">import commonInput from './components/commonExchangeInput.vue'</span></span><br><span class="line"><span class="undefined">export default &#123;</span></span><br><span class="line"><span class="undefined">  name: 'app',</span></span><br><span class="line"><span class="undefined">  components: &#123;</span></span><br><span class="line"><span class="undefined">    commonInput</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  data() &#123;</span></span><br><span class="line"><span class="undefined">    return &#123;</span></span><br><span class="line"><span class="undefined">      value: 0,</span></span><br><span class="line"><span class="undefined">      fixed: 5,</span></span><br><span class="line"><span class="undefined">      sum: 500</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- child.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> @<span class="attr">input</span>=<span class="string">"input($event)"</span> <span class="attr">:value</span>=<span class="string">"val"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">export default &#123;</span></span><br><span class="line"><span class="undefined">  props: ['value', 'fixed', 'sum'],</span></span><br><span class="line"><span class="undefined">  data() &#123;</span></span><br><span class="line"><span class="undefined">    return &#123;</span></span><br><span class="line"><span class="undefined">      val: ''</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  methods: &#123;</span></span><br><span class="line"><span class="undefined">    input(ev) &#123;</span></span><br><span class="line"><span class="undefined">      ev.target.value = ev.target.value.replace(/^0*(0\.|[1-9])/, '$1') // 解决 粘贴不生效</span></span><br><span class="line"><span class="undefined">      ev.target.value = ev.target.value.replace(/[^\d.]/g, '') // 清除“数字”和“.”以外的字符</span></span><br><span class="line"><span class="undefined">      ev.target.value = ev.target.value.replace(/\.&#123;2,&#125;/g, '.') // 只保留第一个. 清除多余的</span></span><br><span class="line"><span class="undefined">      ev.target.value = ev.target.value</span></span><br><span class="line"><span class="undefined">        .replace('.', '$#$')</span></span><br><span class="line"><span class="undefined">        .replace(/\./g, '')</span></span><br><span class="line"><span class="undefined">        .replace('$#$', '.')</span></span><br><span class="line"><span class="undefined">      // ev.target.value = ev.target.value.replace(/^(\-)*(\d+)\.(\d\d\d\d).*$/, '$1$2.$3'); // 只能输入4个小数，且小数点前必须有数字</span></span><br><span class="line"><span class="undefined">      const length = this.fixed</span></span><br><span class="line"><span class="undefined">      const reg2 = new RegExp('^(-)*(\\d*?)\\.(\\d&#123;1,' + length + '&#125;).*$')</span></span><br><span class="line"><span class="undefined">      ev.target.value = ev.target.value.replace(reg2, '$1$2.$3') // 只能输入N个小数，小数点前面可以没有数字</span></span><br><span class="line"><span class="xml">      if (ev.target.value.indexOf('.') <span class="tag">&lt; <span class="attr">0</span> &amp;&amp; <span class="attr">ev.target.value</span> != <span class="string">''</span>) &#123;</span></span></span><br><span class="line"><span class="undefined">        // 如果没有小数点，首位不能为类似于 01、02的金额</span></span><br><span class="line"><span class="undefined">        if (</span></span><br><span class="line"><span class="undefined">          ev.target.value.substr(0, 1) == '0' &amp;&amp;</span></span><br><span class="line"><span class="undefined">          ev.target.value.length == 2</span></span><br><span class="line"><span class="undefined">        ) &#123;</span></span><br><span class="line"><span class="undefined">          ev.target.value = ev.target.value.substr(1, ev.target.value.length)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">      if (ev.target.value.indexOf('.') === 0 &amp;&amp; ev.target.value.length &gt; 1) &#123;</span></span><br><span class="line"><span class="undefined">        // 如果第一个字符时“.”，那么当“.”后面有数字后，"."前面自动补零</span></span><br><span class="line"><span class="undefined">        ev.target.value = 0 + ev.target.value</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">      if (this.sum) &#123;</span></span><br><span class="line"><span class="undefined">        if (Number(ev.target.value) &gt; Number(this.sum)) &#123;</span></span><br><span class="line"><span class="undefined">          ev.target.value = this.sum</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">      this.val = ev.target.value</span></span><br><span class="line"><span class="undefined">      this.$emit('input', this.val)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
       
     </div>
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/js/" rel="tag">#js</a>
-          
-            <a href="/tags/HTML5/" rel="tag">#HTML5</a>
-          
-        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/27/canvas-ispointpath与-canvas交互效果的实现/" rel="prev">canvas isPointInPath与 canvas交互效果的实现</a>
+              <a href="/2017/07/20/用Vue、Vuex、Immutable做俄罗斯方块/" rel="prev">用Vue、Vuex、Immutable做俄罗斯方块</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/20/微信上传下载多媒体php接口（转）/" rel="next">微信上传下载多媒体php接口（转）</a>
+              <a href="/2016/08/01/使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)/" rel="next">使用socket.io开发微信点餐并在后台蓝牙打印小票功能(二)</a>
             
           </div>
         </div>
@@ -255,7 +250,7 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/06/05/HTML5图片预览和Filereader-API/" data-title="HTML5图片预览和Filereader API" data-url="http://yoursite.com/2015/06/05/HTML5图片预览和Filereader-API/">
+              <div class="ds-thread" data-thread-key="2017/03/13/Vue限制输入/" data-title="Vue限制输入" data-url="http://yoursite.com/2017/03/13/Vue限制输入/">
               </div>
             
           </div>

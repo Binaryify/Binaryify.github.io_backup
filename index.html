@@ -169,81 +169,6 @@
           
           
             
-              <a class="post-title-link" href="/2018/07/13/Vue限制输入/" itemprop="url">
-                Vue限制输入
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2018-07-13T16:51:44+08:00" content="2018-07-13">
-            2018-07-13
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2018/07/13/Vue限制输入/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/13/Vue限制输入/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>众所周知,Vue 要限制输入还是比较麻烦的,如果使用双向绑定,在数据变化后再去做处理,输入内容会闪烁,体验并不是很好<br>想要输入不闪烁,就不能使用双向绑定了,那么有什么办法呢?<br>首先可以监听键盘输入事件,然后判断 <code>event.target.value</code> 的值,但是这也有个明显的缺点,那就是移动端不会触发 keyup/keypress/keydown 事件,所以比较好的方法就是监听 <code>input</code> 事件</p>
-<p>虽然现在解决了输入限制,但是不能使用双向绑定也不是办法,如何使用双向绑定呢?</p>
-<p>这个也不复杂,我们可以把这个输入限制封装成组件,然后给这个组件添加 v-model=”value” 属性,在组件内部声明 props:[‘value’],在限制输入的函数最后 emit 处理过后的值给父组件就完成了既能够输入限制,又支持双向绑定的组件了</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/07/13/Vue限制输入/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2017/07/20/用Vue、Vuex、Immutable做俄罗斯方块/" itemprop="url">
                 用Vue、Vuex、Immutable做俄罗斯方块
               </a>
@@ -301,6 +226,81 @@
 <p>游戏框架使用的是 <a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">Vue</a> + <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>，其中再加入了 <a href="https://facebook.github.io/immutable-js/" target="_blank" rel="noopener">Immutable.js</a>,确保性能和数据可靠性</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/07/20/用Vue、Vuex、Immutable做俄罗斯方块/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2017/03/13/Vue限制输入/" itemprop="url">
+                Vue限制输入
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2017-03-13T16:51:44+08:00" content="2017-03-13">
+            2017-03-13
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2017/03/13/Vue限制输入/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/Vue限制输入/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>众所周知,Vue 要限制输入还是比较麻烦的,如果使用双向绑定,在数据变化后再去做处理,输入内容会闪烁,体验并不是很好<br>想要输入不闪烁,就不能使用双向绑定了,那么有什么办法呢?<br>首先可以监听键盘输入事件,然后判断 <code>event.target.value</code> 的值,但是这也有个明显的缺点,那就是移动端不会触发 keyup/keypress/keydown 事件,所以比较好的方法就是监听 <code>input</code> 事件</p>
+<p>虽然现在解决了输入限制,但是不能使用双向绑定也不是办法,如何使用双向绑定呢?</p>
+<p>这个也不复杂,我们可以把这个输入限制封装成组件,然后给这个组件添加 v-model=”value” 属性,在组件内部声明 props:[‘value’],在限制输入的函数最后 emit 处理过后的值给父组件就完成了既能够输入限制,又支持双向绑定的组件了</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/13/Vue限制输入/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
